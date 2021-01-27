@@ -41,11 +41,14 @@
 #
 # Current vehicle speed
 #
+# Rationale for change: 
+# - If used for calculations (especially at slow speed) higher precision may be preferred
+# - For special slow vehicles (e.g. agriculture) it might be beneficial for the driver to
+#   be presented with a speed with decimales, e.g. "4.3 km/h"
+# - Any reason to include limits. Current limits seem quite arbitrary
 - Speed:
-  datatype: int32
+  datatype: float
   type: sensor
-  min: -250
-  max: 250
   unit: km/h
   description: Vehicle speed, as sensed by the gearbox.
 
@@ -94,11 +97,14 @@
 #
 # Gearbox temperature
 #
+# Any reason to specify limits anywhere for temperature?
+# It might be useful for someone designing a UI, so I have nothing against it in theory
+# but then there should be a good rationale for the limits
+# With float and no limits it is up to the UI provider do decide on what range to support
+# and how to present it
 - Temperature:
-  datatype: int16
+  datatype: float
   type: sensor
-  min: -50
-  max: 200
   unit: celsius
   description: The current gearbox temperature
 

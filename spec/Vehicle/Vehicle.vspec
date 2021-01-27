@@ -174,11 +174,10 @@
   unit: s
   description: Accumulated idle time in seconds.
 
+# Any difference compared to Transmission.Speed?
 - Speed:
-  datatype: int32
+  datatype: float
   type: sensor
-  min: -250
-  max: 250
   unit: km/h
   description: Vehicle speed, as sensed by the gearbox.
 
@@ -207,10 +206,8 @@
   description: Indicates whether the vehicle is stationary or moving
 
 - AverageSpeed:
-  datatype: int32
+  datatype: float
   type: sensor
-  min: -250
-  max: 250
   unit: km/h
   description: Average speed for the current trip
 
@@ -223,19 +220,19 @@
   description: Spatial acceleration
 
 - Acceleration.Longitudinal:
-  datatype: int32
+  datatype: float
   type: sensor
   unit: m/s^2
   description: Vehicle acceleration in X (longitudinal acceleration).
 
 - Acceleration.Lateral:
-  datatype: int32
+  datatype: float
   type: sensor
   unit: m/s^2
   description: Vehicle acceleration in Y (lateral acceleration).
 
 - Acceleration.Vertical:
-  datatype: int32
+  datatype: float
   type: sensor
   unit: m/s^2
   description: Vehicle acceleration in Z (vertical acceleration).
@@ -249,19 +246,20 @@
   description: Spatial rotation
 
 - AngularVelocity.Roll:
-  datatype: int16
+  datatype: float
   type: sensor
   unit: degrees/s
   description: Vehicle rotation rate along X (longitudinal).
 
 - AngularVelocity.Pitch:
-  datatype: int16
+  datatype: float
   type: sensor
   unit: degrees/s
   description: Vehicle rotation rate along Y (lateral).
 
+# At least in Z I assume that we typically have small numbers where decimals can make sense
 - AngularVelocity.Yaw:
-  datatype: int16
+  datatype: float
   type: sensor
   unit: degrees/s
   description: Vehicle rotation rate along Z (vertical).
@@ -276,19 +274,23 @@
   unit: kg
   description: The permitted total weight of cargo and installations (e.g. a roof rack) on top of the vehicle.
 
+# Is this really an attribute? As start and target velocity isn't specified
+# Or is it supposed to be an attribute for a specific standardized performance figure, e.g. 0-100 km/h
+# Adapting to uint32 as for other use of "seconds", but here we might consider float as
+# acceleration is often specified with one decimal, e.g. 6.3 seconds from 0 km/h to 100 km/h for this Golf GTI
+# https://accelerationtimes.com/models/vw-golf-gti-mk-vii-230-ps
 - accelerationTime:
-  datatype: int16
+  datatype: uint32
   type: attribute
   unit: s
   description: The time needed to accelerate the vehicle from a given start velocity to a given target velocity.
 
+# 32.8 m^3 (int16) might not be sufficient for trucks/trailers. Shall we consider float to get same datatype as for other uses of liters
 - cargoVolume:
-  datatype: int16
+  datatype: float
   type: attribute
   unit: l
   description: The available volume for cargo or luggage. For automobiles, this is usually the trunk volume.
-  min: 0
-  max: 100
 
 - emissionsCO2:
   datatype: int16

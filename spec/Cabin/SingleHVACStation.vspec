@@ -18,11 +18,28 @@
   unit: percent
   description: Fan Speed, 0 = off. 100 = max
 
+# Rationale for changing to float: 
+# - Some vehicles support setting temperature in half degrees, e.g. 19.5, 20, 20.5, ...
+# - Other vehicles might have other resolution of the temperature (e.g. 0.1 degree, 2 degrees)
+  - With float all temperature values can be represented
+# Rationale for removing min/max: 
+# - It is assumed that supported min/max values are system specific (and might even be dynamic over time)
+# - Most vehicles do not support -50 to +50 as actual range - likely no industry standard for range exist, 
+#     so no reason to specify a default range
+# - This does not prevent OEM-specializations of the datatype to specify range, but range may not give the full
+      picture as not all values in the range might be accepted
+# Concerns for actuators defined with float:
+# - It is not certain that the datapoint is represented as float internally, so the question is what will
+#     happen if we request a value that is not supported internally.
+# - E.g. if we request a temperature of "20.5", but this vehicle only supports integer internally, will then:
+#     -- The operation succeed, and the temperature be set to "20" or "21" depending on vehicle logics
+#     -- The operation fail, and the old value be kept
+# - Shall this be well defined - or left as an implementation variation point.
+      
+
 - Temperature:
-  datatype: int8
+  datatype: float
   type: actuator
-  min: -50
-  max: 50
   unit: celsius
   description: Temperature
 

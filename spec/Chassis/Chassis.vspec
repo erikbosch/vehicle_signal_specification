@@ -78,6 +78,8 @@
 #
 # Axle definition
 #
+# Issue: Having 2 as max row limits us, would be better if we could support a "dynamic range", 
+#        specifying size by the attribute e.g.  Row[1,AxleCount]
 - Axle:
   instances:
     - Row[1,2]
@@ -97,45 +99,72 @@
 - Axle.WheelCount:
   datatype: uint8
   type: attribute
-  description: Number of wheels on the first axle
+  description: Number of wheels on the axle
 
+# At least for trucks size is often given in half-inch steps
+# https://www.michelintruck.com/assets/pdf/Truck_Tire_Data_Book_Jan2007.pdf
 - Axle.WheelDiameter:
-  datatype: uint8
+  datatype: float
   type: attribute
   unit: inch
-  description: Diameter of wheels (without tires), in inches, as per ETRO / TRA standard.
+  description: Diameter of wheels (without tires), in inches, as per ETRTO / TRA standard.
 
+# Rim size is typically given in inches, but typically in half-inch steps
+# https://www.tiresandco.ca/tire-equivalence-advice.html
 - Axle.WheelWidth:
-  datatype: uint8
+  datatype: float
   type: attribute
   unit: inch
-  description: Width of wheels (without tires), in inches, as per ETRO / TRA standard.
+  description: Width of wheels (without tires), in inches, as per ETRTO / TRA standard.
 
 
 #
 # Tire attributes
 #
 
-- Axle.TireDiameter:
-  datatype: uint8
-  type: attribute
-  unit: inch
-  description: Diameter of tires, in inches, as per ETRO / TRA standard.
+# Is this ever different than Axle.WheelDiameter
+# Well it depends on what diameter you refer to, inner or outer
+# When you buy a new tire you are typically interested in inner diameter, which is the same as rim diameter
+# If the intention with the data point is to serve
+# anyone intending to replace a tire it would be more useful to have an attribute for the tire profile. 
 
-- Axle.TireWidth:
-  datatype: uint8
+- Axle.TireDiameter:
+  datatype: float
   type: attribute
   unit: inch
-  description: Width of tires, in inches, as per ETRO / TRA standard.
+  description: Diameter of tires, in inches, as per ETRTO / TRA standard.
+
+# At least in Europe often provided in millimeters, but of course inch as float would work as well
+# https://www.goodyearautoservice.com/en-US/tire-basics/tire-size
+# Note: It is not uncommon that a vehicle supports multiple rim/wheel sizes or that an owner change to a different size,
+# With this as an attribute it likely refers to the original size rather than current size, unless the OEM
+# has added functionality to change this value dynamically
+# Typical example: In Sweden winter-tires often have other dimensions than summer-tires.
+- Axle.TireWidth:
+  datatype: uint16
+  type: attribute
+  unit: mm
+  description: Width of tires, in millimeters, as per ETRTO / TRA standard.
 
 
 #
 # Wheels on Axles
 #
+# Issue: For trucks it is not uncommon to have dual wheels on some axles
+#        See e.g. https://www.jdpower.com/cars/shopping-guides/what-is-a-dually-truck
+#        The current Wheel.vspec does not work well for those vehicles as it contain some
+#        data concerning brakes which is related to left/right and some data concerning pressure and temperature
+#        that is related to individual wheels
+#
+#        A possible solution could be to split Wheel.vspec and have two branches:
+#        Axle.Wheel, instances: Row[1,Axle.WheelCount]
+#        Axle.BreakSystem, instances: Row[1,Axle.BreakSystemCount]
+#        That would give a solution that works for most vehicles, even odd ones like https://en.wikipedia.org/wiki/Motorized_tricycle
+#        Example: A dual wheel truck has on its second axle 4 wheels, but 2 BreakSystems
 - Axle.Wheel:
   instances: ["Left","Right"]
   type: branch
-  description: Brake signals for first row
+  description: Wheel signals
 
 #include Wheel.vspec Axle.Wheel
 

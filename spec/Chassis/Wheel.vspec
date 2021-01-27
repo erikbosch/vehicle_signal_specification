@@ -13,6 +13,12 @@
   type: branch
   description: Brake signals for wheel
 
+# Issue: Not all vehicles have separate fluid containers for each wheel
+#        But of course, that does not prevent a vehicle from presenting the same value for all wheels
+#        if it only has one container.
+# Examples: Passenger cars have often only one container. Motorbikes often have two containers.
+
+
 - Brake.FluidLevel:
   datatype: uint8
   type: sensor

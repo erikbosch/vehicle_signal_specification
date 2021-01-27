@@ -1,0 +1,81 @@
+Some ideas on modifying data representation.
+This commit is not intended to be merged. It is only intended for discussion.
+If it is decided that some changes make sense, then they shall be handled by multiple separate commits or pull requests.
+
+Idea 1:
+
+Use float (or in rare cases double) instead of int-based datatypes for all datapoints where fractional numbers might be relevant.
+(for datapoints like Axle.WheelCount it is natural to use an int-based type)
+
+Idea 2: 
+
+Stick to the same representation for all datapoints using a particular unit, e.g. always use float for km/h.
+That could simplify implementation of handlers for that particular unit.
+(This could long term mean that there is no need to specify both unit and datatype, one of them should be sufficient)
+
+Shown example changes in this commit (for idea 1 and/or 2):
+-Always use float for: cm, l, km/h, celsius, inch, degrees/s
+-Always use uint16 for mm 
+-Always use uint32 for s 
+-Always use int32 for rpm (signed to allow support for electrical engines)
+
+Idea 3:
+
+Consider removing size-specific datatypes (e.g. int16, uint32)
+By just supporting e.g. int (and representing it as e.g. int32) or float/double we will avoid lengthy discussions 
+on hypothetical supported range for a datapoint. Most likely we can represent all integer datapoints with int32.
+Size limits can anyway be specified with min/max, if needed.
+
+Idea 4: 
+
+Remove limits in standard, unless there is a standard/norm enforcing those limits, or the limits are natural (e.g. percent, degrees).
+If limit set by standard/norm, include a rationale for the limit.
+Reason: Limits are likely OEM/Vehicle-specific anyway, should possibly be specified in a similar way that
+        attributes are set 
+        (e.g. when you declare vehicle attributes like length and weight you can also declare supported range for the climate control)
+
+Shown example changes in this commit:
+-Remove limits on speed/temperature. The current limits seems to be quite arbitrary
+
+Idea 5:
+
+Should we in addition to min/max also support yet another field "accuracy"?
+This could be interesting for actuators and maybe also sensors, to give a guideline to users
+on what accuracy that is considered/supported by the vehicle. 
+
+# Example of a hypothetical cruise control
+# Note that these limits not shall be in the standard, it must be OEM extension
+# In this case, the cruise control accepts all values "x=(min+(n*accuracy))" within "min <= x <= max"
+# E.g you may set speed to 100.4 km/h. If you request 100.5 km/h the request might be truncated/rounded to 100.4 km/h
+- CruiseControl.SpeedSet:
+  datatype: float
+  type: actuator
+  unit: km/h
+  min: 0
+  max: 120
+  accuracy: 0.2
+  description: Set cruise control speed in kilometers per hour
+
+Idea 6:
+
+Specify in vpec meta-model rules that min/max must be within the limits 
+I.e. a tool shall preferably emit an error if a specification like this is used (from ElectricMotor.vspec)
+
+#
+# Motor rotations per minute
+#
+- Motor.Rpm:
+  datatype: uint32
+  type: sensor
+  unit: rpm
+  min: -100000
+  max: 100000
+  description: Motor rotational speed measured as rotations per minute. Negative values indicate reverse driving mode.
+
+
+
+
+Other topics:
+
+The commit also include some other unrelated observations.
+

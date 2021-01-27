@@ -116,8 +116,10 @@
   type: branch
   description: Head restraint settings
 
+# Proposal: Always use the same representation for a specific unit, e.g. uint16 for mm
+# This allows an OEM to support heights > 255 mm
 - HeadRestraint.Height:
-  datatype: uint8
+  datatype: uint16
   type: sensor
   min: 0
   max: 255

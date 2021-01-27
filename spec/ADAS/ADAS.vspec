@@ -32,9 +32,9 @@
   type: actuator
   description: Indicates if cruise control system is enabled. True = Enabled. False = Disabled.
 
-
+# At least for special slow vehicles like agriculture having the possibility to set speed as float could make sense
 - CruiseControl.SpeedSet:
-  datatype: int32
+  datatype: float
   type: actuator
   unit: km/h
   description: Set cruise control speed in kilometers per hour

@@ -140,10 +140,8 @@
   deprecation: V2.1 moved to Vehicle.CurrentLocation.Altitude
 
 - Navigation.CurrentLocation.Speed:
-  datatype: uint16
+  datatype: float
   type: sensor
-  min: 0
-  max: 250
   unit: km/h
   description: Vehicle speed, as sensed by the GPS receiver.
   deprecation: V2.1 removed because doubled with Vehicle.Speed

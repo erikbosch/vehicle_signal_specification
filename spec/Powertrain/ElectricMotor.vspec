@@ -51,8 +51,9 @@
 #
 # Motor rotations per minute
 #
+# Use int32 to be able to represent negative values
 - Motor.Rpm:
-  datatype: uint32
+  datatype: int32
   type: sensor
   unit: rpm
   min: -100000
@@ -64,11 +65,9 @@
 # Motor temperature
 #
 - Motor.Temperature:
-  datatype: int16
+  datatype: float
   type: sensor
   unit: celsius
-  min: -50
-  max: 200
   description: Motor temperature.
 
 
@@ -76,11 +75,9 @@
 # Motor coolant temperature (if applicable)
 #
 - Motor.CoolantTemperature:
-  datatype: int16
+  datatype: float
   type: sensor
   unit: celsius
-  min: -50
-  max: 200
   description: Motor coolant temperature (if applicable).
 
 

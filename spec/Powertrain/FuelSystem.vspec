@@ -24,8 +24,11 @@
   default: "unknown"
   description: Defines the hybrid type of the vehicle
 
+# Rationale: On smaller vehicle like two-wheelers capacity is often given with decimals
+# e.g. Honda Monkey has a capacity of 5.6 liters
+# https://www.honda.co.uk/motorcycles/range/125cc/monkey/specifications.html#/
 - TankCapacity:
-  datatype: uint16
+  datatype: float
   type: attribute
   default: 0
   unit: l

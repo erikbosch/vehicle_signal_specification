@@ -23,14 +23,24 @@
   description: Displacement in cubic centimetres.
   unit: cm^3
 
+# Rationale for changing to float: 
+# - Vehicles rarely have stroke/bore in centimeters without decimals
+# - See e.g. this Golf: 
+#   https://www.ultimatespecs.com/car-specs/Volkswagen/109792/Volkswagen-Golf-2017-R-20-TSI-310HP-DSG-7.html 
+#   82.5 x 92.8 mm
+#
+# By the way -why was centimeter selected? 
+# Even in e.g. relatively large marine engines they describe size in millimeters.
+# https://www.scania.com/content/dam/scanianoe/market/master/products-and-services/engines/pdf/specs/marine/DI16076M_846kW.pdf
+
 - StrokeLength:
-  datatype: uint16
+  datatype: float
   type: attribute
   description: Stroke length in centimetres.
   unit: cm
 
 - Bore:
-  datatype: uint16
+  datatype: float
   type: attribute
   description: Bore in centimetres.
   unit: cm
@@ -58,20 +68,29 @@
   type: attribute
   description: Engine compression ratio.
 
+# Totally unrelated, but this should be a sensor value right? 
+# Reset at service, then in an undefined way decreasing to 0?
 - OilLifeRemaining:
   datatype: uint32
-  type: attribute
+  type: sensor
   description: Remaining engine oil life in seconds.
   unit: s
 
+# Rationale for changing to float: 
+# - Oil/Coolant is expensive so ordering/charging the right amount is important
+# - If use case is to order oil for service, it is important to not round the value downward
+#     e.g. ordering 4 liters if 4.4 liters is needed
+# - OEMs often specify oil need in liters with one decimal, see e.g.
+#   https://www.volvocars.com/en-th/support/manuals/v70/2014w20/specifications/engine/engine-oil---grade-and-volume 
 - EngineOilCapacity:
-  datatype: uint16
+  datatype: float
   type: attribute
   description: Engine oil capacity in liters.
   unit: l
 
+# https://www.volvocars.com/en-th/support/manuals/v70/2014w20/specifications/engine/coolant---grade-and-volume
 - EngineCoolantCapacity:
-  datatype: uint16
+  datatype: float
   type: attribute
   description: Engine coolant capacity in liters.
   unit: l
@@ -121,8 +140,9 @@
 #
 # Engine rotations per minute
 #
+# proposal: use int32 for all rpm values (of float as in OBD)
 - Engine.Speed:
-  datatype: uint16
+  datatype: int32
   type: sensor
   unit: rpm
   min: 0
@@ -133,12 +153,11 @@
 #
 # Engine coolant temperature
 #
+# Aligning to float without limits, as for most other temperature datapoints
 - Engine.ECT:
-  datatype: int16
+  datatype: float
   type: sensor
   unit: celsius
-  min: -50
-  max: 200
   description: Engine coolant temperature.
 
 
@@ -146,11 +165,9 @@
 # Engine Oil Temperature
 #
 - Engine.EOT:
-  datatype: int16
+  datatype: float
   type: sensor
   unit: celsius
-  min: -50
-  max: 300
   description: Engine oil temperature.
 
 

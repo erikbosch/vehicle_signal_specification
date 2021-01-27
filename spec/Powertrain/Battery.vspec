@@ -156,6 +156,7 @@
   unit: km/h
   description: Current charging rate, as in kilometers of range added per hour.
 
+# Unrelated comment: Description or type is incorrect, UInt32 does not support negative values
 - Charging.TimeToComplete:
   datatype: UInt32
   type: sensor
