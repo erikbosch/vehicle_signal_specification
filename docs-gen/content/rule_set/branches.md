@@ -12,7 +12,6 @@ A branch entry example is given below:
 ```YAML
 - Trunk:
   type: branch
-  aggregate: true
   description: All signals related to the rear trunk
 ```
 
@@ -26,10 +25,6 @@ well.
 * **```type```**  
 The value ```branch``` specifies that this is a branch entry (as
 opposed to a signal entry). This is the default, in case ```type``` is omitted.
-
-* **```aggregate```** *[optional]*  
-Defines whether or not this branch is an aggregate.
-If not defined, this defaults to ```false```.
 
 * **```description```**  
 A description string to be included (when applicable) in the various
