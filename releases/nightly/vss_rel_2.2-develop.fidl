@@ -4,7 +4,7 @@
 // Mozilla Public License, version 2.0.  The full text of the
 // Mozilla Public License is at https://www.mozilla.org/MPL/2.0/
 
-const UTF8String VSS_VERSION = "2.0"
+const UTF8String VSS_VERSION = "2.2-develop"
 
 struct SignalSpec {
     UInt32 id
@@ -168,7 +168,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.VehicleIdentification.vehicleinteriorColor"
     type: "attribute"
-    description: "A short text indicating the configuration of the vehicle, e.g. '5dr hatchback ST 2.5 MT 225 hp' or 'limited edition'."
+    description: "The color or color combination of the interior of the vehicle."
     datatype: string
     uuid: aea3643341d650959293617972a9405e
 }
@@ -235,18 +235,16 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Speed"
     type: "sensor"
-    description: "Vehicle speed, as sensed by the gearbox."
-    datatype: int32
+    description: "Vehicle speed"
+    datatype: float
     uuid: efe50798638d55fab18ab7d43cc490e9
-    min: -250
-    max: 250
     unit: km/h
 }
 ,
 {
     name: "Vehicle.TravelledDistance"
     type: "sensor"
-    description: "Odometer reading"
+    description: "Odometer reading, total distance travelled during the lifetime of the vehicle."
     datatype: float
     uuid: 90be9d7b0ac15b75a83027ea3b73b65b
     unit: km
@@ -264,7 +262,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.AmbientAirTemperature"
     type: "sensor"
-    description: "Ambient air temperature"
+    description: "Ambient air temperature outside the vehicle."
     datatype: float
     uuid: 2ffcbc2e6ea75dd991e3ae80b29a1d85
     unit: celsius
@@ -282,10 +280,8 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.AverageSpeed"
     type: "sensor"
     description: "Average speed for the current trip"
-    datatype: int32
+    datatype: float
     uuid: 43a489636a665c3abb99b63174eb552b
-    min: -250
-    max: 250
     unit: km/h
 }
 ,
@@ -293,7 +289,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.Acceleration.Longitudinal"
     type: "sensor"
     description: "Vehicle acceleration in X (longitudinal acceleration)."
-    datatype: int32
+    datatype: float
     uuid: 3d511fe7232b5841be311b37f322de5a
     unit: m/s^2
 }
@@ -302,7 +298,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.Acceleration.Lateral"
     type: "sensor"
     description: "Vehicle acceleration in Y (lateral acceleration)."
-    datatype: int32
+    datatype: float
     uuid: 7522c5d6b7665b16a099643b2700e93c
     unit: m/s^2
 }
@@ -311,7 +307,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.Acceleration.Vertical"
     type: "sensor"
     description: "Vehicle acceleration in Z (vertical acceleration)."
-    datatype: int32
+    datatype: float
     uuid: a4a8a7c4ac5b52deb0b3ee4ed8787c59
     unit: m/s^2
 }
@@ -365,20 +361,150 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.cargoVolume"
     type: "attribute"
     description: "The available volume for cargo or luggage. For automobiles, this is usually the trunk volume."
-    datatype: int16
+    datatype: float
     uuid: 1b7c5f7c8ac952168cd2e89b3e9cd841
     min: 0
-    max: 100
     unit: l
 }
 ,
 {
     name: "Vehicle.emissionsCO2"
     type: "attribute"
-    description: "The CO2 emissions in g/km."
+    description: "The CO2 emissions."
     datatype: int16
     uuid: 5dc70045865b5bba9260945b28f737ff
     unit: g/km
+}
+,
+{
+    name: "Vehicle.CurrentOverallWeight"
+    type: "sensor"
+    description: "Current overall Vehicle weight. Including passengers, cargo and other load inside the car."
+    datatype: uint16
+    uuid: 75599d7628bb5f35839055269d3ad205
+    unit: kg
+}
+,
+{
+    name: "Vehicle.CurbWeight"
+    type: "attribute"
+    description: "Vehicle curb weight, including all liquids and full tank of fuel, but no cargo or passengers."
+    datatype: uint16
+    uuid: 69ac6ca079de59d19737f75e4c5c4342
+    unit: kg
+}
+,
+{
+    name: "Vehicle.GrossWeight"
+    type: "attribute"
+    description: "Curb weight of vehicle, including all liquids and full tank of fuel and full load of cargo and passengers."
+    datatype: uint16
+    uuid: 9671cb551dd8570fbe5d7cd797265e6a
+    unit: kg
+}
+,
+{
+    name: "Vehicle.MaxTowWeight"
+    type: "attribute"
+    description: "Maximum weight of trailer."
+    datatype: uint16
+    uuid: a1b8fd65897654aa8a418bccf443f1f3
+    unit: kg
+}
+,
+{
+    name: "Vehicle.MaxTowBallWeight"
+    type: "attribute"
+    description: "Maximum vertical weight on the tow ball of a trailer."
+    datatype: uint16
+    uuid: fec550f2064750e8b65b54fbf1368d68
+    unit: kg
+}
+,
+{
+    name: "Vehicle.Length"
+    type: "attribute"
+    description: "Overall vehicle length."
+    datatype: uint16
+    uuid: 885f1be6842a513582e52a42edb3176f
+    unit: mm
+}
+,
+{
+    name: "Vehicle.Height"
+    type: "attribute"
+    description: "Overall vehicle height."
+    datatype: uint16
+    uuid: 9784d39f68b8541f90c355178ded7d7c
+    unit: mm
+}
+,
+{
+    name: "Vehicle.Width"
+    type: "attribute"
+    description: "Overall vehicle width."
+    datatype: uint16
+    uuid: b4aabe144e3259adb1459a2e25fec9bd
+    unit: mm
+}
+,
+{
+    name: "Vehicle.Trailer.Connected"
+    type: "sensor"
+    description: "Signal indicating if trailer is connected or not."
+    datatype: boolean
+    uuid: 4da109044a185685a29190dd71838df5
+}
+,
+{
+    name: "Vehicle.CurrentLocation.Latitude"
+    type: "sensor"
+    description: "Current latitude of vehicle."
+    datatype: double
+    uuid: 08933c5a445055df80bea15fbfa07f1c
+    min: -90
+    max: 90
+    unit: degrees
+}
+,
+{
+    name: "Vehicle.CurrentLocation.Longitude"
+    type: "sensor"
+    description: "Current longitude of vehicle."
+    datatype: double
+    uuid: 5246f2ec5fea550cb1b36f110854cfbb
+    min: -180
+    max: 180
+    unit: degrees
+}
+,
+{
+    name: "Vehicle.CurrentLocation.Heading"
+    type: "sensor"
+    description: "Current magnetic compass heading."
+    datatype: double
+    uuid: 2a8f0afa2b315943aa001278875ce012
+    min: 0
+    max: 360
+    unit: degrees
+}
+,
+{
+    name: "Vehicle.CurrentLocation.Accuracy"
+    type: "sensor"
+    description: "Accuracy level of the latitude and longitude coordinates."
+    datatype: double
+    uuid: c6135205a21753e49b45614d562a89b7
+    unit: m
+}
+,
+{
+    name: "Vehicle.CurrentLocation.Altitude"
+    type: "sensor"
+    description: "Current elevation of the position."
+    datatype: double
+    uuid: d3ead98ab0b751c1a5b5dd5bc0e5e216
+    unit: m
 }
 ,
 {
@@ -388,6 +514,15 @@ const SignalSpec[] signal_spec = [
     datatype: float
     uuid: 0dd466d28d3d5ad094f2015adafb91a5
     unit: kWh
+}
+,
+{
+    name: "Vehicle.Powertrain.Range"
+    type: "sensor"
+    description: "Remaining range in meters using all energy sources available in the vehicle."
+    datatype: uint32
+    uuid: ea4b6de772d65d20b1fa611f997aa7b8
+    unit: m
 }
 ,
 {
@@ -402,19 +537,19 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Powertrain.CombustionEngine.StrokeLength"
     type: "attribute"
-    description: "Stroke length in centimetres."
-    datatype: uint16
+    description: "Stroke length in millimetres."
+    datatype: float
     uuid: 1bdfdab7904d51ed93e101b84ea54ddf
-    unit: cm
+    unit: mm
 }
 ,
 {
     name: "Vehicle.Powertrain.CombustionEngine.Bore"
     type: "attribute"
-    description: "Bore in centimetres."
-    datatype: uint16
+    description: "Bore in millimetres."
+    datatype: float
     uuid: 1618fb16035b5464961570cc1afd934e
-    unit: cm
+    unit: mm
 }
 ,
 {
@@ -451,10 +586,19 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Powertrain.CombustionEngine.OilLifeRemaining"
+    name: "Vehicle.Powertrain.CombustionEngine.EngineOilLevel"
     type: "attribute"
-    description: "Remaining engine oil life in seconds."
-    datatype: uint32
+    description: "Vehicle oil level."
+    datatype: string
+    uuid: e3813f59e94b509eb865fd97255a8a4f
+    enum: ['critically_low', 'low', 'normal', 'high', 'critically_high']
+}
+,
+{
+    name: "Vehicle.Powertrain.CombustionEngine.OilLifeRemaining"
+    type: "sensor"
+    description: "Remaining engine oil life in seconds. Negative values can be used to indicate that lifetime has been exceeded."
+    datatype: int32
     uuid: 94303734c68c5353a02625f652103918
     unit: s
 }
@@ -463,7 +607,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.Powertrain.CombustionEngine.EngineOilCapacity"
     type: "attribute"
     description: "Engine oil capacity in liters."
-    datatype: uint16
+    datatype: float
     uuid: 2ca7af6facb55a13885989faa9bc6ca7
     unit: l
 }
@@ -472,7 +616,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.Powertrain.CombustionEngine.EngineCoolantCapacity"
     type: "attribute"
     description: "Engine coolant capacity in liters."
-    datatype: uint16
+    datatype: float
     uuid: 90b5b64808ea5f4fa2798d96143b0d60
     unit: l
 }
@@ -679,7 +823,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Powertrain.Transmission.TravelledDistance"
     type: "sensor"
-    description: "Odometer reading"
+    description: "Odometer reading, total distance travelled during the lifetime of the transmission."
     datatype: float
     uuid: b9dd66f20c7f5b12a046766b94dc20c1
     unit: km
@@ -921,6 +1065,15 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
+    name: "Vehicle.Powertrain.Battery.Range"
+    type: "sensor"
+    description: "Remaining range in meters using only battery."
+    datatype: uint32
+    uuid: d74254f25bd85a469d2adbec79472071
+    unit: m
+}
+,
+{
     name: "Vehicle.Powertrain.Battery.Charging.ChargeLimit"
     type: "actuator"
     description: "Maximum charge level for battery, can potentially be set manually."
@@ -1068,7 +1221,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.Powertrain.FuelSystem.TankCapacity"
     type: "attribute"
     description: "Capacity of the fuel tank in liters"
-    datatype: uint16
+    datatype: float
     uuid: 362643b866c55d5386fdbdf383464e90
     unit: l
 }
@@ -1087,7 +1240,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Powertrain.FuelSystem.Range"
     type: "sensor"
-    description: "Range in meters."
+    description: "Remaining range in meters using only liquid fuel."
     datatype: uint32
     uuid: c5a0dbe5e754553897f0aed0069af57a
     unit: m
@@ -1116,7 +1269,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Powertrain.FuelSystem.ConsumptionSinceStart"
     type: "sensor"
-    description: "Fuel amount consumed since start in liters."
+    description: "Fuel amount in liters consumed since start of current trip."
     datatype: float
     uuid: adf0a40964ff556f92b10275ad918883
     unit: l
@@ -1125,7 +1278,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Powertrain.FuelSystem.TimeSinceStart"
     type: "sensor"
-    description: "Time elapsed since start in seconds."
+    description: "Time in seconds elapsed since start of current trip."
     datatype: uint32
     uuid: 1a8dbc5107b3522fad852e63aa85aef9
     unit: s
@@ -1208,7 +1361,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Body.Windshield.Front.Wiping.Status"
     type: "actuator"
-    description: "Front wiper status"
+    description: "Wiper status"
     datatype: string
     uuid: 2d5509513e4b52e0a337ade730166aec
     enum: ['off', 'slow', 'medium', 'fast', 'interval', 'rainsensor']
@@ -1217,7 +1370,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Body.Windshield.Front.Heating.Status"
     type: "actuator"
-    description: "Front windshield heater status. 0 - off, 1 - on"
+    description: "Windshield heater status. 0 - off, 1 - on"
     datatype: boolean
     uuid: 3f91b8feb415579c9dc8dc82c12f63a6
 }
@@ -1242,7 +1395,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Body.Windshield.Rear.Wiping.Status"
     type: "actuator"
-    description: "Front wiper status"
+    description: "Wiper status"
     datatype: string
     uuid: 1aca19889d375a699bc3750993777b08
     enum: ['off', 'slow', 'medium', 'fast', 'interval', 'rainsensor']
@@ -1251,7 +1404,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Body.Windshield.Rear.Heating.Status"
     type: "actuator"
-    description: "Front windshield heater status. 0 - off, 1 - on"
+    description: "Windshield heater status. 0 - off, 1 - on"
     datatype: boolean
     uuid: fac9f35307f85e8186cf142f9c2aa643
 }
@@ -1725,7 +1878,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.HVAC.AmbientAirTemperature"
     type: "sensor"
-    description: "Ambient air temperature"
+    description: "Ambient air temperature inside the vehicle."
     datatype: float
     uuid: 611868a24bc25eb9a837208c235e9491
     unit: celsius
@@ -2233,14 +2386,6 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Cabin.Door.Row1.LeftCount"
-    type: "attribute"
-    description: "Number of doors in vehicle"
-    datatype: uint8
-    uuid: 7df7bed67d0f5b1384d7d28315407eff
-}
-,
-{
     name: "Vehicle.Cabin.Door.Row1.Right.IsOpen"
     type: "actuator"
     description: "Is door open or closed"
@@ -2318,14 +2463,6 @@ const SignalSpec[] signal_spec = [
     min: 0
     max: 100
     unit: percent
-}
-,
-{
-    name: "Vehicle.Cabin.Door.Row1.RightCount"
-    type: "attribute"
-    description: "Number of doors in vehicle"
-    datatype: uint8
-    uuid: 49a445e112f35283b4be6ec82812b29b
 }
 ,
 {
@@ -2409,14 +2546,6 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Cabin.Door.Row2.LeftCount"
-    type: "attribute"
-    description: "Number of doors in vehicle"
-    datatype: uint8
-    uuid: 90546a0f69f2504287a8ba0d302a5c1a
-}
-,
-{
     name: "Vehicle.Cabin.Door.Row2.Right.IsOpen"
     type: "actuator"
     description: "Is door open or closed"
@@ -2494,14 +2623,6 @@ const SignalSpec[] signal_spec = [
     min: 0
     max: 100
     unit: percent
-}
-,
-{
-    name: "Vehicle.Cabin.Door.Row2.RightCount"
-    type: "attribute"
-    description: "Number of doors in vehicle"
-    datatype: uint8
-    uuid: 95df34b3d10853bf93bfe5ff587c858b
 }
 ,
 {
@@ -2585,14 +2706,6 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Cabin.Door.Row3.LeftCount"
-    type: "attribute"
-    description: "Number of doors in vehicle"
-    datatype: uint8
-    uuid: 81775fd49ba6537cb7487c9502d27a23
-}
-,
-{
     name: "Vehicle.Cabin.Door.Row3.Right.IsOpen"
     type: "actuator"
     description: "Is door open or closed"
@@ -2670,14 +2783,6 @@ const SignalSpec[] signal_spec = [
     min: 0
     max: 100
     unit: percent
-}
-,
-{
-    name: "Vehicle.Cabin.Door.Row3.RightCount"
-    type: "attribute"
-    description: "Number of doors in vehicle"
-    datatype: uint8
-    uuid: 7ae4ed84e2cc54acb5f6738fcc710a98
 }
 ,
 {
@@ -2761,14 +2866,6 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Cabin.Door.Row4.LeftCount"
-    type: "attribute"
-    description: "Number of doors in vehicle"
-    datatype: uint8
-    uuid: 1f96ea7a15625468b2fc99e029e33209
-}
-,
-{
     name: "Vehicle.Cabin.Door.Row4.Right.IsOpen"
     type: "actuator"
     description: "Is door open or closed"
@@ -2849,11 +2946,11 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Cabin.Door.Row4.RightCount"
+    name: "Vehicle.Cabin.DoorCount"
     type: "attribute"
     description: "Number of doors in vehicle"
     datatype: uint8
-    uuid: 40341a99eee35e708eaee435ca4befa7
+    uuid: c293fbef75725c57a9918dd5a34055c4
 }
 ,
 {
@@ -2977,7 +3074,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row1.Pos1.SideBolster.Inflation"
     type: "sensor"
-    description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
+    description: "Side bolster support inflation. 0 = Fully deflated. 255 = Fully inflated."
     datatype: uint8
     uuid: cec6036c545754a2b98375049abab7c2
     min: 0
@@ -3166,7 +3263,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.SideBolster.Inflate"
     type: "actuator"
-    description: "Lumbar inflation switch engaged"
+    description: "Side bolster inflation switch engaged"
     datatype: boolean
     uuid: 2d3dc48a7ecf5f2a99b600f221faa770
 }
@@ -3174,7 +3271,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.SideBolster.Deflate"
     type: "actuator"
-    description: "Lumbar deflation switch engaged"
+    description: "Side bolster deflation switch engaged"
     datatype: boolean
     uuid: 056d14d430e65211960602d5ab074824
 }
@@ -3300,7 +3397,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row1.Pos2.SideBolster.Inflation"
     type: "sensor"
-    description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
+    description: "Side bolster support inflation. 0 = Fully deflated. 255 = Fully inflated."
     datatype: uint8
     uuid: 2d17c6afb5b758e8bd3021a6c9211817
     min: 0
@@ -3489,7 +3586,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.SideBolster.Inflate"
     type: "actuator"
-    description: "Lumbar inflation switch engaged"
+    description: "Side bolster inflation switch engaged"
     datatype: boolean
     uuid: 987c9053b13f5e96b3560fbd95cbed46
 }
@@ -3497,7 +3594,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.SideBolster.Deflate"
     type: "actuator"
-    description: "Lumbar deflation switch engaged"
+    description: "Side bolster deflation switch engaged"
     datatype: boolean
     uuid: c06a95a4c9355c3ab03b1a6937e40212
 }
@@ -3623,7 +3720,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row1.Pos3.SideBolster.Inflation"
     type: "sensor"
-    description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
+    description: "Side bolster support inflation. 0 = Fully deflated. 255 = Fully inflated."
     datatype: uint8
     uuid: fcaaac4cd4c35c6a9b4e399e3cd0a29b
     min: 0
@@ -3812,7 +3909,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.SideBolster.Inflate"
     type: "actuator"
-    description: "Lumbar inflation switch engaged"
+    description: "Side bolster inflation switch engaged"
     datatype: boolean
     uuid: 0d0cda55ff9853639ae089af46d7219a
 }
@@ -3820,7 +3917,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.SideBolster.Deflate"
     type: "actuator"
-    description: "Lumbar deflation switch engaged"
+    description: "Side bolster deflation switch engaged"
     datatype: boolean
     uuid: 91b96dbb20a35da6821c445f20cc2b1f
 }
@@ -3946,7 +4043,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row1.Pos4.SideBolster.Inflation"
     type: "sensor"
-    description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
+    description: "Side bolster support inflation. 0 = Fully deflated. 255 = Fully inflated."
     datatype: uint8
     uuid: bc6c029686bf530ea82560c47733d3a4
     min: 0
@@ -4135,7 +4232,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row1.Pos4.Switch.SideBolster.Inflate"
     type: "actuator"
-    description: "Lumbar inflation switch engaged"
+    description: "Side bolster inflation switch engaged"
     datatype: boolean
     uuid: f1e112150008523ca7513625b5ffc626
 }
@@ -4143,7 +4240,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row1.Pos4.Switch.SideBolster.Deflate"
     type: "actuator"
-    description: "Lumbar deflation switch engaged"
+    description: "Side bolster deflation switch engaged"
     datatype: boolean
     uuid: 066556836ccf5f3da646bcafd88f01a8
 }
@@ -4269,7 +4366,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row1.Pos5.SideBolster.Inflation"
     type: "sensor"
-    description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
+    description: "Side bolster support inflation. 0 = Fully deflated. 255 = Fully inflated."
     datatype: uint8
     uuid: 6a4fcff1fa86583cba885dba282a518d
     min: 0
@@ -4458,7 +4555,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row1.Pos5.Switch.SideBolster.Inflate"
     type: "actuator"
-    description: "Lumbar inflation switch engaged"
+    description: "Side bolster inflation switch engaged"
     datatype: boolean
     uuid: 73d478fe21e15ba5a01a23834b37cc1d
 }
@@ -4466,7 +4563,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row1.Pos5.Switch.SideBolster.Deflate"
     type: "actuator"
-    description: "Lumbar deflation switch engaged"
+    description: "Side bolster deflation switch engaged"
     datatype: boolean
     uuid: de9f1e99c11e5270a4b07bd1e80fad29
 }
@@ -4592,7 +4689,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row2.Pos1.SideBolster.Inflation"
     type: "sensor"
-    description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
+    description: "Side bolster support inflation. 0 = Fully deflated. 255 = Fully inflated."
     datatype: uint8
     uuid: 8091f6615e6352549cd82be89b3794c7
     min: 0
@@ -4781,7 +4878,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.SideBolster.Inflate"
     type: "actuator"
-    description: "Lumbar inflation switch engaged"
+    description: "Side bolster inflation switch engaged"
     datatype: boolean
     uuid: 57a9eeed1ad75133841b9ee8a1d87a90
 }
@@ -4789,7 +4886,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.SideBolster.Deflate"
     type: "actuator"
-    description: "Lumbar deflation switch engaged"
+    description: "Side bolster deflation switch engaged"
     datatype: boolean
     uuid: 52e2279ca81b5a038bdb8bf92038ccab
 }
@@ -4915,7 +5012,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row2.Pos2.SideBolster.Inflation"
     type: "sensor"
-    description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
+    description: "Side bolster support inflation. 0 = Fully deflated. 255 = Fully inflated."
     datatype: uint8
     uuid: 94e4f77b1714550cb750c599a56ee624
     min: 0
@@ -5104,7 +5201,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.SideBolster.Inflate"
     type: "actuator"
-    description: "Lumbar inflation switch engaged"
+    description: "Side bolster inflation switch engaged"
     datatype: boolean
     uuid: 4f0d4d8a90ca5a90b773173c953a0191
 }
@@ -5112,7 +5209,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.SideBolster.Deflate"
     type: "actuator"
-    description: "Lumbar deflation switch engaged"
+    description: "Side bolster deflation switch engaged"
     datatype: boolean
     uuid: 4e433a05a54456e69ac7357b0af56d76
 }
@@ -5238,7 +5335,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row2.Pos3.SideBolster.Inflation"
     type: "sensor"
-    description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
+    description: "Side bolster support inflation. 0 = Fully deflated. 255 = Fully inflated."
     datatype: uint8
     uuid: 127bf41b7b055407b3405787db308dc5
     min: 0
@@ -5427,7 +5524,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.SideBolster.Inflate"
     type: "actuator"
-    description: "Lumbar inflation switch engaged"
+    description: "Side bolster inflation switch engaged"
     datatype: boolean
     uuid: 0e7ee36cd3d75f05a7f49722b82017fe
 }
@@ -5435,7 +5532,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.SideBolster.Deflate"
     type: "actuator"
-    description: "Lumbar deflation switch engaged"
+    description: "Side bolster deflation switch engaged"
     datatype: boolean
     uuid: 5f97a254d1b654bf99203d1d0e3b6739
 }
@@ -5561,7 +5658,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row2.Pos4.SideBolster.Inflation"
     type: "sensor"
-    description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
+    description: "Side bolster support inflation. 0 = Fully deflated. 255 = Fully inflated."
     datatype: uint8
     uuid: 66227290ee115179856aa84f78f612a9
     min: 0
@@ -5750,7 +5847,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row2.Pos4.Switch.SideBolster.Inflate"
     type: "actuator"
-    description: "Lumbar inflation switch engaged"
+    description: "Side bolster inflation switch engaged"
     datatype: boolean
     uuid: 0d21802e2ab95f4fb5a31f8fd7fa9d5b
 }
@@ -5758,7 +5855,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row2.Pos4.Switch.SideBolster.Deflate"
     type: "actuator"
-    description: "Lumbar deflation switch engaged"
+    description: "Side bolster deflation switch engaged"
     datatype: boolean
     uuid: 19916ae489a15d7892c08e29c3e064eb
 }
@@ -5884,7 +5981,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row2.Pos5.SideBolster.Inflation"
     type: "sensor"
-    description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
+    description: "Side bolster support inflation. 0 = Fully deflated. 255 = Fully inflated."
     datatype: uint8
     uuid: bebc5ed952ba55cbafe7ae7b6c404cf7
     min: 0
@@ -6073,7 +6170,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row2.Pos5.Switch.SideBolster.Inflate"
     type: "actuator"
-    description: "Lumbar inflation switch engaged"
+    description: "Side bolster inflation switch engaged"
     datatype: boolean
     uuid: 33f725544e4f560cb31da0eceb468eab
 }
@@ -6081,7 +6178,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row2.Pos5.Switch.SideBolster.Deflate"
     type: "actuator"
-    description: "Lumbar deflation switch engaged"
+    description: "Side bolster deflation switch engaged"
     datatype: boolean
     uuid: d1c716046e585015bccee6c042e45bda
 }
@@ -6207,7 +6304,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row3.Pos1.SideBolster.Inflation"
     type: "sensor"
-    description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
+    description: "Side bolster support inflation. 0 = Fully deflated. 255 = Fully inflated."
     datatype: uint8
     uuid: 735588ba73f159a6abb0509378fe8367
     min: 0
@@ -6396,7 +6493,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row3.Pos1.Switch.SideBolster.Inflate"
     type: "actuator"
-    description: "Lumbar inflation switch engaged"
+    description: "Side bolster inflation switch engaged"
     datatype: boolean
     uuid: 6cc989e9c61e5f308ed416cf63271cbf
 }
@@ -6404,7 +6501,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row3.Pos1.Switch.SideBolster.Deflate"
     type: "actuator"
-    description: "Lumbar deflation switch engaged"
+    description: "Side bolster deflation switch engaged"
     datatype: boolean
     uuid: 016c965c846a5447944e1dadd27f5b9d
 }
@@ -6530,7 +6627,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row3.Pos2.SideBolster.Inflation"
     type: "sensor"
-    description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
+    description: "Side bolster support inflation. 0 = Fully deflated. 255 = Fully inflated."
     datatype: uint8
     uuid: 96c9a629c345567c8e7f48381d2e8925
     min: 0
@@ -6719,7 +6816,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row3.Pos2.Switch.SideBolster.Inflate"
     type: "actuator"
-    description: "Lumbar inflation switch engaged"
+    description: "Side bolster inflation switch engaged"
     datatype: boolean
     uuid: 8ce3e895bbc05962ad5e390c7c484d0d
 }
@@ -6727,7 +6824,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row3.Pos2.Switch.SideBolster.Deflate"
     type: "actuator"
-    description: "Lumbar deflation switch engaged"
+    description: "Side bolster deflation switch engaged"
     datatype: boolean
     uuid: b62cc6bad7e05a97a15e92a41644466b
 }
@@ -6853,7 +6950,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row3.Pos3.SideBolster.Inflation"
     type: "sensor"
-    description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
+    description: "Side bolster support inflation. 0 = Fully deflated. 255 = Fully inflated."
     datatype: uint8
     uuid: 766f78815bf559b8888c7b3cdee6ea34
     min: 0
@@ -7042,7 +7139,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row3.Pos3.Switch.SideBolster.Inflate"
     type: "actuator"
-    description: "Lumbar inflation switch engaged"
+    description: "Side bolster inflation switch engaged"
     datatype: boolean
     uuid: c945847cef015fc1933f7426d9eebd2c
 }
@@ -7050,7 +7147,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row3.Pos3.Switch.SideBolster.Deflate"
     type: "actuator"
-    description: "Lumbar deflation switch engaged"
+    description: "Side bolster deflation switch engaged"
     datatype: boolean
     uuid: 25564c2906335edd8bda4b3d33a8d04d
 }
@@ -7176,7 +7273,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row3.Pos4.SideBolster.Inflation"
     type: "sensor"
-    description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
+    description: "Side bolster support inflation. 0 = Fully deflated. 255 = Fully inflated."
     datatype: uint8
     uuid: 40c0ce85ec3a53f382d0717c882b98f3
     min: 0
@@ -7365,7 +7462,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row3.Pos4.Switch.SideBolster.Inflate"
     type: "actuator"
-    description: "Lumbar inflation switch engaged"
+    description: "Side bolster inflation switch engaged"
     datatype: boolean
     uuid: 0558f6e79ffc5d5b85e5f794496df877
 }
@@ -7373,7 +7470,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row3.Pos4.Switch.SideBolster.Deflate"
     type: "actuator"
-    description: "Lumbar deflation switch engaged"
+    description: "Side bolster deflation switch engaged"
     datatype: boolean
     uuid: 1353ac577c3a5152a230fd2dd886daef
 }
@@ -7499,7 +7596,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row3.Pos5.SideBolster.Inflation"
     type: "sensor"
-    description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
+    description: "Side bolster support inflation. 0 = Fully deflated. 255 = Fully inflated."
     datatype: uint8
     uuid: dbaab839ce665ff7b7027c3290478cf2
     min: 0
@@ -7688,7 +7785,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row3.Pos5.Switch.SideBolster.Inflate"
     type: "actuator"
-    description: "Lumbar inflation switch engaged"
+    description: "Side bolster inflation switch engaged"
     datatype: boolean
     uuid: ae66a09742ae5e72a77f7e1f56739b56
 }
@@ -7696,7 +7793,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row3.Pos5.Switch.SideBolster.Deflate"
     type: "actuator"
-    description: "Lumbar deflation switch engaged"
+    description: "Side bolster deflation switch engaged"
     datatype: boolean
     uuid: f8435bc72b1b53a384dbbbdab7483210
 }
@@ -7822,7 +7919,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row4.Pos1.SideBolster.Inflation"
     type: "sensor"
-    description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
+    description: "Side bolster support inflation. 0 = Fully deflated. 255 = Fully inflated."
     datatype: uint8
     uuid: 18d9bb10df4a5707ac51682a7346e593
     min: 0
@@ -8011,7 +8108,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row4.Pos1.Switch.SideBolster.Inflate"
     type: "actuator"
-    description: "Lumbar inflation switch engaged"
+    description: "Side bolster inflation switch engaged"
     datatype: boolean
     uuid: 2f1ab29d17285dc0a285d139655549c8
 }
@@ -8019,7 +8116,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row4.Pos1.Switch.SideBolster.Deflate"
     type: "actuator"
-    description: "Lumbar deflation switch engaged"
+    description: "Side bolster deflation switch engaged"
     datatype: boolean
     uuid: 15071ac7e45b52f685c86dbf6e1b7815
 }
@@ -8145,7 +8242,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row4.Pos2.SideBolster.Inflation"
     type: "sensor"
-    description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
+    description: "Side bolster support inflation. 0 = Fully deflated. 255 = Fully inflated."
     datatype: uint8
     uuid: 154cb44d93085361a546c66977bc6dcd
     min: 0
@@ -8334,7 +8431,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row4.Pos2.Switch.SideBolster.Inflate"
     type: "actuator"
-    description: "Lumbar inflation switch engaged"
+    description: "Side bolster inflation switch engaged"
     datatype: boolean
     uuid: cf57a51db5bd5cb1a9fc734378718765
 }
@@ -8342,7 +8439,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row4.Pos2.Switch.SideBolster.Deflate"
     type: "actuator"
-    description: "Lumbar deflation switch engaged"
+    description: "Side bolster deflation switch engaged"
     datatype: boolean
     uuid: 88c4cdb4710b59958be9a37e52393886
 }
@@ -8468,7 +8565,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row4.Pos3.SideBolster.Inflation"
     type: "sensor"
-    description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
+    description: "Side bolster support inflation. 0 = Fully deflated. 255 = Fully inflated."
     datatype: uint8
     uuid: b45f8f471d555029a87c37e9543c319b
     min: 0
@@ -8657,7 +8754,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row4.Pos3.Switch.SideBolster.Inflate"
     type: "actuator"
-    description: "Lumbar inflation switch engaged"
+    description: "Side bolster inflation switch engaged"
     datatype: boolean
     uuid: 48fa678302e15af4ab7dafc1d3d8523f
 }
@@ -8665,7 +8762,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row4.Pos3.Switch.SideBolster.Deflate"
     type: "actuator"
-    description: "Lumbar deflation switch engaged"
+    description: "Side bolster deflation switch engaged"
     datatype: boolean
     uuid: af56cae4b5e45e628950666a0fc93fad
 }
@@ -8791,7 +8888,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row4.Pos4.SideBolster.Inflation"
     type: "sensor"
-    description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
+    description: "Side bolster support inflation. 0 = Fully deflated. 255 = Fully inflated."
     datatype: uint8
     uuid: b59005fc0dec52e8b9612e8137ea9b41
     min: 0
@@ -8980,7 +9077,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row4.Pos4.Switch.SideBolster.Inflate"
     type: "actuator"
-    description: "Lumbar inflation switch engaged"
+    description: "Side bolster inflation switch engaged"
     datatype: boolean
     uuid: be9f4ef481d35d37a7401a2d6d917539
 }
@@ -8988,7 +9085,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row4.Pos4.Switch.SideBolster.Deflate"
     type: "actuator"
-    description: "Lumbar deflation switch engaged"
+    description: "Side bolster deflation switch engaged"
     datatype: boolean
     uuid: 8f5559fe801358b7bc342a8729c4e139
 }
@@ -9114,7 +9211,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row4.Pos5.SideBolster.Inflation"
     type: "sensor"
-    description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
+    description: "Side bolster support inflation. 0 = Fully deflated. 255 = Fully inflated."
     datatype: uint8
     uuid: 39f7227e1a645d188626e9c4dbc1c87e
     min: 0
@@ -9303,7 +9400,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row4.Pos5.Switch.SideBolster.Inflate"
     type: "actuator"
-    description: "Lumbar inflation switch engaged"
+    description: "Side bolster inflation switch engaged"
     datatype: boolean
     uuid: 2b77392f4f065f488e3351b03a5a003a
 }
@@ -9311,7 +9408,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row4.Pos5.Switch.SideBolster.Deflate"
     type: "actuator"
-    description: "Lumbar deflation switch engaged"
+    description: "Side bolster deflation switch engaged"
     datatype: boolean
     uuid: d8588aa2c3a155e5a1fc0e79ac3d0eba
 }
@@ -9361,7 +9458,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.ADAS.CruiseControl.SpeedSet"
     type: "actuator"
     description: "Set cruise control speed in kilometers per hour"
-    datatype: int32
+    datatype: float
     uuid: b3f3a53ccd825e4da5cb1226f94dc005
     unit: km/h
 }
@@ -9561,7 +9658,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Chassis.Axle.Row1.WheelCount"
     type: "attribute"
-    description: "Number of wheels on the first axle"
+    description: "Number of wheels on the axle"
     datatype: uint8
     uuid: 7232effafb7d5c908a9bafe1cef2ff3e
 }
@@ -9569,8 +9666,8 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Chassis.Axle.Row1.WheelDiameter"
     type: "attribute"
-    description: "Diameter of wheels (without tires), in inches, as per ETRO / TRA standard."
-    datatype: uint8
+    description: "Diameter of wheels (rims without tires), in inches, as per ETRTO / TRA standard."
+    datatype: float
     uuid: 60d4b948ae8a5485bd77c45e1f648c13
     unit: inch
 }
@@ -9578,8 +9675,8 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Chassis.Axle.Row1.WheelWidth"
     type: "attribute"
-    description: "Width of wheels (without tires), in inches, as per ETRO / TRA standard."
-    datatype: uint8
+    description: "Width of wheels (rims without tires), in inches, as per ETRTO / TRA standard."
+    datatype: float
     uuid: 5b92bdab1e035ff4ba000330e20f826b
     unit: inch
 }
@@ -9587,8 +9684,8 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Chassis.Axle.Row1.TireDiameter"
     type: "attribute"
-    description: "Diameter of tires, in inches, as per ETRO / TRA standard."
-    datatype: uint8
+    description: "Outer diameter of tires, in inches, as per ETRTO / TRA standard."
+    datatype: float
     uuid: ed9f037c1b5d53c78c90b71179db1f4f
     unit: inch
 }
@@ -9596,10 +9693,19 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Chassis.Axle.Row1.TireWidth"
     type: "attribute"
-    description: "Width of tires, in inches, as per ETRO / TRA standard."
-    datatype: uint8
+    description: "Nominal section width of tires, in mm, as per ETRTO / TRA standard."
+    datatype: uint16
     uuid: 3444d8773c215cd7a076d688eb7f1afc
-    unit: inch
+    unit: mm
+}
+,
+{
+    name: "Vehicle.Chassis.Axle.Row1.TireAspectRatio"
+    type: "attribute"
+    description: "Aspect ratio between tire section height and tire section width, as per ETRTO / TRA standard."
+    datatype: uint8
+    uuid: 716fec24167e5c36b2b97daaf091f911
+    unit: percent
 }
 ,
 {
@@ -9639,7 +9745,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.Chassis.Axle.Row1.Wheel.Left.Tire.Pressure"
     type: "sensor"
     description: "Tire pressure in kilo-Pascal"
-    datatype: uint8
+    datatype: uint16
     uuid: 9fa3f176fd975d28a68f70c7d72e370f
     unit: kPa
 }
@@ -9698,7 +9804,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.Chassis.Axle.Row1.Wheel.Right.Tire.Pressure"
     type: "sensor"
     description: "Tire pressure in kilo-Pascal"
-    datatype: uint8
+    datatype: uint16
     uuid: ea8038b63e6650ffb1a20539e915064a
     unit: kPa
 }
@@ -9721,17 +9827,9 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Chassis.Axle.Row1Count"
-    type: "attribute"
-    description: "Number of axles on the vehicle"
-    datatype: uint8
-    uuid: f5d7402c65bd5d29b8167fe480c76042
-}
-,
-{
     name: "Vehicle.Chassis.Axle.Row2.WheelCount"
     type: "attribute"
-    description: "Number of wheels on the first axle"
+    description: "Number of wheels on the axle"
     datatype: uint8
     uuid: ac6fe103410153d382306426d14213ab
 }
@@ -9739,8 +9837,8 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Chassis.Axle.Row2.WheelDiameter"
     type: "attribute"
-    description: "Diameter of wheels (without tires), in inches, as per ETRO / TRA standard."
-    datatype: uint8
+    description: "Diameter of wheels (rims without tires), in inches, as per ETRTO / TRA standard."
+    datatype: float
     uuid: af27b1d18a5455e593692a9929909bb9
     unit: inch
 }
@@ -9748,8 +9846,8 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Chassis.Axle.Row2.WheelWidth"
     type: "attribute"
-    description: "Width of wheels (without tires), in inches, as per ETRO / TRA standard."
-    datatype: uint8
+    description: "Width of wheels (rims without tires), in inches, as per ETRTO / TRA standard."
+    datatype: float
     uuid: 889d279053c051979ebbe301bacac206
     unit: inch
 }
@@ -9757,8 +9855,8 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Chassis.Axle.Row2.TireDiameter"
     type: "attribute"
-    description: "Diameter of tires, in inches, as per ETRO / TRA standard."
-    datatype: uint8
+    description: "Outer diameter of tires, in inches, as per ETRTO / TRA standard."
+    datatype: float
     uuid: 4dc46ee7fe0a5240a6eb67f9bf43a1ea
     unit: inch
 }
@@ -9766,10 +9864,19 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Chassis.Axle.Row2.TireWidth"
     type: "attribute"
-    description: "Width of tires, in inches, as per ETRO / TRA standard."
-    datatype: uint8
+    description: "Nominal section width of tires, in mm, as per ETRTO / TRA standard."
+    datatype: uint16
     uuid: 76a9071697b25fb8ab42393dfb77f0ef
-    unit: inch
+    unit: mm
+}
+,
+{
+    name: "Vehicle.Chassis.Axle.Row2.TireAspectRatio"
+    type: "attribute"
+    description: "Aspect ratio between tire section height and tire section width, as per ETRTO / TRA standard."
+    datatype: uint8
+    uuid: 9b4515273bf1554dab746212db05d352
+    unit: percent
 }
 ,
 {
@@ -9809,7 +9916,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.Chassis.Axle.Row2.Wheel.Left.Tire.Pressure"
     type: "sensor"
     description: "Tire pressure in kilo-Pascal"
-    datatype: uint8
+    datatype: uint16
     uuid: ea414012c36e54fc84ec1d421f370ddd
     unit: kPa
 }
@@ -9868,7 +9975,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.Chassis.Axle.Row2.Wheel.Right.Tire.Pressure"
     type: "sensor"
     description: "Tire pressure in kilo-Pascal"
-    datatype: uint8
+    datatype: uint16
     uuid: 0cd3dd4be36c5fcda49d6360556ba7c8
     unit: kPa
 }
@@ -9891,11 +9998,11 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Chassis.Axle.Row2Count"
+    name: "Vehicle.Chassis.AxleCount"
     type: "attribute"
     description: "Number of axles on the vehicle"
     datatype: uint8
-    uuid: 0813a2a434ae5dc5805a0c6c2fb6200e
+    uuid: 86d084c9148d5f22b5402a030413ed79
 }
 ,
 {
@@ -9996,7 +10103,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.Status.DTCCount"
     type: "sensor"
     description: "Number of sensor Trouble Codes (DTC)"
-    datatype: uint32
+    datatype: uint8
     uuid: 4afdf65e788c5f69baf682597e69fb67
 }
 ,
@@ -10037,10 +10144,8 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.EngineLoad"
     type: "sensor"
     description: "PID 04 - Engine load in percent - 0 = no load, 100 = full load"
-    datatype: uint8
+    datatype: float
     uuid: a8fda8a1b4c6534aa49c447bafc1c700
-    min: 0
-    max: 100
     unit: percent
 }
 ,
@@ -10057,10 +10162,8 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.ShortTermFuelTrim1"
     type: "sensor"
     description: "PID 06 - Short Term (immediate) Fuel Trim - Bank 1 - negative percent leaner, positive percent richer"
-    datatype: int8
+    datatype: float
     uuid: 569c983874335fb392d4e82a002654cb
-    min: -100
-    max: 100
     unit: percent
 }
 ,
@@ -10068,10 +10171,8 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.LongTermFuelTrim1"
     type: "sensor"
     description: "PID 07 - Long Term (learned) Fuel Trim - Bank 1 - negative percent leaner, positive percent richer"
-    datatype: int8
+    datatype: float
     uuid: 1c203b11667150f0b4ee1be26a60c084
-    min: -100
-    max: 100
     unit: percent
 }
 ,
@@ -10079,10 +10180,8 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.ShortTermFuelTrim2"
     type: "sensor"
     description: "PID 08 - Short Term (immediate) Fuel Trim - Bank 2 - negative percent leaner, positive percent richer"
-    datatype: int8
+    datatype: float
     uuid: 53a39620773a523a8182169027169ec2
-    min: -100
-    max: 100
     unit: percent
 }
 ,
@@ -10090,10 +10189,8 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.LongTermFuelTrim2"
     type: "sensor"
     description: "PID 09 - Long Term (learned) Fuel Trim - Bank 2 - negative percent leaner, positive percent richer"
-    datatype: int8
+    datatype: float
     uuid: b02aff2efce05632b5694a256e5b9ec7
-    min: -100
-    max: 100
     unit: percent
 }
 ,
@@ -10103,7 +10200,6 @@ const SignalSpec[] signal_spec = [
     description: "PID 0A - Fuel pressure"
     datatype: float
     uuid: 34e6b0689f025d7b9bfa1fc49bb30c0f
-    min: 0
     unit: kPa
 }
 ,
@@ -10113,7 +10209,6 @@ const SignalSpec[] signal_spec = [
     description: "PID 0B - Intake manifold pressure"
     datatype: float
     uuid: 335991b1b53f56f097fea7b05d4db83b
-    min: 0
     unit: kPa
 }
 ,
@@ -10157,7 +10252,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.MAF"
     type: "sensor"
     description: "PID 10 - Grams of air drawn into engine per second"
-    datatype: int16
+    datatype: float
     uuid: f3acdf89fb865313883d5d3126f15518
     unit: g/s
 }
@@ -10166,10 +10261,8 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.ThrottlePosition"
     type: "sensor"
     description: "PID 11 - Throttle position - 0 = closed throttle, 100 = open throttle"
-    datatype: uint8
+    datatype: float
     uuid: ec1d372020205bb4a846a014b33801e1
-    min: 0
-    max: 100
     unit: percent
 }
 ,
@@ -10265,7 +10358,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.RunTime"
     type: "sensor"
     description: "PID 1F - Engine run time"
-    datatype: uint32
+    datatype: float
     uuid: acf70773752256d1a227ab48257624b5
     unit: s
 }
@@ -10282,7 +10375,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.DistanceWithMIL"
     type: "sensor"
     description: "PID 21 - Distance traveled with MIL on"
-    datatype: uint32
+    datatype: float
     uuid: a9a522e343f25522b08f11e81bb91349
     unit: km
 }
@@ -10453,7 +10546,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.CommandedEGR"
     type: "sensor"
     description: "PID 2C - Commanded exhaust gas recirculation (EGR)"
-    datatype: uint8
+    datatype: float
     uuid: 0265890a4a695ee6952c9b9f565ddaa5
     unit: percent
 }
@@ -10462,7 +10555,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.EGRError"
     type: "sensor"
     description: "PID 2D - Exhaust gas recirculation (EGR) error"
-    datatype: uint8
+    datatype: float
     uuid: 80a7000c5c7b5444b5571a26264061e5
     unit: percent
 }
@@ -10471,7 +10564,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.CommandedEVAP"
     type: "sensor"
     description: "PID 2E - Commanded evaporative purge (EVAP) valve"
-    datatype: uint8
+    datatype: float
     uuid: 5e6295d04a9159b88f4698b561b86842
     unit: percent
 }
@@ -10480,7 +10573,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.FuelLevel"
     type: "sensor"
     description: "PID 2F - Fuel level in the fuel tank"
-    datatype: uint8
+    datatype: float
     uuid: fd39813424ee5cd08c44714b35697287
     unit: percent
 }
@@ -10489,7 +10582,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.WarmupsSinceDTCClear"
     type: "sensor"
     description: "PID 30 - Number of warm-ups since codes cleared"
-    datatype: uint16
+    datatype: uint8
     uuid: a63ba60721785fc591e3dd067c4dc2ae
 }
 ,
@@ -10576,7 +10669,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.DriveCycleStatus.DTCCount"
     type: "sensor"
     description: "Number of sensor Trouble Codes (DTC)"
-    datatype: uint32
+    datatype: uint8
     uuid: 312856f746ff560e8098c19196964d3b
 }
 ,
@@ -10602,7 +10695,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.AbsoluteLoad"
     type: "sensor"
     description: "PID 43 - Absolute load value"
-    datatype: uint8
+    datatype: float
     uuid: b3dd889a42ce5de9a7904b7196ae325c
     unit: percent
 }
@@ -10620,7 +10713,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.RelativeThrottlePosition"
     type: "sensor"
     description: "PID 45 - Relative throttle position"
-    datatype: uint8
+    datatype: float
     uuid: 54ecf7dd671c5053aac4bc1bb061d64b
     unit: percent
 }
@@ -10638,7 +10731,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.ThrottlePositionB"
     type: "sensor"
     description: "PID 47 - Absolute throttle position B"
-    datatype: uint8
+    datatype: float
     uuid: 701712a565ed5bf8b6630487a7152c87
     unit: percent
 }
@@ -10647,7 +10740,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.ThrottlePositionC"
     type: "sensor"
     description: "PID 48 - Absolute throttle position C"
-    datatype: uint8
+    datatype: float
     uuid: 06f162dc00a85f628f9d5d1bc952665c
     unit: percent
 }
@@ -10656,7 +10749,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.AcceleratorPositionD"
     type: "sensor"
     description: "PID 49 - Accelerator pedal position D"
-    datatype: uint8
+    datatype: float
     uuid: 7e63256081ac5a7b8a28a6fa3c2c2ff9
     unit: percent
 }
@@ -10665,7 +10758,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.AcceleratorPositionE"
     type: "sensor"
     description: "PID 4A - Accelerator pedal position E"
-    datatype: uint8
+    datatype: float
     uuid: 4104e7fc25355e25b4522d233565d84b
     unit: percent
 }
@@ -10674,7 +10767,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.AcceleratorPositionF"
     type: "sensor"
     description: "PID 4B - Accelerator pedal position F"
-    datatype: uint8
+    datatype: float
     uuid: 95f5c2a209a857ff930e2f8e32ac2d3f
     unit: percent
 }
@@ -10683,7 +10776,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.ThrottleActuator"
     type: "sensor"
     description: "PID 4C - Commanded throttle actuator"
-    datatype: uint8
+    datatype: float
     uuid: 49a19905a1005ee3abe0c0a84d7112d1
     unit: percent
 }
@@ -10692,7 +10785,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.RunTimeMIL"
     type: "sensor"
     description: "PID 4D - Run time with MIL on"
-    datatype: uint32
+    datatype: float
     uuid: 555604a484535f60adf8894a6bd895b6
     unit: min
 }
@@ -10701,7 +10794,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.TimeSinceDTCCleared"
     type: "sensor"
     description: "PID 4E - Time since trouble codes cleared"
-    datatype: uint32
+    datatype: float
     uuid: 66ea3984a2585dcdaaf6452eef835c0d
     unit: min
 }
@@ -10727,7 +10820,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.EthanolPercent"
     type: "sensor"
     description: "PID 52 - Percentage of ethanol in the fuel"
-    datatype: uint8
+    datatype: float
     uuid: a207e7de17e1520c894b412af6f2522c
     unit: percent
 }
@@ -10754,7 +10847,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.ShortTermO2Trim1"
     type: "sensor"
     description: "PID 55 - Short term secondary O2 trim - Bank 1"
-    datatype: uint8
+    datatype: float
     uuid: be7ed33a854557ba802da0c51f9f4564
     unit: percent
 }
@@ -10763,7 +10856,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.LongTermO2Trim1"
     type: "sensor"
     description: "PID 56 - Long term secondary O2 trim - Bank 1"
-    datatype: uint8
+    datatype: float
     uuid: 9a9586e29a02567e9920cb9b0aa2e3f5
     unit: percent
 }
@@ -10772,7 +10865,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.ShortTermO2Trim2"
     type: "sensor"
     description: "PID 57 - Short term secondary O2 trim - Bank 2"
-    datatype: uint8
+    datatype: float
     uuid: c8b962f8990e51d294621408ceaa21d9
     unit: percent
 }
@@ -10781,7 +10874,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.LongTermO2Trim2"
     type: "sensor"
     description: "PID 58 - Long term secondary O2 trim - Bank 2"
-    datatype: uint8
+    datatype: float
     uuid: e579f6c930605b389e8ce2d7edd92999
     unit: percent
 }
@@ -10799,7 +10892,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.RelativeAcceleratorPosition"
     type: "sensor"
     description: "PID 5A - Relative accelerator pedal position"
-    datatype: uint8
+    datatype: float
     uuid: e25de9aacad3549285b4fb234f10be8f
     unit: percent
 }
@@ -10808,7 +10901,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.HybridBatteryRemaining"
     type: "sensor"
     description: "PID 5B - Remaining life of hybrid battery"
-    datatype: uint8
+    datatype: float
     uuid: c9517b6243df5e8d8f3aa3e57f71ec37
     unit: percent
 }
@@ -10817,7 +10910,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.OilTemperature"
     type: "sensor"
     description: "PID 5C - Engine oil temperature"
-    datatype: uint8
+    datatype: float
     uuid: ef3dfc11085d5077b363b1a4e8e4a84e
     unit: celsius
 }
@@ -10826,7 +10919,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.FuelInjectionTiming"
     type: "sensor"
     description: "PID 5D - Fuel injection timing"
-    datatype: int16
+    datatype: float
     uuid: ab4869446f5357d6936838983e1b8949
     unit: degrees
 }
@@ -10897,6 +10990,32 @@ const SignalSpec[] signal_spec = [
     description: "Heart rate of the driver."
     datatype: uint16
     uuid: d71516905f785c4da867a2f86e774d93
+}
+,
+{
+    name: "Vehicle.Service.ServiceDue"
+    type: "sensor"
+    description: "Indicates if vehicle needs service (of any kind). True = Service needed now or in the near future. False = No known need for service."
+    datatype: boolean
+    uuid: 6783737332b25637a847183921e1a51d
+}
+,
+{
+    name: "Vehicle.Service.DistanceToService"
+    type: "sensor"
+    description: "Remaining distance to service (of any kind). Negative values indicate service overdue."
+    datatype: float
+    uuid: 6f4347ce149759819572c8c3a17e8d93
+    unit: km
+}
+,
+{
+    name: "Vehicle.Service.TimeToService"
+    type: "sensor"
+    description: "Remaining time to service (of any kind). Negative values indicate service overdue."
+    datatype: int32
+    uuid: c968be91a5685fa9ae30b84a0f91934e
+    unit: s
 }
 
 ]

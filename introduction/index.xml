@@ -34,8 +34,8 @@ Components of a domain taxonomy A domain taxonomy, like VSS, consists of three i
       
       <guid>https://genivi.github.io/vehicle_signal_specification/introduction/quickstart/</guid>
       <description>A serialization of the data definition of the vehicle signal specification is checked in as vss_$VERSION.json, where $VERSION is the content of the VERSION file.
-A web-based JSON viewer can be used to view the current version.
-Click here</description>
+A web-based JSON viewer can be used to view the spec.
+ View VSS version 2.1 View VSS version 2.0 View VSS version 1.0  </description>
     </item>
     
   </channel>

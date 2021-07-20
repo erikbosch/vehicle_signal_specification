@@ -4,7 +4,7 @@
 // Mozilla Public License, version 2.0.  The full text of the
 // Mozilla Public License is at https://www.mozilla.org/MPL/2.0/
 
-const UTF8String VSS_VERSION = "2.0"
+const UTF8String VSS_VERSION = "2.1"
 
 struct SignalSpec {
     UInt32 id
@@ -235,18 +235,16 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Speed"
     type: "sensor"
-    description: "Vehicle speed, as sensed by the gearbox."
-    datatype: int32
+    description: "Vehicle speed"
+    datatype: float
     uuid: efe50798638d55fab18ab7d43cc490e9
-    min: -250
-    max: 250
     unit: km/h
 }
 ,
 {
     name: "Vehicle.TravelledDistance"
     type: "sensor"
-    description: "Odometer reading"
+    description: "Odometer reading, total distance travelled during the lifetime of the vehicle."
     datatype: float
     uuid: 90be9d7b0ac15b75a83027ea3b73b65b
     unit: km
@@ -264,7 +262,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.AmbientAirTemperature"
     type: "sensor"
-    description: "Ambient air temperature"
+    description: "Ambient air temperature outside the vehicle."
     datatype: float
     uuid: 2ffcbc2e6ea75dd991e3ae80b29a1d85
     unit: celsius
@@ -282,10 +280,8 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.AverageSpeed"
     type: "sensor"
     description: "Average speed for the current trip"
-    datatype: int32
+    datatype: float
     uuid: 43a489636a665c3abb99b63174eb552b
-    min: -250
-    max: 250
     unit: km/h
 }
 ,
@@ -293,7 +289,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.Acceleration.Longitudinal"
     type: "sensor"
     description: "Vehicle acceleration in X (longitudinal acceleration)."
-    datatype: int32
+    datatype: float
     uuid: 3d511fe7232b5841be311b37f322de5a
     unit: m/s^2
 }
@@ -302,7 +298,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.Acceleration.Lateral"
     type: "sensor"
     description: "Vehicle acceleration in Y (lateral acceleration)."
-    datatype: int32
+    datatype: float
     uuid: 7522c5d6b7665b16a099643b2700e93c
     unit: m/s^2
 }
@@ -311,7 +307,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.Acceleration.Vertical"
     type: "sensor"
     description: "Vehicle acceleration in Z (vertical acceleration)."
-    datatype: int32
+    datatype: float
     uuid: a4a8a7c4ac5b52deb0b3ee4ed8787c59
     unit: m/s^2
 }
@@ -365,20 +361,150 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.cargoVolume"
     type: "attribute"
     description: "The available volume for cargo or luggage. For automobiles, this is usually the trunk volume."
-    datatype: int16
+    datatype: float
     uuid: 1b7c5f7c8ac952168cd2e89b3e9cd841
     min: 0
-    max: 100
     unit: l
 }
 ,
 {
     name: "Vehicle.emissionsCO2"
     type: "attribute"
-    description: "The CO2 emissions in g/km."
+    description: "The CO2 emissions."
     datatype: int16
     uuid: 5dc70045865b5bba9260945b28f737ff
     unit: g/km
+}
+,
+{
+    name: "Vehicle.CurrentOverallWeight"
+    type: "sensor"
+    description: "Current overall Vehicle weight. Including passengers, cargo and other load inside the car."
+    datatype: uint16
+    uuid: 75599d7628bb5f35839055269d3ad205
+    unit: kg
+}
+,
+{
+    name: "Vehicle.CurbWeight"
+    type: "attribute"
+    description: "Vehicle curb weight, including all liquids and full tank of fuel, but no cargo or passengers."
+    datatype: uint16
+    uuid: 69ac6ca079de59d19737f75e4c5c4342
+    unit: kg
+}
+,
+{
+    name: "Vehicle.GrossWeight"
+    type: "attribute"
+    description: "Curb weight of vehicle, including all liquids and full tank of fuel and full load of cargo and passengers."
+    datatype: uint16
+    uuid: 9671cb551dd8570fbe5d7cd797265e6a
+    unit: kg
+}
+,
+{
+    name: "Vehicle.MaxTowWeight"
+    type: "attribute"
+    description: "Maximum weight of trailer."
+    datatype: uint16
+    uuid: a1b8fd65897654aa8a418bccf443f1f3
+    unit: kg
+}
+,
+{
+    name: "Vehicle.MaxTowBallWeight"
+    type: "attribute"
+    description: "Maximum vertical weight on the tow ball of a trailer."
+    datatype: uint16
+    uuid: fec550f2064750e8b65b54fbf1368d68
+    unit: kg
+}
+,
+{
+    name: "Vehicle.Length"
+    type: "attribute"
+    description: "Overall vehicle length."
+    datatype: uint16
+    uuid: 885f1be6842a513582e52a42edb3176f
+    unit: mm
+}
+,
+{
+    name: "Vehicle.Height"
+    type: "attribute"
+    description: "Overall vehicle height."
+    datatype: uint16
+    uuid: 9784d39f68b8541f90c355178ded7d7c
+    unit: mm
+}
+,
+{
+    name: "Vehicle.Width"
+    type: "attribute"
+    description: "Overall vehicle width."
+    datatype: uint16
+    uuid: b4aabe144e3259adb1459a2e25fec9bd
+    unit: mm
+}
+,
+{
+    name: "Vehicle.Trailer.Connected"
+    type: "sensor"
+    description: "Signal indicating if trailer is connected or not."
+    datatype: boolean
+    uuid: 4da109044a185685a29190dd71838df5
+}
+,
+{
+    name: "Vehicle.CurrentLocation.Latitude"
+    type: "sensor"
+    description: "Current latitude of vehicle."
+    datatype: double
+    uuid: 08933c5a445055df80bea15fbfa07f1c
+    min: -90
+    max: 90
+    unit: degrees
+}
+,
+{
+    name: "Vehicle.CurrentLocation.Longitude"
+    type: "sensor"
+    description: "Current longitude of vehicle."
+    datatype: double
+    uuid: 5246f2ec5fea550cb1b36f110854cfbb
+    min: -180
+    max: 180
+    unit: degrees
+}
+,
+{
+    name: "Vehicle.CurrentLocation.Heading"
+    type: "sensor"
+    description: "Current magnetic compass heading."
+    datatype: double
+    uuid: 2a8f0afa2b315943aa001278875ce012
+    min: 0
+    max: 360
+    unit: degrees
+}
+,
+{
+    name: "Vehicle.CurrentLocation.Accuracy"
+    type: "sensor"
+    description: "Accuracy level of the latitude and longitude coordinates."
+    datatype: double
+    uuid: c6135205a21753e49b45614d562a89b7
+    unit: m
+}
+,
+{
+    name: "Vehicle.CurrentLocation.Altitude"
+    type: "sensor"
+    description: "Current elevation of the position."
+    datatype: double
+    uuid: d3ead98ab0b751c1a5b5dd5bc0e5e216
+    unit: m
 }
 ,
 {
@@ -388,6 +514,15 @@ const SignalSpec[] signal_spec = [
     datatype: float
     uuid: 0dd466d28d3d5ad094f2015adafb91a5
     unit: kWh
+}
+,
+{
+    name: "Vehicle.Powertrain.Range"
+    type: "sensor"
+    description: "Remaining range in meters using all energy sources available in the vehicle."
+    datatype: uint32
+    uuid: ea4b6de772d65d20b1fa611f997aa7b8
+    unit: m
 }
 ,
 {
@@ -402,19 +537,19 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Powertrain.CombustionEngine.StrokeLength"
     type: "attribute"
-    description: "Stroke length in centimetres."
-    datatype: uint16
+    description: "Stroke length in millimetres."
+    datatype: float
     uuid: 1bdfdab7904d51ed93e101b84ea54ddf
-    unit: cm
+    unit: mm
 }
 ,
 {
     name: "Vehicle.Powertrain.CombustionEngine.Bore"
     type: "attribute"
-    description: "Bore in centimetres."
-    datatype: uint16
+    description: "Bore in millimetres."
+    datatype: float
     uuid: 1618fb16035b5464961570cc1afd934e
-    unit: cm
+    unit: mm
 }
 ,
 {
@@ -463,7 +598,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.Powertrain.CombustionEngine.EngineOilCapacity"
     type: "attribute"
     description: "Engine oil capacity in liters."
-    datatype: uint16
+    datatype: float
     uuid: 2ca7af6facb55a13885989faa9bc6ca7
     unit: l
 }
@@ -472,7 +607,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.Powertrain.CombustionEngine.EngineCoolantCapacity"
     type: "attribute"
     description: "Engine coolant capacity in liters."
-    datatype: uint16
+    datatype: float
     uuid: 90b5b64808ea5f4fa2798d96143b0d60
     unit: l
 }
@@ -679,7 +814,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Powertrain.Transmission.TravelledDistance"
     type: "sensor"
-    description: "Odometer reading"
+    description: "Odometer reading, total distance travelled during the lifetime of the transmission."
     datatype: float
     uuid: b9dd66f20c7f5b12a046766b94dc20c1
     unit: km
@@ -921,6 +1056,15 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
+    name: "Vehicle.Powertrain.Battery.Range"
+    type: "sensor"
+    description: "Remaining range in meters using only battery."
+    datatype: uint32
+    uuid: d74254f25bd85a469d2adbec79472071
+    unit: m
+}
+,
+{
     name: "Vehicle.Powertrain.Battery.Charging.ChargeLimit"
     type: "actuator"
     description: "Maximum charge level for battery, can potentially be set manually."
@@ -1068,7 +1212,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.Powertrain.FuelSystem.TankCapacity"
     type: "attribute"
     description: "Capacity of the fuel tank in liters"
-    datatype: uint16
+    datatype: float
     uuid: 362643b866c55d5386fdbdf383464e90
     unit: l
 }
@@ -1087,7 +1231,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Powertrain.FuelSystem.Range"
     type: "sensor"
-    description: "Range in meters."
+    description: "Remaining range in meters using only liquid fuel."
     datatype: uint32
     uuid: c5a0dbe5e754553897f0aed0069af57a
     unit: m
@@ -1116,7 +1260,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Powertrain.FuelSystem.ConsumptionSinceStart"
     type: "sensor"
-    description: "Fuel amount consumed since start in liters."
+    description: "Fuel amount in liters consumed since start of current trip."
     datatype: float
     uuid: adf0a40964ff556f92b10275ad918883
     unit: l
@@ -1125,7 +1269,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Powertrain.FuelSystem.TimeSinceStart"
     type: "sensor"
-    description: "Time elapsed since start in seconds."
+    description: "Time in seconds elapsed since start of current trip."
     datatype: uint32
     uuid: 1a8dbc5107b3522fad852e63aa85aef9
     unit: s
@@ -1725,7 +1869,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.HVAC.AmbientAirTemperature"
     type: "sensor"
-    description: "Ambient air temperature"
+    description: "Ambient air temperature inside the vehicle."
     datatype: float
     uuid: 611868a24bc25eb9a837208c235e9491
     unit: celsius
@@ -9361,7 +9505,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.ADAS.CruiseControl.SpeedSet"
     type: "actuator"
     description: "Set cruise control speed in kilometers per hour"
-    datatype: int32
+    datatype: float
     uuid: b3f3a53ccd825e4da5cb1226f94dc005
     unit: km/h
 }
@@ -9996,7 +10140,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.Status.DTCCount"
     type: "sensor"
     description: "Number of sensor Trouble Codes (DTC)"
-    datatype: uint32
+    datatype: uint8
     uuid: 4afdf65e788c5f69baf682597e69fb67
 }
 ,
@@ -10037,10 +10181,8 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.EngineLoad"
     type: "sensor"
     description: "PID 04 - Engine load in percent - 0 = no load, 100 = full load"
-    datatype: uint8
+    datatype: float
     uuid: a8fda8a1b4c6534aa49c447bafc1c700
-    min: 0
-    max: 100
     unit: percent
 }
 ,
@@ -10057,10 +10199,8 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.ShortTermFuelTrim1"
     type: "sensor"
     description: "PID 06 - Short Term (immediate) Fuel Trim - Bank 1 - negative percent leaner, positive percent richer"
-    datatype: int8
+    datatype: float
     uuid: 569c983874335fb392d4e82a002654cb
-    min: -100
-    max: 100
     unit: percent
 }
 ,
@@ -10068,10 +10208,8 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.LongTermFuelTrim1"
     type: "sensor"
     description: "PID 07 - Long Term (learned) Fuel Trim - Bank 1 - negative percent leaner, positive percent richer"
-    datatype: int8
+    datatype: float
     uuid: 1c203b11667150f0b4ee1be26a60c084
-    min: -100
-    max: 100
     unit: percent
 }
 ,
@@ -10079,10 +10217,8 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.ShortTermFuelTrim2"
     type: "sensor"
     description: "PID 08 - Short Term (immediate) Fuel Trim - Bank 2 - negative percent leaner, positive percent richer"
-    datatype: int8
+    datatype: float
     uuid: 53a39620773a523a8182169027169ec2
-    min: -100
-    max: 100
     unit: percent
 }
 ,
@@ -10090,10 +10226,8 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.LongTermFuelTrim2"
     type: "sensor"
     description: "PID 09 - Long Term (learned) Fuel Trim - Bank 2 - negative percent leaner, positive percent richer"
-    datatype: int8
+    datatype: float
     uuid: b02aff2efce05632b5694a256e5b9ec7
-    min: -100
-    max: 100
     unit: percent
 }
 ,
@@ -10103,7 +10237,6 @@ const SignalSpec[] signal_spec = [
     description: "PID 0A - Fuel pressure"
     datatype: float
     uuid: 34e6b0689f025d7b9bfa1fc49bb30c0f
-    min: 0
     unit: kPa
 }
 ,
@@ -10113,7 +10246,6 @@ const SignalSpec[] signal_spec = [
     description: "PID 0B - Intake manifold pressure"
     datatype: float
     uuid: 335991b1b53f56f097fea7b05d4db83b
-    min: 0
     unit: kPa
 }
 ,
@@ -10157,7 +10289,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.MAF"
     type: "sensor"
     description: "PID 10 - Grams of air drawn into engine per second"
-    datatype: int16
+    datatype: float
     uuid: f3acdf89fb865313883d5d3126f15518
     unit: g/s
 }
@@ -10166,10 +10298,8 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.ThrottlePosition"
     type: "sensor"
     description: "PID 11 - Throttle position - 0 = closed throttle, 100 = open throttle"
-    datatype: uint8
+    datatype: float
     uuid: ec1d372020205bb4a846a014b33801e1
-    min: 0
-    max: 100
     unit: percent
 }
 ,
@@ -10265,7 +10395,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.RunTime"
     type: "sensor"
     description: "PID 1F - Engine run time"
-    datatype: uint32
+    datatype: float
     uuid: acf70773752256d1a227ab48257624b5
     unit: s
 }
@@ -10282,7 +10412,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.DistanceWithMIL"
     type: "sensor"
     description: "PID 21 - Distance traveled with MIL on"
-    datatype: uint32
+    datatype: float
     uuid: a9a522e343f25522b08f11e81bb91349
     unit: km
 }
@@ -10453,7 +10583,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.CommandedEGR"
     type: "sensor"
     description: "PID 2C - Commanded exhaust gas recirculation (EGR)"
-    datatype: uint8
+    datatype: float
     uuid: 0265890a4a695ee6952c9b9f565ddaa5
     unit: percent
 }
@@ -10462,7 +10592,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.EGRError"
     type: "sensor"
     description: "PID 2D - Exhaust gas recirculation (EGR) error"
-    datatype: uint8
+    datatype: float
     uuid: 80a7000c5c7b5444b5571a26264061e5
     unit: percent
 }
@@ -10471,7 +10601,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.CommandedEVAP"
     type: "sensor"
     description: "PID 2E - Commanded evaporative purge (EVAP) valve"
-    datatype: uint8
+    datatype: float
     uuid: 5e6295d04a9159b88f4698b561b86842
     unit: percent
 }
@@ -10480,7 +10610,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.FuelLevel"
     type: "sensor"
     description: "PID 2F - Fuel level in the fuel tank"
-    datatype: uint8
+    datatype: float
     uuid: fd39813424ee5cd08c44714b35697287
     unit: percent
 }
@@ -10489,7 +10619,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.WarmupsSinceDTCClear"
     type: "sensor"
     description: "PID 30 - Number of warm-ups since codes cleared"
-    datatype: uint16
+    datatype: uint8
     uuid: a63ba60721785fc591e3dd067c4dc2ae
 }
 ,
@@ -10576,7 +10706,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.DriveCycleStatus.DTCCount"
     type: "sensor"
     description: "Number of sensor Trouble Codes (DTC)"
-    datatype: uint32
+    datatype: uint8
     uuid: 312856f746ff560e8098c19196964d3b
 }
 ,
@@ -10602,7 +10732,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.AbsoluteLoad"
     type: "sensor"
     description: "PID 43 - Absolute load value"
-    datatype: uint8
+    datatype: float
     uuid: b3dd889a42ce5de9a7904b7196ae325c
     unit: percent
 }
@@ -10620,7 +10750,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.RelativeThrottlePosition"
     type: "sensor"
     description: "PID 45 - Relative throttle position"
-    datatype: uint8
+    datatype: float
     uuid: 54ecf7dd671c5053aac4bc1bb061d64b
     unit: percent
 }
@@ -10638,7 +10768,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.ThrottlePositionB"
     type: "sensor"
     description: "PID 47 - Absolute throttle position B"
-    datatype: uint8
+    datatype: float
     uuid: 701712a565ed5bf8b6630487a7152c87
     unit: percent
 }
@@ -10647,7 +10777,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.ThrottlePositionC"
     type: "sensor"
     description: "PID 48 - Absolute throttle position C"
-    datatype: uint8
+    datatype: float
     uuid: 06f162dc00a85f628f9d5d1bc952665c
     unit: percent
 }
@@ -10656,7 +10786,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.AcceleratorPositionD"
     type: "sensor"
     description: "PID 49 - Accelerator pedal position D"
-    datatype: uint8
+    datatype: float
     uuid: 7e63256081ac5a7b8a28a6fa3c2c2ff9
     unit: percent
 }
@@ -10665,7 +10795,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.AcceleratorPositionE"
     type: "sensor"
     description: "PID 4A - Accelerator pedal position E"
-    datatype: uint8
+    datatype: float
     uuid: 4104e7fc25355e25b4522d233565d84b
     unit: percent
 }
@@ -10674,7 +10804,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.AcceleratorPositionF"
     type: "sensor"
     description: "PID 4B - Accelerator pedal position F"
-    datatype: uint8
+    datatype: float
     uuid: 95f5c2a209a857ff930e2f8e32ac2d3f
     unit: percent
 }
@@ -10683,7 +10813,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.ThrottleActuator"
     type: "sensor"
     description: "PID 4C - Commanded throttle actuator"
-    datatype: uint8
+    datatype: float
     uuid: 49a19905a1005ee3abe0c0a84d7112d1
     unit: percent
 }
@@ -10692,7 +10822,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.RunTimeMIL"
     type: "sensor"
     description: "PID 4D - Run time with MIL on"
-    datatype: uint32
+    datatype: float
     uuid: 555604a484535f60adf8894a6bd895b6
     unit: min
 }
@@ -10701,7 +10831,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.TimeSinceDTCCleared"
     type: "sensor"
     description: "PID 4E - Time since trouble codes cleared"
-    datatype: uint32
+    datatype: float
     uuid: 66ea3984a2585dcdaaf6452eef835c0d
     unit: min
 }
@@ -10727,7 +10857,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.EthanolPercent"
     type: "sensor"
     description: "PID 52 - Percentage of ethanol in the fuel"
-    datatype: uint8
+    datatype: float
     uuid: a207e7de17e1520c894b412af6f2522c
     unit: percent
 }
@@ -10754,7 +10884,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.ShortTermO2Trim1"
     type: "sensor"
     description: "PID 55 - Short term secondary O2 trim - Bank 1"
-    datatype: uint8
+    datatype: float
     uuid: be7ed33a854557ba802da0c51f9f4564
     unit: percent
 }
@@ -10763,7 +10893,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.LongTermO2Trim1"
     type: "sensor"
     description: "PID 56 - Long term secondary O2 trim - Bank 1"
-    datatype: uint8
+    datatype: float
     uuid: 9a9586e29a02567e9920cb9b0aa2e3f5
     unit: percent
 }
@@ -10772,7 +10902,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.ShortTermO2Trim2"
     type: "sensor"
     description: "PID 57 - Short term secondary O2 trim - Bank 2"
-    datatype: uint8
+    datatype: float
     uuid: c8b962f8990e51d294621408ceaa21d9
     unit: percent
 }
@@ -10781,7 +10911,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.LongTermO2Trim2"
     type: "sensor"
     description: "PID 58 - Long term secondary O2 trim - Bank 2"
-    datatype: uint8
+    datatype: float
     uuid: e579f6c930605b389e8ce2d7edd92999
     unit: percent
 }
@@ -10799,7 +10929,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.RelativeAcceleratorPosition"
     type: "sensor"
     description: "PID 5A - Relative accelerator pedal position"
-    datatype: uint8
+    datatype: float
     uuid: e25de9aacad3549285b4fb234f10be8f
     unit: percent
 }
@@ -10808,7 +10938,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.HybridBatteryRemaining"
     type: "sensor"
     description: "PID 5B - Remaining life of hybrid battery"
-    datatype: uint8
+    datatype: float
     uuid: c9517b6243df5e8d8f3aa3e57f71ec37
     unit: percent
 }
@@ -10817,7 +10947,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.OilTemperature"
     type: "sensor"
     description: "PID 5C - Engine oil temperature"
-    datatype: uint8
+    datatype: float
     uuid: ef3dfc11085d5077b363b1a4e8e4a84e
     unit: celsius
 }
@@ -10826,7 +10956,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.OBD.FuelInjectionTiming"
     type: "sensor"
     description: "PID 5D - Fuel injection timing"
-    datatype: int16
+    datatype: float
     uuid: ab4869446f5357d6936838983e1b8949
     unit: degrees
 }

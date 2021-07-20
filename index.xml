@@ -6,17 +6,17 @@
     <description>Recent content on Vehicle Signal Specification</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 04 Aug 2019 13:21:34 +0200</lastBuildDate><atom:link href="https://genivi.github.io/vehicle_signal_specification/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 05 Jul 2021 15:12:25 +0200</lastBuildDate><atom:link href="https://genivi.github.io/vehicle_signal_specification/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Requirements</title>
-      <link>https://genivi.github.io/vehicle_signal_specification/tools/requirements/</link>
-      <pubDate>Sun, 04 Aug 2019 13:18:17 +0200</pubDate>
+      <title>Tools</title>
+      <link>https://genivi.github.io/vehicle_signal_specification/ecosystem/tools/</link>
+      <pubDate>Sun, 04 Jul 2021 13:27:46 +0000</pubDate>
       
-      <guid>https://genivi.github.io/vehicle_signal_specification/tools/requirements/</guid>
-      <description>The tools for generating custom serialization from the specification are written in Python. Make sure that you have the python YAML parser, PyYAML, installed.
-INSTALL PYTHON YAML PARSER On ubuntu:
-sudo apt-get install python-yaml  On non-ubuntu systems, install from:
-http://pyyaml.org/wiki/PyYAML  </description>
+      <guid>https://genivi.github.io/vehicle_signal_specification/ecosystem/tools/</guid>
+      <description>The VSS can be transformed into other formats or generated as code to integrate with other tooling environments and ecosystems.
+Fig 1 shows the schematics of the top-level process.
+Fig 1. Generating documents from specification
+Some helpful tools are available in the vss-tools project.</description>
     </item>
     
     <item>
@@ -49,9 +49,11 @@ Supported datatypes    Name Type Min Max     uint8 unsigned 8-bit integer 0 255 
       <guid>https://genivi.github.io/vehicle_signal_specification/rule_set/branches/</guid>
       <description>A branch entry describes a tree branch (or node) containing other branches and signals.
 A branch entry example is given below:
-- Trunk: type: branch aggregate: true description: All signals related to the rear trunk The following elements are defined:
-  Body.Trunk
-The list element name defines the dot-notated signal name to the signal. Please note that all parental branches included in the name must be defined as well.</description>
+Trunk: type: branch description: All signals related to the rear trunk aggregate: false The following elements are defined:
+Body.Trunk
+The list element name defines the dot-notated signal name to the signal. Please note that all parental branches included in the name must be defined as well.
+type
+The value branch specifies that this is a branch entry (as opposed to a signal entry).</description>
     </item>
     
     <item>
@@ -65,14 +67,15 @@ A standardized vehicle data specification allows an industry actor to use a comm
     </item>
     
     <item>
-      <title>Usage</title>
-      <link>https://genivi.github.io/vehicle_signal_specification/tools/usage/</link>
-      <pubDate>Sun, 04 Aug 2019 13:21:34 +0200</pubDate>
+      <title>W3C-VISS</title>
+      <link>https://genivi.github.io/vehicle_signal_specification/ecosystem/viss/</link>
+      <pubDate>Sun, 04 Jul 2021 13:29:46 +0000</pubDate>
       
-      <guid>https://genivi.github.io/vehicle_signal_specification/tools/usage/</guid>
-      <description>After installing the dependencies, as described in the requirements, you can simply run:
-make  The results will be stored in vss_$VERSION.[xxx], where $VERSION is the contents of the VERSION file and xxx is the appropriate file extension for the type of output being produced. For example, the JSON version of the output will have a .json extension.
-Changes to files under the spec/ directory results in changes to the generated files, namely .</description>
+      <guid>https://genivi.github.io/vehicle_signal_specification/ecosystem/viss/</guid>
+      <description>When using VSS in an automotive tech stack, a question is which protocols and technologies to use to access VSS signals.
+The W3C Vehicle Information Service Specification (VISS) is an open standard, specifying a protocol to access VSS data via websocket (VISSv1, VISSv2) or HTTP (VISSv2).
+To learn more check
+ Vehicle Information Service Specification (VISS) V1 Vehicle Information Service Specification (VISS) V2, still under active development  </description>
     </item>
     
     <item>
@@ -102,7 +105,7 @@ Attribute and signal now elements of Data Entries Attributes and Signals were br
       <pubDate>Wed, 31 Jul 2019 12:11:31 +0200</pubDate>
       
       <guid>https://genivi.github.io/vehicle_signal_specification/releases/</guid>
-      <description>Nightly  Name  vss_rel_2.1-develop.json   Version 2.0  Name  vss_release_2.0.csv   vss_release_2.0.fidl   vss_release_2.0.json   Version 1.0  Name  vss_rel_1.0.csv   vss_rel_1.0.fidl   vss_rel_1.0.json   vss_rel_1.0.vsi   </description>
+      <description>Nightly  Name  .gitkeep   vss_rel_2.2-develop.binary   vss_rel_2.2-develop.csv   vss_rel_2.2-develop.fidl   vss_rel_2.2-develop.json   Version 2.1  Name  vss_release_2.1.csv   vss_release_2.1.fidl   vss_release_2.1.json   Version 2.0  Name  vss_release_2.0.csv   vss_release_2.0.fidl   vss_release_2.0.json   Version 1.0  Name  vss_rel_1.0.csv   vss_rel_1.0.fidl   vss_rel_1.0.json   vss_rel_1.0.vsi   </description>
     </item>
     
     <item>
@@ -116,15 +119,15 @@ Components of a domain taxonomy A domain taxonomy, like VSS, consists of three i
     </item>
     
     <item>
-      <title>VSS Documentation</title>
-      <link>https://genivi.github.io/vehicle_signal_specification/tools/vss_documentation/</link>
-      <pubDate>Sun, 04 Aug 2019 13:21:34 +0200</pubDate>
+      <title>Software</title>
+      <link>https://genivi.github.io/vehicle_signal_specification/ecosystem/software/</link>
+      <pubDate>Sun, 04 Jul 2021 13:31:46 +0000</pubDate>
       
-      <guid>https://genivi.github.io/vehicle_signal_specification/tools/vss_documentation/</guid>
-      <description>The VSS documentation is realized with GitHub Pages. It is generated from the markdown files in the /documentation directory of this repositories. The static webpage is generated into the /docs directory so that it can be deployed straight from the repository.
-Dependencies The static page is generated with:
- HUGO Learn Theme  Please follow the documentation for installation and further questions around the framework.
-Run the documentation server locally Once hugo is installed please follow the following steps:</description>
+      <guid>https://genivi.github.io/vehicle_signal_specification/ecosystem/software/</guid>
+      <description>Various software frameworks exist to work with VSS data. If something is missing here, please open an issue and tell us.
+W3C VISS2 reference server A reference server written in Go for the VISSv2 specification can be found at https://github.com/UlfBj/W3C_VehicleSignalInterfaceImpl.
+KUKSA.val in-vehicle VISS server A VISS server written in C++, optimized for containerized deployments on vehicle computers is provided by the KUKSA project.
+IoT Event Analytics Plattform IoT Event Analytics is a Complex Event Processing platform for the Vehicle Edge.</description>
     </item>
     
     <item>
@@ -134,8 +137,10 @@ Run the documentation server locally Once hugo is installed please follow the fo
       
       <guid>https://genivi.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/</guid>
       <description>A data entry defines a single sensor/actuator and its members. A data entry example is given below:
-- Speed: type: sensor datatype: uint16 unit: km/h min: 0 max: 300 description: The vehicle speed, as measured by the drivetrain.   Drivetrain.Transmission.SpeedDefines the dot-notated name of the data entry. Please note that all parental branches included in the name must be defined as well.
-  typeDefines the type of the node.</description>
+Speed: type: sensor description: The vehicle speed, as measured by the drivetrain. datatype: uint16 unit: km/h min: 0 max: 300 Drivetrain.Transmission.Speed
+Defines the dot-notated name of the data entry. Please note that all parental branches included in the name must be defined as well.
+type
+Defines the type of the node. This can be branch, sensor, actuator, stream or attribute.</description>
     </item>
     
     <item>
@@ -145,8 +150,8 @@ Run the documentation server locally Once hugo is installed please follow the fo
       
       <guid>https://genivi.github.io/vehicle_signal_specification/introduction/quickstart/</guid>
       <description>A serialization of the data definition of the vehicle signal specification is checked in as vss_$VERSION.json, where $VERSION is the content of the VERSION file.
-A web-based JSON viewer can be used to view the current version.
-Click here</description>
+A web-based JSON viewer can be used to view the spec.
+ View VSS version 2.1 View VSS version 2.0 View VSS version 1.0  </description>
     </item>
     
     <item>
@@ -156,7 +161,7 @@ Click here</description>
       
       <guid>https://genivi.github.io/vehicle_signal_specification/rule_set/data_entry/enum_sensor_actuator/</guid>
       <description>A data entry can optionally be enumerated, allowing it to be assigned a value from a specified set of values. An example of an enumerated sensor is given below:
-- Chassis.Transmission.Gear: type: sensor datatype: uint16 enum: [ -1, 1, 2, 3, 4, 5, 6, 7, 8 ] description: The selected gear. -1 is reverse. An enumerated signal entry has no min, max, or unit element.
+Chassis.Transmission.Gear: type: sensor datatype: uint16 enum: [ -1, 1, 2, 3, 4, 5, 6, 7, 8 ] description: The selected gear. -1 is reverse. An enumerated signal entry has no min, max, or unit element.
 The enum element is an array of values, all of which must be specified in the emum list.</description>
     </item>
     
