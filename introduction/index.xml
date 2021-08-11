@@ -24,7 +24,7 @@ A standardized vehicle data specification allows an industry actor to use a comm
       
       <guid>https://genivi.github.io/vehicle_signal_specification/introduction/taxonomy/</guid>
       <description>The figure below explains the idea of a taxonomy as bridge between human and machine understanding of data. It is important to focus on a specific domain to get common understanding and acceptance. The link between two or more domain taxonomies can be seen as second step.
-Components of a domain taxonomy A domain taxonomy, like VSS, consists of three important components, which will be discussed in detail in this documentation:\</description>
+Components of a domain taxonomy A domain taxonomy, like VSS, consists of three important components, which will be discussed in detail in this documentation:</description>
     </item>
     
     <item>

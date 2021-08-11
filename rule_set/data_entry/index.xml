@@ -13,7 +13,7 @@
       <pubDate>Sun, 04 Aug 2019 11:11:48 +0200</pubDate>
       
       <guid>https://genivi.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/</guid>
-      <description>Each data entry specifies a datatype from the following set (from FrancaIDL). Datatypes shall not be used in branch entry
+      <description>Each data entry specifies a datatype from the following set (from Franca IDL). Datatypes shall not be used in branch entry
 Supported datatypes    Name Type Min Max     uint8 unsigned 8-bit integer 0 255   int8 signed 8-bit integer -128 127   uint16 unsigned 16-bit integer 0 65535   int16 signed 16-bit integer -32768 32767   uint32 unsigned 32-bit integer 0 4294967295   int32 signed 32-bit integer -2147483648 2147483647   uint64 unsigned 64-bit integer 0 2^64   int64 signed 64-bit integer -2^63 2^63 - 1   boolean boolean value 0/false 1/true   float floating point number -3.</description>
     </item>
     
@@ -58,7 +58,7 @@ The enum element is an array of values, all of which must be specified in the em
       
       <guid>https://genivi.github.io/vehicle_signal_specification/rule_set/data_entry/attributes/</guid>
       <description>An attribute is a signal with a default value, specified by its default member.
-The value set for an attribute by a vspec file can be read by a consumer without the need of having the value sent out by a publisher. The attribute, in effect, is configuration data that can be specified when the vspec file is installed.
+Attribute values can also change, similar to sensor values. The latter can be useful for attribute values that are likely to change during the lifetime of the vehicle. However, attribute values should typically not change more than once per ignition cycle, or else it should be defined as a sensor instead.
 Below is an example of a complete attribute describing engine power</description>
     </item>
     
