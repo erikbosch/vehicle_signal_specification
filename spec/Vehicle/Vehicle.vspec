@@ -145,16 +145,37 @@ VehicleIdentification.knownVehicleDamages:
 #
 # Vehicle signals
 #
-IgnitionOn:
-  datatype: boolean
+
+# New signal
+# Vehicle.LowVoltageSystemState
+LowVoltageSystemState:
+  datatype: string
   type: sensor
-  description: Indicates whether the vehicle ignition is on or off.
-  
-IgnitionOnTime:
+  enum: [
+    "UNDEFINED", # State of low voltage system not known
+    "LOCK",      # Low voltage system off, steering lock or equivalent engaged
+    "OFF",       # Low voltage system off, steering lock or equivalent not engaged
+    "ACC",       # Vehicle Accessories on/living
+    "ON",        # Engine start enabled (e.g. ignition on, diesel preheating, electrical drive released)
+    "START"      # Engine starter relay closed (not applicable for electrical vehicles)
+    ]
+  description: State of the low voltage system in the vehicle.
+
+# Replacing IgnitionOnTime
+# I assume this is intended for e.g. construction machines and agricultural machines
+# where "number of hours used" is more important information than "total mileage" 
+# And I assume the term "accumulated" means "total time during the lifetime of the vehicle"
+# But it could as well just mean time since last "off"
+
+# Vehicle.AccumulatedLowVoltageSystemOnTime
+AccumulatedLowVoltageSystemOnTime:
   datatype: uint32
   type: sensor
   unit: s
-  description: Accumulated ignition on time in seconds.
+  description: Accumulated on/start-time during the lifetime of the vehicle.
+
+# Suggesting to remove IgnitionOffTime
+# Unclear use-case
 
 IgnitionOffTime:
   datatype: uint32
@@ -162,11 +183,17 @@ IgnitionOffTime:
   unit: s
   description: Accumulated ignition off time in seconds.
 
+# Suggested to be removed
+# Unclear definition of drive time, possibly engine running and vehicle moving
+
 DriveTime:
   datatype: uint32
   type: sensor
   unit: s
   description: Accumulated drive time in seconds.
+
+# Suggested to be removed
+# Unclear definition of idle time, possibly engine running but vehicle not moving
 
 IdleTime:
   datatype: uint32

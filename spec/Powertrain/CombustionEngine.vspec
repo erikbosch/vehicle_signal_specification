@@ -133,6 +133,16 @@ Engine:
 
 
 #
+# Engine running
+#
+# Vehicle.Powertrain.CombustionEngine.Engine.Running
+# (We can discuss if having a subbranch "Engine" within "CombustionEngine actually makes sense)
+Engine.Running:
+  datatype: boolean
+  type: sensor
+  description: Engine Running. True if engine is rotating (Engine.Speed > 0)
+
+#
 # Engine rotations per minute
 #
 Engine.Speed:

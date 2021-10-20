@@ -8,8 +8,23 @@
 #
 
 #
-# Signals, attributes and actuators around the electric powertrain.
+# Signals, attributes and actuators around the High Voltage (HV) battery for electrical vehicles.
 #
+
+# 
+# Vehicle.Powertrain.Battery.ConnectorState
+# As of today everything in Battery.vspec ends up in Battery-branch
+# and everything is as far as I can see related to high voltage battery
+# So would we see a change of branch name to HVBattery be beneficial?
+ConnectorState:
+  datatype: string
+  type: sensor
+  enum: [
+    "UNDEFINED", # Connector state unknwon or undefined
+    "OPEN",      # HV Battery disconnected
+    "CLOSED"     # HV Battery connected
+    ]
+  description: Information on whether High Voltage Battery is connected to the powertrain system or not.
 
 Temperature:
   datatype: float
