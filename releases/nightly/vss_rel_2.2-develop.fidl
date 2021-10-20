@@ -840,6 +840,22 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
+    name: "Vehicle.Powertrain.Transmission.CurrentGear"
+    type: "sensor"
+    description: "The current gear. 0=Neutral, 1/2/..=Forward, -1/..=Reverse"
+    datatype: int8
+    uuid: cd0ba1d772565e16bff46cbd5c9361da
+}
+,
+{
+    name: "Vehicle.Powertrain.Transmission.SelectedGear"
+    type: "actuator"
+    description: "The selected gear. 0=Neutral, 1/2/..=Forward, -1/..=Reverse, 126=Park, 127=Drive"
+    datatype: int8
+    uuid: 490fd99b9d5f562eb180c19e8cef5e12
+}
+,
+{
     name: "Vehicle.Powertrain.Transmission.PerformanceMode"
     type: "actuator"
     description: "Current gearbox performance mode."
@@ -917,7 +933,7 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.Powertrain.ElectricMotor.Motor.Rpm"
     type: "sensor"
     description: "Motor rotational speed measured as rotations per minute. Negative values indicate reverse driving mode."
-    datatype: uint32
+    datatype: int32
     uuid: 96259c99dc105266bbe7aba70e16f1ef
     min: -100000
     max: 100000
@@ -1587,7 +1603,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.RearShade.Position"
     type: "actuator"
-    description: "Position of side window blind. 0 = Fully retracted. 100 = Fully deployed."
+    description: "Position of window blind. 0 = Fully retracted. 100 = Fully deployed."
     datatype: uint8
     uuid: 9e16fc53f2ec575dbf66c79f969949a9
     min: 0
@@ -2146,7 +2162,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Sunroof.Shade.Position"
     type: "actuator"
-    description: "Position of side window blind. 0 = Fully retracted. 100 = Fully deployed."
+    description: "Position of window blind. 0 = Fully retracted. 100 = Fully deployed."
     datatype: uint8
     uuid: 5f78c2a631b75abc88744f9bad277f5a
     min: 0
@@ -2324,7 +2340,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Door.Row1.Left.Window.isOpen"
     type: "sensor"
-    description: "Is door open or closed"
+    description: "Is window open or closed"
     datatype: boolean
     uuid: d21b53d7aa0c5d96adeb9fdf280ba071
 }
@@ -2343,7 +2359,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Door.Row1.Left.Window.ChildLock"
     type: "sensor"
-    description: "Is door child lock engaged. True = Engaged. False = Disengaged."
+    description: "Is window child lock engaged. True = Engaged. False = Disengaged."
     datatype: boolean
     uuid: 58dbf7e3a85d55ae94750a77cf653110
 }
@@ -2377,7 +2393,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Door.Row1.Left.Shade.Position"
     type: "actuator"
-    description: "Position of side window blind. 0 = Fully retracted. 100 = Fully deployed."
+    description: "Position of window blind. 0 = Fully retracted. 100 = Fully deployed."
     datatype: uint8
     uuid: a4c73477293156999f74416245d4f858
     min: 0
@@ -2404,7 +2420,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Door.Row1.Right.Window.isOpen"
     type: "sensor"
-    description: "Is door open or closed"
+    description: "Is window open or closed"
     datatype: boolean
     uuid: 777ebd3cc5e35e818029bf8b95ba74d6
 }
@@ -2423,7 +2439,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Door.Row1.Right.Window.ChildLock"
     type: "sensor"
-    description: "Is door child lock engaged. True = Engaged. False = Disengaged."
+    description: "Is window child lock engaged. True = Engaged. False = Disengaged."
     datatype: boolean
     uuid: 92daa968de5956cfaef588b9cf41d608
 }
@@ -2457,7 +2473,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Door.Row1.Right.Shade.Position"
     type: "actuator"
-    description: "Position of side window blind. 0 = Fully retracted. 100 = Fully deployed."
+    description: "Position of window blind. 0 = Fully retracted. 100 = Fully deployed."
     datatype: uint8
     uuid: 22944f205eb45c6f804e481b8dd783c5
     min: 0
@@ -2484,7 +2500,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Door.Row2.Left.Window.isOpen"
     type: "sensor"
-    description: "Is door open or closed"
+    description: "Is window open or closed"
     datatype: boolean
     uuid: d2aea63f1e145bcaaa2cfb016972db92
 }
@@ -2503,7 +2519,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Door.Row2.Left.Window.ChildLock"
     type: "sensor"
-    description: "Is door child lock engaged. True = Engaged. False = Disengaged."
+    description: "Is window child lock engaged. True = Engaged. False = Disengaged."
     datatype: boolean
     uuid: 78aec9d9dfbb53a38b1b06f6ebb6f48c
 }
@@ -2537,7 +2553,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Door.Row2.Left.Shade.Position"
     type: "actuator"
-    description: "Position of side window blind. 0 = Fully retracted. 100 = Fully deployed."
+    description: "Position of window blind. 0 = Fully retracted. 100 = Fully deployed."
     datatype: uint8
     uuid: 33d7bdce5c915c3ea9633851f4f79cfb
     min: 0
@@ -2564,7 +2580,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Door.Row2.Right.Window.isOpen"
     type: "sensor"
-    description: "Is door open or closed"
+    description: "Is window open or closed"
     datatype: boolean
     uuid: d7ac920fde8052a4910fe37d5e1c7e4a
 }
@@ -2583,7 +2599,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Door.Row2.Right.Window.ChildLock"
     type: "sensor"
-    description: "Is door child lock engaged. True = Engaged. False = Disengaged."
+    description: "Is window child lock engaged. True = Engaged. False = Disengaged."
     datatype: boolean
     uuid: f8b7ee44a4bd51fa9de1916382a0ba5b
 }
@@ -2617,329 +2633,9 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Door.Row2.Right.Shade.Position"
     type: "actuator"
-    description: "Position of side window blind. 0 = Fully retracted. 100 = Fully deployed."
+    description: "Position of window blind. 0 = Fully retracted. 100 = Fully deployed."
     datatype: uint8
     uuid: fa705739512a54e9a103ff356be14df7
-    min: 0
-    max: 100
-    unit: percent
-}
-,
-{
-    name: "Vehicle.Cabin.Door.Row3.Left.IsOpen"
-    type: "actuator"
-    description: "Is door open or closed"
-    datatype: boolean
-    uuid: 090fec1c1b7751d7a2c5c080e3248813
-}
-,
-{
-    name: "Vehicle.Cabin.Door.Row3.Left.IsLocked"
-    type: "actuator"
-    description: "Is door locked or unlocked. True = Locked. False = Unlocked."
-    datatype: boolean
-    uuid: eae24396e5485615b056903470437581
-}
-,
-{
-    name: "Vehicle.Cabin.Door.Row3.Left.Window.isOpen"
-    type: "sensor"
-    description: "Is door open or closed"
-    datatype: boolean
-    uuid: 457de201470e5f7196af4cfff8784028
-}
-,
-{
-    name: "Vehicle.Cabin.Door.Row3.Left.Window.Position"
-    type: "sensor"
-    description: "Window position. 0 = Fully closed 100 = Fully opened."
-    datatype: uint8
-    uuid: ce03332ee75550c98eb6f0f9aa7048de
-    min: 0
-    max: 100
-    unit: percent
-}
-,
-{
-    name: "Vehicle.Cabin.Door.Row3.Left.Window.ChildLock"
-    type: "sensor"
-    description: "Is door child lock engaged. True = Engaged. False = Disengaged."
-    datatype: boolean
-    uuid: a2b7f69b204f52fd8a3cc5327d37d486
-}
-,
-{
-    name: "Vehicle.Cabin.Door.Row3.Left.Window.Switch"
-    type: "actuator"
-    description: "Switch controlling sliding action such as window, sunroof, or blind."
-    datatype: string
-    uuid: af1eddd0ab095bbd9b09420ff8755274
-    enum: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
-}
-,
-{
-    name: "Vehicle.Cabin.Door.Row3.Left.IsChildLockActive"
-    type: "sensor"
-    description: "Is door child lock engaged. True = Engaged. False = Disengaged."
-    datatype: boolean
-    uuid: ba309e9ad67e50feb87fc567407587d9
-}
-,
-{
-    name: "Vehicle.Cabin.Door.Row3.Left.Shade.Switch"
-    type: "actuator"
-    description: "Switch controlling sliding action such as window, sunroof, or blind."
-    datatype: string
-    uuid: 9e628babb6a75b839dbbc7018adb343d
-    enum: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
-}
-,
-{
-    name: "Vehicle.Cabin.Door.Row3.Left.Shade.Position"
-    type: "actuator"
-    description: "Position of side window blind. 0 = Fully retracted. 100 = Fully deployed."
-    datatype: uint8
-    uuid: 5f5a361aa7b35313a5f050570077b7ed
-    min: 0
-    max: 100
-    unit: percent
-}
-,
-{
-    name: "Vehicle.Cabin.Door.Row3.Right.IsOpen"
-    type: "actuator"
-    description: "Is door open or closed"
-    datatype: boolean
-    uuid: b0947567c53557a787aac28c33c144ad
-}
-,
-{
-    name: "Vehicle.Cabin.Door.Row3.Right.IsLocked"
-    type: "actuator"
-    description: "Is door locked or unlocked. True = Locked. False = Unlocked."
-    datatype: boolean
-    uuid: 5ca204c8d57d5a7199899daa23427796
-}
-,
-{
-    name: "Vehicle.Cabin.Door.Row3.Right.Window.isOpen"
-    type: "sensor"
-    description: "Is door open or closed"
-    datatype: boolean
-    uuid: 46270435851d51f5a9ff6fc72f92329b
-}
-,
-{
-    name: "Vehicle.Cabin.Door.Row3.Right.Window.Position"
-    type: "sensor"
-    description: "Window position. 0 = Fully closed 100 = Fully opened."
-    datatype: uint8
-    uuid: 6014bfdd3acf51a7923bfe91ad9f59e3
-    min: 0
-    max: 100
-    unit: percent
-}
-,
-{
-    name: "Vehicle.Cabin.Door.Row3.Right.Window.ChildLock"
-    type: "sensor"
-    description: "Is door child lock engaged. True = Engaged. False = Disengaged."
-    datatype: boolean
-    uuid: 89f0d1cbc4275b4f81769e52d126ed40
-}
-,
-{
-    name: "Vehicle.Cabin.Door.Row3.Right.Window.Switch"
-    type: "actuator"
-    description: "Switch controlling sliding action such as window, sunroof, or blind."
-    datatype: string
-    uuid: df1e26d4fa8f59e08f7534c75c04e92b
-    enum: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
-}
-,
-{
-    name: "Vehicle.Cabin.Door.Row3.Right.IsChildLockActive"
-    type: "sensor"
-    description: "Is door child lock engaged. True = Engaged. False = Disengaged."
-    datatype: boolean
-    uuid: 7c32cebd35515583973213af366c82d3
-}
-,
-{
-    name: "Vehicle.Cabin.Door.Row3.Right.Shade.Switch"
-    type: "actuator"
-    description: "Switch controlling sliding action such as window, sunroof, or blind."
-    datatype: string
-    uuid: 1a208a1e73a45193bd8ef35f1ad16629
-    enum: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
-}
-,
-{
-    name: "Vehicle.Cabin.Door.Row3.Right.Shade.Position"
-    type: "actuator"
-    description: "Position of side window blind. 0 = Fully retracted. 100 = Fully deployed."
-    datatype: uint8
-    uuid: fba27a31b8755fc3be749268ba673c6a
-    min: 0
-    max: 100
-    unit: percent
-}
-,
-{
-    name: "Vehicle.Cabin.Door.Row4.Left.IsOpen"
-    type: "actuator"
-    description: "Is door open or closed"
-    datatype: boolean
-    uuid: 7d284904b4325dd9b0c581546fb477ca
-}
-,
-{
-    name: "Vehicle.Cabin.Door.Row4.Left.IsLocked"
-    type: "actuator"
-    description: "Is door locked or unlocked. True = Locked. False = Unlocked."
-    datatype: boolean
-    uuid: 31e785ff9529565db891c781c68d09c6
-}
-,
-{
-    name: "Vehicle.Cabin.Door.Row4.Left.Window.isOpen"
-    type: "sensor"
-    description: "Is door open or closed"
-    datatype: boolean
-    uuid: 8cf92e7406c15113a5ddc7ea27fa481a
-}
-,
-{
-    name: "Vehicle.Cabin.Door.Row4.Left.Window.Position"
-    type: "sensor"
-    description: "Window position. 0 = Fully closed 100 = Fully opened."
-    datatype: uint8
-    uuid: 71a140b91c2e5ae98f862023e56fe79c
-    min: 0
-    max: 100
-    unit: percent
-}
-,
-{
-    name: "Vehicle.Cabin.Door.Row4.Left.Window.ChildLock"
-    type: "sensor"
-    description: "Is door child lock engaged. True = Engaged. False = Disengaged."
-    datatype: boolean
-    uuid: 1b68c0a013a55056b8e2970b3747be60
-}
-,
-{
-    name: "Vehicle.Cabin.Door.Row4.Left.Window.Switch"
-    type: "actuator"
-    description: "Switch controlling sliding action such as window, sunroof, or blind."
-    datatype: string
-    uuid: a1a1d21972425886a3201ceb26024569
-    enum: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
-}
-,
-{
-    name: "Vehicle.Cabin.Door.Row4.Left.IsChildLockActive"
-    type: "sensor"
-    description: "Is door child lock engaged. True = Engaged. False = Disengaged."
-    datatype: boolean
-    uuid: 7552b5304b14599a990b11bf3966d196
-}
-,
-{
-    name: "Vehicle.Cabin.Door.Row4.Left.Shade.Switch"
-    type: "actuator"
-    description: "Switch controlling sliding action such as window, sunroof, or blind."
-    datatype: string
-    uuid: 7932c7c3c9f3580b8ca063f7cb173153
-    enum: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
-}
-,
-{
-    name: "Vehicle.Cabin.Door.Row4.Left.Shade.Position"
-    type: "actuator"
-    description: "Position of side window blind. 0 = Fully retracted. 100 = Fully deployed."
-    datatype: uint8
-    uuid: 483fcd6347e256dda1423406da5ad629
-    min: 0
-    max: 100
-    unit: percent
-}
-,
-{
-    name: "Vehicle.Cabin.Door.Row4.Right.IsOpen"
-    type: "actuator"
-    description: "Is door open or closed"
-    datatype: boolean
-    uuid: f21754a4e30851f79beaf8081dd69548
-}
-,
-{
-    name: "Vehicle.Cabin.Door.Row4.Right.IsLocked"
-    type: "actuator"
-    description: "Is door locked or unlocked. True = Locked. False = Unlocked."
-    datatype: boolean
-    uuid: 9e8d9e8654425a568f90d37a876e7d55
-}
-,
-{
-    name: "Vehicle.Cabin.Door.Row4.Right.Window.isOpen"
-    type: "sensor"
-    description: "Is door open or closed"
-    datatype: boolean
-    uuid: b82f30ba5cba5ff6b9102f1b442dc1ac
-}
-,
-{
-    name: "Vehicle.Cabin.Door.Row4.Right.Window.Position"
-    type: "sensor"
-    description: "Window position. 0 = Fully closed 100 = Fully opened."
-    datatype: uint8
-    uuid: 6f527bcf3e435b188f9923a1477eb268
-    min: 0
-    max: 100
-    unit: percent
-}
-,
-{
-    name: "Vehicle.Cabin.Door.Row4.Right.Window.ChildLock"
-    type: "sensor"
-    description: "Is door child lock engaged. True = Engaged. False = Disengaged."
-    datatype: boolean
-    uuid: 52a832c36ce157758de81266aafe05e4
-}
-,
-{
-    name: "Vehicle.Cabin.Door.Row4.Right.Window.Switch"
-    type: "actuator"
-    description: "Switch controlling sliding action such as window, sunroof, or blind."
-    datatype: string
-    uuid: 73f5c0b1a4865c7ba597ca0956ba828b
-    enum: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
-}
-,
-{
-    name: "Vehicle.Cabin.Door.Row4.Right.IsChildLockActive"
-    type: "sensor"
-    description: "Is door child lock engaged. True = Engaged. False = Disengaged."
-    datatype: boolean
-    uuid: dea663d623225f319836dbcdc647b493
-}
-,
-{
-    name: "Vehicle.Cabin.Door.Row4.Right.Shade.Switch"
-    type: "actuator"
-    description: "Switch controlling sliding action such as window, sunroof, or blind."
-    datatype: string
-    uuid: 186315850fa752c5838f38883ec78acd
-    enum: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
-}
-,
-{
-    name: "Vehicle.Cabin.Door.Row4.Right.Shade.Position"
-    type: "actuator"
-    description: "Position of side window blind. 0 = Fully retracted. 100 = Fully deployed."
-    datatype: uint8
-    uuid: e998932b8f0a503287cf4af078cdde29
     min: 0
     max: 100
     unit: percent
@@ -3956,674 +3652,6 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos4.HasPassenger"
-    type: "sensor"
-    description: "Does the seat have a passenger in it."
-    datatype: boolean
-    uuid: b76c7023391755d4bc1a68db099ab42f
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos4.Occupant.Identifier.Subject"
-    type: "sensor"
-    description: "Subject for the authentification of the occupant. E.g. UserID 7331677"
-    datatype: string
-    uuid: e25464883a8f5b99a13a01d08e8c416c
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos4.Occupant.Identifier.Issuer"
-    type: "sensor"
-    description: "Unique Issuer for the authentification of the occupant. E.g. https://accounts.funcorp.com"
-    datatype: string
-    uuid: 2f3a42b75dbc5bcf8250bb852b6e6a40
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos4.IsBelted"
-    type: "sensor"
-    description: "Is the belt engaged."
-    datatype: boolean
-    uuid: f87e82c54f9454dbb4698cf6584472d1
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos4.Heating"
-    type: "actuator"
-    description: "Seat cooling / heating. 0 = off. -100 = max cold. +100 = max heat."
-    datatype: int8
-    uuid: f2a573b7ea6a58c68fb6efe53a01fe46
-    min: -100
-    max: 100
-    unit: percent
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos4.Massage"
-    type: "actuator"
-    description: "Seat massage level. 0 = off. 100 = max massage."
-    datatype: uint8
-    uuid: 3d73dc051f285f26b5df0c41ebec8b1d
-    min: 0
-    max: 100
-    unit: percent
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos4.Recline"
-    type: "actuator"
-    description: "Recline level. -90 = Max forward recline. 90 max backward recline."
-    datatype: int8
-    uuid: 1a80efb2382e56d5b3dcb22c8db828c3
-    min: -90
-    max: 90
-    unit: degrees
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos4.Position"
-    type: "actuator"
-    description: "Seat horizontal position. 0 = Frontmost. 1000 = Rearmost."
-    datatype: uint16
-    uuid: dba35819d090509282807688d200436e
-    min: 0
-    max: 1000
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos4.Height"
-    type: "actuator"
-    description: "Seat vertical position. 0 = Lowermost. 1000 = Uppermost."
-    datatype: uint16
-    uuid: f36ed94a25355aa59c24d806cdede8e2
-    min: 0
-    max: 1000
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos4.Cushion.Height"
-    type: "actuator"
-    description: "Height of the seat cushion (leg support), relative to seat. 0 = Lowermost. 500 = Uppermost."
-    datatype: uint16
-    uuid: 422b00bb67325bfc81d4dfd214d64018
-    min: 0
-    max: 500
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos4.Cushion.Length"
-    type: "actuator"
-    description: "Forward length of cushion (leg support), relative to seat. 0 = Rearmost. 500 = Forwardmost."
-    datatype: uint16
-    uuid: dd69cf26835b550d8e9c0ad168b39f85
-    min: 0
-    max: 500
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos4.Lumbar.Inflation"
-    type: "actuator"
-    description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    datatype: uint8
-    uuid: bf3667c830a159509ed6b9a7c3c18ee2
-    min: 0
-    max: 255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos4.Lumbar.Height"
-    type: "actuator"
-    description: "Lumbar support position. 0 = Lowermost. 255 = Uppermost."
-    datatype: uint8
-    uuid: 51731662d21b532295a51b8333de63fc
-    min: 0
-    max: 255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos4.SideBolster.Inflation"
-    type: "actuator"
-    description: "Side bolster support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    datatype: uint8
-    uuid: bc6c029686bf530ea82560c47733d3a4
-    min: 0
-    max: 255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos4.HeadRestraint.Height"
-    type: "actuator"
-    description: "Height of head restraint. 0 = Bottommost. 255 = Uppermost."
-    datatype: uint8
-    uuid: 56e7bdbb0f445a828112c743af52cc73
-    min: 0
-    max: 255
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos4.Airbag.IsDeployed"
-    type: "sensor"
-    description: "Airbag deployment status. True = Airbag deployed. False = Airbag not deployed."
-    datatype: boolean
-    uuid: f90145cee33e591791f3ed074f005761
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos4.Switch.Warmer"
-    type: "actuator"
-    description: "Warmer switch for Seat heater (SingleSeat.Heating)"
-    datatype: boolean
-    uuid: 922057dfe9dc5727965d7f1377c62067
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos4.Switch.Cooler"
-    type: "actuator"
-    description: "Cooler switch for Seat heater (SingleSeat.Heating)"
-    datatype: boolean
-    uuid: 1bd83e8e97dd577687f0f726310e918c
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos4.Switch.Forward"
-    type: "actuator"
-    description: "Seat forward switch engaged (SingleSeat.Position)"
-    datatype: boolean
-    uuid: ff4c3fc6597b59c99db2860349ede25d
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos4.Switch.Backward"
-    type: "actuator"
-    description: "Seat backward switch engaged (SingleSeat.Position)"
-    datatype: boolean
-    uuid: a21a87ddb5e35be4a0b2a63d37c48525
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos4.Switch.Up"
-    type: "actuator"
-    description: "Seat up switch engaged (SingleSeat.Height)"
-    datatype: boolean
-    uuid: 9ea72f2d177e5cb581eb12c41ff7167b
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos4.Switch.Down"
-    type: "actuator"
-    description: "Seat down switch engaged (SingleSeat.Height)"
-    datatype: boolean
-    uuid: 03672e92f3b05e5aae22803077569f32
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos4.Switch.HeadRestraint.Up"
-    type: "actuator"
-    description: "Head restraint up switch engaged (SingleSeat.HeadRestraint.Height)"
-    datatype: boolean
-    uuid: acbec40eed7958808338738ac38ea477
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos4.Switch.HeadRestraint.Down"
-    type: "actuator"
-    description: "Head restraint down switch engaged (SingleSeat.HeadRestraint.Height)"
-    datatype: boolean
-    uuid: de0cf4c4200356178505f56585b301a0
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos4.Switch.Massage.Increase"
-    type: "actuator"
-    description: "Increase massage level switch engaged (SingleSeat.Massage)"
-    datatype: boolean
-    uuid: 6d1ff8016122572895cb43020f862b23
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos4.Switch.Massage.Decrease"
-    type: "actuator"
-    description: "Decrease massage level switch engaged (SingleSeat.Massage)"
-    datatype: boolean
-    uuid: 00381d412725512890bc7c9194cba98c
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos4.Switch.Recline.Backward"
-    type: "actuator"
-    description: "Seatback recline backward switch engaged (SingleSeat.Recline)"
-    datatype: boolean
-    uuid: 629889de6320561d91d66f66d8a9c39a
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos4.Switch.Recline.Forward"
-    type: "actuator"
-    description: "Seatback recline forward switch engaged (SingleSeat.Recline)"
-    datatype: boolean
-    uuid: 81e7f34524505ec59384a92dbb56dc8b
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos4.Switch.Cushion.Up"
-    type: "actuator"
-    description: "Seat cushion up switch engaged (SingleSeat.Cushion.Height)"
-    datatype: boolean
-    uuid: f673cd59b86a593988948a3b09e95bea
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos4.Switch.Cushion.Down"
-    type: "actuator"
-    description: "Seat cushion down switch engaged (SingleSeat.Cushion.Height)"
-    datatype: boolean
-    uuid: 5d4fcb0363df5934af07647c858f5c14
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos4.Switch.Cushion.Forward"
-    type: "actuator"
-    description: "Seat cushion forward/lengthen switch engaged (SingleSeat.Cushion.Length)"
-    datatype: boolean
-    uuid: e96601a33d70583d8c8f998c065f6083
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos4.Switch.Cushion.Backward"
-    type: "actuator"
-    description: "Seat cushion backward/shorten switch engaged (SingleSeat.Cushion.Length)"
-    datatype: boolean
-    uuid: 9408ca9a1788554592a350eb9a07fded
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos4.Switch.Lumbar.Up"
-    type: "actuator"
-    description: "Lumbar up switch engaged (SingleSeat.Lumbar.Height)"
-    datatype: boolean
-    uuid: 3d5aea9731fc563e9e4f4385a0b94a1c
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos4.Switch.Lumbar.Down"
-    type: "actuator"
-    description: "Lumbar down switch engaged (SingleSeat.Lumbar.Height)"
-    datatype: boolean
-    uuid: b6561c027d155964b1bc4ed741c2a698
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos4.Switch.Lumbar.Inflate"
-    type: "actuator"
-    description: "Lumbar inflation switch engaged (SingleSeat.Lumbar.Inflation)"
-    datatype: boolean
-    uuid: 5bf5b33a19cf51a3b780abc098fa4262
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos4.Switch.Lumbar.Deflate"
-    type: "actuator"
-    description: "Lumbar deflation switch engaged (SingleSeat.Lumbar.Inflation)"
-    datatype: boolean
-    uuid: 438406597de250deb5bc25cf30c875dd
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos4.Switch.SideBolster.Inflate"
-    type: "actuator"
-    description: "Side bolster inflation switch engaged (SingleSeat.SideBolster.Inflation)"
-    datatype: boolean
-    uuid: f1e112150008523ca7513625b5ffc626
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos4.Switch.SideBolster.Deflate"
-    type: "actuator"
-    description: "Side bolster deflation switch engaged (SingleSeat.SideBolster.Inflation)"
-    datatype: boolean
-    uuid: 066556836ccf5f3da646bcafd88f01a8
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos5.HasPassenger"
-    type: "sensor"
-    description: "Does the seat have a passenger in it."
-    datatype: boolean
-    uuid: 7be9cd29db38535ca3b0d10289699e5c
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos5.Occupant.Identifier.Subject"
-    type: "sensor"
-    description: "Subject for the authentification of the occupant. E.g. UserID 7331677"
-    datatype: string
-    uuid: 45f11291c9f7535f993be32949a277de
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos5.Occupant.Identifier.Issuer"
-    type: "sensor"
-    description: "Unique Issuer for the authentification of the occupant. E.g. https://accounts.funcorp.com"
-    datatype: string
-    uuid: d02aa0501a025df2984ef8e4adb14ae5
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos5.IsBelted"
-    type: "sensor"
-    description: "Is the belt engaged."
-    datatype: boolean
-    uuid: 94e06573b76d5d39aea996411a8b97a2
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos5.Heating"
-    type: "actuator"
-    description: "Seat cooling / heating. 0 = off. -100 = max cold. +100 = max heat."
-    datatype: int8
-    uuid: 50a38543994f53d4a159d746ba9d05d0
-    min: -100
-    max: 100
-    unit: percent
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos5.Massage"
-    type: "actuator"
-    description: "Seat massage level. 0 = off. 100 = max massage."
-    datatype: uint8
-    uuid: efae66b35a355bf09d5c5fcac343bc47
-    min: 0
-    max: 100
-    unit: percent
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos5.Recline"
-    type: "actuator"
-    description: "Recline level. -90 = Max forward recline. 90 max backward recline."
-    datatype: int8
-    uuid: d461daff15845299916175335671105e
-    min: -90
-    max: 90
-    unit: degrees
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos5.Position"
-    type: "actuator"
-    description: "Seat horizontal position. 0 = Frontmost. 1000 = Rearmost."
-    datatype: uint16
-    uuid: b7492d2a7d9c5e2b859a3644436acfa4
-    min: 0
-    max: 1000
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos5.Height"
-    type: "actuator"
-    description: "Seat vertical position. 0 = Lowermost. 1000 = Uppermost."
-    datatype: uint16
-    uuid: 358a0e469097589c867deae09605d541
-    min: 0
-    max: 1000
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos5.Cushion.Height"
-    type: "actuator"
-    description: "Height of the seat cushion (leg support), relative to seat. 0 = Lowermost. 500 = Uppermost."
-    datatype: uint16
-    uuid: fdb272dca4b056bfa8c2a2df1c3c305a
-    min: 0
-    max: 500
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos5.Cushion.Length"
-    type: "actuator"
-    description: "Forward length of cushion (leg support), relative to seat. 0 = Rearmost. 500 = Forwardmost."
-    datatype: uint16
-    uuid: 62151a78296b58efa61ac380a3a288f8
-    min: 0
-    max: 500
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos5.Lumbar.Inflation"
-    type: "actuator"
-    description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    datatype: uint8
-    uuid: 0a7ed16602bc5bf693e7946cda72b3a1
-    min: 0
-    max: 255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos5.Lumbar.Height"
-    type: "actuator"
-    description: "Lumbar support position. 0 = Lowermost. 255 = Uppermost."
-    datatype: uint8
-    uuid: d468b501a72f56afa85cedd17f2ec01d
-    min: 0
-    max: 255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos5.SideBolster.Inflation"
-    type: "actuator"
-    description: "Side bolster support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    datatype: uint8
-    uuid: 6a4fcff1fa86583cba885dba282a518d
-    min: 0
-    max: 255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos5.HeadRestraint.Height"
-    type: "actuator"
-    description: "Height of head restraint. 0 = Bottommost. 255 = Uppermost."
-    datatype: uint8
-    uuid: 6e0640038cc45cb1a26f5b7964870ec4
-    min: 0
-    max: 255
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos5.Airbag.IsDeployed"
-    type: "sensor"
-    description: "Airbag deployment status. True = Airbag deployed. False = Airbag not deployed."
-    datatype: boolean
-    uuid: 50ccc0b1eae65536bdbc1f64ce81412c
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos5.Switch.Warmer"
-    type: "actuator"
-    description: "Warmer switch for Seat heater (SingleSeat.Heating)"
-    datatype: boolean
-    uuid: ba3d0c9639f455c6b058cc87314c2a53
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos5.Switch.Cooler"
-    type: "actuator"
-    description: "Cooler switch for Seat heater (SingleSeat.Heating)"
-    datatype: boolean
-    uuid: 6905227d11cf5dd79072f631b916b7f6
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos5.Switch.Forward"
-    type: "actuator"
-    description: "Seat forward switch engaged (SingleSeat.Position)"
-    datatype: boolean
-    uuid: 6e1d6e907449529bbbbeea07410df8e2
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos5.Switch.Backward"
-    type: "actuator"
-    description: "Seat backward switch engaged (SingleSeat.Position)"
-    datatype: boolean
-    uuid: 8c8328df683f5ce38f461ccb039617a1
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos5.Switch.Up"
-    type: "actuator"
-    description: "Seat up switch engaged (SingleSeat.Height)"
-    datatype: boolean
-    uuid: f1917a9913cb50088d6a8a11c9f232ba
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos5.Switch.Down"
-    type: "actuator"
-    description: "Seat down switch engaged (SingleSeat.Height)"
-    datatype: boolean
-    uuid: 1f4f9d6ee72654f9a8daaf00551a745e
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos5.Switch.HeadRestraint.Up"
-    type: "actuator"
-    description: "Head restraint up switch engaged (SingleSeat.HeadRestraint.Height)"
-    datatype: boolean
-    uuid: bc828ead18fc5277a5f10188700d6a14
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos5.Switch.HeadRestraint.Down"
-    type: "actuator"
-    description: "Head restraint down switch engaged (SingleSeat.HeadRestraint.Height)"
-    datatype: boolean
-    uuid: 41d52dec80915e8a877322c86c201d85
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos5.Switch.Massage.Increase"
-    type: "actuator"
-    description: "Increase massage level switch engaged (SingleSeat.Massage)"
-    datatype: boolean
-    uuid: 97fbc713f161501786d7252b9247bfc4
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos5.Switch.Massage.Decrease"
-    type: "actuator"
-    description: "Decrease massage level switch engaged (SingleSeat.Massage)"
-    datatype: boolean
-    uuid: 9313f1cd803757aeb49f06e8cfe407d0
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos5.Switch.Recline.Backward"
-    type: "actuator"
-    description: "Seatback recline backward switch engaged (SingleSeat.Recline)"
-    datatype: boolean
-    uuid: e2e977dea76250ecb8d1698a31e63604
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos5.Switch.Recline.Forward"
-    type: "actuator"
-    description: "Seatback recline forward switch engaged (SingleSeat.Recline)"
-    datatype: boolean
-    uuid: ba61691699ae53f2968052efd6e5f97e
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos5.Switch.Cushion.Up"
-    type: "actuator"
-    description: "Seat cushion up switch engaged (SingleSeat.Cushion.Height)"
-    datatype: boolean
-    uuid: ab8f56f149b553a0ac8471619bcf4e51
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos5.Switch.Cushion.Down"
-    type: "actuator"
-    description: "Seat cushion down switch engaged (SingleSeat.Cushion.Height)"
-    datatype: boolean
-    uuid: 4432ecede3ab5e30a87bf444642826d6
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos5.Switch.Cushion.Forward"
-    type: "actuator"
-    description: "Seat cushion forward/lengthen switch engaged (SingleSeat.Cushion.Length)"
-    datatype: boolean
-    uuid: 924f19b8921b57e8a27a28ba7314a6e2
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos5.Switch.Cushion.Backward"
-    type: "actuator"
-    description: "Seat cushion backward/shorten switch engaged (SingleSeat.Cushion.Length)"
-    datatype: boolean
-    uuid: 13bfa8294c2d53018e509a1d1bceedbe
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos5.Switch.Lumbar.Up"
-    type: "actuator"
-    description: "Lumbar up switch engaged (SingleSeat.Lumbar.Height)"
-    datatype: boolean
-    uuid: 3965566a438656c38484597c75239d13
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos5.Switch.Lumbar.Down"
-    type: "actuator"
-    description: "Lumbar down switch engaged (SingleSeat.Lumbar.Height)"
-    datatype: boolean
-    uuid: 2570faa803db50fcbff73b80d4469b6e
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos5.Switch.Lumbar.Inflate"
-    type: "actuator"
-    description: "Lumbar inflation switch engaged (SingleSeat.Lumbar.Inflation)"
-    datatype: boolean
-    uuid: 0ef70800fd465c049db93e60e036d901
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos5.Switch.Lumbar.Deflate"
-    type: "actuator"
-    description: "Lumbar deflation switch engaged (SingleSeat.Lumbar.Inflation)"
-    datatype: boolean
-    uuid: b8a29f8ac9c451f5be16aa94b6f60200
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos5.Switch.SideBolster.Inflate"
-    type: "actuator"
-    description: "Side bolster inflation switch engaged (SingleSeat.SideBolster.Inflation)"
-    datatype: boolean
-    uuid: 73d478fe21e15ba5a01a23834b37cc1d
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row1.Pos5.Switch.SideBolster.Deflate"
-    type: "actuator"
-    description: "Side bolster deflation switch engaged (SingleSeat.SideBolster.Inflation)"
-    datatype: boolean
-    uuid: de9f1e99c11e5270a4b07bd1e80fad29
-}
-,
-{
     name: "Vehicle.Cabin.Seat.Row2.Pos1.HasPassenger"
     type: "sensor"
     description: "Does the seat have a passenger in it."
@@ -5626,4017 +4654,9 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos4.HasPassenger"
-    type: "sensor"
-    description: "Does the seat have a passenger in it."
-    datatype: boolean
-    uuid: 150f507220a95dcca7932edbf3a7d76a
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos4.Occupant.Identifier.Subject"
-    type: "sensor"
-    description: "Subject for the authentification of the occupant. E.g. UserID 7331677"
-    datatype: string
-    uuid: f49dd0db63dd5042aca14d74f33d1d23
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos4.Occupant.Identifier.Issuer"
-    type: "sensor"
-    description: "Unique Issuer for the authentification of the occupant. E.g. https://accounts.funcorp.com"
-    datatype: string
-    uuid: da19d3ae12bc50ffb21aebe765c2e8fb
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos4.IsBelted"
-    type: "sensor"
-    description: "Is the belt engaged."
-    datatype: boolean
-    uuid: decd38c228345d06908d631038df274b
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos4.Heating"
-    type: "actuator"
-    description: "Seat cooling / heating. 0 = off. -100 = max cold. +100 = max heat."
-    datatype: int8
-    uuid: f59966a48c365bc2aef0d00cac5ca6f2
-    min: -100
-    max: 100
-    unit: percent
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos4.Massage"
-    type: "actuator"
-    description: "Seat massage level. 0 = off. 100 = max massage."
-    datatype: uint8
-    uuid: d53258ce512b53e9bd50bb73f6e07394
-    min: 0
-    max: 100
-    unit: percent
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos4.Recline"
-    type: "actuator"
-    description: "Recline level. -90 = Max forward recline. 90 max backward recline."
-    datatype: int8
-    uuid: c4e32a72bb8151bf8f52a5af3cee9e4f
-    min: -90
-    max: 90
-    unit: degrees
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos4.Position"
-    type: "actuator"
-    description: "Seat horizontal position. 0 = Frontmost. 1000 = Rearmost."
-    datatype: uint16
-    uuid: 8fc50509dddf5eaf9aa1de19af1486ab
-    min: 0
-    max: 1000
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos4.Height"
-    type: "actuator"
-    description: "Seat vertical position. 0 = Lowermost. 1000 = Uppermost."
-    datatype: uint16
-    uuid: 7c188a7c9bd95775ba3f00e190e1004e
-    min: 0
-    max: 1000
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos4.Cushion.Height"
-    type: "actuator"
-    description: "Height of the seat cushion (leg support), relative to seat. 0 = Lowermost. 500 = Uppermost."
-    datatype: uint16
-    uuid: 0c332fc96dee5a588901e72199dbbb72
-    min: 0
-    max: 500
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos4.Cushion.Length"
-    type: "actuator"
-    description: "Forward length of cushion (leg support), relative to seat. 0 = Rearmost. 500 = Forwardmost."
-    datatype: uint16
-    uuid: 34a168fae13756daacb942c773d82937
-    min: 0
-    max: 500
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos4.Lumbar.Inflation"
-    type: "actuator"
-    description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    datatype: uint8
-    uuid: efbfd3a02b0b5861afc9774360522fb1
-    min: 0
-    max: 255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos4.Lumbar.Height"
-    type: "actuator"
-    description: "Lumbar support position. 0 = Lowermost. 255 = Uppermost."
-    datatype: uint8
-    uuid: 3bff26018f765acb9cfbb0ab6f5cbd88
-    min: 0
-    max: 255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos4.SideBolster.Inflation"
-    type: "actuator"
-    description: "Side bolster support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    datatype: uint8
-    uuid: 66227290ee115179856aa84f78f612a9
-    min: 0
-    max: 255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos4.HeadRestraint.Height"
-    type: "actuator"
-    description: "Height of head restraint. 0 = Bottommost. 255 = Uppermost."
-    datatype: uint8
-    uuid: 3e5db9a088bb5c8595bbb1768374cb45
-    min: 0
-    max: 255
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos4.Airbag.IsDeployed"
-    type: "sensor"
-    description: "Airbag deployment status. True = Airbag deployed. False = Airbag not deployed."
-    datatype: boolean
-    uuid: 998d17bfd1625116acd8c1b7cc6220bc
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos4.Switch.Warmer"
-    type: "actuator"
-    description: "Warmer switch for Seat heater (SingleSeat.Heating)"
-    datatype: boolean
-    uuid: 330b87529f1f5cb3bd47ce767ebd6ce5
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos4.Switch.Cooler"
-    type: "actuator"
-    description: "Cooler switch for Seat heater (SingleSeat.Heating)"
-    datatype: boolean
-    uuid: 8ca112679780511b919008a4045e2790
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos4.Switch.Forward"
-    type: "actuator"
-    description: "Seat forward switch engaged (SingleSeat.Position)"
-    datatype: boolean
-    uuid: 9781a16434c959ceaff4b271b8ab9808
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos4.Switch.Backward"
-    type: "actuator"
-    description: "Seat backward switch engaged (SingleSeat.Position)"
-    datatype: boolean
-    uuid: d493227f7a325a3b970205dd134ca7c2
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos4.Switch.Up"
-    type: "actuator"
-    description: "Seat up switch engaged (SingleSeat.Height)"
-    datatype: boolean
-    uuid: 85668a959d4051b5b35af79d46d507af
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos4.Switch.Down"
-    type: "actuator"
-    description: "Seat down switch engaged (SingleSeat.Height)"
-    datatype: boolean
-    uuid: 970967e60753547da3c5dfa1e3f488f1
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos4.Switch.HeadRestraint.Up"
-    type: "actuator"
-    description: "Head restraint up switch engaged (SingleSeat.HeadRestraint.Height)"
-    datatype: boolean
-    uuid: d03f345ca89a5c9cb84d02f57f974e5c
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos4.Switch.HeadRestraint.Down"
-    type: "actuator"
-    description: "Head restraint down switch engaged (SingleSeat.HeadRestraint.Height)"
-    datatype: boolean
-    uuid: dfaf7c913c5e5f0daf630de51d8776d8
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos4.Switch.Massage.Increase"
-    type: "actuator"
-    description: "Increase massage level switch engaged (SingleSeat.Massage)"
-    datatype: boolean
-    uuid: 0b357e3281935a0daac22dfbdebb27c6
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos4.Switch.Massage.Decrease"
-    type: "actuator"
-    description: "Decrease massage level switch engaged (SingleSeat.Massage)"
-    datatype: boolean
-    uuid: 3b78aca94a5e5d5dbc755af40e050fd9
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos4.Switch.Recline.Backward"
-    type: "actuator"
-    description: "Seatback recline backward switch engaged (SingleSeat.Recline)"
-    datatype: boolean
-    uuid: c7d14cdf57df5b108150b2dc22c40cee
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos4.Switch.Recline.Forward"
-    type: "actuator"
-    description: "Seatback recline forward switch engaged (SingleSeat.Recline)"
-    datatype: boolean
-    uuid: b7aa758a58755b3089a5489d3b213de9
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos4.Switch.Cushion.Up"
-    type: "actuator"
-    description: "Seat cushion up switch engaged (SingleSeat.Cushion.Height)"
-    datatype: boolean
-    uuid: 8b7f6f53d7fb5073a7a575e6e9ba3411
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos4.Switch.Cushion.Down"
-    type: "actuator"
-    description: "Seat cushion down switch engaged (SingleSeat.Cushion.Height)"
-    datatype: boolean
-    uuid: 81318d7ddaef5cb6a41e8cdb38ad32c5
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos4.Switch.Cushion.Forward"
-    type: "actuator"
-    description: "Seat cushion forward/lengthen switch engaged (SingleSeat.Cushion.Length)"
-    datatype: boolean
-    uuid: 36f7e220b315552e8556800ecc28cabb
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos4.Switch.Cushion.Backward"
-    type: "actuator"
-    description: "Seat cushion backward/shorten switch engaged (SingleSeat.Cushion.Length)"
-    datatype: boolean
-    uuid: 673c8b03f6375dae86b72d696a284629
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos4.Switch.Lumbar.Up"
-    type: "actuator"
-    description: "Lumbar up switch engaged (SingleSeat.Lumbar.Height)"
-    datatype: boolean
-    uuid: b89872f092745d7eaef96c4493727255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos4.Switch.Lumbar.Down"
-    type: "actuator"
-    description: "Lumbar down switch engaged (SingleSeat.Lumbar.Height)"
-    datatype: boolean
-    uuid: 048364c427be54159cc81d895b1b8f06
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos4.Switch.Lumbar.Inflate"
-    type: "actuator"
-    description: "Lumbar inflation switch engaged (SingleSeat.Lumbar.Inflation)"
-    datatype: boolean
-    uuid: a8cc660d5f115b1183de0f1a4b49d36d
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos4.Switch.Lumbar.Deflate"
-    type: "actuator"
-    description: "Lumbar deflation switch engaged (SingleSeat.Lumbar.Inflation)"
-    datatype: boolean
-    uuid: 92e6eb1a1a6651bfb3107514282d3f66
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos4.Switch.SideBolster.Inflate"
-    type: "actuator"
-    description: "Side bolster inflation switch engaged (SingleSeat.SideBolster.Inflation)"
-    datatype: boolean
-    uuid: 0d21802e2ab95f4fb5a31f8fd7fa9d5b
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos4.Switch.SideBolster.Deflate"
-    type: "actuator"
-    description: "Side bolster deflation switch engaged (SingleSeat.SideBolster.Inflation)"
-    datatype: boolean
-    uuid: 19916ae489a15d7892c08e29c3e064eb
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos5.HasPassenger"
-    type: "sensor"
-    description: "Does the seat have a passenger in it."
-    datatype: boolean
-    uuid: fc703629e3155ddca1b2c090da3bc4c5
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos5.Occupant.Identifier.Subject"
-    type: "sensor"
-    description: "Subject for the authentification of the occupant. E.g. UserID 7331677"
-    datatype: string
-    uuid: 94d12faa079655a8a58dff377e094b2c
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos5.Occupant.Identifier.Issuer"
-    type: "sensor"
-    description: "Unique Issuer for the authentification of the occupant. E.g. https://accounts.funcorp.com"
-    datatype: string
-    uuid: cfef73cc63b756abb01ef7dd3aab8b6c
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos5.IsBelted"
-    type: "sensor"
-    description: "Is the belt engaged."
-    datatype: boolean
-    uuid: b7e31917ddfa5cfd897ba5b3c540a10a
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos5.Heating"
-    type: "actuator"
-    description: "Seat cooling / heating. 0 = off. -100 = max cold. +100 = max heat."
-    datatype: int8
-    uuid: 4a2d57f90b7950b395e2307909fb1798
-    min: -100
-    max: 100
-    unit: percent
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos5.Massage"
-    type: "actuator"
-    description: "Seat massage level. 0 = off. 100 = max massage."
-    datatype: uint8
-    uuid: cc7e8fb929bd5cea89fe66d6849197b8
-    min: 0
-    max: 100
-    unit: percent
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos5.Recline"
-    type: "actuator"
-    description: "Recline level. -90 = Max forward recline. 90 max backward recline."
-    datatype: int8
-    uuid: f16b0e6179365c8e8c51f00b712c0959
-    min: -90
-    max: 90
-    unit: degrees
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos5.Position"
-    type: "actuator"
-    description: "Seat horizontal position. 0 = Frontmost. 1000 = Rearmost."
-    datatype: uint16
-    uuid: 260ed6c22e20578c8c4c9ae163423ccf
-    min: 0
-    max: 1000
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos5.Height"
-    type: "actuator"
-    description: "Seat vertical position. 0 = Lowermost. 1000 = Uppermost."
-    datatype: uint16
-    uuid: fd6a9ed266875faf82c0b29fa85a2751
-    min: 0
-    max: 1000
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos5.Cushion.Height"
-    type: "actuator"
-    description: "Height of the seat cushion (leg support), relative to seat. 0 = Lowermost. 500 = Uppermost."
-    datatype: uint16
-    uuid: 3a7faa0003645b06a223b5f890af6039
-    min: 0
-    max: 500
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos5.Cushion.Length"
-    type: "actuator"
-    description: "Forward length of cushion (leg support), relative to seat. 0 = Rearmost. 500 = Forwardmost."
-    datatype: uint16
-    uuid: 0ed096fc145c5bc1b88207bc392def33
-    min: 0
-    max: 500
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos5.Lumbar.Inflation"
-    type: "actuator"
-    description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    datatype: uint8
-    uuid: 34ac51dc18f25130815dc024f7ca7ff3
-    min: 0
-    max: 255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos5.Lumbar.Height"
-    type: "actuator"
-    description: "Lumbar support position. 0 = Lowermost. 255 = Uppermost."
-    datatype: uint8
-    uuid: 53e3785ab9b659d5a39a736dc2a29cc2
-    min: 0
-    max: 255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos5.SideBolster.Inflation"
-    type: "actuator"
-    description: "Side bolster support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    datatype: uint8
-    uuid: bebc5ed952ba55cbafe7ae7b6c404cf7
-    min: 0
-    max: 255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos5.HeadRestraint.Height"
-    type: "actuator"
-    description: "Height of head restraint. 0 = Bottommost. 255 = Uppermost."
-    datatype: uint8
-    uuid: 80a08b71255f59bd82afe855a4d8525d
-    min: 0
-    max: 255
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos5.Airbag.IsDeployed"
-    type: "sensor"
-    description: "Airbag deployment status. True = Airbag deployed. False = Airbag not deployed."
-    datatype: boolean
-    uuid: bed309611a2f588b9c64ff2682a6eaa2
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos5.Switch.Warmer"
-    type: "actuator"
-    description: "Warmer switch for Seat heater (SingleSeat.Heating)"
-    datatype: boolean
-    uuid: c3836d25bc6055018d2355d054affe29
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos5.Switch.Cooler"
-    type: "actuator"
-    description: "Cooler switch for Seat heater (SingleSeat.Heating)"
-    datatype: boolean
-    uuid: 6c1b6db441cf5cbdb81d7a8a183374ea
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos5.Switch.Forward"
-    type: "actuator"
-    description: "Seat forward switch engaged (SingleSeat.Position)"
-    datatype: boolean
-    uuid: 188fbe677edf538ab4c02f36af5ef13f
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos5.Switch.Backward"
-    type: "actuator"
-    description: "Seat backward switch engaged (SingleSeat.Position)"
-    datatype: boolean
-    uuid: 2d6100b9b8ca5d7ab5cb8ff58f4719a4
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos5.Switch.Up"
-    type: "actuator"
-    description: "Seat up switch engaged (SingleSeat.Height)"
-    datatype: boolean
-    uuid: 68d9e54198f557539610a46f173d088a
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos5.Switch.Down"
-    type: "actuator"
-    description: "Seat down switch engaged (SingleSeat.Height)"
-    datatype: boolean
-    uuid: 1d013294c5f958d4ac750f1e4f1ca203
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos5.Switch.HeadRestraint.Up"
-    type: "actuator"
-    description: "Head restraint up switch engaged (SingleSeat.HeadRestraint.Height)"
-    datatype: boolean
-    uuid: cf447e50b48b5eea9e44729253198959
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos5.Switch.HeadRestraint.Down"
-    type: "actuator"
-    description: "Head restraint down switch engaged (SingleSeat.HeadRestraint.Height)"
-    datatype: boolean
-    uuid: 9dfe1f84589654a8939a73c6c31dd987
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos5.Switch.Massage.Increase"
-    type: "actuator"
-    description: "Increase massage level switch engaged (SingleSeat.Massage)"
-    datatype: boolean
-    uuid: a5357d97a19b5a09bb79e359b3fdc59a
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos5.Switch.Massage.Decrease"
-    type: "actuator"
-    description: "Decrease massage level switch engaged (SingleSeat.Massage)"
-    datatype: boolean
-    uuid: 72190e0266695b43b4257294d5d5cfff
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos5.Switch.Recline.Backward"
-    type: "actuator"
-    description: "Seatback recline backward switch engaged (SingleSeat.Recline)"
-    datatype: boolean
-    uuid: eb14571738e556c5b27b177983f5db52
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos5.Switch.Recline.Forward"
-    type: "actuator"
-    description: "Seatback recline forward switch engaged (SingleSeat.Recline)"
-    datatype: boolean
-    uuid: 72eb3c5cec665493a587bed03185904a
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos5.Switch.Cushion.Up"
-    type: "actuator"
-    description: "Seat cushion up switch engaged (SingleSeat.Cushion.Height)"
-    datatype: boolean
-    uuid: 053006bc760f5b81844f3f4660434bbc
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos5.Switch.Cushion.Down"
-    type: "actuator"
-    description: "Seat cushion down switch engaged (SingleSeat.Cushion.Height)"
-    datatype: boolean
-    uuid: 898b584a511c53d0bb4a160fc2ea6e59
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos5.Switch.Cushion.Forward"
-    type: "actuator"
-    description: "Seat cushion forward/lengthen switch engaged (SingleSeat.Cushion.Length)"
-    datatype: boolean
-    uuid: 1285082f30b854639180c81e10d0fc94
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos5.Switch.Cushion.Backward"
-    type: "actuator"
-    description: "Seat cushion backward/shorten switch engaged (SingleSeat.Cushion.Length)"
-    datatype: boolean
-    uuid: 6cd6d0b41ba956519eeec3bf55501296
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos5.Switch.Lumbar.Up"
-    type: "actuator"
-    description: "Lumbar up switch engaged (SingleSeat.Lumbar.Height)"
-    datatype: boolean
-    uuid: c53ecc336d635d0a9de9ab1be9876d10
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos5.Switch.Lumbar.Down"
-    type: "actuator"
-    description: "Lumbar down switch engaged (SingleSeat.Lumbar.Height)"
-    datatype: boolean
-    uuid: 9d3eabce73b15604be734cbb66c7d6bb
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos5.Switch.Lumbar.Inflate"
-    type: "actuator"
-    description: "Lumbar inflation switch engaged (SingleSeat.Lumbar.Inflation)"
-    datatype: boolean
-    uuid: c185c1e62e7651ed894982fc9d468251
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos5.Switch.Lumbar.Deflate"
-    type: "actuator"
-    description: "Lumbar deflation switch engaged (SingleSeat.Lumbar.Inflation)"
-    datatype: boolean
-    uuid: ff2f5c35159e58acb0228f6c0150c314
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos5.Switch.SideBolster.Inflate"
-    type: "actuator"
-    description: "Side bolster inflation switch engaged (SingleSeat.SideBolster.Inflation)"
-    datatype: boolean
-    uuid: 33f725544e4f560cb31da0eceb468eab
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row2.Pos5.Switch.SideBolster.Deflate"
-    type: "actuator"
-    description: "Side bolster deflation switch engaged (SingleSeat.SideBolster.Inflation)"
-    datatype: boolean
-    uuid: d1c716046e585015bccee6c042e45bda
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos1.HasPassenger"
-    type: "sensor"
-    description: "Does the seat have a passenger in it."
-    datatype: boolean
-    uuid: b23d3b25235d5e75a8c6c8e87be9f1ac
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos1.Occupant.Identifier.Subject"
-    type: "sensor"
-    description: "Subject for the authentification of the occupant. E.g. UserID 7331677"
-    datatype: string
-    uuid: 05c13878734150038595618ea907fc61
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos1.Occupant.Identifier.Issuer"
-    type: "sensor"
-    description: "Unique Issuer for the authentification of the occupant. E.g. https://accounts.funcorp.com"
-    datatype: string
-    uuid: 5ed5728dd1f352798de96de0e6479be4
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos1.IsBelted"
-    type: "sensor"
-    description: "Is the belt engaged."
-    datatype: boolean
-    uuid: ccbec8f3c29a50f5986620aa8c57495e
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos1.Heating"
-    type: "actuator"
-    description: "Seat cooling / heating. 0 = off. -100 = max cold. +100 = max heat."
-    datatype: int8
-    uuid: 36329e06aa485008b8d10800a384b2ac
-    min: -100
-    max: 100
-    unit: percent
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos1.Massage"
-    type: "actuator"
-    description: "Seat massage level. 0 = off. 100 = max massage."
-    datatype: uint8
-    uuid: 6fe09492db91588381478ee2e3041895
-    min: 0
-    max: 100
-    unit: percent
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos1.Recline"
-    type: "actuator"
-    description: "Recline level. -90 = Max forward recline. 90 max backward recline."
-    datatype: int8
-    uuid: d67491430ea85d4a9db3cd27dc7e0ef9
-    min: -90
-    max: 90
-    unit: degrees
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos1.Position"
-    type: "actuator"
-    description: "Seat horizontal position. 0 = Frontmost. 1000 = Rearmost."
-    datatype: uint16
-    uuid: b3fe0e11e97e57c2a9cb0b80e8a37a85
-    min: 0
-    max: 1000
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos1.Height"
-    type: "actuator"
-    description: "Seat vertical position. 0 = Lowermost. 1000 = Uppermost."
-    datatype: uint16
-    uuid: 852401a78a0d52fd8f2f038da0d02b42
-    min: 0
-    max: 1000
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos1.Cushion.Height"
-    type: "actuator"
-    description: "Height of the seat cushion (leg support), relative to seat. 0 = Lowermost. 500 = Uppermost."
-    datatype: uint16
-    uuid: f4e62205ac1d5d38abdef488a945c209
-    min: 0
-    max: 500
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos1.Cushion.Length"
-    type: "actuator"
-    description: "Forward length of cushion (leg support), relative to seat. 0 = Rearmost. 500 = Forwardmost."
-    datatype: uint16
-    uuid: b3c95c1fa65f56cb9d1932bb69706f6d
-    min: 0
-    max: 500
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos1.Lumbar.Inflation"
-    type: "actuator"
-    description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    datatype: uint8
-    uuid: 5b92b710434555998f630bfa6b5acb79
-    min: 0
-    max: 255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos1.Lumbar.Height"
-    type: "actuator"
-    description: "Lumbar support position. 0 = Lowermost. 255 = Uppermost."
-    datatype: uint8
-    uuid: f7453c8e57bf5d66b46fe9a1d8fc2416
-    min: 0
-    max: 255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos1.SideBolster.Inflation"
-    type: "actuator"
-    description: "Side bolster support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    datatype: uint8
-    uuid: 735588ba73f159a6abb0509378fe8367
-    min: 0
-    max: 255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos1.HeadRestraint.Height"
-    type: "actuator"
-    description: "Height of head restraint. 0 = Bottommost. 255 = Uppermost."
-    datatype: uint8
-    uuid: c4de70157741565ba9c5b453a4e2718c
-    min: 0
-    max: 255
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos1.Airbag.IsDeployed"
-    type: "sensor"
-    description: "Airbag deployment status. True = Airbag deployed. False = Airbag not deployed."
-    datatype: boolean
-    uuid: b211b42102d558a68ffb5a3a2644ac2b
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos1.Switch.Warmer"
-    type: "actuator"
-    description: "Warmer switch for Seat heater (SingleSeat.Heating)"
-    datatype: boolean
-    uuid: f1e62c8c0461551da1e8539cfc49e47c
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos1.Switch.Cooler"
-    type: "actuator"
-    description: "Cooler switch for Seat heater (SingleSeat.Heating)"
-    datatype: boolean
-    uuid: b467b74a001e55ed95e7756c8b348910
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos1.Switch.Forward"
-    type: "actuator"
-    description: "Seat forward switch engaged (SingleSeat.Position)"
-    datatype: boolean
-    uuid: 563b72fa65da52d19e1283e172d2d0a6
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos1.Switch.Backward"
-    type: "actuator"
-    description: "Seat backward switch engaged (SingleSeat.Position)"
-    datatype: boolean
-    uuid: 34c6056f992855b1bb2d019ce5d358db
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos1.Switch.Up"
-    type: "actuator"
-    description: "Seat up switch engaged (SingleSeat.Height)"
-    datatype: boolean
-    uuid: f5456d2c12ea5c11adce4b44dd584536
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos1.Switch.Down"
-    type: "actuator"
-    description: "Seat down switch engaged (SingleSeat.Height)"
-    datatype: boolean
-    uuid: d72e92629f0d5a5f9478f561471197a3
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos1.Switch.HeadRestraint.Up"
-    type: "actuator"
-    description: "Head restraint up switch engaged (SingleSeat.HeadRestraint.Height)"
-    datatype: boolean
-    uuid: 1b2f08d123905b3b81ab9d98965d1a85
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos1.Switch.HeadRestraint.Down"
-    type: "actuator"
-    description: "Head restraint down switch engaged (SingleSeat.HeadRestraint.Height)"
-    datatype: boolean
-    uuid: 093b684bd18c5282b15b5234e6daa3ee
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos1.Switch.Massage.Increase"
-    type: "actuator"
-    description: "Increase massage level switch engaged (SingleSeat.Massage)"
-    datatype: boolean
-    uuid: 2a0244749f73524684452afb80ec5231
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos1.Switch.Massage.Decrease"
-    type: "actuator"
-    description: "Decrease massage level switch engaged (SingleSeat.Massage)"
-    datatype: boolean
-    uuid: 620039f8676e502c99a6dceace70a50d
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos1.Switch.Recline.Backward"
-    type: "actuator"
-    description: "Seatback recline backward switch engaged (SingleSeat.Recline)"
-    datatype: boolean
-    uuid: 977107bd4357517b873675edfff2f539
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos1.Switch.Recline.Forward"
-    type: "actuator"
-    description: "Seatback recline forward switch engaged (SingleSeat.Recline)"
-    datatype: boolean
-    uuid: b00f0373a90351b5894edeb787837756
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos1.Switch.Cushion.Up"
-    type: "actuator"
-    description: "Seat cushion up switch engaged (SingleSeat.Cushion.Height)"
-    datatype: boolean
-    uuid: 14c51b7a2ae75b9788bcf45dc6bf2470
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos1.Switch.Cushion.Down"
-    type: "actuator"
-    description: "Seat cushion down switch engaged (SingleSeat.Cushion.Height)"
-    datatype: boolean
-    uuid: bae39c89dafc5ed98e0bc23d297a0efe
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos1.Switch.Cushion.Forward"
-    type: "actuator"
-    description: "Seat cushion forward/lengthen switch engaged (SingleSeat.Cushion.Length)"
-    datatype: boolean
-    uuid: 52c20d7ac82e53a7967631a2c9c5ade8
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos1.Switch.Cushion.Backward"
-    type: "actuator"
-    description: "Seat cushion backward/shorten switch engaged (SingleSeat.Cushion.Length)"
-    datatype: boolean
-    uuid: b1542055a8535240ad8d4c778bbc1363
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos1.Switch.Lumbar.Up"
-    type: "actuator"
-    description: "Lumbar up switch engaged (SingleSeat.Lumbar.Height)"
-    datatype: boolean
-    uuid: b6e95d332d17599bac646d818857e94d
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos1.Switch.Lumbar.Down"
-    type: "actuator"
-    description: "Lumbar down switch engaged (SingleSeat.Lumbar.Height)"
-    datatype: boolean
-    uuid: 4f9fda11917b5d1bac57c74cf3487c0e
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos1.Switch.Lumbar.Inflate"
-    type: "actuator"
-    description: "Lumbar inflation switch engaged (SingleSeat.Lumbar.Inflation)"
-    datatype: boolean
-    uuid: 7ddde3ba499b5d5b9566cc36378e86b1
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos1.Switch.Lumbar.Deflate"
-    type: "actuator"
-    description: "Lumbar deflation switch engaged (SingleSeat.Lumbar.Inflation)"
-    datatype: boolean
-    uuid: d4db2e5c909c5c2f9945f4c00e2898d2
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos1.Switch.SideBolster.Inflate"
-    type: "actuator"
-    description: "Side bolster inflation switch engaged (SingleSeat.SideBolster.Inflation)"
-    datatype: boolean
-    uuid: 6cc989e9c61e5f308ed416cf63271cbf
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos1.Switch.SideBolster.Deflate"
-    type: "actuator"
-    description: "Side bolster deflation switch engaged (SingleSeat.SideBolster.Inflation)"
-    datatype: boolean
-    uuid: 016c965c846a5447944e1dadd27f5b9d
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos2.HasPassenger"
-    type: "sensor"
-    description: "Does the seat have a passenger in it."
-    datatype: boolean
-    uuid: 93bc83b5bb9959afa03b40d1b95ed132
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos2.Occupant.Identifier.Subject"
-    type: "sensor"
-    description: "Subject for the authentification of the occupant. E.g. UserID 7331677"
-    datatype: string
-    uuid: 8667ecdbb5ce5fea857662f483d24190
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos2.Occupant.Identifier.Issuer"
-    type: "sensor"
-    description: "Unique Issuer for the authentification of the occupant. E.g. https://accounts.funcorp.com"
-    datatype: string
-    uuid: bde8a250bace548e8e57642bf8ee3e82
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos2.IsBelted"
-    type: "sensor"
-    description: "Is the belt engaged."
-    datatype: boolean
-    uuid: ffc0b8fde0c055a5b2c892146c266c41
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos2.Heating"
-    type: "actuator"
-    description: "Seat cooling / heating. 0 = off. -100 = max cold. +100 = max heat."
-    datatype: int8
-    uuid: fccbe3a495d45491b9c8f7c2fad1f00c
-    min: -100
-    max: 100
-    unit: percent
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos2.Massage"
-    type: "actuator"
-    description: "Seat massage level. 0 = off. 100 = max massage."
-    datatype: uint8
-    uuid: b0ac94bd4ca35588ab1cc44cfcd38408
-    min: 0
-    max: 100
-    unit: percent
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos2.Recline"
-    type: "actuator"
-    description: "Recline level. -90 = Max forward recline. 90 max backward recline."
-    datatype: int8
-    uuid: 5408aff91f065a3b8d241a267f3e2c4a
-    min: -90
-    max: 90
-    unit: degrees
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos2.Position"
-    type: "actuator"
-    description: "Seat horizontal position. 0 = Frontmost. 1000 = Rearmost."
-    datatype: uint16
-    uuid: 617ee6c1af2154dfbbbc94bac3da0eb6
-    min: 0
-    max: 1000
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos2.Height"
-    type: "actuator"
-    description: "Seat vertical position. 0 = Lowermost. 1000 = Uppermost."
-    datatype: uint16
-    uuid: 37179aea909053e2a2b57187b2f49846
-    min: 0
-    max: 1000
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos2.Cushion.Height"
-    type: "actuator"
-    description: "Height of the seat cushion (leg support), relative to seat. 0 = Lowermost. 500 = Uppermost."
-    datatype: uint16
-    uuid: 6843a84b486f52ba941b563644e0b221
-    min: 0
-    max: 500
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos2.Cushion.Length"
-    type: "actuator"
-    description: "Forward length of cushion (leg support), relative to seat. 0 = Rearmost. 500 = Forwardmost."
-    datatype: uint16
-    uuid: 0fea0974848b5fd5b44b67d1bf79a066
-    min: 0
-    max: 500
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos2.Lumbar.Inflation"
-    type: "actuator"
-    description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    datatype: uint8
-    uuid: 274663871d725688b0bf5ce8a49ceb2e
-    min: 0
-    max: 255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos2.Lumbar.Height"
-    type: "actuator"
-    description: "Lumbar support position. 0 = Lowermost. 255 = Uppermost."
-    datatype: uint8
-    uuid: d58ee06ac8a758fb911a15e821ebf695
-    min: 0
-    max: 255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos2.SideBolster.Inflation"
-    type: "actuator"
-    description: "Side bolster support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    datatype: uint8
-    uuid: 96c9a629c345567c8e7f48381d2e8925
-    min: 0
-    max: 255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos2.HeadRestraint.Height"
-    type: "actuator"
-    description: "Height of head restraint. 0 = Bottommost. 255 = Uppermost."
-    datatype: uint8
-    uuid: d1e2c350df7e55fa81626feeaa8bd13e
-    min: 0
-    max: 255
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos2.Airbag.IsDeployed"
-    type: "sensor"
-    description: "Airbag deployment status. True = Airbag deployed. False = Airbag not deployed."
-    datatype: boolean
-    uuid: 591d68475ad35b65bece63753345d0f2
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos2.Switch.Warmer"
-    type: "actuator"
-    description: "Warmer switch for Seat heater (SingleSeat.Heating)"
-    datatype: boolean
-    uuid: aeeea5dc77b75ccc8542b750761fec55
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos2.Switch.Cooler"
-    type: "actuator"
-    description: "Cooler switch for Seat heater (SingleSeat.Heating)"
-    datatype: boolean
-    uuid: 8b0ea2a51b89507cb2515b24c4256dc0
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos2.Switch.Forward"
-    type: "actuator"
-    description: "Seat forward switch engaged (SingleSeat.Position)"
-    datatype: boolean
-    uuid: adb5e184938f504e9a30f46baae71dfd
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos2.Switch.Backward"
-    type: "actuator"
-    description: "Seat backward switch engaged (SingleSeat.Position)"
-    datatype: boolean
-    uuid: 47daa697085252c5a5f487e19db30855
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos2.Switch.Up"
-    type: "actuator"
-    description: "Seat up switch engaged (SingleSeat.Height)"
-    datatype: boolean
-    uuid: 5b7d6798d0f15ba99df4a5493ad430c7
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos2.Switch.Down"
-    type: "actuator"
-    description: "Seat down switch engaged (SingleSeat.Height)"
-    datatype: boolean
-    uuid: 4c6bbadf57c350fa87fdb9fedba30747
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos2.Switch.HeadRestraint.Up"
-    type: "actuator"
-    description: "Head restraint up switch engaged (SingleSeat.HeadRestraint.Height)"
-    datatype: boolean
-    uuid: 7841db01ad3e5f8990235313069be349
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos2.Switch.HeadRestraint.Down"
-    type: "actuator"
-    description: "Head restraint down switch engaged (SingleSeat.HeadRestraint.Height)"
-    datatype: boolean
-    uuid: 2ca1a0bd12f1528990d534dbb341dc47
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos2.Switch.Massage.Increase"
-    type: "actuator"
-    description: "Increase massage level switch engaged (SingleSeat.Massage)"
-    datatype: boolean
-    uuid: ebcae1f8c0d8594693b1b6cf4adcd1b4
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos2.Switch.Massage.Decrease"
-    type: "actuator"
-    description: "Decrease massage level switch engaged (SingleSeat.Massage)"
-    datatype: boolean
-    uuid: b37c4f7d96d45b15954838ec43f7c660
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos2.Switch.Recline.Backward"
-    type: "actuator"
-    description: "Seatback recline backward switch engaged (SingleSeat.Recline)"
-    datatype: boolean
-    uuid: cdfdfe674ff2519288b82440b2922d8a
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos2.Switch.Recline.Forward"
-    type: "actuator"
-    description: "Seatback recline forward switch engaged (SingleSeat.Recline)"
-    datatype: boolean
-    uuid: 65dc1cf2c5975708abfd90764d32070f
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos2.Switch.Cushion.Up"
-    type: "actuator"
-    description: "Seat cushion up switch engaged (SingleSeat.Cushion.Height)"
-    datatype: boolean
-    uuid: f9429b1dae005407bb1cd7741821266b
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos2.Switch.Cushion.Down"
-    type: "actuator"
-    description: "Seat cushion down switch engaged (SingleSeat.Cushion.Height)"
-    datatype: boolean
-    uuid: 3e3cfde9ed9b589d885daa114567736c
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos2.Switch.Cushion.Forward"
-    type: "actuator"
-    description: "Seat cushion forward/lengthen switch engaged (SingleSeat.Cushion.Length)"
-    datatype: boolean
-    uuid: 73480eac01d8515f8d65c37c2f608bee
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos2.Switch.Cushion.Backward"
-    type: "actuator"
-    description: "Seat cushion backward/shorten switch engaged (SingleSeat.Cushion.Length)"
-    datatype: boolean
-    uuid: 6022bc16f8335ac0979d290250a177dd
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos2.Switch.Lumbar.Up"
-    type: "actuator"
-    description: "Lumbar up switch engaged (SingleSeat.Lumbar.Height)"
-    datatype: boolean
-    uuid: cc25a7c0417f56558d09a5bec605f601
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos2.Switch.Lumbar.Down"
-    type: "actuator"
-    description: "Lumbar down switch engaged (SingleSeat.Lumbar.Height)"
-    datatype: boolean
-    uuid: 20cc028518c65b17854a9bfdcf4b94e2
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos2.Switch.Lumbar.Inflate"
-    type: "actuator"
-    description: "Lumbar inflation switch engaged (SingleSeat.Lumbar.Inflation)"
-    datatype: boolean
-    uuid: 20b844e9ec9758f18aa62c1fb7d797b3
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos2.Switch.Lumbar.Deflate"
-    type: "actuator"
-    description: "Lumbar deflation switch engaged (SingleSeat.Lumbar.Inflation)"
-    datatype: boolean
-    uuid: a4a8e647f25852f7bb2ad249e62e3609
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos2.Switch.SideBolster.Inflate"
-    type: "actuator"
-    description: "Side bolster inflation switch engaged (SingleSeat.SideBolster.Inflation)"
-    datatype: boolean
-    uuid: 8ce3e895bbc05962ad5e390c7c484d0d
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos2.Switch.SideBolster.Deflate"
-    type: "actuator"
-    description: "Side bolster deflation switch engaged (SingleSeat.SideBolster.Inflation)"
-    datatype: boolean
-    uuid: b62cc6bad7e05a97a15e92a41644466b
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos3.HasPassenger"
-    type: "sensor"
-    description: "Does the seat have a passenger in it."
-    datatype: boolean
-    uuid: 550410829a435de5923455de5c45632c
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos3.Occupant.Identifier.Subject"
-    type: "sensor"
-    description: "Subject for the authentification of the occupant. E.g. UserID 7331677"
-    datatype: string
-    uuid: 53d7e36a97eb573fa2e5e4d7a5a047a7
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos3.Occupant.Identifier.Issuer"
-    type: "sensor"
-    description: "Unique Issuer for the authentification of the occupant. E.g. https://accounts.funcorp.com"
-    datatype: string
-    uuid: 504f1d85bc1b587c9d625a371791d83b
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos3.IsBelted"
-    type: "sensor"
-    description: "Is the belt engaged."
-    datatype: boolean
-    uuid: 61ac78ee85325844a8537bdca9bf5746
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos3.Heating"
-    type: "actuator"
-    description: "Seat cooling / heating. 0 = off. -100 = max cold. +100 = max heat."
-    datatype: int8
-    uuid: f7af6839e61f51768d54e94381374df9
-    min: -100
-    max: 100
-    unit: percent
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos3.Massage"
-    type: "actuator"
-    description: "Seat massage level. 0 = off. 100 = max massage."
-    datatype: uint8
-    uuid: 045b283ffbf7575fb6195709c7612c2b
-    min: 0
-    max: 100
-    unit: percent
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos3.Recline"
-    type: "actuator"
-    description: "Recline level. -90 = Max forward recline. 90 max backward recline."
-    datatype: int8
-    uuid: eea86c16b8135007838092af0f5d1282
-    min: -90
-    max: 90
-    unit: degrees
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos3.Position"
-    type: "actuator"
-    description: "Seat horizontal position. 0 = Frontmost. 1000 = Rearmost."
-    datatype: uint16
-    uuid: 1dd535f34a9159848e10570d42352763
-    min: 0
-    max: 1000
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos3.Height"
-    type: "actuator"
-    description: "Seat vertical position. 0 = Lowermost. 1000 = Uppermost."
-    datatype: uint16
-    uuid: 02abd3e9a84d5991b54c388fd1f994d5
-    min: 0
-    max: 1000
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos3.Cushion.Height"
-    type: "actuator"
-    description: "Height of the seat cushion (leg support), relative to seat. 0 = Lowermost. 500 = Uppermost."
-    datatype: uint16
-    uuid: fce0b1717b785d238899169d56ef9d74
-    min: 0
-    max: 500
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos3.Cushion.Length"
-    type: "actuator"
-    description: "Forward length of cushion (leg support), relative to seat. 0 = Rearmost. 500 = Forwardmost."
-    datatype: uint16
-    uuid: 47c506eed2135abba36dc06cd2eb7a0f
-    min: 0
-    max: 500
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos3.Lumbar.Inflation"
-    type: "actuator"
-    description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    datatype: uint8
-    uuid: f3df008dd99c553c95d636e30d00d0d3
-    min: 0
-    max: 255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos3.Lumbar.Height"
-    type: "actuator"
-    description: "Lumbar support position. 0 = Lowermost. 255 = Uppermost."
-    datatype: uint8
-    uuid: 76141125dffb5d9f83d3346fff3bbfd8
-    min: 0
-    max: 255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos3.SideBolster.Inflation"
-    type: "actuator"
-    description: "Side bolster support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    datatype: uint8
-    uuid: 766f78815bf559b8888c7b3cdee6ea34
-    min: 0
-    max: 255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos3.HeadRestraint.Height"
-    type: "actuator"
-    description: "Height of head restraint. 0 = Bottommost. 255 = Uppermost."
-    datatype: uint8
-    uuid: d2d260671f0b524f8701e34919da0b52
-    min: 0
-    max: 255
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos3.Airbag.IsDeployed"
-    type: "sensor"
-    description: "Airbag deployment status. True = Airbag deployed. False = Airbag not deployed."
-    datatype: boolean
-    uuid: 409893dd0bc15ffc875528bc88b2e483
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos3.Switch.Warmer"
-    type: "actuator"
-    description: "Warmer switch for Seat heater (SingleSeat.Heating)"
-    datatype: boolean
-    uuid: d0569a7f83f55f4bb12769094dc74be7
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos3.Switch.Cooler"
-    type: "actuator"
-    description: "Cooler switch for Seat heater (SingleSeat.Heating)"
-    datatype: boolean
-    uuid: 18d2dbaf6532528e9440304786948e26
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos3.Switch.Forward"
-    type: "actuator"
-    description: "Seat forward switch engaged (SingleSeat.Position)"
-    datatype: boolean
-    uuid: 803886eeaf9c580ebce193992166f088
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos3.Switch.Backward"
-    type: "actuator"
-    description: "Seat backward switch engaged (SingleSeat.Position)"
-    datatype: boolean
-    uuid: 9fe9b1102df855e581f904493576756a
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos3.Switch.Up"
-    type: "actuator"
-    description: "Seat up switch engaged (SingleSeat.Height)"
-    datatype: boolean
-    uuid: cda5752d664e5632981348705aabcdda
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos3.Switch.Down"
-    type: "actuator"
-    description: "Seat down switch engaged (SingleSeat.Height)"
-    datatype: boolean
-    uuid: 2842ea8ab57555f3ba05f09e4ce711ad
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos3.Switch.HeadRestraint.Up"
-    type: "actuator"
-    description: "Head restraint up switch engaged (SingleSeat.HeadRestraint.Height)"
-    datatype: boolean
-    uuid: b655a923e37a58c9ab1e9bf1394507cc
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos3.Switch.HeadRestraint.Down"
-    type: "actuator"
-    description: "Head restraint down switch engaged (SingleSeat.HeadRestraint.Height)"
-    datatype: boolean
-    uuid: 554a53fe600055e385f6026abe638471
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos3.Switch.Massage.Increase"
-    type: "actuator"
-    description: "Increase massage level switch engaged (SingleSeat.Massage)"
-    datatype: boolean
-    uuid: 9f694753a2ef5456b184f7acbeda298e
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos3.Switch.Massage.Decrease"
-    type: "actuator"
-    description: "Decrease massage level switch engaged (SingleSeat.Massage)"
-    datatype: boolean
-    uuid: 23b3bf6aa366570d9dc20449e9be020f
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos3.Switch.Recline.Backward"
-    type: "actuator"
-    description: "Seatback recline backward switch engaged (SingleSeat.Recline)"
-    datatype: boolean
-    uuid: 8a534349f605575ca2cd754f505a4fda
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos3.Switch.Recline.Forward"
-    type: "actuator"
-    description: "Seatback recline forward switch engaged (SingleSeat.Recline)"
-    datatype: boolean
-    uuid: 9058f06dedbb5e11a40812edd51ccc97
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos3.Switch.Cushion.Up"
-    type: "actuator"
-    description: "Seat cushion up switch engaged (SingleSeat.Cushion.Height)"
-    datatype: boolean
-    uuid: ec02c10a6cf15d3292fb2769bff8c0f0
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos3.Switch.Cushion.Down"
-    type: "actuator"
-    description: "Seat cushion down switch engaged (SingleSeat.Cushion.Height)"
-    datatype: boolean
-    uuid: c6ff414ac8e3575e984f1a044d66449b
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos3.Switch.Cushion.Forward"
-    type: "actuator"
-    description: "Seat cushion forward/lengthen switch engaged (SingleSeat.Cushion.Length)"
-    datatype: boolean
-    uuid: 9b97bc6d12a958fd910f66ad9ac30ac5
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos3.Switch.Cushion.Backward"
-    type: "actuator"
-    description: "Seat cushion backward/shorten switch engaged (SingleSeat.Cushion.Length)"
-    datatype: boolean
-    uuid: 2c202394f65e5f83b1d63d3c1d7d13aa
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos3.Switch.Lumbar.Up"
-    type: "actuator"
-    description: "Lumbar up switch engaged (SingleSeat.Lumbar.Height)"
-    datatype: boolean
-    uuid: efeeab610f8c502998140227376ff734
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos3.Switch.Lumbar.Down"
-    type: "actuator"
-    description: "Lumbar down switch engaged (SingleSeat.Lumbar.Height)"
-    datatype: boolean
-    uuid: 708362a157d9557e9ca20e8c29e56476
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos3.Switch.Lumbar.Inflate"
-    type: "actuator"
-    description: "Lumbar inflation switch engaged (SingleSeat.Lumbar.Inflation)"
-    datatype: boolean
-    uuid: a2a4e67067bf5c89ad088910629b0d97
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos3.Switch.Lumbar.Deflate"
-    type: "actuator"
-    description: "Lumbar deflation switch engaged (SingleSeat.Lumbar.Inflation)"
-    datatype: boolean
-    uuid: 41c7a139f1da5c7cab7725d8206ba3d7
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos3.Switch.SideBolster.Inflate"
-    type: "actuator"
-    description: "Side bolster inflation switch engaged (SingleSeat.SideBolster.Inflation)"
-    datatype: boolean
-    uuid: c945847cef015fc1933f7426d9eebd2c
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos3.Switch.SideBolster.Deflate"
-    type: "actuator"
-    description: "Side bolster deflation switch engaged (SingleSeat.SideBolster.Inflation)"
-    datatype: boolean
-    uuid: 25564c2906335edd8bda4b3d33a8d04d
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos4.HasPassenger"
-    type: "sensor"
-    description: "Does the seat have a passenger in it."
-    datatype: boolean
-    uuid: cc761a59ba425694b7af967d92a8b61e
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos4.Occupant.Identifier.Subject"
-    type: "sensor"
-    description: "Subject for the authentification of the occupant. E.g. UserID 7331677"
-    datatype: string
-    uuid: 3a2ea604944a5c15a755eb343f63aeec
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos4.Occupant.Identifier.Issuer"
-    type: "sensor"
-    description: "Unique Issuer for the authentification of the occupant. E.g. https://accounts.funcorp.com"
-    datatype: string
-    uuid: d635c9b8e2f85a40902e14f7f1ae7b4f
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos4.IsBelted"
-    type: "sensor"
-    description: "Is the belt engaged."
-    datatype: boolean
-    uuid: cb2e6acd11405d6bb2422094bcd29ba9
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos4.Heating"
-    type: "actuator"
-    description: "Seat cooling / heating. 0 = off. -100 = max cold. +100 = max heat."
-    datatype: int8
-    uuid: c07b2b98248b521b96b5591766713a09
-    min: -100
-    max: 100
-    unit: percent
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos4.Massage"
-    type: "actuator"
-    description: "Seat massage level. 0 = off. 100 = max massage."
-    datatype: uint8
-    uuid: 6654a5c20cdd5b37aea8107d0e43e2fc
-    min: 0
-    max: 100
-    unit: percent
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos4.Recline"
-    type: "actuator"
-    description: "Recline level. -90 = Max forward recline. 90 max backward recline."
-    datatype: int8
-    uuid: 0f58ec6fd6c252ed820d138822c20dcf
-    min: -90
-    max: 90
-    unit: degrees
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos4.Position"
-    type: "actuator"
-    description: "Seat horizontal position. 0 = Frontmost. 1000 = Rearmost."
-    datatype: uint16
-    uuid: b72a808504f85a4d8b27056994c33395
-    min: 0
-    max: 1000
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos4.Height"
-    type: "actuator"
-    description: "Seat vertical position. 0 = Lowermost. 1000 = Uppermost."
-    datatype: uint16
-    uuid: 0c153d8756d25f9dbd80dfc6610082c0
-    min: 0
-    max: 1000
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos4.Cushion.Height"
-    type: "actuator"
-    description: "Height of the seat cushion (leg support), relative to seat. 0 = Lowermost. 500 = Uppermost."
-    datatype: uint16
-    uuid: 0c192f0f8bc2556ea99d90203dc74993
-    min: 0
-    max: 500
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos4.Cushion.Length"
-    type: "actuator"
-    description: "Forward length of cushion (leg support), relative to seat. 0 = Rearmost. 500 = Forwardmost."
-    datatype: uint16
-    uuid: 004b42c2327a5494b18379ff0179a572
-    min: 0
-    max: 500
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos4.Lumbar.Inflation"
-    type: "actuator"
-    description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    datatype: uint8
-    uuid: 6aaf54ad46e65d3f90710b420da5410d
-    min: 0
-    max: 255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos4.Lumbar.Height"
-    type: "actuator"
-    description: "Lumbar support position. 0 = Lowermost. 255 = Uppermost."
-    datatype: uint8
-    uuid: 3f4a6ca4fb5f5c079dad748abcd53fc2
-    min: 0
-    max: 255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos4.SideBolster.Inflation"
-    type: "actuator"
-    description: "Side bolster support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    datatype: uint8
-    uuid: 40c0ce85ec3a53f382d0717c882b98f3
-    min: 0
-    max: 255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos4.HeadRestraint.Height"
-    type: "actuator"
-    description: "Height of head restraint. 0 = Bottommost. 255 = Uppermost."
-    datatype: uint8
-    uuid: 1d2e6a0b9b9a54628525a6b219783c1b
-    min: 0
-    max: 255
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos4.Airbag.IsDeployed"
-    type: "sensor"
-    description: "Airbag deployment status. True = Airbag deployed. False = Airbag not deployed."
-    datatype: boolean
-    uuid: 3ad8538dfb3b504495536e4afb1fdefb
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos4.Switch.Warmer"
-    type: "actuator"
-    description: "Warmer switch for Seat heater (SingleSeat.Heating)"
-    datatype: boolean
-    uuid: 5c3dc4a866135dbf876e5bcfdc8ff2fa
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos4.Switch.Cooler"
-    type: "actuator"
-    description: "Cooler switch for Seat heater (SingleSeat.Heating)"
-    datatype: boolean
-    uuid: 5f88651a819f5c4782763cd920908485
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos4.Switch.Forward"
-    type: "actuator"
-    description: "Seat forward switch engaged (SingleSeat.Position)"
-    datatype: boolean
-    uuid: fde01cac0e925281a508d81e1eb726d7
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos4.Switch.Backward"
-    type: "actuator"
-    description: "Seat backward switch engaged (SingleSeat.Position)"
-    datatype: boolean
-    uuid: 946e4ed7492451e9878a230b8e4d76f9
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos4.Switch.Up"
-    type: "actuator"
-    description: "Seat up switch engaged (SingleSeat.Height)"
-    datatype: boolean
-    uuid: 095959c18dae5b2b8657dc6dae0920f7
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos4.Switch.Down"
-    type: "actuator"
-    description: "Seat down switch engaged (SingleSeat.Height)"
-    datatype: boolean
-    uuid: 5200f71d33245a06b97ab639cf369c9e
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos4.Switch.HeadRestraint.Up"
-    type: "actuator"
-    description: "Head restraint up switch engaged (SingleSeat.HeadRestraint.Height)"
-    datatype: boolean
-    uuid: dfafe59725ef5553845e5fc9dbf5df03
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos4.Switch.HeadRestraint.Down"
-    type: "actuator"
-    description: "Head restraint down switch engaged (SingleSeat.HeadRestraint.Height)"
-    datatype: boolean
-    uuid: 5247d5aa1c6b5f21a82d020944148ead
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos4.Switch.Massage.Increase"
-    type: "actuator"
-    description: "Increase massage level switch engaged (SingleSeat.Massage)"
-    datatype: boolean
-    uuid: 7c9ad1a264f2565bbbadc6256e3f396e
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos4.Switch.Massage.Decrease"
-    type: "actuator"
-    description: "Decrease massage level switch engaged (SingleSeat.Massage)"
-    datatype: boolean
-    uuid: e14a122bc926501d80559a6c8c6d9d4c
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos4.Switch.Recline.Backward"
-    type: "actuator"
-    description: "Seatback recline backward switch engaged (SingleSeat.Recline)"
-    datatype: boolean
-    uuid: 6d98e9b9b0435760806bb4c59e9d6468
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos4.Switch.Recline.Forward"
-    type: "actuator"
-    description: "Seatback recline forward switch engaged (SingleSeat.Recline)"
-    datatype: boolean
-    uuid: e7b2e14ddc9d511abd3704ff9ae5a599
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos4.Switch.Cushion.Up"
-    type: "actuator"
-    description: "Seat cushion up switch engaged (SingleSeat.Cushion.Height)"
-    datatype: boolean
-    uuid: 50f0c3104ca453eb98a9d8f876eeb607
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos4.Switch.Cushion.Down"
-    type: "actuator"
-    description: "Seat cushion down switch engaged (SingleSeat.Cushion.Height)"
-    datatype: boolean
-    uuid: 7e7d04c189f150138ad1dc930fdc66e4
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos4.Switch.Cushion.Forward"
-    type: "actuator"
-    description: "Seat cushion forward/lengthen switch engaged (SingleSeat.Cushion.Length)"
-    datatype: boolean
-    uuid: 56d7e4dc37695bfc8ae3505c203ff586
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos4.Switch.Cushion.Backward"
-    type: "actuator"
-    description: "Seat cushion backward/shorten switch engaged (SingleSeat.Cushion.Length)"
-    datatype: boolean
-    uuid: a5f7f8166096517e8f6af6e1515ccd65
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos4.Switch.Lumbar.Up"
-    type: "actuator"
-    description: "Lumbar up switch engaged (SingleSeat.Lumbar.Height)"
-    datatype: boolean
-    uuid: f1f6f6335fa65dddb0bdf74d448f78af
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos4.Switch.Lumbar.Down"
-    type: "actuator"
-    description: "Lumbar down switch engaged (SingleSeat.Lumbar.Height)"
-    datatype: boolean
-    uuid: 7a8caaf945d35162a727b12bad0e5709
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos4.Switch.Lumbar.Inflate"
-    type: "actuator"
-    description: "Lumbar inflation switch engaged (SingleSeat.Lumbar.Inflation)"
-    datatype: boolean
-    uuid: 96f2b430a95351cca2c41129bd69e198
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos4.Switch.Lumbar.Deflate"
-    type: "actuator"
-    description: "Lumbar deflation switch engaged (SingleSeat.Lumbar.Inflation)"
-    datatype: boolean
-    uuid: 9850602e018457709cf1c56d18fea870
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos4.Switch.SideBolster.Inflate"
-    type: "actuator"
-    description: "Side bolster inflation switch engaged (SingleSeat.SideBolster.Inflation)"
-    datatype: boolean
-    uuid: 0558f6e79ffc5d5b85e5f794496df877
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos4.Switch.SideBolster.Deflate"
-    type: "actuator"
-    description: "Side bolster deflation switch engaged (SingleSeat.SideBolster.Inflation)"
-    datatype: boolean
-    uuid: 1353ac577c3a5152a230fd2dd886daef
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos5.HasPassenger"
-    type: "sensor"
-    description: "Does the seat have a passenger in it."
-    datatype: boolean
-    uuid: 65d91e86f02a5fcba9bd67c9747bb213
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos5.Occupant.Identifier.Subject"
-    type: "sensor"
-    description: "Subject for the authentification of the occupant. E.g. UserID 7331677"
-    datatype: string
-    uuid: 2fa3e6ce056155eb96fc4e018f5c9b24
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos5.Occupant.Identifier.Issuer"
-    type: "sensor"
-    description: "Unique Issuer for the authentification of the occupant. E.g. https://accounts.funcorp.com"
-    datatype: string
-    uuid: 9fab3c4291ad5027a3795d2f756abbd7
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos5.IsBelted"
-    type: "sensor"
-    description: "Is the belt engaged."
-    datatype: boolean
-    uuid: 23ed4703d79a562697ec9a4a20aec1a9
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos5.Heating"
-    type: "actuator"
-    description: "Seat cooling / heating. 0 = off. -100 = max cold. +100 = max heat."
-    datatype: int8
-    uuid: b3536a94d7ba560fbfc39c58bd336efa
-    min: -100
-    max: 100
-    unit: percent
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos5.Massage"
-    type: "actuator"
-    description: "Seat massage level. 0 = off. 100 = max massage."
-    datatype: uint8
-    uuid: 706123f020bb52edb223719a4ff130b8
-    min: 0
-    max: 100
-    unit: percent
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos5.Recline"
-    type: "actuator"
-    description: "Recline level. -90 = Max forward recline. 90 max backward recline."
-    datatype: int8
-    uuid: d1c6ab68bae25aa7b166d66c6a668d58
-    min: -90
-    max: 90
-    unit: degrees
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos5.Position"
-    type: "actuator"
-    description: "Seat horizontal position. 0 = Frontmost. 1000 = Rearmost."
-    datatype: uint16
-    uuid: e00b285c87225e488d41b68785d48add
-    min: 0
-    max: 1000
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos5.Height"
-    type: "actuator"
-    description: "Seat vertical position. 0 = Lowermost. 1000 = Uppermost."
-    datatype: uint16
-    uuid: 4781cb91d92f535bb3fb054f6c3d6a6c
-    min: 0
-    max: 1000
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos5.Cushion.Height"
-    type: "actuator"
-    description: "Height of the seat cushion (leg support), relative to seat. 0 = Lowermost. 500 = Uppermost."
-    datatype: uint16
-    uuid: d04600153588558faa43c549e5606ec7
-    min: 0
-    max: 500
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos5.Cushion.Length"
-    type: "actuator"
-    description: "Forward length of cushion (leg support), relative to seat. 0 = Rearmost. 500 = Forwardmost."
-    datatype: uint16
-    uuid: 852ce672c480566bbe0a1dbc25bb7182
-    min: 0
-    max: 500
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos5.Lumbar.Inflation"
-    type: "actuator"
-    description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    datatype: uint8
-    uuid: 93b0756cfa9f571a826196097f062bf6
-    min: 0
-    max: 255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos5.Lumbar.Height"
-    type: "actuator"
-    description: "Lumbar support position. 0 = Lowermost. 255 = Uppermost."
-    datatype: uint8
-    uuid: 5718a6b4d14a553dac33dabfdbf79fea
-    min: 0
-    max: 255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos5.SideBolster.Inflation"
-    type: "actuator"
-    description: "Side bolster support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    datatype: uint8
-    uuid: dbaab839ce665ff7b7027c3290478cf2
-    min: 0
-    max: 255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos5.HeadRestraint.Height"
-    type: "actuator"
-    description: "Height of head restraint. 0 = Bottommost. 255 = Uppermost."
-    datatype: uint8
-    uuid: 1180b32128035b3daf166efd3603d934
-    min: 0
-    max: 255
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos5.Airbag.IsDeployed"
-    type: "sensor"
-    description: "Airbag deployment status. True = Airbag deployed. False = Airbag not deployed."
-    datatype: boolean
-    uuid: e0c8ab5dc3db5b82bb776cbda7bbbebf
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos5.Switch.Warmer"
-    type: "actuator"
-    description: "Warmer switch for Seat heater (SingleSeat.Heating)"
-    datatype: boolean
-    uuid: 59ec180b88f150fd8199cd010c517b54
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos5.Switch.Cooler"
-    type: "actuator"
-    description: "Cooler switch for Seat heater (SingleSeat.Heating)"
-    datatype: boolean
-    uuid: 17c4de4015975336bf943efedd9c399c
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos5.Switch.Forward"
-    type: "actuator"
-    description: "Seat forward switch engaged (SingleSeat.Position)"
-    datatype: boolean
-    uuid: fc180775ab5f5c85aafd0d3f4b9e9944
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos5.Switch.Backward"
-    type: "actuator"
-    description: "Seat backward switch engaged (SingleSeat.Position)"
-    datatype: boolean
-    uuid: 72ed0dc1cebe5c2b9915dadea86de041
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos5.Switch.Up"
-    type: "actuator"
-    description: "Seat up switch engaged (SingleSeat.Height)"
-    datatype: boolean
-    uuid: a93c73f889635606b188449da05ef810
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos5.Switch.Down"
-    type: "actuator"
-    description: "Seat down switch engaged (SingleSeat.Height)"
-    datatype: boolean
-    uuid: 112f561e987351d09b5e266f1cbf20d6
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos5.Switch.HeadRestraint.Up"
-    type: "actuator"
-    description: "Head restraint up switch engaged (SingleSeat.HeadRestraint.Height)"
-    datatype: boolean
-    uuid: 90f2594afd495490bb03c9ab19ef2650
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos5.Switch.HeadRestraint.Down"
-    type: "actuator"
-    description: "Head restraint down switch engaged (SingleSeat.HeadRestraint.Height)"
-    datatype: boolean
-    uuid: 2cc1fbbf01bd56cdbc04c412a70b1a48
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos5.Switch.Massage.Increase"
-    type: "actuator"
-    description: "Increase massage level switch engaged (SingleSeat.Massage)"
-    datatype: boolean
-    uuid: 0efab7bd68c3574d818bec1a5341e8a6
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos5.Switch.Massage.Decrease"
-    type: "actuator"
-    description: "Decrease massage level switch engaged (SingleSeat.Massage)"
-    datatype: boolean
-    uuid: 8b3b8818268b59129fa09a0e73844d08
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos5.Switch.Recline.Backward"
-    type: "actuator"
-    description: "Seatback recline backward switch engaged (SingleSeat.Recline)"
-    datatype: boolean
-    uuid: 76767bb6ef1553e498497c82eb942523
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos5.Switch.Recline.Forward"
-    type: "actuator"
-    description: "Seatback recline forward switch engaged (SingleSeat.Recline)"
-    datatype: boolean
-    uuid: 72538cba089c5cec9f1463ba6cb5e552
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos5.Switch.Cushion.Up"
-    type: "actuator"
-    description: "Seat cushion up switch engaged (SingleSeat.Cushion.Height)"
-    datatype: boolean
-    uuid: 79c3c8776fb7544b92f229f124b1dba8
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos5.Switch.Cushion.Down"
-    type: "actuator"
-    description: "Seat cushion down switch engaged (SingleSeat.Cushion.Height)"
-    datatype: boolean
-    uuid: 123a39c7bbd1514b980b91e25f68d4bc
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos5.Switch.Cushion.Forward"
-    type: "actuator"
-    description: "Seat cushion forward/lengthen switch engaged (SingleSeat.Cushion.Length)"
-    datatype: boolean
-    uuid: d961fa46bdea5cb0aff277d0d07e388f
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos5.Switch.Cushion.Backward"
-    type: "actuator"
-    description: "Seat cushion backward/shorten switch engaged (SingleSeat.Cushion.Length)"
-    datatype: boolean
-    uuid: adb18e5168e35aeda4b29499e58f47cc
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos5.Switch.Lumbar.Up"
-    type: "actuator"
-    description: "Lumbar up switch engaged (SingleSeat.Lumbar.Height)"
-    datatype: boolean
-    uuid: 178ac36be9ff5134a2c3fefb87353948
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos5.Switch.Lumbar.Down"
-    type: "actuator"
-    description: "Lumbar down switch engaged (SingleSeat.Lumbar.Height)"
-    datatype: boolean
-    uuid: d323b334092253208f39d3c66142b35a
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos5.Switch.Lumbar.Inflate"
-    type: "actuator"
-    description: "Lumbar inflation switch engaged (SingleSeat.Lumbar.Inflation)"
-    datatype: boolean
-    uuid: 516270b46d3a51edbaf5b75ade824888
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos5.Switch.Lumbar.Deflate"
-    type: "actuator"
-    description: "Lumbar deflation switch engaged (SingleSeat.Lumbar.Inflation)"
-    datatype: boolean
-    uuid: df3448f6f38a5d12a72f546ad2f2d9d7
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos5.Switch.SideBolster.Inflate"
-    type: "actuator"
-    description: "Side bolster inflation switch engaged (SingleSeat.SideBolster.Inflation)"
-    datatype: boolean
-    uuid: ae66a09742ae5e72a77f7e1f56739b56
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row3.Pos5.Switch.SideBolster.Deflate"
-    type: "actuator"
-    description: "Side bolster deflation switch engaged (SingleSeat.SideBolster.Inflation)"
-    datatype: boolean
-    uuid: f8435bc72b1b53a384dbbbdab7483210
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos1.HasPassenger"
-    type: "sensor"
-    description: "Does the seat have a passenger in it."
-    datatype: boolean
-    uuid: 1ab7b5bc740558d78525ba8235016dfc
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos1.Occupant.Identifier.Subject"
-    type: "sensor"
-    description: "Subject for the authentification of the occupant. E.g. UserID 7331677"
-    datatype: string
-    uuid: d277800ea64f5a9aa2a1b97d466d39de
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos1.Occupant.Identifier.Issuer"
-    type: "sensor"
-    description: "Unique Issuer for the authentification of the occupant. E.g. https://accounts.funcorp.com"
-    datatype: string
-    uuid: 379d86ba70995fb39c7acaf5ede4df51
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos1.IsBelted"
-    type: "sensor"
-    description: "Is the belt engaged."
-    datatype: boolean
-    uuid: ab81f8fd63b1576aa0585d9e99d3453c
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos1.Heating"
-    type: "actuator"
-    description: "Seat cooling / heating. 0 = off. -100 = max cold. +100 = max heat."
-    datatype: int8
-    uuid: 935ab599584155d5bbaacca335253ef9
-    min: -100
-    max: 100
-    unit: percent
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos1.Massage"
-    type: "actuator"
-    description: "Seat massage level. 0 = off. 100 = max massage."
-    datatype: uint8
-    uuid: 934aa8c818085e50b73131093f1b19f0
-    min: 0
-    max: 100
-    unit: percent
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos1.Recline"
-    type: "actuator"
-    description: "Recline level. -90 = Max forward recline. 90 max backward recline."
-    datatype: int8
-    uuid: 8c1c2221f3fb5fcd9d34ffc98d8aa082
-    min: -90
-    max: 90
-    unit: degrees
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos1.Position"
-    type: "actuator"
-    description: "Seat horizontal position. 0 = Frontmost. 1000 = Rearmost."
-    datatype: uint16
-    uuid: 728cbd56c8cd55d6bbe6b0ed48f9398b
-    min: 0
-    max: 1000
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos1.Height"
-    type: "actuator"
-    description: "Seat vertical position. 0 = Lowermost. 1000 = Uppermost."
-    datatype: uint16
-    uuid: 83a234fa793658e18a0669605767b49d
-    min: 0
-    max: 1000
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos1.Cushion.Height"
-    type: "actuator"
-    description: "Height of the seat cushion (leg support), relative to seat. 0 = Lowermost. 500 = Uppermost."
-    datatype: uint16
-    uuid: 31fc37aa04f95ee1a57b7c4f101484dd
-    min: 0
-    max: 500
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos1.Cushion.Length"
-    type: "actuator"
-    description: "Forward length of cushion (leg support), relative to seat. 0 = Rearmost. 500 = Forwardmost."
-    datatype: uint16
-    uuid: dadb098e1f485e948c5717a8494e8fd1
-    min: 0
-    max: 500
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos1.Lumbar.Inflation"
-    type: "actuator"
-    description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    datatype: uint8
-    uuid: 48a79e18cd295031b8cc50bb2037bd93
-    min: 0
-    max: 255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos1.Lumbar.Height"
-    type: "actuator"
-    description: "Lumbar support position. 0 = Lowermost. 255 = Uppermost."
-    datatype: uint8
-    uuid: 168b5ba142ef53b8a6f0f9b01024bfa5
-    min: 0
-    max: 255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos1.SideBolster.Inflation"
-    type: "actuator"
-    description: "Side bolster support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    datatype: uint8
-    uuid: 18d9bb10df4a5707ac51682a7346e593
-    min: 0
-    max: 255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos1.HeadRestraint.Height"
-    type: "actuator"
-    description: "Height of head restraint. 0 = Bottommost. 255 = Uppermost."
-    datatype: uint8
-    uuid: 0591ac5d33b95f47835f3e6e8f0fa671
-    min: 0
-    max: 255
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos1.Airbag.IsDeployed"
-    type: "sensor"
-    description: "Airbag deployment status. True = Airbag deployed. False = Airbag not deployed."
-    datatype: boolean
-    uuid: 8e8e742007f451c5ac9b4bc2a699a7e5
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos1.Switch.Warmer"
-    type: "actuator"
-    description: "Warmer switch for Seat heater (SingleSeat.Heating)"
-    datatype: boolean
-    uuid: 96b77740fed8523bb1fa67652c493b6b
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos1.Switch.Cooler"
-    type: "actuator"
-    description: "Cooler switch for Seat heater (SingleSeat.Heating)"
-    datatype: boolean
-    uuid: 5f27f9c7592a5fbe81ad2ce2e30f72c2
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos1.Switch.Forward"
-    type: "actuator"
-    description: "Seat forward switch engaged (SingleSeat.Position)"
-    datatype: boolean
-    uuid: da8bc2e635a55037b5907b0b9e94d2a3
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos1.Switch.Backward"
-    type: "actuator"
-    description: "Seat backward switch engaged (SingleSeat.Position)"
-    datatype: boolean
-    uuid: a861e2ec59135000b12f014dae7755b9
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos1.Switch.Up"
-    type: "actuator"
-    description: "Seat up switch engaged (SingleSeat.Height)"
-    datatype: boolean
-    uuid: 16392c382dcc536d8d0c4ab329a08d43
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos1.Switch.Down"
-    type: "actuator"
-    description: "Seat down switch engaged (SingleSeat.Height)"
-    datatype: boolean
-    uuid: e0ec1da34c6d5ad7b3671256612f9eba
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos1.Switch.HeadRestraint.Up"
-    type: "actuator"
-    description: "Head restraint up switch engaged (SingleSeat.HeadRestraint.Height)"
-    datatype: boolean
-    uuid: b6ebaf716148582dac103710c6d7515b
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos1.Switch.HeadRestraint.Down"
-    type: "actuator"
-    description: "Head restraint down switch engaged (SingleSeat.HeadRestraint.Height)"
-    datatype: boolean
-    uuid: c9c8f94f08d35b998c5a9d221aed57a1
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos1.Switch.Massage.Increase"
-    type: "actuator"
-    description: "Increase massage level switch engaged (SingleSeat.Massage)"
-    datatype: boolean
-    uuid: 7665927a6c9f52afb29371c8f47defc7
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos1.Switch.Massage.Decrease"
-    type: "actuator"
-    description: "Decrease massage level switch engaged (SingleSeat.Massage)"
-    datatype: boolean
-    uuid: 5208286492d3592ab5c2356e761767f0
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos1.Switch.Recline.Backward"
-    type: "actuator"
-    description: "Seatback recline backward switch engaged (SingleSeat.Recline)"
-    datatype: boolean
-    uuid: 54513fa30ad25403aaaf13ec1985bf6d
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos1.Switch.Recline.Forward"
-    type: "actuator"
-    description: "Seatback recline forward switch engaged (SingleSeat.Recline)"
-    datatype: boolean
-    uuid: d8deffbdfffd5809babce06f5a1d8a25
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos1.Switch.Cushion.Up"
-    type: "actuator"
-    description: "Seat cushion up switch engaged (SingleSeat.Cushion.Height)"
-    datatype: boolean
-    uuid: d27bf6734d9d5aff948b1e68669d0cf8
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos1.Switch.Cushion.Down"
-    type: "actuator"
-    description: "Seat cushion down switch engaged (SingleSeat.Cushion.Height)"
-    datatype: boolean
-    uuid: ecda6d5b91fe50d5bf710df68597484e
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos1.Switch.Cushion.Forward"
-    type: "actuator"
-    description: "Seat cushion forward/lengthen switch engaged (SingleSeat.Cushion.Length)"
-    datatype: boolean
-    uuid: 9ec58a20c5715a828be4b65969a9c923
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos1.Switch.Cushion.Backward"
-    type: "actuator"
-    description: "Seat cushion backward/shorten switch engaged (SingleSeat.Cushion.Length)"
-    datatype: boolean
-    uuid: 7bc7d32a80fd5747a0bcb8fc5a116cc7
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos1.Switch.Lumbar.Up"
-    type: "actuator"
-    description: "Lumbar up switch engaged (SingleSeat.Lumbar.Height)"
-    datatype: boolean
-    uuid: 3c9319f5a21f5b06b49275afa5092d6d
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos1.Switch.Lumbar.Down"
-    type: "actuator"
-    description: "Lumbar down switch engaged (SingleSeat.Lumbar.Height)"
-    datatype: boolean
-    uuid: 01c61651a5525bc995c4eae5f65ee952
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos1.Switch.Lumbar.Inflate"
-    type: "actuator"
-    description: "Lumbar inflation switch engaged (SingleSeat.Lumbar.Inflation)"
-    datatype: boolean
-    uuid: 26531ff72b72545ba8f7414f2479a213
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos1.Switch.Lumbar.Deflate"
-    type: "actuator"
-    description: "Lumbar deflation switch engaged (SingleSeat.Lumbar.Inflation)"
-    datatype: boolean
-    uuid: d87a13f2acb95f7c9012a41ae0a40736
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos1.Switch.SideBolster.Inflate"
-    type: "actuator"
-    description: "Side bolster inflation switch engaged (SingleSeat.SideBolster.Inflation)"
-    datatype: boolean
-    uuid: 2f1ab29d17285dc0a285d139655549c8
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos1.Switch.SideBolster.Deflate"
-    type: "actuator"
-    description: "Side bolster deflation switch engaged (SingleSeat.SideBolster.Inflation)"
-    datatype: boolean
-    uuid: 15071ac7e45b52f685c86dbf6e1b7815
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos2.HasPassenger"
-    type: "sensor"
-    description: "Does the seat have a passenger in it."
-    datatype: boolean
-    uuid: d36c81a432da5a3c9e246e7399a3a559
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos2.Occupant.Identifier.Subject"
-    type: "sensor"
-    description: "Subject for the authentification of the occupant. E.g. UserID 7331677"
-    datatype: string
-    uuid: 5e345518238553a7a66dfaaaa28688f9
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos2.Occupant.Identifier.Issuer"
-    type: "sensor"
-    description: "Unique Issuer for the authentification of the occupant. E.g. https://accounts.funcorp.com"
-    datatype: string
-    uuid: d797ec9d4b985ace8c47d4d036738abe
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos2.IsBelted"
-    type: "sensor"
-    description: "Is the belt engaged."
-    datatype: boolean
-    uuid: 122baa5713d0567082b11b9b82f51dae
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos2.Heating"
-    type: "actuator"
-    description: "Seat cooling / heating. 0 = off. -100 = max cold. +100 = max heat."
-    datatype: int8
-    uuid: 9dc4e33abc4b5558adaca0fb6a09accf
-    min: -100
-    max: 100
-    unit: percent
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos2.Massage"
-    type: "actuator"
-    description: "Seat massage level. 0 = off. 100 = max massage."
-    datatype: uint8
-    uuid: ea88a1833f0151f899504821c2c4fd61
-    min: 0
-    max: 100
-    unit: percent
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos2.Recline"
-    type: "actuator"
-    description: "Recline level. -90 = Max forward recline. 90 max backward recline."
-    datatype: int8
-    uuid: 48d8c05d5ab25739a973f154f6d27696
-    min: -90
-    max: 90
-    unit: degrees
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos2.Position"
-    type: "actuator"
-    description: "Seat horizontal position. 0 = Frontmost. 1000 = Rearmost."
-    datatype: uint16
-    uuid: 39e515efca9e5f3791201b956312e6f2
-    min: 0
-    max: 1000
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos2.Height"
-    type: "actuator"
-    description: "Seat vertical position. 0 = Lowermost. 1000 = Uppermost."
-    datatype: uint16
-    uuid: 7a39bf7b4d0a50b1ab68906092a74816
-    min: 0
-    max: 1000
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos2.Cushion.Height"
-    type: "actuator"
-    description: "Height of the seat cushion (leg support), relative to seat. 0 = Lowermost. 500 = Uppermost."
-    datatype: uint16
-    uuid: 1e6e72906daa5e899eea1fc91373f1c0
-    min: 0
-    max: 500
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos2.Cushion.Length"
-    type: "actuator"
-    description: "Forward length of cushion (leg support), relative to seat. 0 = Rearmost. 500 = Forwardmost."
-    datatype: uint16
-    uuid: 222996fafa185967b42c61e54b33a766
-    min: 0
-    max: 500
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos2.Lumbar.Inflation"
-    type: "actuator"
-    description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    datatype: uint8
-    uuid: 79248655052053fea2d20a12dfdf782c
-    min: 0
-    max: 255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos2.Lumbar.Height"
-    type: "actuator"
-    description: "Lumbar support position. 0 = Lowermost. 255 = Uppermost."
-    datatype: uint8
-    uuid: 78f28f8b004b5ca9b089f75c8b234133
-    min: 0
-    max: 255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos2.SideBolster.Inflation"
-    type: "actuator"
-    description: "Side bolster support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    datatype: uint8
-    uuid: 154cb44d93085361a546c66977bc6dcd
-    min: 0
-    max: 255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos2.HeadRestraint.Height"
-    type: "actuator"
-    description: "Height of head restraint. 0 = Bottommost. 255 = Uppermost."
-    datatype: uint8
-    uuid: c2842e4e7d265fea89a37e05d72eec3e
-    min: 0
-    max: 255
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos2.Airbag.IsDeployed"
-    type: "sensor"
-    description: "Airbag deployment status. True = Airbag deployed. False = Airbag not deployed."
-    datatype: boolean
-    uuid: deb86df5697152f089b4f994c7f9e87c
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos2.Switch.Warmer"
-    type: "actuator"
-    description: "Warmer switch for Seat heater (SingleSeat.Heating)"
-    datatype: boolean
-    uuid: db28f52e292f53039174be584be8be70
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos2.Switch.Cooler"
-    type: "actuator"
-    description: "Cooler switch for Seat heater (SingleSeat.Heating)"
-    datatype: boolean
-    uuid: 80ff39f9e3b25d3b97687406e724085d
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos2.Switch.Forward"
-    type: "actuator"
-    description: "Seat forward switch engaged (SingleSeat.Position)"
-    datatype: boolean
-    uuid: 8faeaae78dc8532cb29f0e43f5bead60
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos2.Switch.Backward"
-    type: "actuator"
-    description: "Seat backward switch engaged (SingleSeat.Position)"
-    datatype: boolean
-    uuid: 76bcca083e895157a649f1ac74651498
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos2.Switch.Up"
-    type: "actuator"
-    description: "Seat up switch engaged (SingleSeat.Height)"
-    datatype: boolean
-    uuid: 04b6bdd984855eb8b11e1b57ba7a2959
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos2.Switch.Down"
-    type: "actuator"
-    description: "Seat down switch engaged (SingleSeat.Height)"
-    datatype: boolean
-    uuid: ce5115b5bbad5122a68ba3dfdf35a4b2
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos2.Switch.HeadRestraint.Up"
-    type: "actuator"
-    description: "Head restraint up switch engaged (SingleSeat.HeadRestraint.Height)"
-    datatype: boolean
-    uuid: 421141d416af5bbc989bc1abf02a5031
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos2.Switch.HeadRestraint.Down"
-    type: "actuator"
-    description: "Head restraint down switch engaged (SingleSeat.HeadRestraint.Height)"
-    datatype: boolean
-    uuid: 371b954b71dc51819d977a4da53ebf84
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos2.Switch.Massage.Increase"
-    type: "actuator"
-    description: "Increase massage level switch engaged (SingleSeat.Massage)"
-    datatype: boolean
-    uuid: ec65752050a65aa7b6443b16af124649
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos2.Switch.Massage.Decrease"
-    type: "actuator"
-    description: "Decrease massage level switch engaged (SingleSeat.Massage)"
-    datatype: boolean
-    uuid: 1b3bbc64e0d755d289ce959f934ef386
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos2.Switch.Recline.Backward"
-    type: "actuator"
-    description: "Seatback recline backward switch engaged (SingleSeat.Recline)"
-    datatype: boolean
-    uuid: cc0d53d2917e5e0f894e5defc2598fa9
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos2.Switch.Recline.Forward"
-    type: "actuator"
-    description: "Seatback recline forward switch engaged (SingleSeat.Recline)"
-    datatype: boolean
-    uuid: 5eef304cb25b5984a25397ce04d63c84
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos2.Switch.Cushion.Up"
-    type: "actuator"
-    description: "Seat cushion up switch engaged (SingleSeat.Cushion.Height)"
-    datatype: boolean
-    uuid: 6122c7c845c4530db3ed8fdd1ef348b3
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos2.Switch.Cushion.Down"
-    type: "actuator"
-    description: "Seat cushion down switch engaged (SingleSeat.Cushion.Height)"
-    datatype: boolean
-    uuid: 26a4a1e522555da8b8d7436db462bb1c
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos2.Switch.Cushion.Forward"
-    type: "actuator"
-    description: "Seat cushion forward/lengthen switch engaged (SingleSeat.Cushion.Length)"
-    datatype: boolean
-    uuid: 413fa035a5ac5bdd86e0893d38083262
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos2.Switch.Cushion.Backward"
-    type: "actuator"
-    description: "Seat cushion backward/shorten switch engaged (SingleSeat.Cushion.Length)"
-    datatype: boolean
-    uuid: ec76ac8c69c35d1fb1a002c31fe4f236
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos2.Switch.Lumbar.Up"
-    type: "actuator"
-    description: "Lumbar up switch engaged (SingleSeat.Lumbar.Height)"
-    datatype: boolean
-    uuid: f938fcdc9cad502b98a09e0cbd53946b
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos2.Switch.Lumbar.Down"
-    type: "actuator"
-    description: "Lumbar down switch engaged (SingleSeat.Lumbar.Height)"
-    datatype: boolean
-    uuid: 1e5cf9cda67158bdb56e58383cce2348
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos2.Switch.Lumbar.Inflate"
-    type: "actuator"
-    description: "Lumbar inflation switch engaged (SingleSeat.Lumbar.Inflation)"
-    datatype: boolean
-    uuid: 2d399e94961f5b43842e99d3c155f317
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos2.Switch.Lumbar.Deflate"
-    type: "actuator"
-    description: "Lumbar deflation switch engaged (SingleSeat.Lumbar.Inflation)"
-    datatype: boolean
-    uuid: 7446988bcdfb5f9e9e70e1f764139ac8
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos2.Switch.SideBolster.Inflate"
-    type: "actuator"
-    description: "Side bolster inflation switch engaged (SingleSeat.SideBolster.Inflation)"
-    datatype: boolean
-    uuid: cf57a51db5bd5cb1a9fc734378718765
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos2.Switch.SideBolster.Deflate"
-    type: "actuator"
-    description: "Side bolster deflation switch engaged (SingleSeat.SideBolster.Inflation)"
-    datatype: boolean
-    uuid: 88c4cdb4710b59958be9a37e52393886
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos3.HasPassenger"
-    type: "sensor"
-    description: "Does the seat have a passenger in it."
-    datatype: boolean
-    uuid: a0d0219eadd2514aa4fdb5a8782458e3
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos3.Occupant.Identifier.Subject"
-    type: "sensor"
-    description: "Subject for the authentification of the occupant. E.g. UserID 7331677"
-    datatype: string
-    uuid: b8e4c62a1f2b574db561acbd42eac4fa
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos3.Occupant.Identifier.Issuer"
-    type: "sensor"
-    description: "Unique Issuer for the authentification of the occupant. E.g. https://accounts.funcorp.com"
-    datatype: string
-    uuid: f5b2c9fb7d7556a7959f87202e3705d7
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos3.IsBelted"
-    type: "sensor"
-    description: "Is the belt engaged."
-    datatype: boolean
-    uuid: afe2bb37e2055e6fa32725cc8ac9281f
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos3.Heating"
-    type: "actuator"
-    description: "Seat cooling / heating. 0 = off. -100 = max cold. +100 = max heat."
-    datatype: int8
-    uuid: 746b83af1ac45f86af62118296d9fba9
-    min: -100
-    max: 100
-    unit: percent
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos3.Massage"
-    type: "actuator"
-    description: "Seat massage level. 0 = off. 100 = max massage."
-    datatype: uint8
-    uuid: c9534ae1736054eb87405205d9583740
-    min: 0
-    max: 100
-    unit: percent
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos3.Recline"
-    type: "actuator"
-    description: "Recline level. -90 = Max forward recline. 90 max backward recline."
-    datatype: int8
-    uuid: 8dd067f2527a5037b58c5feb99cca37b
-    min: -90
-    max: 90
-    unit: degrees
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos3.Position"
-    type: "actuator"
-    description: "Seat horizontal position. 0 = Frontmost. 1000 = Rearmost."
-    datatype: uint16
-    uuid: 2cb257c74dbb5cfaa18428721086a8e4
-    min: 0
-    max: 1000
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos3.Height"
-    type: "actuator"
-    description: "Seat vertical position. 0 = Lowermost. 1000 = Uppermost."
-    datatype: uint16
-    uuid: efc67d3780325240975b8753c557138f
-    min: 0
-    max: 1000
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos3.Cushion.Height"
-    type: "actuator"
-    description: "Height of the seat cushion (leg support), relative to seat. 0 = Lowermost. 500 = Uppermost."
-    datatype: uint16
-    uuid: 21f6710b033b5439910c6a90cdef5391
-    min: 0
-    max: 500
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos3.Cushion.Length"
-    type: "actuator"
-    description: "Forward length of cushion (leg support), relative to seat. 0 = Rearmost. 500 = Forwardmost."
-    datatype: uint16
-    uuid: 37aec9f1995d53e69dc596e88706f082
-    min: 0
-    max: 500
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos3.Lumbar.Inflation"
-    type: "actuator"
-    description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    datatype: uint8
-    uuid: f2a092738308526fb432255847238545
-    min: 0
-    max: 255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos3.Lumbar.Height"
-    type: "actuator"
-    description: "Lumbar support position. 0 = Lowermost. 255 = Uppermost."
-    datatype: uint8
-    uuid: 4e01b2b3613357078e5107a4a7cea338
-    min: 0
-    max: 255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos3.SideBolster.Inflation"
-    type: "actuator"
-    description: "Side bolster support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    datatype: uint8
-    uuid: b45f8f471d555029a87c37e9543c319b
-    min: 0
-    max: 255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos3.HeadRestraint.Height"
-    type: "actuator"
-    description: "Height of head restraint. 0 = Bottommost. 255 = Uppermost."
-    datatype: uint8
-    uuid: ccf0ab7746b3594daa415cbcd846bed2
-    min: 0
-    max: 255
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos3.Airbag.IsDeployed"
-    type: "sensor"
-    description: "Airbag deployment status. True = Airbag deployed. False = Airbag not deployed."
-    datatype: boolean
-    uuid: c6c2d9dd4e085b1b8a803ad1efbd1d3b
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos3.Switch.Warmer"
-    type: "actuator"
-    description: "Warmer switch for Seat heater (SingleSeat.Heating)"
-    datatype: boolean
-    uuid: 4eaba56c0e085607a797fb0c1af1890c
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos3.Switch.Cooler"
-    type: "actuator"
-    description: "Cooler switch for Seat heater (SingleSeat.Heating)"
-    datatype: boolean
-    uuid: ff823baa375158d9ab70772574cf81f6
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos3.Switch.Forward"
-    type: "actuator"
-    description: "Seat forward switch engaged (SingleSeat.Position)"
-    datatype: boolean
-    uuid: e3cf98fa85a75a0b8e29039b5e507273
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos3.Switch.Backward"
-    type: "actuator"
-    description: "Seat backward switch engaged (SingleSeat.Position)"
-    datatype: boolean
-    uuid: 95a104baeef2548296ade37bef6e8adf
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos3.Switch.Up"
-    type: "actuator"
-    description: "Seat up switch engaged (SingleSeat.Height)"
-    datatype: boolean
-    uuid: e98312fdfc295b568422d0a1cb9a5bf9
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos3.Switch.Down"
-    type: "actuator"
-    description: "Seat down switch engaged (SingleSeat.Height)"
-    datatype: boolean
-    uuid: a34bd1e9eb635f9caca800f7247b8a14
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos3.Switch.HeadRestraint.Up"
-    type: "actuator"
-    description: "Head restraint up switch engaged (SingleSeat.HeadRestraint.Height)"
-    datatype: boolean
-    uuid: 4970afc727975a7f82efa5b98bcaef20
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos3.Switch.HeadRestraint.Down"
-    type: "actuator"
-    description: "Head restraint down switch engaged (SingleSeat.HeadRestraint.Height)"
-    datatype: boolean
-    uuid: f64bffbbe97c576abc6e8d9714cce778
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos3.Switch.Massage.Increase"
-    type: "actuator"
-    description: "Increase massage level switch engaged (SingleSeat.Massage)"
-    datatype: boolean
-    uuid: 0d53169cd64553f4b35d90b188e4e31a
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos3.Switch.Massage.Decrease"
-    type: "actuator"
-    description: "Decrease massage level switch engaged (SingleSeat.Massage)"
-    datatype: boolean
-    uuid: 4d490e1f7aa4503da8e7f0b58d8cb7f0
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos3.Switch.Recline.Backward"
-    type: "actuator"
-    description: "Seatback recline backward switch engaged (SingleSeat.Recline)"
-    datatype: boolean
-    uuid: 5f7b22a3f653589488a073508a9eb8b1
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos3.Switch.Recline.Forward"
-    type: "actuator"
-    description: "Seatback recline forward switch engaged (SingleSeat.Recline)"
-    datatype: boolean
-    uuid: 293f9b42a7905c4bb720dbb61ecb3ae2
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos3.Switch.Cushion.Up"
-    type: "actuator"
-    description: "Seat cushion up switch engaged (SingleSeat.Cushion.Height)"
-    datatype: boolean
-    uuid: acf7b61a1c475483a71d62deeb577375
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos3.Switch.Cushion.Down"
-    type: "actuator"
-    description: "Seat cushion down switch engaged (SingleSeat.Cushion.Height)"
-    datatype: boolean
-    uuid: bdadaffa8d0d5ceca1358fcc83f0b163
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos3.Switch.Cushion.Forward"
-    type: "actuator"
-    description: "Seat cushion forward/lengthen switch engaged (SingleSeat.Cushion.Length)"
-    datatype: boolean
-    uuid: 0d19ee02d09d53d9b16651fdc9df9948
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos3.Switch.Cushion.Backward"
-    type: "actuator"
-    description: "Seat cushion backward/shorten switch engaged (SingleSeat.Cushion.Length)"
-    datatype: boolean
-    uuid: 6d1b17807ff751778ac07b63f6a7d1fc
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos3.Switch.Lumbar.Up"
-    type: "actuator"
-    description: "Lumbar up switch engaged (SingleSeat.Lumbar.Height)"
-    datatype: boolean
-    uuid: 4aa4e54ff29f564ba46e3befff74adeb
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos3.Switch.Lumbar.Down"
-    type: "actuator"
-    description: "Lumbar down switch engaged (SingleSeat.Lumbar.Height)"
-    datatype: boolean
-    uuid: baa326f37f8459b3a0cc6035b1243ba6
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos3.Switch.Lumbar.Inflate"
-    type: "actuator"
-    description: "Lumbar inflation switch engaged (SingleSeat.Lumbar.Inflation)"
-    datatype: boolean
-    uuid: 03006f057a6f52368f352676b36759f6
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos3.Switch.Lumbar.Deflate"
-    type: "actuator"
-    description: "Lumbar deflation switch engaged (SingleSeat.Lumbar.Inflation)"
-    datatype: boolean
-    uuid: 510c3e175aee5e2983b5ad30d31d407c
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos3.Switch.SideBolster.Inflate"
-    type: "actuator"
-    description: "Side bolster inflation switch engaged (SingleSeat.SideBolster.Inflation)"
-    datatype: boolean
-    uuid: 48fa678302e15af4ab7dafc1d3d8523f
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos3.Switch.SideBolster.Deflate"
-    type: "actuator"
-    description: "Side bolster deflation switch engaged (SingleSeat.SideBolster.Inflation)"
-    datatype: boolean
-    uuid: af56cae4b5e45e628950666a0fc93fad
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos4.HasPassenger"
-    type: "sensor"
-    description: "Does the seat have a passenger in it."
-    datatype: boolean
-    uuid: 05f6eb4d2e0a5e76b51a76f898d8c566
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos4.Occupant.Identifier.Subject"
-    type: "sensor"
-    description: "Subject for the authentification of the occupant. E.g. UserID 7331677"
-    datatype: string
-    uuid: eff4c8b63f0652b5bf43c1b4764cc1c4
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos4.Occupant.Identifier.Issuer"
-    type: "sensor"
-    description: "Unique Issuer for the authentification of the occupant. E.g. https://accounts.funcorp.com"
-    datatype: string
-    uuid: aa0a4e039846542ca490b54758ec675b
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos4.IsBelted"
-    type: "sensor"
-    description: "Is the belt engaged."
-    datatype: boolean
-    uuid: 86691c26f6cf5bcf93a7c5a84c2b26e0
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos4.Heating"
-    type: "actuator"
-    description: "Seat cooling / heating. 0 = off. -100 = max cold. +100 = max heat."
-    datatype: int8
-    uuid: 51aed885093458cd999977b8273ad224
-    min: -100
-    max: 100
-    unit: percent
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos4.Massage"
-    type: "actuator"
-    description: "Seat massage level. 0 = off. 100 = max massage."
-    datatype: uint8
-    uuid: 380c135b4fd4503fbdedbc5264df5bab
-    min: 0
-    max: 100
-    unit: percent
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos4.Recline"
-    type: "actuator"
-    description: "Recline level. -90 = Max forward recline. 90 max backward recline."
-    datatype: int8
-    uuid: d333514f0f8b5761badb876e2d35bf3f
-    min: -90
-    max: 90
-    unit: degrees
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos4.Position"
-    type: "actuator"
-    description: "Seat horizontal position. 0 = Frontmost. 1000 = Rearmost."
-    datatype: uint16
-    uuid: 42a24e9ac6b4538d9541fcaca5c39807
-    min: 0
-    max: 1000
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos4.Height"
-    type: "actuator"
-    description: "Seat vertical position. 0 = Lowermost. 1000 = Uppermost."
-    datatype: uint16
-    uuid: f6bd144605ed5b0b9f130c96c7c3bd4b
-    min: 0
-    max: 1000
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos4.Cushion.Height"
-    type: "actuator"
-    description: "Height of the seat cushion (leg support), relative to seat. 0 = Lowermost. 500 = Uppermost."
-    datatype: uint16
-    uuid: 3828b11adfd752f8acf64876b7193c35
-    min: 0
-    max: 500
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos4.Cushion.Length"
-    type: "actuator"
-    description: "Forward length of cushion (leg support), relative to seat. 0 = Rearmost. 500 = Forwardmost."
-    datatype: uint16
-    uuid: 6679ca4dcb255ef7bd6ac3e08a653e92
-    min: 0
-    max: 500
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos4.Lumbar.Inflation"
-    type: "actuator"
-    description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    datatype: uint8
-    uuid: e51119736f1157758d2cd9ca7f42a7ce
-    min: 0
-    max: 255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos4.Lumbar.Height"
-    type: "actuator"
-    description: "Lumbar support position. 0 = Lowermost. 255 = Uppermost."
-    datatype: uint8
-    uuid: 2700ef0693e85b5aaf40608b93847565
-    min: 0
-    max: 255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos4.SideBolster.Inflation"
-    type: "actuator"
-    description: "Side bolster support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    datatype: uint8
-    uuid: b59005fc0dec52e8b9612e8137ea9b41
-    min: 0
-    max: 255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos4.HeadRestraint.Height"
-    type: "actuator"
-    description: "Height of head restraint. 0 = Bottommost. 255 = Uppermost."
-    datatype: uint8
-    uuid: 96bb71d09b7c59d9a626d19fa480cfad
-    min: 0
-    max: 255
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos4.Airbag.IsDeployed"
-    type: "sensor"
-    description: "Airbag deployment status. True = Airbag deployed. False = Airbag not deployed."
-    datatype: boolean
-    uuid: 6af12c6538a75aaa8ca54ee6a7bf2157
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos4.Switch.Warmer"
-    type: "actuator"
-    description: "Warmer switch for Seat heater (SingleSeat.Heating)"
-    datatype: boolean
-    uuid: c0fa909b997455b58d3aea356bb8ed61
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos4.Switch.Cooler"
-    type: "actuator"
-    description: "Cooler switch for Seat heater (SingleSeat.Heating)"
-    datatype: boolean
-    uuid: 94743332fa0051448aa2445f952752e6
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos4.Switch.Forward"
-    type: "actuator"
-    description: "Seat forward switch engaged (SingleSeat.Position)"
-    datatype: boolean
-    uuid: b4e8d667b6995e31a053258b73acfa9e
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos4.Switch.Backward"
-    type: "actuator"
-    description: "Seat backward switch engaged (SingleSeat.Position)"
-    datatype: boolean
-    uuid: 412b04edd54759cabff4dec6f255d9ee
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos4.Switch.Up"
-    type: "actuator"
-    description: "Seat up switch engaged (SingleSeat.Height)"
-    datatype: boolean
-    uuid: ea9270697046510ba97d09686a7dce5f
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos4.Switch.Down"
-    type: "actuator"
-    description: "Seat down switch engaged (SingleSeat.Height)"
-    datatype: boolean
-    uuid: 485391c4f3475714a1e6334b6ccf7a8e
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos4.Switch.HeadRestraint.Up"
-    type: "actuator"
-    description: "Head restraint up switch engaged (SingleSeat.HeadRestraint.Height)"
-    datatype: boolean
-    uuid: 4da8d3dffeec55689cec471fe44f44d2
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos4.Switch.HeadRestraint.Down"
-    type: "actuator"
-    description: "Head restraint down switch engaged (SingleSeat.HeadRestraint.Height)"
-    datatype: boolean
-    uuid: 3670fcb689b65c54b87ecaf500d75566
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos4.Switch.Massage.Increase"
-    type: "actuator"
-    description: "Increase massage level switch engaged (SingleSeat.Massage)"
-    datatype: boolean
-    uuid: 8bca17a27fe15e3f89ac0427676ba8b5
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos4.Switch.Massage.Decrease"
-    type: "actuator"
-    description: "Decrease massage level switch engaged (SingleSeat.Massage)"
-    datatype: boolean
-    uuid: a03b6c49de3d555db304794b8dc9dba4
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos4.Switch.Recline.Backward"
-    type: "actuator"
-    description: "Seatback recline backward switch engaged (SingleSeat.Recline)"
-    datatype: boolean
-    uuid: 279648f4ddea5d8ba8f40fa2e9d7509d
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos4.Switch.Recline.Forward"
-    type: "actuator"
-    description: "Seatback recline forward switch engaged (SingleSeat.Recline)"
-    datatype: boolean
-    uuid: f9eceedeb5e958fb85b899cfe6435eb2
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos4.Switch.Cushion.Up"
-    type: "actuator"
-    description: "Seat cushion up switch engaged (SingleSeat.Cushion.Height)"
-    datatype: boolean
-    uuid: 4431d5a39d2850cdb089d8206cb3a729
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos4.Switch.Cushion.Down"
-    type: "actuator"
-    description: "Seat cushion down switch engaged (SingleSeat.Cushion.Height)"
-    datatype: boolean
-    uuid: e2ccf418460d5ac690c744ea2defe293
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos4.Switch.Cushion.Forward"
-    type: "actuator"
-    description: "Seat cushion forward/lengthen switch engaged (SingleSeat.Cushion.Length)"
-    datatype: boolean
-    uuid: 5c767cd910455a3db149a9bdf6d5e798
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos4.Switch.Cushion.Backward"
-    type: "actuator"
-    description: "Seat cushion backward/shorten switch engaged (SingleSeat.Cushion.Length)"
-    datatype: boolean
-    uuid: 308a5785a3ed5cfb9e8ea02dfd4d9018
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos4.Switch.Lumbar.Up"
-    type: "actuator"
-    description: "Lumbar up switch engaged (SingleSeat.Lumbar.Height)"
-    datatype: boolean
-    uuid: 4684b62d6cb85153b2a589572aa6b1eb
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos4.Switch.Lumbar.Down"
-    type: "actuator"
-    description: "Lumbar down switch engaged (SingleSeat.Lumbar.Height)"
-    datatype: boolean
-    uuid: fd9cfc0d509d54e4a285bb5a5e43bca9
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos4.Switch.Lumbar.Inflate"
-    type: "actuator"
-    description: "Lumbar inflation switch engaged (SingleSeat.Lumbar.Inflation)"
-    datatype: boolean
-    uuid: 7635fde28ec05d18be4d5e163a1d5cbf
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos4.Switch.Lumbar.Deflate"
-    type: "actuator"
-    description: "Lumbar deflation switch engaged (SingleSeat.Lumbar.Inflation)"
-    datatype: boolean
-    uuid: f1601d11be32540b9bbcd2bf3d02577f
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos4.Switch.SideBolster.Inflate"
-    type: "actuator"
-    description: "Side bolster inflation switch engaged (SingleSeat.SideBolster.Inflation)"
-    datatype: boolean
-    uuid: be9f4ef481d35d37a7401a2d6d917539
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos4.Switch.SideBolster.Deflate"
-    type: "actuator"
-    description: "Side bolster deflation switch engaged (SingleSeat.SideBolster.Inflation)"
-    datatype: boolean
-    uuid: 8f5559fe801358b7bc342a8729c4e139
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos5.HasPassenger"
-    type: "sensor"
-    description: "Does the seat have a passenger in it."
-    datatype: boolean
-    uuid: 5ecf909c5e895659988ebc94f44cc9c7
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos5.Occupant.Identifier.Subject"
-    type: "sensor"
-    description: "Subject for the authentification of the occupant. E.g. UserID 7331677"
-    datatype: string
-    uuid: 81dddc1bd92e535eb1270ba62242daef
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos5.Occupant.Identifier.Issuer"
-    type: "sensor"
-    description: "Unique Issuer for the authentification of the occupant. E.g. https://accounts.funcorp.com"
-    datatype: string
-    uuid: 237e4fca2ff35ee1a20fc91a7e390f58
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos5.IsBelted"
-    type: "sensor"
-    description: "Is the belt engaged."
-    datatype: boolean
-    uuid: 7fe5dacda6935f25b83d1e268138249a
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos5.Heating"
-    type: "actuator"
-    description: "Seat cooling / heating. 0 = off. -100 = max cold. +100 = max heat."
-    datatype: int8
-    uuid: 9b7821d801385a60acc226bec9bcee9a
-    min: -100
-    max: 100
-    unit: percent
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos5.Massage"
-    type: "actuator"
-    description: "Seat massage level. 0 = off. 100 = max massage."
-    datatype: uint8
-    uuid: 060c88168c955bccb13aeaf50e19ffdb
-    min: 0
-    max: 100
-    unit: percent
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos5.Recline"
-    type: "actuator"
-    description: "Recline level. -90 = Max forward recline. 90 max backward recline."
-    datatype: int8
-    uuid: b867b5d87e1950998afeee8e2c6ebe20
-    min: -90
-    max: 90
-    unit: degrees
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos5.Position"
-    type: "actuator"
-    description: "Seat horizontal position. 0 = Frontmost. 1000 = Rearmost."
-    datatype: uint16
-    uuid: 573a386f90885e2d92cc7c97e72511f4
-    min: 0
-    max: 1000
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos5.Height"
-    type: "actuator"
-    description: "Seat vertical position. 0 = Lowermost. 1000 = Uppermost."
-    datatype: uint16
-    uuid: 5b2bbb3d37185ae0973b08b3b54156bf
-    min: 0
-    max: 1000
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos5.Cushion.Height"
-    type: "actuator"
-    description: "Height of the seat cushion (leg support), relative to seat. 0 = Lowermost. 500 = Uppermost."
-    datatype: uint16
-    uuid: 8620b49b7a2656a1b802b749f959eb94
-    min: 0
-    max: 500
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos5.Cushion.Length"
-    type: "actuator"
-    description: "Forward length of cushion (leg support), relative to seat. 0 = Rearmost. 500 = Forwardmost."
-    datatype: uint16
-    uuid: bbcbcaf340fe58969f4b06856a7e0898
-    min: 0
-    max: 500
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos5.Lumbar.Inflation"
-    type: "actuator"
-    description: "Lumbar support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    datatype: uint8
-    uuid: 94aba5edb15e5341a2b66c48cf0653a0
-    min: 0
-    max: 255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos5.Lumbar.Height"
-    type: "actuator"
-    description: "Lumbar support position. 0 = Lowermost. 255 = Uppermost."
-    datatype: uint8
-    uuid: a7d3d00239da58aa8cd7a756bb6a486c
-    min: 0
-    max: 255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos5.SideBolster.Inflation"
-    type: "actuator"
-    description: "Side bolster support inflation. 0 = Fully deflated. 255 = Fully inflated."
-    datatype: uint8
-    uuid: 39f7227e1a645d188626e9c4dbc1c87e
-    min: 0
-    max: 255
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos5.HeadRestraint.Height"
-    type: "actuator"
-    description: "Height of head restraint. 0 = Bottommost. 255 = Uppermost."
-    datatype: uint8
-    uuid: 96bce1dac8895b7cb35a853a07001faf
-    min: 0
-    max: 255
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos5.Airbag.IsDeployed"
-    type: "sensor"
-    description: "Airbag deployment status. True = Airbag deployed. False = Airbag not deployed."
-    datatype: boolean
-    uuid: 8bcb8800307c501da59bae1d46c56ade
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos5.Switch.Warmer"
-    type: "actuator"
-    description: "Warmer switch for Seat heater (SingleSeat.Heating)"
-    datatype: boolean
-    uuid: 4b4f801f348b5f749b45a99fd4df9ddf
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos5.Switch.Cooler"
-    type: "actuator"
-    description: "Cooler switch for Seat heater (SingleSeat.Heating)"
-    datatype: boolean
-    uuid: 7b02caf363db5b749770511d019a4b75
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos5.Switch.Forward"
-    type: "actuator"
-    description: "Seat forward switch engaged (SingleSeat.Position)"
-    datatype: boolean
-    uuid: ec22ed9cb7c8589182f27d7ae683e49a
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos5.Switch.Backward"
-    type: "actuator"
-    description: "Seat backward switch engaged (SingleSeat.Position)"
-    datatype: boolean
-    uuid: ce46f11ab46659b1b747d5bf940159d2
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos5.Switch.Up"
-    type: "actuator"
-    description: "Seat up switch engaged (SingleSeat.Height)"
-    datatype: boolean
-    uuid: a30f9d2416c95c91ac5852d438785e27
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos5.Switch.Down"
-    type: "actuator"
-    description: "Seat down switch engaged (SingleSeat.Height)"
-    datatype: boolean
-    uuid: 54dc590307b35e9bb98b0197b597d681
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos5.Switch.HeadRestraint.Up"
-    type: "actuator"
-    description: "Head restraint up switch engaged (SingleSeat.HeadRestraint.Height)"
-    datatype: boolean
-    uuid: f9325a21797b5c91851f7d11bbcf413e
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos5.Switch.HeadRestraint.Down"
-    type: "actuator"
-    description: "Head restraint down switch engaged (SingleSeat.HeadRestraint.Height)"
-    datatype: boolean
-    uuid: 01c0047065df56e3a4b1cce03d1c65c0
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos5.Switch.Massage.Increase"
-    type: "actuator"
-    description: "Increase massage level switch engaged (SingleSeat.Massage)"
-    datatype: boolean
-    uuid: cf743bdc3b9056a8984594eda1b92713
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos5.Switch.Massage.Decrease"
-    type: "actuator"
-    description: "Decrease massage level switch engaged (SingleSeat.Massage)"
-    datatype: boolean
-    uuid: 7fb4869be6905af2a13d0e31a352b93a
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos5.Switch.Recline.Backward"
-    type: "actuator"
-    description: "Seatback recline backward switch engaged (SingleSeat.Recline)"
-    datatype: boolean
-    uuid: ae647e32597e5b7f801fef66d4da6c75
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos5.Switch.Recline.Forward"
-    type: "actuator"
-    description: "Seatback recline forward switch engaged (SingleSeat.Recline)"
-    datatype: boolean
-    uuid: 15dc6ad4c64657129623abbe3483d3f5
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos5.Switch.Cushion.Up"
-    type: "actuator"
-    description: "Seat cushion up switch engaged (SingleSeat.Cushion.Height)"
-    datatype: boolean
-    uuid: 58724af988135202a35ab3e9b57bfba4
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos5.Switch.Cushion.Down"
-    type: "actuator"
-    description: "Seat cushion down switch engaged (SingleSeat.Cushion.Height)"
-    datatype: boolean
-    uuid: eb272b8294825399b3a0c02f6b5d9cf8
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos5.Switch.Cushion.Forward"
-    type: "actuator"
-    description: "Seat cushion forward/lengthen switch engaged (SingleSeat.Cushion.Length)"
-    datatype: boolean
-    uuid: d4a62201d29557fc8f5f1f7192fa38c3
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos5.Switch.Cushion.Backward"
-    type: "actuator"
-    description: "Seat cushion backward/shorten switch engaged (SingleSeat.Cushion.Length)"
-    datatype: boolean
-    uuid: cf10c7ff875f52038c41e52bf8a762d3
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos5.Switch.Lumbar.Up"
-    type: "actuator"
-    description: "Lumbar up switch engaged (SingleSeat.Lumbar.Height)"
-    datatype: boolean
-    uuid: 9e835e91089a595786b5112e16cf402e
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos5.Switch.Lumbar.Down"
-    type: "actuator"
-    description: "Lumbar down switch engaged (SingleSeat.Lumbar.Height)"
-    datatype: boolean
-    uuid: 20424f7bb2ad5e65b755c52da111801a
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos5.Switch.Lumbar.Inflate"
-    type: "actuator"
-    description: "Lumbar inflation switch engaged (SingleSeat.Lumbar.Inflation)"
-    datatype: boolean
-    uuid: 4989f93f5158517898ee1ed4e7f06e2f
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos5.Switch.Lumbar.Deflate"
-    type: "actuator"
-    description: "Lumbar deflation switch engaged (SingleSeat.Lumbar.Inflation)"
-    datatype: boolean
-    uuid: 37f321034d9d5364be542879d73e9c43
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos5.Switch.SideBolster.Inflate"
-    type: "actuator"
-    description: "Side bolster inflation switch engaged (SingleSeat.SideBolster.Inflation)"
-    datatype: boolean
-    uuid: 2b77392f4f065f488e3351b03a5a003a
-}
-,
-{
-    name: "Vehicle.Cabin.Seat.Row4.Pos5.Switch.SideBolster.Deflate"
-    type: "actuator"
-    description: "Side bolster deflation switch engaged (SingleSeat.SideBolster.Inflation)"
-    datatype: boolean
-    uuid: d8588aa2c3a155e5a1fc0e79ac3d0eba
-}
-,
-{
     name: "Vehicle.Cabin.DriverPosition"
     type: "attribute"
-    description: "The position of the driver seat in row 1. (1-5)"
+    description: "The position of the driver seat in row 1."
     datatype: uint8
     uuid: bca9ccd50358584d8d20865694b0d15f
 }
@@ -10495,75 +5515,171 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.OBD.O2.Bank1.Sensor1.Voltage"
+    name: "Vehicle.OBD.OxygenSensorsIn2Banks"
     type: "sensor"
-    description: "PID 14 - Sensor voltage"
+    description: "PID 13 - Presence of oxygen sensors in 2 banks. [A0..A3] == Bank 1, Sensors 1-4. [A4..A7] == Bank 2, Sensors 1-4"
+    datatype: uint8
+    uuid: 0a9ba3f0a9b256d78bafd62ee8ce73cd
+}
+,
+{
+    name: "Vehicle.OBD.O2.Sensor1.Voltage"
+    type: "sensor"
+    description: "PID 1x (byte A) - Sensor voltage"
     datatype: float
-    uuid: 3d9d4bfdf5bb506891612b7dbc044b81
+    uuid: e95f4ea667265ee3a68ab57b86ecbf66
     unit: V
 }
 ,
 {
-    name: "Vehicle.OBD.O2.Bank1.Sensor2.Voltage"
+    name: "Vehicle.OBD.O2.Sensor1.ShortTermFuelTrim"
     type: "sensor"
-    description: "PID 15 - Sensor voltage"
+    description: "PID 1x (byte B) - Short term fuel trim"
     datatype: float
-    uuid: 2bb19dbdf64d5d438e19d220606565cf
+    uuid: ee366d40132456c0bce8cac3a837f16a
+    unit: percent
+}
+,
+{
+    name: "Vehicle.OBD.O2.Sensor2.Voltage"
+    type: "sensor"
+    description: "PID 1x (byte A) - Sensor voltage"
+    datatype: float
+    uuid: 5f1781bde96b53ce9b810a5a56b7c8ed
     unit: V
 }
 ,
 {
-    name: "Vehicle.OBD.O2.Bank1.Sensor3.Voltage"
+    name: "Vehicle.OBD.O2.Sensor2.ShortTermFuelTrim"
     type: "sensor"
-    description: "PID 16 - Sensor voltage"
+    description: "PID 1x (byte B) - Short term fuel trim"
     datatype: float
-    uuid: 7749913f77ec5f84942e5d4bad97b398
+    uuid: 92e6e172777457a9866ca045d0d79853
+    unit: percent
+}
+,
+{
+    name: "Vehicle.OBD.O2.Sensor3.Voltage"
+    type: "sensor"
+    description: "PID 1x (byte A) - Sensor voltage"
+    datatype: float
+    uuid: a86a1986f0fe5d25b6c438a00438ff60
     unit: V
 }
 ,
 {
-    name: "Vehicle.OBD.O2.Bank1.Sensor4.Voltage"
+    name: "Vehicle.OBD.O2.Sensor3.ShortTermFuelTrim"
     type: "sensor"
-    description: "PID 17 - Sensor voltage"
+    description: "PID 1x (byte B) - Short term fuel trim"
     datatype: float
-    uuid: 3ddcc11605bd57958a6ab7040980388b
+    uuid: 66c300d35eb85e7387dc42528cca48d9
+    unit: percent
+}
+,
+{
+    name: "Vehicle.OBD.O2.Sensor4.Voltage"
+    type: "sensor"
+    description: "PID 1x (byte A) - Sensor voltage"
+    datatype: float
+    uuid: 772cbfab91be59f7bbf3ec4140ffbcc4
     unit: V
 }
 ,
 {
-    name: "Vehicle.OBD.O2.Bank2.Sensor1.Voltage"
+    name: "Vehicle.OBD.O2.Sensor4.ShortTermFuelTrim"
     type: "sensor"
-    description: "PID 18 - Sensor voltage"
+    description: "PID 1x (byte B) - Short term fuel trim"
     datatype: float
-    uuid: ff69ddba35d9527b91ee1f02f8e547e7
+    uuid: b71dcf9d850c5d5686f14ad46cd2cae3
+    unit: percent
+}
+,
+{
+    name: "Vehicle.OBD.O2.Sensor5.Voltage"
+    type: "sensor"
+    description: "PID 1x (byte A) - Sensor voltage"
+    datatype: float
+    uuid: 155a0816093b5aee8012ed2a8d532b7f
     unit: V
 }
 ,
 {
-    name: "Vehicle.OBD.O2.Bank2.Sensor2.Voltage"
+    name: "Vehicle.OBD.O2.Sensor5.ShortTermFuelTrim"
     type: "sensor"
-    description: "PID 19 - Sensor voltage"
+    description: "PID 1x (byte B) - Short term fuel trim"
     datatype: float
-    uuid: 8b621b72cff35ece97b9b0b1918f4c82
+    uuid: 7604de26198b51e28a441f79b1d84242
+    unit: percent
+}
+,
+{
+    name: "Vehicle.OBD.O2.Sensor6.Voltage"
+    type: "sensor"
+    description: "PID 1x (byte A) - Sensor voltage"
+    datatype: float
+    uuid: 85430592fb795e848d7bb91e6b9f1e00
     unit: V
 }
 ,
 {
-    name: "Vehicle.OBD.O2.Bank2.Sensor3.Voltage"
+    name: "Vehicle.OBD.O2.Sensor6.ShortTermFuelTrim"
     type: "sensor"
-    description: "PID 1A - Sensor voltage"
+    description: "PID 1x (byte B) - Short term fuel trim"
     datatype: float
-    uuid: 5b2ccfaf65265ce6a81dcd9d76e42224
+    uuid: 2fb034769cab5089986d90bf7f9000ca
+    unit: percent
+}
+,
+{
+    name: "Vehicle.OBD.O2.Sensor7.Voltage"
+    type: "sensor"
+    description: "PID 1x (byte A) - Sensor voltage"
+    datatype: float
+    uuid: 23984a68e63f532bab18679e1174130d
     unit: V
 }
 ,
 {
-    name: "Vehicle.OBD.O2.Bank2.Sensor4.Voltage"
+    name: "Vehicle.OBD.O2.Sensor7.ShortTermFuelTrim"
     type: "sensor"
-    description: "PID 1B - Sensor voltage"
+    description: "PID 1x (byte B) - Short term fuel trim"
     datatype: float
-    uuid: 3ec914477d23598f9f5915d14db5852e
+    uuid: 81f34b16b5e05d1ab159de9474eaf5bc
+    unit: percent
+}
+,
+{
+    name: "Vehicle.OBD.O2.Sensor8.Voltage"
+    type: "sensor"
+    description: "PID 1x (byte A) - Sensor voltage"
+    datatype: float
+    uuid: 23e057b3629a5136bb585638725fe0a2
     unit: V
+}
+,
+{
+    name: "Vehicle.OBD.O2.Sensor8.ShortTermFuelTrim"
+    type: "sensor"
+    description: "PID 1x (byte B) - Short term fuel trim"
+    datatype: float
+    uuid: 1699eb2267615e258259e480be0fa606
+    unit: percent
+}
+,
+{
+    name: "Vehicle.OBD.OBDStandards"
+    type: "attribute"
+    description: "PID 1C - OBD standards this vehicle conforms to"
+    datatype: uint8
+    uuid: 1aa8d7d055cf5a29a31b04a12124f673
+}
+,
+{
+    name: "Vehicle.OBD.OxygenSensorsIn4Banks"
+    type: "sensor"
+    description: "PID 1D - Presence of oxygen sensors in 4 banks. Similar to PID 13, but [A0..A7] == [B1S1, B1S2, B2S1, B2S2, B3S1, B3S2, B4S1, B4S2]"
+    datatype: uint8
+    uuid: 41d3377813d651aa9b9344ba9fd2f880
 }
 ,
 {
@@ -10619,9 +5735,17 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
+    name: "Vehicle.OBD.O2WR.Sensor1.Lambda"
+    type: "sensor"
+    description: "PID 2x (byte AB) and PID 3x (byte AB) - Lambda for wide range/band oxygen sensor"
+    datatype: float
+    uuid: b809083454a5516f995477c59bf4d3c6
+}
+,
+{
     name: "Vehicle.OBD.O2WR.Sensor1.Voltage"
     type: "sensor"
-    description: "PID 24 - Lambda voltage for wide range/band oxygen sensor 1"
+    description: "PID 2x (byte CD) - Voltage for wide range/band oxygen sensor"
     datatype: float
     uuid: 396251cbfa5a57ffb1dd743298dfcdf9
     unit: V
@@ -10630,16 +5754,24 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.OBD.O2WR.Sensor1.Current"
     type: "sensor"
-    description: "PID 34 - Lambda current for wide range/band oxygen sensor 1"
+    description: "PID 3x (byte CD) - Current for wide range/band oxygen sensor"
     datatype: float
     uuid: bb4c70d9d2ae56c8a9a3be446db6f54c
     unit: A
 }
 ,
 {
+    name: "Vehicle.OBD.O2WR.Sensor2.Lambda"
+    type: "sensor"
+    description: "PID 2x (byte AB) and PID 3x (byte AB) - Lambda for wide range/band oxygen sensor"
+    datatype: float
+    uuid: ce55aed0e8705a49970566db71ebcf90
+}
+,
+{
     name: "Vehicle.OBD.O2WR.Sensor2.Voltage"
     type: "sensor"
-    description: "PID 25 - Lambda voltage for wide range/band oxygen sensor 2"
+    description: "PID 2x (byte CD) - Voltage for wide range/band oxygen sensor"
     datatype: float
     uuid: a784675c3b765d42ad023d8ee412be26
     unit: V
@@ -10648,16 +5780,24 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.OBD.O2WR.Sensor2.Current"
     type: "sensor"
-    description: "PID 35 - Lambda current for wide range/band oxygen sensor 2"
+    description: "PID 3x (byte CD) - Current for wide range/band oxygen sensor"
     datatype: float
     uuid: 442ab33180ca5028a37a487056ba4a51
     unit: A
 }
 ,
 {
+    name: "Vehicle.OBD.O2WR.Sensor3.Lambda"
+    type: "sensor"
+    description: "PID 2x (byte AB) and PID 3x (byte AB) - Lambda for wide range/band oxygen sensor"
+    datatype: float
+    uuid: f2ae7c781b0a5dcf8db91558e3cf4c13
+}
+,
+{
     name: "Vehicle.OBD.O2WR.Sensor3.Voltage"
     type: "sensor"
-    description: "PID 26 - Lambda voltage for wide range/band oxygen sensor 3"
+    description: "PID 2x (byte CD) - Voltage for wide range/band oxygen sensor"
     datatype: float
     uuid: a78f7621a3f75df2adc1dc940219834a
     unit: V
@@ -10666,16 +5806,24 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.OBD.O2WR.Sensor3.Current"
     type: "sensor"
-    description: "PID 36 - Lambda current for wide range/band oxygen sensor 4"
+    description: "PID 3x (byte CD) - Current for wide range/band oxygen sensor"
     datatype: float
     uuid: c942468e349e5aaebde4d90ee0bc3814
     unit: A
 }
 ,
 {
+    name: "Vehicle.OBD.O2WR.Sensor4.Lambda"
+    type: "sensor"
+    description: "PID 2x (byte AB) and PID 3x (byte AB) - Lambda for wide range/band oxygen sensor"
+    datatype: float
+    uuid: be09013f423c588eae9c06da9ddf290f
+}
+,
+{
     name: "Vehicle.OBD.O2WR.Sensor4.Voltage"
     type: "sensor"
-    description: "PID 27 - Lambda voltage for wide range/band oxygen sensor 4"
+    description: "PID 2x (byte CD) - Voltage for wide range/band oxygen sensor"
     datatype: float
     uuid: abeca90ba22d5c32a34ee907cedf3192
     unit: V
@@ -10684,16 +5832,24 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.OBD.O2WR.Sensor4.Current"
     type: "sensor"
-    description: "PID 37 - Lambda current for wide range/band oxygen sensor 4"
+    description: "PID 3x (byte CD) - Current for wide range/band oxygen sensor"
     datatype: float
     uuid: f16b31fde63a516db04cb44feaa7c27b
     unit: A
 }
 ,
 {
+    name: "Vehicle.OBD.O2WR.Sensor5.Lambda"
+    type: "sensor"
+    description: "PID 2x (byte AB) and PID 3x (byte AB) - Lambda for wide range/band oxygen sensor"
+    datatype: float
+    uuid: 16a957200f5c51f89824bbb76a23b9c0
+}
+,
+{
     name: "Vehicle.OBD.O2WR.Sensor5.Voltage"
     type: "sensor"
-    description: "PID 28 - Lambda voltage for wide range/band oxygen sensor 5"
+    description: "PID 2x (byte CD) - Voltage for wide range/band oxygen sensor"
     datatype: float
     uuid: 699c4db2439f51af8465e823687018b8
     unit: V
@@ -10702,16 +5858,24 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.OBD.O2WR.Sensor5.Current"
     type: "sensor"
-    description: "PID 38 - Lambda current for wide range/band oxygen sensor 5"
+    description: "PID 3x (byte CD) - Current for wide range/band oxygen sensor"
     datatype: float
     uuid: 40494cb5826554929f5ecadd5b9173fd
     unit: A
 }
 ,
 {
+    name: "Vehicle.OBD.O2WR.Sensor6.Lambda"
+    type: "sensor"
+    description: "PID 2x (byte AB) and PID 3x (byte AB) - Lambda for wide range/band oxygen sensor"
+    datatype: float
+    uuid: fdae9bb9a3a45b4680450f0347cf6d66
+}
+,
+{
     name: "Vehicle.OBD.O2WR.Sensor6.Voltage"
     type: "sensor"
-    description: "PID 29 - Lambda voltage for wide range/band oxygen sensor 6"
+    description: "PID 2x (byte CD) - Voltage for wide range/band oxygen sensor"
     datatype: float
     uuid: 304c181c76d55c3abe75382a935c7bde
     unit: V
@@ -10720,16 +5884,24 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.OBD.O2WR.Sensor6.Current"
     type: "sensor"
-    description: "PID 39 - Lambda current for wide range/band oxygen sensor 6"
+    description: "PID 3x (byte CD) - Current for wide range/band oxygen sensor"
     datatype: float
     uuid: 06a38b6b4784545bb637279e96d48eb5
     unit: A
 }
 ,
 {
+    name: "Vehicle.OBD.O2WR.Sensor7.Lambda"
+    type: "sensor"
+    description: "PID 2x (byte AB) and PID 3x (byte AB) - Lambda for wide range/band oxygen sensor"
+    datatype: float
+    uuid: 9221a5289157538b9dcaa0d961c335fa
+}
+,
+{
     name: "Vehicle.OBD.O2WR.Sensor7.Voltage"
     type: "sensor"
-    description: "PID 2A - Lambda voltage for wide range/band oxygen sensor 7"
+    description: "PID 2x (byte CD) - Voltage for wide range/band oxygen sensor"
     datatype: float
     uuid: 0ad1d79dcce65c00ac48421b5b54ca0e
     unit: V
@@ -10738,16 +5910,24 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.OBD.O2WR.Sensor7.Current"
     type: "sensor"
-    description: "PID 3A - Lambda current for wide range/band oxygen sensor 7"
+    description: "PID 3x (byte CD) - Current for wide range/band oxygen sensor"
     datatype: float
     uuid: 6ed46315325d540eb95c86ec61eef8e4
     unit: A
 }
 ,
 {
+    name: "Vehicle.OBD.O2WR.Sensor8.Lambda"
+    type: "sensor"
+    description: "PID 2x (byte AB) and PID 3x (byte AB) - Lambda for wide range/band oxygen sensor"
+    datatype: float
+    uuid: c56db1195fa3519ab6718ab57d2cd543
+}
+,
+{
     name: "Vehicle.OBD.O2WR.Sensor8.Voltage"
     type: "sensor"
-    description: "PID 2B - Lambda voltage for wide range/band oxygen sensor 8"
+    description: "PID 2x (byte CD) - Voltage for wide range/band oxygen sensor"
     datatype: float
     uuid: ab7d6c739f025782bba640e58123f0c8
     unit: V
@@ -10756,7 +5936,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.OBD.O2WR.Sensor8.Current"
     type: "sensor"
-    description: "PID 3B - Lambda current for wide range/band oxygen sensor 8"
+    description: "PID 3x (byte CD) - Current for wide range/band oxygen sensor"
     datatype: float
     uuid: 96de3c3b036c50c2978ab2aa490d4d9e
     unit: A
@@ -11066,36 +6246,72 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.OBD.ShortTermO2Trim1"
     type: "sensor"
-    description: "PID 55 - Short term secondary O2 trim - Bank 1"
+    description: "PID 55 (byte A) - Short term secondary O2 trim - Bank 1"
     datatype: float
     uuid: be7ed33a854557ba802da0c51f9f4564
     unit: percent
 }
 ,
 {
+    name: "Vehicle.OBD.ShortTermO2Trim3"
+    type: "sensor"
+    description: "PID 55 (byte B) - Short term secondary O2 trim - Bank 3"
+    datatype: float
+    uuid: af58212df970568b9edcc5e58fa36f8d
+    unit: percent
+}
+,
+{
     name: "Vehicle.OBD.LongTermO2Trim1"
     type: "sensor"
-    description: "PID 56 - Long term secondary O2 trim - Bank 1"
+    description: "PID 56 (byte A) - Long term secondary O2 trim - Bank 1"
     datatype: float
     uuid: 9a9586e29a02567e9920cb9b0aa2e3f5
     unit: percent
 }
 ,
 {
+    name: "Vehicle.OBD.LongTermO2Trim3"
+    type: "sensor"
+    description: "PID 56 (byte B) - Long term secondary O2 trim - Bank 3"
+    datatype: float
+    uuid: 50ea51ad343a5e59b1d214053e522a45
+    unit: percent
+}
+,
+{
     name: "Vehicle.OBD.ShortTermO2Trim2"
     type: "sensor"
-    description: "PID 57 - Short term secondary O2 trim - Bank 2"
+    description: "PID 57 (byte A) - Short term secondary O2 trim - Bank 2"
     datatype: float
     uuid: c8b962f8990e51d294621408ceaa21d9
     unit: percent
 }
 ,
 {
+    name: "Vehicle.OBD.ShortTermO2Trim4"
+    type: "sensor"
+    description: "PID 57 (byte B) - Short term secondary O2 trim - Bank 4"
+    datatype: float
+    uuid: 8ef0516c0c965fd6aecbacd6b9120a5b
+    unit: percent
+}
+,
+{
     name: "Vehicle.OBD.LongTermO2Trim2"
     type: "sensor"
-    description: "PID 58 - Long term secondary O2 trim - Bank 2"
+    description: "PID 58 (byte A) - Long term secondary O2 trim - Bank 2"
     datatype: float
     uuid: e579f6c930605b389e8ce2d7edd92999
+    unit: percent
+}
+,
+{
+    name: "Vehicle.OBD.LongTermO2Trim4"
+    type: "sensor"
+    description: "PID 58 (byte B) - Long term secondary O2 trim - Bank 4"
+    datatype: float
+    uuid: f9c20edd12f456e5ace21581cea484bd
     unit: percent
 }
 ,

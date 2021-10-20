@@ -6,7 +6,7 @@
     <description>Recent content in Introduction on Vehicle Signal Specification</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 31 Jul 2019 15:22:34 +0200</lastBuildDate><atom:link href="https://genivi.github.io/vehicle_signal_specification/introduction/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 31 Jul 2019 12:11:31 +0200</lastBuildDate><atom:link href="https://genivi.github.io/vehicle_signal_specification/introduction/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Overview</title>
       <link>https://genivi.github.io/vehicle_signal_specification/introduction/overview/</link>
@@ -25,17 +25,6 @@ A standardized vehicle data specification allows an industry actor to use a comm
       <guid>https://genivi.github.io/vehicle_signal_specification/introduction/taxonomy/</guid>
       <description>The figure below explains the idea of a taxonomy as bridge between human and machine understanding of data. It is important to focus on a specific domain to get common understanding and acceptance. The link between two or more domain taxonomies can be seen as second step.
 Components of a domain taxonomy A domain taxonomy, like VSS, consists of three important components, which will be discussed in detail in this documentation:</description>
-    </item>
-    
-    <item>
-      <title>Quickstart</title>
-      <link>https://genivi.github.io/vehicle_signal_specification/introduction/quickstart/</link>
-      <pubDate>Wed, 31 Jul 2019 15:22:34 +0200</pubDate>
-      
-      <guid>https://genivi.github.io/vehicle_signal_specification/introduction/quickstart/</guid>
-      <description>A serialization of the data definition of the vehicle signal specification is checked in as vss_$VERSION.json, where $VERSION is the content of the VERSION file.
-A web-based JSON viewer can be used to view the spec.
- View VSS version 2.1 View VSS version 2.0 View VSS version 1.0  </description>
     </item>
     
   </channel>

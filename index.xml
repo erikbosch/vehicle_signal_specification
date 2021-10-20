@@ -38,7 +38,7 @@ An include directive refers to another vspec file that is to replace the directi
       
       <guid>https://genivi.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/</guid>
       <description>Each data entry specifies a datatype from the following set (from Franca IDL). Datatypes shall not be used in branch entry
-Supported datatypes    Name Type Min Max     uint8 unsigned 8-bit integer 0 255   int8 signed 8-bit integer -128 127   uint16 unsigned 16-bit integer 0 65535   int16 signed 16-bit integer -32768 32767   uint32 unsigned 32-bit integer 0 4294967295   int32 signed 32-bit integer -2147483648 2147483647   uint64 unsigned 64-bit integer 0 2^64   int64 signed 64-bit integer -2^63 2^63 - 1   boolean boolean value 0/false 1/true   float floating point number -3.</description>
+Supported datatypes    Name Type Min Max     uint8 unsigned 8-bit integer 0 255   int8 signed 8-bit integer -128 127   uint16 unsigned 16-bit integer 0 65535   int16 signed 16-bit integer -32768 32767   uint32 unsigned 32-bit integer 0 4294967295   int32 signed 32-bit integer -2147483648 2147483647   uint64 unsigned 64-bit integer 0 2^64 - 1   int64 signed 64-bit integer -2^63 2^63 - 1   boolean boolean value 0/false 1/true   float floating point number -3.</description>
     </item>
     
     <item>
@@ -89,26 +89,6 @@ To learn more check
     </item>
     
     <item>
-      <title>News</title>
-      <link>https://genivi.github.io/vehicle_signal_specification/news/</link>
-      <pubDate>Wed, 31 Jul 2019 12:11:31 +0200</pubDate>
-      
-      <guid>https://genivi.github.io/vehicle_signal_specification/news/</guid>
-      <description>VSS Version 2.0 released A new version of VSS has been released. The most important changes since Version 1.0 are:
-Vehicle as new root node Before, the tree of the specification started with an empty node, followed by an Attribute and a Signal branch. Now the root node is called Vehicle and every following branch is attached to it.
-Attribute and signal now elements of Data Entries Attributes and Signals were branches before.</description>
-    </item>
-    
-    <item>
-      <title>RELEASES</title>
-      <link>https://genivi.github.io/vehicle_signal_specification/releases/</link>
-      <pubDate>Wed, 31 Jul 2019 12:11:31 +0200</pubDate>
-      
-      <guid>https://genivi.github.io/vehicle_signal_specification/releases/</guid>
-      <description>Nightly  Name  .gitkeep   vss_rel_2.2-develop.binary   vss_rel_2.2-develop.csv   vss_rel_2.2-develop.fidl   vss_rel_2.2-develop.json   Version 2.1  Name  vss_release_2.1.csv   vss_release_2.1.fidl   vss_release_2.1.json   Version 2.0  Name  vss_release_2.0.csv   vss_release_2.0.fidl   vss_release_2.0.json   Version 1.0  Name  vss_rel_1.0.csv   vss_rel_1.0.fidl   vss_rel_1.0.json   vss_rel_1.0.vsi   </description>
-    </item>
-    
-    <item>
       <title>Taxonomies</title>
       <link>https://genivi.github.io/vehicle_signal_specification/introduction/taxonomy/</link>
       <pubDate>Wed, 31 Jul 2019 12:11:31 +0200</pubDate>
@@ -144,36 +124,24 @@ Defines the type of the node. This can be branch, sensor, actuator, stream or at
     </item>
     
     <item>
-      <title>Quickstart</title>
-      <link>https://genivi.github.io/vehicle_signal_specification/introduction/quickstart/</link>
-      <pubDate>Wed, 31 Jul 2019 15:22:34 +0200</pubDate>
-      
-      <guid>https://genivi.github.io/vehicle_signal_specification/introduction/quickstart/</guid>
-      <description>A serialization of the data definition of the vehicle signal specification is checked in as vss_$VERSION.json, where $VERSION is the content of the VERSION file.
-A web-based JSON viewer can be used to view the spec.
- View VSS version 2.1 View VSS version 2.0 View VSS version 1.0  </description>
-    </item>
-    
-    <item>
-      <title>Enumerated Sensors &amp; Actuators</title>
-      <link>https://genivi.github.io/vehicle_signal_specification/rule_set/data_entry/enum_sensor_actuator/</link>
-      <pubDate>Sun, 04 Aug 2019 12:37:12 +0200</pubDate>
-      
-      <guid>https://genivi.github.io/vehicle_signal_specification/rule_set/data_entry/enum_sensor_actuator/</guid>
-      <description>A data entry can optionally be enumerated, allowing it to be assigned a value from a specified set of values. An example of an enumerated sensor is given below:
-Chassis.Transmission.Gear: type: sensor datatype: uint16 enum: [ -1, 1, 2, 3, 4, 5, 6, 7, 8 ] description: The selected gear. -1 is reverse. An enumerated signal entry has no min, max, or unit element.
-The enum element is an array of values, all of which must be specified in the emum list.</description>
-    </item>
-    
-    <item>
       <title>Attributes</title>
       <link>https://genivi.github.io/vehicle_signal_specification/rule_set/data_entry/attributes/</link>
       <pubDate>Sun, 04 Aug 2019 12:37:31 +0200</pubDate>
       
       <guid>https://genivi.github.io/vehicle_signal_specification/rule_set/data_entry/attributes/</guid>
-      <description>An attribute is a signal with a default value, specified by its default member.
-Attribute values can also change, similar to sensor values. The latter can be useful for attribute values that are likely to change during the lifetime of the vehicle. However, attribute values should typically not change more than once per ignition cycle, or else it should be defined as a sensor instead.
-Below is an example of a complete attribute describing engine power</description>
+      <description>An attribute is a signal with a default value, specified by its default member. The standard Vehicle Signal Specification include default values for most attributes. It is expected that these default values do not fit all values. This means that an OEM must override the standard default values if a vehicle needs a different value.
+Attribute values can also change, similar to sensor values. The latter can be useful for attribute values that are likely to change during the lifetime of the vehicle.</description>
+    </item>
+    
+    <item>
+      <title>Enumerated Data Entries</title>
+      <link>https://genivi.github.io/vehicle_signal_specification/rule_set/data_entry/enum/</link>
+      <pubDate>Sun, 04 Aug 2019 12:37:12 +0200</pubDate>
+      
+      <guid>https://genivi.github.io/vehicle_signal_specification/rule_set/data_entry/enum/</guid>
+      <description>A data entry can optionally be enumerated, allowing it to be assigned a value from a specified set of values. An examples of a signal using enum is given below:
+Charging.ChargePlugType: datatype: string type: attribute default: ccs enum: [ &amp;#39;type 1&amp;#39;, &amp;#39;type 2&amp;#39;, &amp;#39;ccs&amp;#39;, &amp;#39;chademo&amp;#39; ] description: Type of charge plug available on the vehicle (CSS includes Type2). An enumerated signal entry has no min, max, or unit element.
+The enum element is an array of values, all of which must be specified in the enum list.</description>
     </item>
     
     <item>
