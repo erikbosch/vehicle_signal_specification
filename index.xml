@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Vehicle Signal Specification</title>
-    <link>https://genivi.github.io/vehicle_signal_specification/</link>
+    <link>https://covesa.github.io/vehicle_signal_specification/</link>
     <description>Recent content on Vehicle Signal Specification</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 05 Jul 2021 15:12:25 +0200</lastBuildDate><atom:link href="https://genivi.github.io/vehicle_signal_specification/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 05 Jul 2021 15:12:25 +0200</lastBuildDate><atom:link href="https://covesa.github.io/vehicle_signal_specification/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tools</title>
-      <link>https://genivi.github.io/vehicle_signal_specification/ecosystem/tools/</link>
+      <link>https://covesa.github.io/vehicle_signal_specification/ecosystem/tools/</link>
       <pubDate>Sun, 04 Jul 2021 13:27:46 +0000</pubDate>
       
-      <guid>https://genivi.github.io/vehicle_signal_specification/ecosystem/tools/</guid>
+      <guid>https://covesa.github.io/vehicle_signal_specification/ecosystem/tools/</guid>
       <description>The VSS can be transformed into other formats or generated as code to integrate with other tooling environments and ecosystems.
 Fig 1 shows the schematics of the top-level process.
 Fig 1. Generating documents from specification
@@ -21,10 +21,10 @@ Some helpful tools are available in the vss-tools project.</description>
     
     <item>
       <title>Basic Rules</title>
-      <link>https://genivi.github.io/vehicle_signal_specification/rule_set/basics/</link>
+      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/basics/</link>
       <pubDate>Sun, 04 Aug 2019 13:05:11 +0200</pubDate>
       
-      <guid>https://genivi.github.io/vehicle_signal_specification/rule_set/basics/</guid>
+      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/basics/</guid>
       <description>Specification format A domain specification is written as a flat YAML list, where each signal and branch is a self-contained YAML list element.
 The YAML list is a single file, called a vspec file.
 A vspec can, in addition to a YAML list, also contain include directives.
@@ -33,20 +33,20 @@ An include directive refers to another vspec file that is to replace the directi
     
     <item>
       <title>Data Types</title>
-      <link>https://genivi.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/</link>
+      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/</link>
       <pubDate>Sun, 04 Aug 2019 11:11:48 +0200</pubDate>
       
-      <guid>https://genivi.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/</guid>
+      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_types/</guid>
       <description>Each data entry specifies a datatype from the following set (from Franca IDL). Datatypes shall not be used in branch entry
 Supported datatypes    Name Type Min Max     uint8 unsigned 8-bit integer 0 255   int8 signed 8-bit integer -128 127   uint16 unsigned 16-bit integer 0 65535   int16 signed 16-bit integer -32768 32767   uint32 unsigned 32-bit integer 0 4294967295   int32 signed 32-bit integer -2147483648 2147483647   uint64 unsigned 64-bit integer 0 2^64 - 1   int64 signed 64-bit integer -2^63 2^63 - 1   boolean boolean value 0/false 1/true   float floating point number -3.</description>
     </item>
     
     <item>
       <title>Branch Entry</title>
-      <link>https://genivi.github.io/vehicle_signal_specification/rule_set/branches/</link>
+      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/branches/</link>
       <pubDate>Wed, 31 Jul 2019 15:27:36 +0200</pubDate>
       
-      <guid>https://genivi.github.io/vehicle_signal_specification/rule_set/branches/</guid>
+      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/branches/</guid>
       <description>A branch entry describes a tree branch (or node) containing other branches and signals.
 A branch entry example is given below:
 Trunk: type: branch description: All signals related to the rear trunk aggregate: false The following elements are defined:
@@ -58,20 +58,20 @@ The value branch specifies that this is a branch entry (as opposed to a signal e
     
     <item>
       <title>Overview</title>
-      <link>https://genivi.github.io/vehicle_signal_specification/introduction/overview/</link>
+      <link>https://covesa.github.io/vehicle_signal_specification/introduction/overview/</link>
       <pubDate>Tue, 30 Jul 2019 14:46:01 +0200</pubDate>
       
-      <guid>https://genivi.github.io/vehicle_signal_specification/introduction/overview/</guid>
+      <guid>https://covesa.github.io/vehicle_signal_specification/introduction/overview/</guid>
       <description>What is VSS? The Vehicle Signal Specification introduces a domain taxonomy for vehicle signals. It can be used as standard in automotive applications to communicate information around the vehicle, which is semantically well defined. It focuses on vehicle signals, in the sense of classical sensors and actuators with the raw data communicated over vehicle buses and data which is more commonly associated with the infotainment system alike.
 A standardized vehicle data specification allows an industry actor to use a common naming space for communication and, ultimately, abstracts underlying vehicle implementation details.</description>
     </item>
     
     <item>
       <title>W3C-VISS</title>
-      <link>https://genivi.github.io/vehicle_signal_specification/ecosystem/viss/</link>
+      <link>https://covesa.github.io/vehicle_signal_specification/ecosystem/viss/</link>
       <pubDate>Sun, 04 Jul 2021 13:29:46 +0000</pubDate>
       
-      <guid>https://genivi.github.io/vehicle_signal_specification/ecosystem/viss/</guid>
+      <guid>https://covesa.github.io/vehicle_signal_specification/ecosystem/viss/</guid>
       <description>When using VSS in an automotive tech stack, a question is which protocols and technologies to use to access VSS signals.
 The W3C Vehicle Information Service Specification (VISS) is an open standard, specifying a protocol to access VSS data via websocket (VISSv1, VISSv2) or HTTP (VISSv2).
 To learn more check
@@ -80,30 +80,30 @@ To learn more check
     
     <item>
       <title>Data Unit Types</title>
-      <link>https://genivi.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/</link>
+      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/</link>
       <pubDate>Sun, 04 Aug 2019 12:36:12 +0200</pubDate>
       
-      <guid>https://genivi.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/</guid>
+      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/data_unit_types/</guid>
       <description>A signal can optionally specify a unit of measurement from the following set. This list composed with definition according to International Units (SI) and few automotive specific units: Specification, Wikipedia
    Unit type Domain Description     km/h Speed Kilometers per hour   m/s Speed Meters per second   celsius Temperature Degrees Celsius   mbar Pressure millibar   Pa Pressure Pascal   kPa Pressure Kilo-Pascal   percent Relation Percent   ratio Relation Ratio   lat Position Decimal latitude   lon Position Decimal longitude   inch Distance Inch   mm Distance Millimeter   m Distance Meter   km Distance Kilometer   rpm Frequency Rotations per minute   Hz Frequency Frequency   W Power Watt   kW Power Kilowatt   kWh Power Kilowatt hours   ms Time Milliseconds   s Time Seconds   min Time Minutes   h Time Hours   g Weight Grams   kg Weight Kilograms   g/s Flow Grams per second   l/h Flow Liters per hour   m/s^2 Acceleration Acceleration in meters per second squared   cm/s^2 Acceleration Acceleration in centimeters per second squared   N Force Newton   Nm Force Torque   l Volume Liter   ml Volume Milliliter   degree Angle Angle in degrees   degrees/s Angular Speed Angular speed in degrees/s   l/100km Consumption Liters per 100 km   ml/100km Consumption Milliliters per 100 km   V Electrical Potential difference in volt   A Electrical Current in amperes   &amp;hellip; &amp;hellip; &amp;hellip;    </description>
     </item>
     
     <item>
       <title>Taxonomies</title>
-      <link>https://genivi.github.io/vehicle_signal_specification/introduction/taxonomy/</link>
+      <link>https://covesa.github.io/vehicle_signal_specification/introduction/taxonomy/</link>
       <pubDate>Wed, 31 Jul 2019 12:11:31 +0200</pubDate>
       
-      <guid>https://genivi.github.io/vehicle_signal_specification/introduction/taxonomy/</guid>
+      <guid>https://covesa.github.io/vehicle_signal_specification/introduction/taxonomy/</guid>
       <description>The figure below explains the idea of a taxonomy as bridge between human and machine understanding of data. It is important to focus on a specific domain to get common understanding and acceptance. The link between two or more domain taxonomies can be seen as second step.
 Components of a domain taxonomy A domain taxonomy, like VSS, consists of three important components, which will be discussed in detail in this documentation:</description>
     </item>
     
     <item>
       <title>Software</title>
-      <link>https://genivi.github.io/vehicle_signal_specification/ecosystem/software/</link>
+      <link>https://covesa.github.io/vehicle_signal_specification/ecosystem/software/</link>
       <pubDate>Sun, 04 Jul 2021 13:31:46 +0000</pubDate>
       
-      <guid>https://genivi.github.io/vehicle_signal_specification/ecosystem/software/</guid>
+      <guid>https://covesa.github.io/vehicle_signal_specification/ecosystem/software/</guid>
       <description>Various software frameworks exist to work with VSS data. If something is missing here, please open an issue and tell us.
 W3C VISS2 reference server A reference server written in Go for the VISSv2 specification can be found at https://github.com/UlfBj/W3C_VehicleSignalInterfaceImpl.
 KUKSA.val in-vehicle VISS server A VISS server written in C++, optimized for containerized deployments on vehicle computers is provided by the KUKSA project.
@@ -112,10 +112,10 @@ IoT Event Analytics Plattform IoT Event Analytics is a Complex Event Processing 
     
     <item>
       <title>Sensors &amp; Actuators</title>
-      <link>https://genivi.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/</link>
+      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/</link>
       <pubDate>Sun, 04 Aug 2019 12:37:03 +0200</pubDate>
       
-      <guid>https://genivi.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/</guid>
+      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/sensor_actuator/</guid>
       <description>A data entry defines a single sensor/actuator and its members. A data entry example is given below:
 Speed: type: sensor description: The vehicle speed, as measured by the drivetrain. datatype: uint16 unit: km/h min: 0 max: 300 Drivetrain.Transmission.Speed
 Defines the dot-notated name of the data entry. Please note that all parental branches included in the name must be defined as well.
@@ -125,20 +125,20 @@ Defines the type of the node. This can be branch, sensor, actuator, stream or at
     
     <item>
       <title>Attributes</title>
-      <link>https://genivi.github.io/vehicle_signal_specification/rule_set/data_entry/attributes/</link>
+      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/attributes/</link>
       <pubDate>Sun, 04 Aug 2019 12:37:31 +0200</pubDate>
       
-      <guid>https://genivi.github.io/vehicle_signal_specification/rule_set/data_entry/attributes/</guid>
+      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/attributes/</guid>
       <description>An attribute is a signal with a default value, specified by its default member. The standard Vehicle Signal Specification include default values for most attributes. It is expected that these default values do not fit all values. This means that an OEM must override the standard default values if a vehicle needs a different value.
 Attribute values can also change, similar to sensor values. The latter can be useful for attribute values that are likely to change during the lifetime of the vehicle.</description>
     </item>
     
     <item>
       <title>Enumerated Data Entries</title>
-      <link>https://genivi.github.io/vehicle_signal_specification/rule_set/data_entry/enum/</link>
+      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/enum/</link>
       <pubDate>Sun, 04 Aug 2019 12:37:12 +0200</pubDate>
       
-      <guid>https://genivi.github.io/vehicle_signal_specification/rule_set/data_entry/enum/</guid>
+      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/data_entry/enum/</guid>
       <description>A data entry can optionally be enumerated, allowing it to be assigned a value from a specified set of values. An examples of a signal using enum is given below:
 Charging.ChargePlugType: datatype: string type: attribute default: ccs enum: [ &amp;#39;type 1&amp;#39;, &amp;#39;type 2&amp;#39;, &amp;#39;ccs&amp;#39;, &amp;#39;chademo&amp;#39; ] description: Type of charge plug available on the vehicle (CSS includes Type2). An enumerated signal entry has no min, max, or unit element.
 The enum element is an array of values, all of which must be specified in the enum list.</description>
@@ -146,19 +146,19 @@ The enum element is an array of values, all of which must be specified in the en
     
     <item>
       <title>Instances</title>
-      <link>https://genivi.github.io/vehicle_signal_specification/rule_set/instances/</link>
+      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/instances/</link>
       <pubDate>Wed, 31 Jul 2019 15:27:36 +0200</pubDate>
       
-      <guid>https://genivi.github.io/vehicle_signal_specification/rule_set/instances/</guid>
+      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/instances/</guid>
       <description>As VSS resembles primarily the physical structure of the vehicle, so quite often you&amp;rsquo;ll find repetitions of branches and data entries (e.g. doors, axles, etc), which leads to hard-coded repetitions of branches and data entries in the specification. Instances remove the need of repeating definitions, by defining at the node itself how often it occurs in the resulting tree. They are meant as a short-cut in the specification and interpreted by the tools.</description>
     </item>
     
     <item>
       <title>Includes</title>
-      <link>https://genivi.github.io/vehicle_signal_specification/rule_set/includes/</link>
+      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/includes/</link>
       <pubDate>Sun, 04 Aug 2019 12:59:44 +0200</pubDate>
       
-      <guid>https://genivi.github.io/vehicle_signal_specification/rule_set/includes/</guid>
+      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/includes/</guid>
       <description>An include directive in a vspec file will read the file it refers to and the contents of that file will be inserted into the current buffer in place of the include directive. The included file will, in its turn, be scanned for include directives to be replaced, effectively forming a tree of included files.
 See Fig 6 for an example of such a tree.
 Fig 6. Include directives
@@ -167,10 +167,10 @@ The include directive has the following format:</description>
     
     <item>
       <title>Private Branch</title>
-      <link>https://genivi.github.io/vehicle_signal_specification/rule_set/private_branch/</link>
+      <link>https://covesa.github.io/vehicle_signal_specification/rule_set/private_branch/</link>
       <pubDate>Sun, 04 Aug 2019 12:46:30 +0200</pubDate>
       
-      <guid>https://genivi.github.io/vehicle_signal_specification/rule_set/private_branch/</guid>
+      <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/private_branch/</guid>
       <description>The private branch offers a way to clearly separate OEM specific definitions and the specification. It helps adapting the specification to the needs of the organisation.
 Extending and overriding Data Entries The core signal specification can be extended with additional signals through the use of private branches, as is shown in Fig 3.
 Fig 3. Extended signals

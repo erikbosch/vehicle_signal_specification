@@ -4905,6 +4905,7 @@
       },
       "IgnitionOn": {
         "datatype": "boolean",
+        "deprecation": "V2.2 replaced by LowVoltageSystemState",
         "description": "Indicates whether the vehicle ignition is on or off.",
         "type": "sensor",
         "uuid": "6de19e6839af5f62acab3fbbd8077a98"
@@ -4930,6 +4931,20 @@
         "unit": "mm",
         "uuid": "885f1be6842a513582e52a42edb3176f"
       },
+      "LowVoltageSystemState": {
+        "datatype": "string",
+        "description": "State of the supply voltage of the control units (usually 12V).",
+        "enum": [
+          "UNDEFINED",
+          "LOCK",
+          "OFF",
+          "ACC",
+          "ON",
+          "START"
+        ],
+        "type": "sensor",
+        "uuid": "d7391ceb132e5519b02d4c13d5513d99"
+      },
       "MaxTowBallWeight": {
         "datatype": "uint16",
         "default": 0,
@@ -4945,12 +4960,6 @@
         "type": "attribute",
         "unit": "kg",
         "uuid": "a1b8fd65897654aa8a418bccf443f1f3"
-      },
-      "Media": {
-        "children": {},
-        "description": "Media service data.",
-        "type": "branch",
-        "uuid": "b778b6c07b055eae9f0a51d64c5b3bf3"
       },
       "OBD": {
         "children": {
@@ -5943,235 +5952,6 @@
             "unit": "kWh",
             "uuid": "0dd466d28d3d5ad094f2015adafb91a5"
           },
-          "Battery": {
-            "children": {
-              "AccumulatedChargedEnergy": {
-                "datatype": "float",
-                "description": "The accumulated energy delivered to the battery during charging over lifetime.",
-                "type": "sensor",
-                "unit": "kWh",
-                "uuid": "d2abf26b03f5519d878a7f4b5891519b"
-              },
-              "AccumulatedConsumedEnergy": {
-                "datatype": "float",
-                "description": "The accumulated energy leaving HV battery for propulsion and auxiliary loads over lifetime.",
-                "type": "sensor",
-                "unit": "kWh",
-                "uuid": "c96530e0b22c56779cea2645823e87be"
-              },
-              "Charging": {
-                "children": {
-                  "ChargeCurrent": {
-                    "datatype": "float",
-                    "description": "Current charging current.",
-                    "type": "sensor",
-                    "unit": "A",
-                    "uuid": "a98b14e0d52d51a09d74c85d599738ea"
-                  },
-                  "ChargeLimit": {
-                    "datatype": "uint8",
-                    "description": "Maximum charge level for battery, can potentially be set manually.",
-                    "max": 100,
-                    "min": 0,
-                    "type": "actuator",
-                    "unit": "percent",
-                    "uuid": "6a44522726625d42b0fbdf3f36fb1c87"
-                  },
-                  "ChargePlugStatus": {
-                    "datatype": "boolean",
-                    "description": "Signal indicating if charge plug is connected or not.",
-                    "type": "sensor",
-                    "uuid": "9be742dcbf2f526bb67b538fd801edc3"
-                  },
-                  "ChargePlugType": {
-                    "datatype": "string",
-                    "default": "ccs",
-                    "description": "Type of charge plug available on the vehicle (CSS includes Type2).",
-                    "enum": [
-                      "type 1",
-                      "type 2",
-                      "ccs",
-                      "chademo"
-                    ],
-                    "type": "attribute",
-                    "uuid": "0c4cf2b3979456928967e73b646bda05"
-                  },
-                  "ChargePortFlap": {
-                    "datatype": "string",
-                    "description": "Signal indicating if charge port cover is open or closed, can potentially be controlled manually.",
-                    "enum": [
-                      "open",
-                      "closed"
-                    ],
-                    "type": "actuator",
-                    "uuid": "528e53ad98c1546b90bb48f24f04815a"
-                  },
-                  "ChargeRate": {
-                    "datatype": "float",
-                    "description": "Current charging rate, as in kilometers of range added per hour.",
-                    "type": "sensor",
-                    "unit": "km/h",
-                    "uuid": "382fa50af6a25d64b56979e1306f564e"
-                  },
-                  "ChargeVoltage": {
-                    "datatype": "float",
-                    "description": "Current charging voltage.",
-                    "type": "sensor",
-                    "unit": "V",
-                    "uuid": "1be74bd9d81d510b9d65cc1f83cb904e"
-                  },
-                  "MaximumChargingCurrent": {
-                    "datatype": "float",
-                    "description": "Maximum charging current that can be accepted by the system.",
-                    "type": "sensor",
-                    "unit": "A",
-                    "uuid": "36e8aee0ff4c52f5af271ef610523e88"
-                  },
-                  "Mode": {
-                    "datatype": "string",
-                    "description": "Control of the charge process - manually initiated (plug-in event, companion app, etc), timer-based or grid-controlled (eg ISO 15118).",
-                    "enum": [
-                      "manual",
-                      "timer",
-                      "grid"
-                    ],
-                    "type": "actuator",
-                    "uuid": "d50906b9d2525e8581fc01f900c1c096"
-                  },
-                  "StartStopCharging": {
-                    "datatype": "string",
-                    "description": "Start or stop the charging process.",
-                    "enum": [
-                      "start",
-                      "stop"
-                    ],
-                    "type": "actuator",
-                    "uuid": "e754c34897b4594587b93d8e7e89e280"
-                  },
-                  "Status": {
-                    "datatype": "boolean",
-                    "description": "State of charging process.",
-                    "type": "sensor",
-                    "uuid": "b772427703c05e7ba81b11424be20540"
-                  },
-                  "TimeToComplete": {
-                    "datatype": "uint32",
-                    "description": "The time needed to complete the current charging process to the set charge limit. 0 if charging is complete, negative number if no charging process is active.",
-                    "type": "sensor",
-                    "unit": "s",
-                    "uuid": "519e70bc8a985e1b984c472a1cd7d3cf"
-                  },
-                  "Timer": {
-                    "children": {
-                      "Mode": {
-                        "datatype": "string",
-                        "description": "Defines whether Timer.Time is defining start- or endtime of a charging action; departuretime denotes that target time should be taken from vehicle-level desired departure-time setting.",
-                        "enum": [
-                          "starttime",
-                          "endtime",
-                          "depaturetime"
-                        ],
-                        "type": "actuator",
-                        "uuid": "af3d94c767aa5cb483d2361289c72abc"
-                      },
-                      "Time": {
-                        "datatype": "uint32",
-                        "description": "Time value for next charging-related action (Unix timestamp, seconds).",
-                        "type": "actuator",
-                        "unit": "s",
-                        "uuid": "d9cb0f458c255c33830409a3e313f781"
-                      }
-                    },
-                    "description": "Properties related to timing of battery charging sessions.",
-                    "type": "branch",
-                    "uuid": "4d632fd461e550b4b3af46e21e507457"
-                  }
-                },
-                "description": "Properties related to battery charging",
-                "type": "branch",
-                "uuid": "14b2e022987d5cf383ee6ea0c6919195"
-              },
-              "GrossCapacity": {
-                "datatype": "uint16",
-                "description": "Gross capacity of the battery",
-                "type": "attribute",
-                "unit": "kWh",
-                "uuid": "7b5402cc647454b49ee019e8689d3737"
-              },
-              "NetCapacity": {
-                "datatype": "uint16",
-                "description": "Net capacity of the battery",
-                "type": "attribute",
-                "unit": "kWh",
-                "uuid": "7b037dd1cab553b18a87456a3d764714"
-              },
-              "NominalVoltage": {
-                "datatype": "uint16",
-                "description": "Nominal Voltage of the battery",
-                "type": "attribute",
-                "unit": "V",
-                "uuid": "77d38e4890ea55cca3798616968384ed"
-              },
-              "Range": {
-                "datatype": "uint32",
-                "description": "Remaining range in meters using only battery.",
-                "type": "sensor",
-                "unit": "m",
-                "uuid": "d74254f25bd85a469d2adbec79472071"
-              },
-              "ReferentVoltage": {
-                "datatype": "uint16",
-                "description": "Referent Voltage of the battery",
-                "type": "attribute",
-                "unit": "V",
-                "uuid": "bceafc8cc7a852319d5e453312cf6949"
-              },
-              "StateOfCharge": {
-                "children": {
-                  "Current": {
-                    "datatype": "float",
-                    "description": "Physical state of charge of the high voltage battery. This is not necessarily the state of charge being displayed to the customer.",
-                    "max": 100.0,
-                    "min": 0,
-                    "type": "sensor",
-                    "unit": "percent",
-                    "uuid": "e0628947864a5c14986b2ae1487f550f"
-                  },
-                  "Displayed": {
-                    "datatype": "float",
-                    "description": "State of charge displayed to the customer.",
-                    "max": 100.0,
-                    "min": 0,
-                    "type": "sensor",
-                    "unit": "percent",
-                    "uuid": "13190cf240665e4db38780ad39051784"
-                  },
-                  "Target": {
-                    "datatype": "uint8",
-                    "description": "Target state of charge set (eg. by customer).",
-                    "max": 100,
-                    "min": 0,
-                    "type": "actuator",
-                    "unit": "percent",
-                    "uuid": "864039c9295a50f9b7087e3fa8c5ce28"
-                  }
-                },
-                "description": "Information on the state of charge of the vehicle's high voltage battery.",
-                "type": "branch",
-                "uuid": "74249091cd7653078b6c1e87ac6fbe5b"
-              },
-              "Temperature": {
-                "datatype": "float",
-                "description": "Temperature of the battery pack",
-                "type": "sensor",
-                "unit": "celsius",
-                "uuid": "2b9d90f1d87c57dcbbd6a72807f8d412"
-              }
-            },
-            "description": "Battery Management data.",
-            "type": "branch",
-            "uuid": "3e92d75e0cbc5765a459308f71873ae0"
-          },
           "CombustionEngine": {
             "children": {
               "AspirationType": {
@@ -6256,93 +6036,32 @@
                 "unit": "cm^3",
                 "uuid": "94dbd928847150ab842c00fa5caaf272"
               },
-              "Engine": {
-                "children": {
-                  "ECT": {
-                    "datatype": "int16",
-                    "description": "Engine coolant temperature.",
-                    "max": 200,
-                    "min": -50,
-                    "type": "sensor",
-                    "unit": "celsius",
-                    "uuid": "de032ac3cc2858f2a1ef0a4b6f945098"
-                  },
-                  "EOP": {
-                    "datatype": "int16",
-                    "description": "Engine oil pressure.",
-                    "max": 1000,
-                    "min": 0,
-                    "type": "sensor",
-                    "unit": "kPa",
-                    "uuid": "054dacf5e59a5688981834690c5d449e"
-                  },
-                  "EOT": {
-                    "datatype": "int16",
-                    "description": "Engine oil temperature.",
-                    "max": 300,
-                    "min": -50,
-                    "type": "sensor",
-                    "unit": "celsius",
-                    "uuid": "7fcbd0abd829530ca022e69a224f1845"
-                  },
-                  "MAF": {
-                    "datatype": "int16",
-                    "description": "Grams of air drawn into engine per second.",
-                    "max": 3000,
-                    "min": 0,
-                    "type": "sensor",
-                    "unit": "g/s",
-                    "uuid": "944823218c565afa86adc3ebdf8b77c5"
-                  },
-                  "MAP": {
-                    "datatype": "int16",
-                    "description": "Manifold air pressure possibly boosted using forced induction.",
-                    "max": 1000,
-                    "min": 0,
-                    "type": "sensor",
-                    "unit": "kPa",
-                    "uuid": "6269b87f545f5466a0c5ba13432810da"
-                  },
-                  "Power": {
-                    "datatype": "int16",
-                    "description": "Current engine power output.",
-                    "max": 2000,
-                    "min": 0,
-                    "type": "sensor",
-                    "unit": "kW",
-                    "uuid": "6de515320e3257c7842923c88d11a09f"
-                  },
-                  "Speed": {
-                    "datatype": "uint16",
-                    "description": "Engine speed measured as rotations per minute.",
-                    "max": 20000,
-                    "min": 0,
-                    "type": "sensor",
-                    "unit": "rpm",
-                    "uuid": "c145005246125d1eb6531052f46eec94"
-                  },
-                  "TPS": {
-                    "datatype": "int8",
-                    "description": "Current throttle position.",
-                    "max": 100,
-                    "min": 0,
-                    "type": "sensor",
-                    "unit": "percent",
-                    "uuid": "5ab79d75e2af52dda3d61f3a2bf41462"
-                  },
-                  "Torque": {
-                    "datatype": "int16",
-                    "description": "Current engine torque.",
-                    "max": 3000,
-                    "min": 0,
-                    "type": "sensor",
-                    "unit": "Nm",
-                    "uuid": "b0295cd26bfc586ca3a42f9296a26ceb"
-                  }
-                },
-                "description": "Engine signals",
-                "type": "branch",
-                "uuid": "96a96cd4f18b519eb4b00566b4e6308f"
+              "ECT": {
+                "datatype": "int16",
+                "description": "Engine coolant temperature.",
+                "max": 200,
+                "min": -50,
+                "type": "sensor",
+                "unit": "celsius",
+                "uuid": "fff3cad23cac5b189a1a075c3ab562cd"
+              },
+              "EOP": {
+                "datatype": "int16",
+                "description": "Engine oil pressure.",
+                "max": 1000,
+                "min": 0,
+                "type": "sensor",
+                "unit": "kPa",
+                "uuid": "76c7039dc7975ec3a003f0f4a04895ec"
+              },
+              "EOT": {
+                "datatype": "int16",
+                "description": "Engine oil temperature.",
+                "max": 300,
+                "min": -50,
+                "type": "sensor",
+                "unit": "celsius",
+                "uuid": "eae6f5eae04f530e80f6b024f95b767d"
               },
               "EngineCoolantCapacity": {
                 "datatype": "float",
@@ -6385,6 +6104,24 @@
                 "type": "attribute",
                 "uuid": "d0f8c79131c850bab8159eaefc7e23e5"
               },
+              "MAF": {
+                "datatype": "int16",
+                "description": "Grams of air drawn into engine per second.",
+                "max": 3000,
+                "min": 0,
+                "type": "sensor",
+                "unit": "g/s",
+                "uuid": "1e222ed8c48b5dcea60e43ac8af7d6df"
+              },
+              "MAP": {
+                "datatype": "int16",
+                "description": "Manifold air pressure possibly boosted using forced induction.",
+                "max": 1000,
+                "min": 0,
+                "type": "sensor",
+                "unit": "kPa",
+                "uuid": "28d4354fa34056369acb857aa7cc76ac"
+              },
               "MaxPower": {
                 "datatype": "uint16",
                 "default": 0,
@@ -6420,12 +6157,54 @@
                 "unit": "s",
                 "uuid": "94303734c68c5353a02625f652103918"
               },
+              "Power": {
+                "datatype": "int16",
+                "description": "Current engine power output.",
+                "max": 2000,
+                "min": 0,
+                "type": "sensor",
+                "unit": "kW",
+                "uuid": "20e8b5d2187758c2848ed421248c180d"
+              },
+              "Running": {
+                "datatype": "boolean",
+                "description": "Engine Running. True if engine is rotating (Engine.Speed > 0).",
+                "type": "sensor",
+                "uuid": "b293ae50dceb5adfaa7a7e2ad752b8a1"
+              },
+              "Speed": {
+                "datatype": "uint16",
+                "description": "Engine speed measured as rotations per minute.",
+                "max": 20000,
+                "min": 0,
+                "type": "sensor",
+                "unit": "rpm",
+                "uuid": "557ce24c5a4d51cc825059c948ac9e29"
+              },
               "StrokeLength": {
                 "datatype": "float",
                 "description": "Stroke length in millimetres.",
                 "type": "attribute",
                 "unit": "mm",
                 "uuid": "1bdfdab7904d51ed93e101b84ea54ddf"
+              },
+              "TPS": {
+                "datatype": "int8",
+                "description": "Current throttle position.",
+                "max": 100,
+                "min": 0,
+                "type": "sensor",
+                "unit": "percent",
+                "uuid": "1ddb77860de558b4876ffb399a442bda"
+              },
+              "Torque": {
+                "datatype": "int16",
+                "description": "Current engine torque.",
+                "max": 3000,
+                "min": 0,
+                "type": "sensor",
+                "unit": "Nm",
+                "uuid": "b81f504bdb57513299ae6e9402ec7bcd"
               }
             },
             "description": "Engine-specific data, stopping at the bell housing.",
@@ -6434,6 +6213,15 @@
           },
           "ElectricMotor": {
             "children": {
+              "CoolantTemperature": {
+                "datatype": "int16",
+                "description": "Motor coolant temperature (if applicable).",
+                "max": 200,
+                "min": -50,
+                "type": "sensor",
+                "unit": "celsius",
+                "uuid": "3c5ea8c7700956518f2ae7a2a0f34f1c"
+              },
               "MaxPower": {
                 "datatype": "uint16",
                 "default": 0,
@@ -6466,68 +6254,46 @@
                 "unit": "Nm",
                 "uuid": "cf31eabcde5151f589e9b0f7a6090512"
               },
-              "Motor": {
-                "children": {
-                  "CoolantTemperature": {
-                    "datatype": "int16",
-                    "description": "Motor coolant temperature (if applicable).",
-                    "max": 200,
-                    "min": -50,
-                    "type": "sensor",
-                    "unit": "celsius",
-                    "uuid": "ff978ffe8e615fada4b6423d5ba25e25"
-                  },
-                  "Power": {
-                    "datatype": "int16",
-                    "description": "Current motor power output. Negative values indicate regen mode.",
-                    "max": 2000,
-                    "min": -2000,
-                    "type": "sensor",
-                    "unit": "kW",
-                    "uuid": "630a478781b95ad8b012ce52f745f3e8"
-                  },
-                  "Rpm": {
-                    "datatype": "int32",
-                    "description": "Motor rotational speed measured as rotations per minute. Negative values indicate reverse driving mode.",
-                    "max": 100000,
-                    "min": -100000,
-                    "type": "sensor",
-                    "unit": "rpm",
-                    "uuid": "96259c99dc105266bbe7aba70e16f1ef"
-                  },
-                  "Temperature": {
-                    "datatype": "int16",
-                    "description": "Motor temperature.",
-                    "max": 200,
-                    "min": -50,
-                    "type": "sensor",
-                    "unit": "celsius",
-                    "uuid": "6ae826db62d552c5b9fe2701f5655455"
-                  },
-                  "Torque": {
-                    "datatype": "int16",
-                    "description": "Current motor torque. Negative values indicate regen mode.",
-                    "max": 5000,
-                    "min": -5000,
-                    "type": "sensor",
-                    "unit": "Nm",
-                    "uuid": "0d07c1c502a1557a91b4ed564e024a19"
-                  }
-                },
-                "description": "motor signals",
-                "type": "branch",
-                "uuid": "af1521cbe56b599fa9fff8c6171e645c"
+              "Power": {
+                "datatype": "int16",
+                "description": "Current motor power output. Negative values indicate regen mode.",
+                "max": 2000,
+                "min": -2000,
+                "type": "sensor",
+                "unit": "kW",
+                "uuid": "46b86286fba059349a733fed9a0e3232"
+              },
+              "Rpm": {
+                "datatype": "int32",
+                "description": "Motor rotational speed measured as rotations per minute. Negative values indicate reverse driving mode.",
+                "max": 100000,
+                "min": -100000,
+                "type": "sensor",
+                "unit": "rpm",
+                "uuid": "b31746b142de52fea3f84d860a0b717e"
+              },
+              "Temperature": {
+                "datatype": "int16",
+                "description": "Motor temperature.",
+                "max": 200,
+                "min": -50,
+                "type": "sensor",
+                "unit": "celsius",
+                "uuid": "1b7c15e5341052139995bfacea2c05b2"
+              },
+              "Torque": {
+                "datatype": "int16",
+                "description": "Current motor torque. Negative values indicate regen mode.",
+                "max": 5000,
+                "min": -5000,
+                "type": "sensor",
+                "unit": "Nm",
+                "uuid": "aceffe768ddf5b828fff0975349d2433"
               }
             },
             "description": "Electric Motor specific data.",
             "type": "branch",
             "uuid": "1ade64f6b0d05f6c9340e7a667555ae2"
-          },
-          "FuelCell": {
-            "children": {},
-            "description": "Fuel Cell data.",
-            "type": "branch",
-            "uuid": "63a881bcc20b5666b97d1c0575f2d484"
           },
           "FuelSystem": {
             "children": {
@@ -6639,6 +6405,247 @@
             "type": "sensor",
             "unit": "m",
             "uuid": "ea4b6de772d65d20b1fa611f997aa7b8"
+          },
+          "TractionBattery": {
+            "children": {
+              "AccumulatedChargedEnergy": {
+                "datatype": "float",
+                "description": "The accumulated energy delivered to the battery during charging over lifetime.",
+                "type": "sensor",
+                "unit": "kWh",
+                "uuid": "739d06021d795da0877bc0ef3c107de1"
+              },
+              "AccumulatedConsumedEnergy": {
+                "datatype": "float",
+                "description": "The accumulated energy leaving HV battery for propulsion and auxiliary loads over lifetime.",
+                "type": "sensor",
+                "unit": "kWh",
+                "uuid": "b844cb96765f574d8d31edb09ccaef81"
+              },
+              "Charging": {
+                "children": {
+                  "ChargeCurrent": {
+                    "datatype": "float",
+                    "description": "Current charging current.",
+                    "type": "sensor",
+                    "unit": "A",
+                    "uuid": "94739cf563735b438878ac0f85601f27"
+                  },
+                  "ChargeLimit": {
+                    "datatype": "uint8",
+                    "description": "Maximum charge level for battery, can potentially be set manually.",
+                    "max": 100,
+                    "min": 0,
+                    "type": "actuator",
+                    "unit": "percent",
+                    "uuid": "62360a4ed1095275a7052d65112aaef1"
+                  },
+                  "ChargePlugStatus": {
+                    "datatype": "boolean",
+                    "description": "Signal indicating if charge plug is connected or not.",
+                    "type": "sensor",
+                    "uuid": "162d1adfafd95faa86dbd0890705709b"
+                  },
+                  "ChargePlugType": {
+                    "datatype": "string",
+                    "default": "ccs",
+                    "description": "Type of charge plug available on the vehicle (CSS includes Type2).",
+                    "enum": [
+                      "type 1",
+                      "type 2",
+                      "ccs",
+                      "chademo"
+                    ],
+                    "type": "attribute",
+                    "uuid": "4c56357a6f1d586395215a9beeb26d91"
+                  },
+                  "ChargePortFlap": {
+                    "datatype": "string",
+                    "description": "Signal indicating if charge port cover is open or closed, can potentially be controlled manually.",
+                    "enum": [
+                      "open",
+                      "closed"
+                    ],
+                    "type": "actuator",
+                    "uuid": "71bdd2145bb55c3393df194bfc2e03e5"
+                  },
+                  "ChargeRate": {
+                    "datatype": "float",
+                    "description": "Current charging rate, as in kilometers of range added per hour.",
+                    "type": "sensor",
+                    "unit": "km/h",
+                    "uuid": "a287cea3fdaa533180c8e349343a7851"
+                  },
+                  "ChargeVoltage": {
+                    "datatype": "float",
+                    "description": "Current charging voltage.",
+                    "type": "sensor",
+                    "unit": "V",
+                    "uuid": "7170151d653b52c6bb5e75cb0a14d1c5"
+                  },
+                  "MaximumChargingCurrent": {
+                    "datatype": "float",
+                    "description": "Maximum charging current that can be accepted by the system.",
+                    "type": "sensor",
+                    "unit": "A",
+                    "uuid": "e3f2e57e7a395d9ca9931d429e540a34"
+                  },
+                  "Mode": {
+                    "datatype": "string",
+                    "description": "Control of the charge process - manually initiated (plug-in event, companion app, etc), timer-based or grid-controlled (eg ISO 15118).",
+                    "enum": [
+                      "manual",
+                      "timer",
+                      "grid"
+                    ],
+                    "type": "actuator",
+                    "uuid": "1e4be3280b265873945531f6f6d0ec6b"
+                  },
+                  "StartStopCharging": {
+                    "datatype": "string",
+                    "description": "Start or stop the charging process.",
+                    "enum": [
+                      "start",
+                      "stop"
+                    ],
+                    "type": "actuator",
+                    "uuid": "80506d3e9a2557c2b52f74a50d89593f"
+                  },
+                  "Status": {
+                    "datatype": "boolean",
+                    "description": "State of charging process.",
+                    "type": "sensor",
+                    "uuid": "d87c4ad383975eb08c489e3b597293ed"
+                  },
+                  "TimeToComplete": {
+                    "datatype": "uint32",
+                    "description": "The time needed to complete the current charging process to the set charge limit. 0 if charging is complete, negative number if no charging process is active.",
+                    "type": "sensor",
+                    "unit": "s",
+                    "uuid": "c6439c2e068652b08383b9654e2e784a"
+                  },
+                  "Timer": {
+                    "children": {
+                      "Mode": {
+                        "datatype": "string",
+                        "description": "Defines whether Timer.Time is defining start- or endtime of a charging action; departuretime denotes that target time should be taken from vehicle-level desired departure-time setting.",
+                        "enum": [
+                          "starttime",
+                          "endtime",
+                          "depaturetime"
+                        ],
+                        "type": "actuator",
+                        "uuid": "b09fb52261735977af275dda1904a7a1"
+                      },
+                      "Time": {
+                        "datatype": "uint32",
+                        "description": "Time value for next charging-related action (Unix timestamp, seconds).",
+                        "type": "actuator",
+                        "unit": "s",
+                        "uuid": "c08dcaeda02b5e26aacd7e2542f0fc90"
+                      }
+                    },
+                    "description": "Properties related to timing of battery charging sessions.",
+                    "type": "branch",
+                    "uuid": "cd5b57ada627510e83f90832efed9d5a"
+                  }
+                },
+                "description": "Properties related to battery charging",
+                "type": "branch",
+                "uuid": "49b9ef0c8b145a36afdf17d0cb44131b"
+              },
+              "GrossCapacity": {
+                "datatype": "uint16",
+                "description": "Gross capacity of the battery",
+                "type": "attribute",
+                "unit": "kWh",
+                "uuid": "5460530488435dc8bfa1298bf47a993d"
+              },
+              "GroundConnected": {
+                "datatype": "boolean",
+                "description": "Indicating if the ground (negative terminator) of the traction battery is connected to the powertrain.",
+                "type": "sensor",
+                "uuid": "a462b37ac4f253fc9b7b12c603198ab1"
+              },
+              "NetCapacity": {
+                "datatype": "uint16",
+                "description": "Net capacity of the battery",
+                "type": "attribute",
+                "unit": "kWh",
+                "uuid": "9c68fe42cb81501eb6349f8c9b0b6899"
+              },
+              "NominalVoltage": {
+                "datatype": "uint16",
+                "description": "Nominal Voltage of the battery",
+                "type": "attribute",
+                "unit": "V",
+                "uuid": "3eccae5633185b998d5bdb6ea33cd926"
+              },
+              "PowerConnected": {
+                "datatype": "boolean",
+                "description": "Indicating if the power (positive terminator) of the traction battery is connected to the powertrain.",
+                "type": "sensor",
+                "uuid": "0507b2ddc362504a9c69d0ab6f1086e2"
+              },
+              "Range": {
+                "datatype": "uint32",
+                "description": "Remaining range in meters using only battery.",
+                "type": "sensor",
+                "unit": "m",
+                "uuid": "c0376a425e5d578d9d86ae0dc2ad9778"
+              },
+              "ReferentVoltage": {
+                "datatype": "uint16",
+                "description": "Referent Voltage of the battery",
+                "type": "attribute",
+                "unit": "V",
+                "uuid": "51b5e378ccab5dd4905b552d1306cf7c"
+              },
+              "StateOfCharge": {
+                "children": {
+                  "Current": {
+                    "datatype": "float",
+                    "description": "Physical state of charge of the high voltage battery. This is not necessarily the state of charge being displayed to the customer.",
+                    "max": 100.0,
+                    "min": 0,
+                    "type": "sensor",
+                    "unit": "percent",
+                    "uuid": "2e647ca3a1ff5e52af137aab240642da"
+                  },
+                  "Displayed": {
+                    "datatype": "float",
+                    "description": "State of charge displayed to the customer.",
+                    "max": 100.0,
+                    "min": 0,
+                    "type": "sensor",
+                    "unit": "percent",
+                    "uuid": "1bfcc228293b5512aafe2508ab0500d2"
+                  },
+                  "Target": {
+                    "datatype": "uint8",
+                    "description": "Target state of charge set (eg. by customer).",
+                    "max": 100,
+                    "min": 0,
+                    "type": "actuator",
+                    "unit": "percent",
+                    "uuid": "6aca8e9650be5a7782ce34ec4f03b96b"
+                  }
+                },
+                "description": "Information on the state of charge of the vehicle's high voltage battery.",
+                "type": "branch",
+                "uuid": "26bae2ce7c4d5e2a951915ef2f5d8b7d"
+              },
+              "Temperature": {
+                "datatype": "float",
+                "description": "Temperature of the battery pack",
+                "type": "sensor",
+                "unit": "celsius",
+                "uuid": "1cfbcf8c152959dcb3eb2c54fc42e623"
+              }
+            },
+            "description": "Battery Management data.",
+            "type": "branch",
+            "uuid": "1a2515d1a8875d86873431194ade2b50"
           },
           "Transmission": {
             "children": {
@@ -6957,24 +6964,28 @@
         "children": {
           "Label": {
             "datatype": "string",
+            "default": "develop",
             "description": "Label to further describe the version",
             "type": "attribute",
             "uuid": "7c92cd50d24b5662922b27cb9a327e53"
           },
           "Major": {
             "datatype": "uint32",
+            "default": 3,
             "description": "Supported Version of VSS - Major version",
             "type": "attribute",
             "uuid": "5edf1a338c975cbb84d4ce3cfe1aa4b4"
           },
           "Minor": {
             "datatype": "uint32",
+            "default": 0,
             "description": "Supported Version of VSS - Minor version",
             "type": "attribute",
             "uuid": "6e70a598dbc7534c96c58c18e9888cfd"
           },
           "Patch": {
             "datatype": "uint32",
+            "default": 0,
             "description": "Supported Version of VSS - Patch version",
             "type": "attribute",
             "uuid": "69858f224af459338b9bfbff436dda45"

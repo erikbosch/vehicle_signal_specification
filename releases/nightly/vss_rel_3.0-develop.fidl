@@ -4,7 +4,7 @@
 // Mozilla Public License, version 2.0.  The full text of the
 // Mozilla Public License is at https://www.mozilla.org/MPL/2.0/
 
-const UTF8String VSS_VERSION = "2.2-develop"
+const UTF8String VSS_VERSION = "3.0-develop"
 
 struct SignalSpec {
     UInt32 id
@@ -188,6 +188,15 @@ const SignalSpec[] signal_spec = [
     datatype: string
     uuid: 60f32d73afff58d0ac80c1c09b98dfb9
 }
+{
+    name: "Vehicle.LowVoltageSystemState"
+    type: "sensor"
+    description: "State of the supply voltage of the control units (usually 12V)."
+    datatype: string
+    uuid: d7391ceb132e5519b02d4c13d5513d99
+    enum: ['UNDEFINED', 'LOCK', 'OFF', 'ACC', 'ON', 'START']
+}
+,
 {
     name: "Vehicle.IgnitionOn"
     type: "sensor"
@@ -658,99 +667,107 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Powertrain.CombustionEngine.Engine.Speed"
+    name: "Vehicle.Powertrain.CombustionEngine.Running"
+    type: "sensor"
+    description: "Engine Running. True if engine is rotating (Engine.Speed > 0)."
+    datatype: boolean
+    uuid: b293ae50dceb5adfaa7a7e2ad752b8a1
+}
+,
+{
+    name: "Vehicle.Powertrain.CombustionEngine.Speed"
     type: "sensor"
     description: "Engine speed measured as rotations per minute."
     datatype: uint16
-    uuid: c145005246125d1eb6531052f46eec94
+    uuid: 557ce24c5a4d51cc825059c948ac9e29
     min: 0
     max: 20000
     unit: rpm
 }
 ,
 {
-    name: "Vehicle.Powertrain.CombustionEngine.Engine.ECT"
+    name: "Vehicle.Powertrain.CombustionEngine.ECT"
     type: "sensor"
     description: "Engine coolant temperature."
     datatype: int16
-    uuid: de032ac3cc2858f2a1ef0a4b6f945098
+    uuid: fff3cad23cac5b189a1a075c3ab562cd
     min: -50
     max: 200
     unit: celsius
 }
 ,
 {
-    name: "Vehicle.Powertrain.CombustionEngine.Engine.EOT"
+    name: "Vehicle.Powertrain.CombustionEngine.EOT"
     type: "sensor"
     description: "Engine oil temperature."
     datatype: int16
-    uuid: 7fcbd0abd829530ca022e69a224f1845
+    uuid: eae6f5eae04f530e80f6b024f95b767d
     min: -50
     max: 300
     unit: celsius
 }
 ,
 {
-    name: "Vehicle.Powertrain.CombustionEngine.Engine.MAP"
+    name: "Vehicle.Powertrain.CombustionEngine.MAP"
     type: "sensor"
     description: "Manifold air pressure possibly boosted using forced induction."
     datatype: int16
-    uuid: 6269b87f545f5466a0c5ba13432810da
+    uuid: 28d4354fa34056369acb857aa7cc76ac
     min: 0
     max: 1000
     unit: kPa
 }
 ,
 {
-    name: "Vehicle.Powertrain.CombustionEngine.Engine.MAF"
+    name: "Vehicle.Powertrain.CombustionEngine.MAF"
     type: "sensor"
     description: "Grams of air drawn into engine per second."
     datatype: int16
-    uuid: 944823218c565afa86adc3ebdf8b77c5
+    uuid: 1e222ed8c48b5dcea60e43ac8af7d6df
     min: 0
     max: 3000
     unit: g/s
 }
 ,
 {
-    name: "Vehicle.Powertrain.CombustionEngine.Engine.TPS"
+    name: "Vehicle.Powertrain.CombustionEngine.TPS"
     type: "sensor"
     description: "Current throttle position."
     datatype: int8
-    uuid: 5ab79d75e2af52dda3d61f3a2bf41462
+    uuid: 1ddb77860de558b4876ffb399a442bda
     min: 0
     max: 100
     unit: percent
 }
 ,
 {
-    name: "Vehicle.Powertrain.CombustionEngine.Engine.EOP"
+    name: "Vehicle.Powertrain.CombustionEngine.EOP"
     type: "sensor"
     description: "Engine oil pressure."
     datatype: int16
-    uuid: 054dacf5e59a5688981834690c5d449e
+    uuid: 76c7039dc7975ec3a003f0f4a04895ec
     min: 0
     max: 1000
     unit: kPa
 }
 ,
 {
-    name: "Vehicle.Powertrain.CombustionEngine.Engine.Power"
+    name: "Vehicle.Powertrain.CombustionEngine.Power"
     type: "sensor"
     description: "Current engine power output."
     datatype: int16
-    uuid: 6de515320e3257c7842923c88d11a09f
+    uuid: 20e8b5d2187758c2848ed421248c180d
     min: 0
     max: 2000
     unit: kW
 }
 ,
 {
-    name: "Vehicle.Powertrain.CombustionEngine.Engine.Torque"
+    name: "Vehicle.Powertrain.CombustionEngine.Torque"
     type: "sensor"
     description: "Current engine torque."
     datatype: int16
-    uuid: b0295cd26bfc586ca3a42f9296a26ceb
+    uuid: b81f504bdb57513299ae6e9402ec7bcd
     min: 0
     max: 3000
     unit: Nm
@@ -930,288 +947,304 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Powertrain.ElectricMotor.Motor.Rpm"
+    name: "Vehicle.Powertrain.ElectricMotor.Rpm"
     type: "sensor"
     description: "Motor rotational speed measured as rotations per minute. Negative values indicate reverse driving mode."
     datatype: int32
-    uuid: 96259c99dc105266bbe7aba70e16f1ef
+    uuid: b31746b142de52fea3f84d860a0b717e
     min: -100000
     max: 100000
     unit: rpm
 }
 ,
 {
-    name: "Vehicle.Powertrain.ElectricMotor.Motor.Temperature"
+    name: "Vehicle.Powertrain.ElectricMotor.Temperature"
     type: "sensor"
     description: "Motor temperature."
     datatype: int16
-    uuid: 6ae826db62d552c5b9fe2701f5655455
+    uuid: 1b7c15e5341052139995bfacea2c05b2
     min: -50
     max: 200
     unit: celsius
 }
 ,
 {
-    name: "Vehicle.Powertrain.ElectricMotor.Motor.CoolantTemperature"
+    name: "Vehicle.Powertrain.ElectricMotor.CoolantTemperature"
     type: "sensor"
     description: "Motor coolant temperature (if applicable)."
     datatype: int16
-    uuid: ff978ffe8e615fada4b6423d5ba25e25
+    uuid: 3c5ea8c7700956518f2ae7a2a0f34f1c
     min: -50
     max: 200
     unit: celsius
 }
 ,
 {
-    name: "Vehicle.Powertrain.ElectricMotor.Motor.Power"
+    name: "Vehicle.Powertrain.ElectricMotor.Power"
     type: "sensor"
     description: "Current motor power output. Negative values indicate regen mode."
     datatype: int16
-    uuid: 630a478781b95ad8b012ce52f745f3e8
+    uuid: 46b86286fba059349a733fed9a0e3232
     min: -2000
     max: 2000
     unit: kW
 }
 ,
 {
-    name: "Vehicle.Powertrain.ElectricMotor.Motor.Torque"
+    name: "Vehicle.Powertrain.ElectricMotor.Torque"
     type: "sensor"
     description: "Current motor torque. Negative values indicate regen mode."
     datatype: int16
-    uuid: 0d07c1c502a1557a91b4ed564e024a19
+    uuid: aceffe768ddf5b828fff0975349d2433
     min: -5000
     max: 5000
     unit: Nm
 }
 ,
 {
-    name: "Vehicle.Powertrain.Battery.Temperature"
+    name: "Vehicle.Powertrain.TractionBattery.PowerConnected"
+    type: "sensor"
+    description: "Indicating if the power (positive terminator) of the traction battery is connected to the powertrain."
+    datatype: boolean
+    uuid: 0507b2ddc362504a9c69d0ab6f1086e2
+}
+,
+{
+    name: "Vehicle.Powertrain.TractionBattery.GroundConnected"
+    type: "sensor"
+    description: "Indicating if the ground (negative terminator) of the traction battery is connected to the powertrain."
+    datatype: boolean
+    uuid: a462b37ac4f253fc9b7b12c603198ab1
+}
+,
+{
+    name: "Vehicle.Powertrain.TractionBattery.Temperature"
     type: "sensor"
     description: "Temperature of the battery pack"
     datatype: float
-    uuid: 2b9d90f1d87c57dcbbd6a72807f8d412
+    uuid: 1cfbcf8c152959dcb3eb2c54fc42e623
     unit: celsius
 }
 ,
 {
-    name: "Vehicle.Powertrain.Battery.StateOfCharge.Current"
+    name: "Vehicle.Powertrain.TractionBattery.StateOfCharge.Current"
     type: "sensor"
     description: "Physical state of charge of the high voltage battery. This is not necessarily the state of charge being displayed to the customer."
     datatype: float
-    uuid: e0628947864a5c14986b2ae1487f550f
+    uuid: 2e647ca3a1ff5e52af137aab240642da
     min: 0
     max: 100.0
     unit: percent
 }
 ,
 {
-    name: "Vehicle.Powertrain.Battery.StateOfCharge.Displayed"
+    name: "Vehicle.Powertrain.TractionBattery.StateOfCharge.Displayed"
     type: "sensor"
     description: "State of charge displayed to the customer."
     datatype: float
-    uuid: 13190cf240665e4db38780ad39051784
+    uuid: 1bfcc228293b5512aafe2508ab0500d2
     min: 0
     max: 100.0
     unit: percent
 }
 ,
 {
-    name: "Vehicle.Powertrain.Battery.StateOfCharge.Target"
+    name: "Vehicle.Powertrain.TractionBattery.StateOfCharge.Target"
     type: "actuator"
     description: "Target state of charge set (eg. by customer)."
     datatype: uint8
-    uuid: 864039c9295a50f9b7087e3fa8c5ce28
+    uuid: 6aca8e9650be5a7782ce34ec4f03b96b
     min: 0
     max: 100
     unit: percent
 }
 ,
 {
-    name: "Vehicle.Powertrain.Battery.GrossCapacity"
+    name: "Vehicle.Powertrain.TractionBattery.GrossCapacity"
     type: "attribute"
     description: "Gross capacity of the battery"
     datatype: uint16
-    uuid: 7b5402cc647454b49ee019e8689d3737
+    uuid: 5460530488435dc8bfa1298bf47a993d
     unit: kWh
 }
 ,
 {
-    name: "Vehicle.Powertrain.Battery.NetCapacity"
+    name: "Vehicle.Powertrain.TractionBattery.NetCapacity"
     type: "attribute"
     description: "Net capacity of the battery"
     datatype: uint16
-    uuid: 7b037dd1cab553b18a87456a3d764714
+    uuid: 9c68fe42cb81501eb6349f8c9b0b6899
     unit: kWh
 }
 ,
 {
-    name: "Vehicle.Powertrain.Battery.NominalVoltage"
+    name: "Vehicle.Powertrain.TractionBattery.NominalVoltage"
     type: "attribute"
     description: "Nominal Voltage of the battery"
     datatype: uint16
-    uuid: 77d38e4890ea55cca3798616968384ed
+    uuid: 3eccae5633185b998d5bdb6ea33cd926
     unit: V
 }
 ,
 {
-    name: "Vehicle.Powertrain.Battery.ReferentVoltage"
+    name: "Vehicle.Powertrain.TractionBattery.ReferentVoltage"
     type: "attribute"
     description: "Referent Voltage of the battery"
     datatype: uint16
-    uuid: bceafc8cc7a852319d5e453312cf6949
+    uuid: 51b5e378ccab5dd4905b552d1306cf7c
     unit: V
 }
 ,
 {
-    name: "Vehicle.Powertrain.Battery.AccumulatedChargedEnergy"
+    name: "Vehicle.Powertrain.TractionBattery.AccumulatedChargedEnergy"
     type: "sensor"
     description: "The accumulated energy delivered to the battery during charging over lifetime."
     datatype: float
-    uuid: d2abf26b03f5519d878a7f4b5891519b
+    uuid: 739d06021d795da0877bc0ef3c107de1
     unit: kWh
 }
 ,
 {
-    name: "Vehicle.Powertrain.Battery.AccumulatedConsumedEnergy"
+    name: "Vehicle.Powertrain.TractionBattery.AccumulatedConsumedEnergy"
     type: "sensor"
     description: "The accumulated energy leaving HV battery for propulsion and auxiliary loads over lifetime."
     datatype: float
-    uuid: c96530e0b22c56779cea2645823e87be
+    uuid: b844cb96765f574d8d31edb09ccaef81
     unit: kWh
 }
 ,
 {
-    name: "Vehicle.Powertrain.Battery.Range"
+    name: "Vehicle.Powertrain.TractionBattery.Range"
     type: "sensor"
     description: "Remaining range in meters using only battery."
     datatype: uint32
-    uuid: d74254f25bd85a469d2adbec79472071
+    uuid: c0376a425e5d578d9d86ae0dc2ad9778
     unit: m
 }
 ,
 {
-    name: "Vehicle.Powertrain.Battery.Charging.ChargeLimit"
+    name: "Vehicle.Powertrain.TractionBattery.Charging.ChargeLimit"
     type: "actuator"
     description: "Maximum charge level for battery, can potentially be set manually."
     datatype: uint8
-    uuid: 6a44522726625d42b0fbdf3f36fb1c87
+    uuid: 62360a4ed1095275a7052d65112aaef1
     min: 0
     max: 100
     unit: percent
 }
 ,
 {
-    name: "Vehicle.Powertrain.Battery.Charging.MaximumChargingCurrent"
+    name: "Vehicle.Powertrain.TractionBattery.Charging.MaximumChargingCurrent"
     type: "sensor"
     description: "Maximum charging current that can be accepted by the system."
     datatype: float
-    uuid: 36e8aee0ff4c52f5af271ef610523e88
+    uuid: e3f2e57e7a395d9ca9931d429e540a34
     unit: A
 }
 ,
 {
-    name: "Vehicle.Powertrain.Battery.Charging.ChargePortFlap"
+    name: "Vehicle.Powertrain.TractionBattery.Charging.ChargePortFlap"
     type: "actuator"
     description: "Signal indicating if charge port cover is open or closed, can potentially be controlled manually."
     datatype: string
-    uuid: 528e53ad98c1546b90bb48f24f04815a
+    uuid: 71bdd2145bb55c3393df194bfc2e03e5
     enum: ['open', 'closed']
 }
 ,
 {
-    name: "Vehicle.Powertrain.Battery.Charging.ChargePlugStatus"
+    name: "Vehicle.Powertrain.TractionBattery.Charging.ChargePlugStatus"
     type: "sensor"
     description: "Signal indicating if charge plug is connected or not."
     datatype: boolean
-    uuid: 9be742dcbf2f526bb67b538fd801edc3
+    uuid: 162d1adfafd95faa86dbd0890705709b
 }
 ,
 {
-    name: "Vehicle.Powertrain.Battery.Charging.ChargePlugType"
+    name: "Vehicle.Powertrain.TractionBattery.Charging.ChargePlugType"
     type: "attribute"
     description: "Type of charge plug available on the vehicle (CSS includes Type2)."
     datatype: string
-    uuid: 0c4cf2b3979456928967e73b646bda05
+    uuid: 4c56357a6f1d586395215a9beeb26d91
     enum: ['type 1', 'type 2', 'ccs', 'chademo']
 }
 ,
 {
-    name: "Vehicle.Powertrain.Battery.Charging.Mode"
+    name: "Vehicle.Powertrain.TractionBattery.Charging.Mode"
     type: "actuator"
     description: "Control of the charge process - manually initiated (plug-in event, companion app, etc), timer-based or grid-controlled (eg ISO 15118)."
     datatype: string
-    uuid: d50906b9d2525e8581fc01f900c1c096
+    uuid: 1e4be3280b265873945531f6f6d0ec6b
     enum: ['manual', 'timer', 'grid']
 }
 ,
 {
-    name: "Vehicle.Powertrain.Battery.Charging.Status"
+    name: "Vehicle.Powertrain.TractionBattery.Charging.Status"
     type: "sensor"
     description: "State of charging process."
     datatype: boolean
-    uuid: b772427703c05e7ba81b11424be20540
+    uuid: d87c4ad383975eb08c489e3b597293ed
 }
 ,
 {
-    name: "Vehicle.Powertrain.Battery.Charging.StartStopCharging"
+    name: "Vehicle.Powertrain.TractionBattery.Charging.StartStopCharging"
     type: "actuator"
     description: "Start or stop the charging process."
     datatype: string
-    uuid: e754c34897b4594587b93d8e7e89e280
+    uuid: 80506d3e9a2557c2b52f74a50d89593f
     enum: ['start', 'stop']
 }
 ,
 {
-    name: "Vehicle.Powertrain.Battery.Charging.ChargeCurrent"
+    name: "Vehicle.Powertrain.TractionBattery.Charging.ChargeCurrent"
     type: "sensor"
     description: "Current charging current."
     datatype: float
-    uuid: a98b14e0d52d51a09d74c85d599738ea
+    uuid: 94739cf563735b438878ac0f85601f27
     unit: A
 }
 ,
 {
-    name: "Vehicle.Powertrain.Battery.Charging.ChargeVoltage"
+    name: "Vehicle.Powertrain.TractionBattery.Charging.ChargeVoltage"
     type: "sensor"
     description: "Current charging voltage."
     datatype: float
-    uuid: 1be74bd9d81d510b9d65cc1f83cb904e
+    uuid: 7170151d653b52c6bb5e75cb0a14d1c5
     unit: V
 }
 ,
 {
-    name: "Vehicle.Powertrain.Battery.Charging.ChargeRate"
+    name: "Vehicle.Powertrain.TractionBattery.Charging.ChargeRate"
     type: "sensor"
     description: "Current charging rate, as in kilometers of range added per hour."
     datatype: float
-    uuid: 382fa50af6a25d64b56979e1306f564e
+    uuid: a287cea3fdaa533180c8e349343a7851
     unit: km/h
 }
 ,
 {
-    name: "Vehicle.Powertrain.Battery.Charging.TimeToComplete"
+    name: "Vehicle.Powertrain.TractionBattery.Charging.TimeToComplete"
     type: "sensor"
     description: "The time needed to complete the current charging process to the set charge limit. 0 if charging is complete, negative number if no charging process is active."
     datatype: uint32
-    uuid: 519e70bc8a985e1b984c472a1cd7d3cf
+    uuid: c6439c2e068652b08383b9654e2e784a
     unit: s
 }
 ,
 {
-    name: "Vehicle.Powertrain.Battery.Charging.Timer.Time"
+    name: "Vehicle.Powertrain.TractionBattery.Charging.Timer.Time"
     type: "actuator"
     description: "Time value for next charging-related action (Unix timestamp, seconds)."
     datatype: uint32
-    uuid: d9cb0f458c255c33830409a3e313f781
+    uuid: c08dcaeda02b5e26aacd7e2542f0fc90
     unit: s
 }
 ,
 {
-    name: "Vehicle.Powertrain.Battery.Charging.Timer.Mode"
+    name: "Vehicle.Powertrain.TractionBattery.Charging.Timer.Mode"
     type: "actuator"
     description: "Defines whether Timer.Time is defining start- or endtime of a charging action; departuretime denotes that target time should be taken from vehicle-level desired departure-time setting."
     datatype: string
-    uuid: af3d94c767aa5cb483d2361289c72abc
+    uuid: b09fb52261735977af275dda1904a7a1
     enum: ['starttime', 'endtime', 'depaturetime']
 }
 ,
