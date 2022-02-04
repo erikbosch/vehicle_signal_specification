@@ -17,7 +17,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.VersionVSS.Major"
     type: "attribute"
-    description: "Supported Version of VSS - Major version"
+    description: "Supported Version of VSS - Major version."
     datatype: uint32
     uuid: 5edf1a338c975cbb84d4ce3cfe1aa4b4
 }
@@ -25,7 +25,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.VersionVSS.Minor"
     type: "attribute"
-    description: "Supported Version of VSS - Minor version"
+    description: "Supported Version of VSS - Minor version."
     datatype: uint32
     uuid: 6e70a598dbc7534c96c58c18e9888cfd
 }
@@ -33,7 +33,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.VersionVSS.Patch"
     type: "attribute"
-    description: "Supported Version of VSS - Patch version"
+    description: "Supported Version of VSS - Patch version."
     datatype: uint32
     uuid: 69858f224af459338b9bfbff436dda45
 }
@@ -41,14 +41,14 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.VersionVSS.Label"
     type: "attribute"
-    description: "Label to further describe the version"
+    description: "Label to further describe the version."
     datatype: string
     uuid: 7c92cd50d24b5662922b27cb9a327e53
 }
 {
     name: "Vehicle.VehicleIdentification.VIN"
     type: "attribute"
-    description: "17-character Vehicle Identification Number (VIN) as defined by ISO 3779"
+    description: "17-character Vehicle Identification Number (VIN) as defined by ISO 3779."
     datatype: string
     uuid: 6f0b6fa8c34f589baa92e565bc9df5bd
 }
@@ -56,7 +56,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.VehicleIdentification.WMI"
     type: "attribute"
-    description: "3-character World Manufacturer Identification (WMI) as defined by ISO 3780"
+    description: "3-character World Manufacturer Identification (WMI) as defined by ISO 3780."
     datatype: string
     uuid: e7c86defbcd554a79f90ba85de58e133
 }
@@ -64,7 +64,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.VehicleIdentification.Brand"
     type: "attribute"
-    description: "Vehicle brand or manufacturer"
+    description: "Vehicle brand or manufacturer."
     datatype: string
     uuid: 19fd645ff5385767bcdbf5dd4313483f
 }
@@ -72,7 +72,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.VehicleIdentification.Model"
     type: "attribute"
-    description: "Vehicle model"
+    description: "Vehicle model."
     datatype: string
     uuid: dd3d3b72e6a85b3695ba25f829255403
 }
@@ -80,113 +80,113 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.VehicleIdentification.Year"
     type: "attribute"
-    description: "Model year of the vehicle"
+    description: "Model year of the vehicle."
     datatype: uint16
     uuid: 9a76b0aca8e45f6fb33dbaf5b976b8b5
 }
 ,
 {
-    name: "Vehicle.VehicleIdentification.ACRISSCode"
+    name: "Vehicle.VehicleIdentification.AcrissCode"
     type: "attribute"
     description: "The ACRISS Car Classification Code is a code used by many car rental companies."
     datatype: string
-    uuid: de98b9de86f359b4bd703b2e3d48f25a
+    uuid: 115a821e8e0b57f08e4b9e61e85d7156
 }
 ,
 {
-    name: "Vehicle.VehicleIdentification.bodyType"
+    name: "Vehicle.VehicleIdentification.BodyType"
     type: "attribute"
     description: "Indicates the design and body style of the vehicle (e.g. station wagon, hatchback, etc.)."
     datatype: string
-    uuid: 3f6910e6773c532e986240e3d45f623b
+    uuid: e6d5c71ecec95d68b0b59bb7e93af759
 }
 ,
 {
-    name: "Vehicle.VehicleIdentification.dateVehicleFirstRegistered"
+    name: "Vehicle.VehicleIdentification.DateVehicleFirstRegistered"
     type: "attribute"
-    description: "The date of the first registration of the vehicle with the respective public authorities."
+    description: "The date in ISO 8601 format of the first registration of the vehicle with the respective public authorities."
     datatype: string
-    uuid: a48af4a5ef28520090255ca1ea2610f1
+    uuid: 046f47acf62e50bd863d6568d73743d7
 }
 ,
 {
-    name: "Vehicle.VehicleIdentification.meetsEmissionStandard"
+    name: "Vehicle.VehicleIdentification.MeetsEmissionStandard"
     type: "attribute"
     description: "Indicates that the vehicle meets the respective emission standard."
     datatype: string
-    uuid: 4324b78dfb865164ba91345564d88f39
+    uuid: d75dedbfadca54d8b6c7261c37ad5d83
 }
 ,
 {
-    name: "Vehicle.VehicleIdentification.productionDate"
+    name: "Vehicle.VehicleIdentification.ProductionDate"
     type: "attribute"
-    description: "The date of production of the item, e.g. vehicle."
+    description: "The date in ISO 8601 format of production of the item, e.g. vehicle."
     datatype: string
-    uuid: fc755d9de42d5286bfd6b35e4dca6bcb
+    uuid: 5683877c4bac504d915b268c9476c190
 }
 ,
 {
-    name: "Vehicle.VehicleIdentification.purchaseDate"
+    name: "Vehicle.VehicleIdentification.PurchaseDate"
     type: "attribute"
-    description: "The date the item e.g. vehicle was purchased by the current owner."
+    description: "The date in ISO 8601 format of the item e.g. vehicle was purchased by the current owner."
     datatype: string
-    uuid: 07ac6595c60a57318b627a05775d696a
+    uuid: 31302f8b57e85c4197afda3e3201fce8
 }
 ,
 {
-    name: "Vehicle.VehicleIdentification.vehicleModelDate"
+    name: "Vehicle.VehicleIdentification.VehicleModelDate"
     type: "attribute"
-    description: "The release date of a vehicle model (often used to differentiate versions of the same make and model)."
+    description: "The release date in ISO 8601 format of a vehicle model (often used to differentiate versions of the same make and model)."
     datatype: string
-    uuid: 8292d5c6e0b15a92b97d301b31a6f27b
+    uuid: c71b63f83dea536bac58e62bbe537f11
 }
 ,
 {
-    name: "Vehicle.VehicleIdentification.vehicleConfiguration"
+    name: "Vehicle.VehicleIdentification.VehicleConfiguration"
     type: "attribute"
     description: "A short text indicating the configuration of the vehicle, e.g. '5dr hatchback ST 2.5 MT 225 hp' or 'limited edition'."
     datatype: string
-    uuid: d5efd9741e5f582f8a8da0d93811347f
+    uuid: 2526c7ba4c8458c78000a9e5f2fe89d5
 }
 ,
 {
-    name: "Vehicle.VehicleIdentification.vehicleSeatingCapacity"
+    name: "Vehicle.VehicleIdentification.VehicleSeatingCapacity"
     type: "attribute"
     description: "The number of passengers that can be seated in the vehicle, both in terms of the physical space available, and in terms of limitations set by law."
     datatype: uint16
-    uuid: 0d00e8ecfccf52d9aed6abbe5938df5d
+    uuid: 7ae5db0e0482555686b9be71dd8a0c38
 }
 ,
 {
-    name: "Vehicle.VehicleIdentification.vehicleSpecialUsage"
+    name: "Vehicle.VehicleIdentification.VehicleSpecialUsage"
     type: "attribute"
     description: "Indicates whether the vehicle has been used for special purposes, like commercial rental, driving school."
     datatype: string
-    uuid: 5d4264def1fd5328a45108a62a4770b1
+    uuid: 7e6e8a48f54a5549a8f6af8f1dc5eb8d
 }
 ,
 {
-    name: "Vehicle.VehicleIdentification.vehicleinteriorColor"
+    name: "Vehicle.VehicleIdentification.VehicleInteriorColor"
     type: "attribute"
     description: "The color or color combination of the interior of the vehicle."
     datatype: string
-    uuid: aea3643341d650959293617972a9405e
+    uuid: 67a8b069b8bf573993d51959c24f04e2
 }
 ,
 {
-    name: "Vehicle.VehicleIdentification.vehicleinteriorType"
+    name: "Vehicle.VehicleIdentification.VehicleInteriorType"
     type: "attribute"
     description: "The type or material of the interior of the vehicle (e.g. synthetic fabric, leather, wood, etc.)."
     datatype: string
-    uuid: a2466d9fa9b05409ba53ed46660b7147
+    uuid: 4c4eed302b2e51daa9b6f5f398987a77
 }
 ,
 {
-    name: "Vehicle.VehicleIdentification.knownVehicleDamages"
+    name: "Vehicle.VehicleIdentification.KnownVehicleDamages"
     type: "attribute"
     description: "A textual description of known damages, both repaired and unrepaired."
     datatype: string
-    uuid: 60f32d73afff58d0ac80c1c09b98dfb9
+    uuid: e87f352cddb15e94b340506b17207586
 }
 {
     name: "Vehicle.LowVoltageSystemState"
@@ -194,57 +194,12 @@ const SignalSpec[] signal_spec = [
     description: "State of the supply voltage of the control units (usually 12V)."
     datatype: string
     uuid: d7391ceb132e5519b02d4c13d5513d99
-    enum: ['UNDEFINED', 'LOCK', 'OFF', 'ACC', 'ON', 'START']
-}
-,
-{
-    name: "Vehicle.IgnitionOn"
-    type: "sensor"
-    description: "Indicates whether the vehicle ignition is on or off."
-    datatype: boolean
-    uuid: 6de19e6839af5f62acab3fbbd8077a98
-}
-,
-{
-    name: "Vehicle.IgnitionOnTime"
-    type: "sensor"
-    description: "Accumulated ignition on time in seconds."
-    datatype: uint32
-    uuid: ffae3b559998574ba58ee66dd0ac5d39
-    unit: s
-}
-,
-{
-    name: "Vehicle.IgnitionOffTime"
-    type: "sensor"
-    description: "Accumulated ignition off time in seconds."
-    datatype: uint32
-    uuid: c0c4467bb00d5c0683c5bb81bcfdcb3e
-    unit: s
-}
-,
-{
-    name: "Vehicle.DriveTime"
-    type: "sensor"
-    description: "Accumulated drive time in seconds."
-    datatype: uint32
-    uuid: f707495fbe155b7fa109dbb69c021850
-    unit: s
-}
-,
-{
-    name: "Vehicle.IdleTime"
-    type: "sensor"
-    description: "Accumulated idle time in seconds."
-    datatype: uint32
-    uuid: 97be8abc404f5c15a78e7edc6296ab04
-    unit: s
 }
 ,
 {
     name: "Vehicle.Speed"
     type: "sensor"
-    description: "Vehicle speed"
+    description: "Vehicle speed."
     datatype: float
     uuid: efe50798638d55fab18ab7d43cc490e9
     unit: km/h
@@ -262,7 +217,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.TripMeterReading"
     type: "sensor"
-    description: "Current trip meter reading"
+    description: "Current trip meter reading."
     datatype: float
     uuid: 81f51ebfe29c591190171d7b96e1c948
     unit: km
@@ -280,7 +235,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.IsMoving"
     type: "sensor"
-    description: "Indicates whether the vehicle is stationary or moving"
+    description: "Indicates whether the vehicle is stationary or moving."
     datatype: boolean
     uuid: db69549cc7375e919c2a2883b41cd19c
 }
@@ -288,7 +243,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.AverageSpeed"
     type: "sensor"
-    description: "Average speed for the current trip"
+    description: "Average speed for the current trip."
     datatype: float
     uuid: 43a489636a665c3abb99b63174eb552b
     unit: km/h
@@ -358,30 +313,21 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.accelerationTime"
-    type: "attribute"
-    description: "The time needed to accelerate the vehicle from a given start velocity to a given target velocity."
-    datatype: int16
-    uuid: a0dfbb5fa9c052018addeb48d64d4c6a
-    unit: s
-}
-,
-{
-    name: "Vehicle.cargoVolume"
+    name: "Vehicle.CargoVolume"
     type: "attribute"
     description: "The available volume for cargo or luggage. For automobiles, this is usually the trunk volume."
     datatype: float
-    uuid: 1b7c5f7c8ac952168cd2e89b3e9cd841
+    uuid: 789feabca2e8560ea3c1852371b4096e
     min: 0
     unit: l
 }
 ,
 {
-    name: "Vehicle.emissionsCO2"
+    name: "Vehicle.EmissionsCO2"
     type: "attribute"
     description: "The CO2 emissions."
     datatype: int16
-    uuid: 5dc70045865b5bba9260945b28f737ff
+    uuid: b73e8f1ed17d584fad3f088c666dc2a5
     unit: g/km
 }
 ,
@@ -458,17 +404,25 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Trailer.Connected"
+    name: "Vehicle.Trailer.IsConnected"
     type: "sensor"
     description: "Signal indicating if trailer is connected or not."
     datatype: boolean
-    uuid: 4da109044a185685a29190dd71838df5
+    uuid: 77f28ed03c125ac9a19d22e9436b0ec4
+}
+,
+{
+    name: "Vehicle.CurrentLocation.Timestamp"
+    type: "sensor"
+    description: "GNSS Timestamp for latest position, formatted according to ISO 8601 with UTC time zone."
+    datatype: string
+    uuid: 094aeff73be05c08905690be0e82a438
 }
 ,
 {
     name: "Vehicle.CurrentLocation.Latitude"
     type: "sensor"
-    description: "Current latitude of vehicle."
+    description: "Current latitude of vehicle according to WGS 84."
     datatype: double
     uuid: 08933c5a445055df80bea15fbfa07f1c
     min: -90
@@ -479,7 +433,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.CurrentLocation.Longitude"
     type: "sensor"
-    description: "Current longitude of vehicle."
+    description: "Current longitude of vehicle according to WGS 84."
     datatype: double
     uuid: 5246f2ec5fea550cb1b36f110854cfbb
     min: -180
@@ -510,7 +464,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.CurrentLocation.Altitude"
     type: "sensor"
-    description: "Current elevation of the position."
+    description: "Current altitude relative to WGS 84 reference ellipsoid."
     datatype: double
     uuid: d3ead98ab0b751c1a5b5dd5bc0e5e216
     unit: m
@@ -567,7 +521,6 @@ const SignalSpec[] signal_spec = [
     description: "Engine configuration."
     datatype: string
     uuid: 586be4567fe059ee9e6cf42901c2e773
-    enum: ['unknown', 'straight', 'V', 'boxer', 'W', 'rotary', 'radial', 'square', 'H', 'U', 'opposed', 'X']
 }
 ,
 {
@@ -589,27 +542,9 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Powertrain.CombustionEngine.CompressionRatio"
     type: "attribute"
-    description: "Engine compression ratio."
+    description: "Engine compression ratio, specified in the format 'X:1', e.g. '9.2:1'."
     datatype: string
     uuid: ead42922511051a0a0a1b634781f3c09
-}
-,
-{
-    name: "Vehicle.Powertrain.CombustionEngine.EngineOilLevel"
-    type: "attribute"
-    description: "Vehicle oil level."
-    datatype: string
-    uuid: e3813f59e94b509eb865fd97255a8a4f
-    enum: ['critically_low', 'low', 'normal', 'high', 'critically_high']
-}
-,
-{
-    name: "Vehicle.Powertrain.CombustionEngine.OilLifeRemaining"
-    type: "sensor"
-    description: "Remaining engine oil life in seconds. Negative values can be used to indicate that lifetime has been exceeded."
-    datatype: int32
-    uuid: 94303734c68c5353a02625f652103918
-    unit: s
 }
 ,
 {
@@ -642,7 +577,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Powertrain.CombustionEngine.MaxTorque"
     type: "attribute"
-    description: "Peak power, in newton meter, that the engine can generate."
+    description: "Peak torque, in newton meter, that the engine can generate."
     datatype: uint16
     uuid: 471cd478c1e8597f8e97c85b4e4ebe26
     unit: Nm
@@ -654,7 +589,6 @@ const SignalSpec[] signal_spec = [
     description: "Type of aspiration (natural, turbocharger, supercharger etc)."
     datatype: string
     uuid: 3ca6a8ff30275c20a9d8d6d6829574eb
-    enum: ['unknown', 'natural', 'supercharger', 'turbocharger']
 }
 ,
 {
@@ -663,15 +597,31 @@ const SignalSpec[] signal_spec = [
     description: "Type of fuel that the engine runs on."
     datatype: string
     uuid: d0f8c79131c850bab8159eaefc7e23e5
-    enum: ['unknown', 'gasoline', 'diesel', 'E85', 'CNG']
 }
 ,
 {
-    name: "Vehicle.Powertrain.CombustionEngine.Running"
+    name: "Vehicle.Powertrain.CombustionEngine.EngineOilLevel"
     type: "sensor"
-    description: "Engine Running. True if engine is rotating (Engine.Speed > 0)."
+    description: "Engine oil level."
+    datatype: string
+    uuid: e3813f59e94b509eb865fd97255a8a4f
+}
+,
+{
+    name: "Vehicle.Powertrain.CombustionEngine.OilLifeRemaining"
+    type: "sensor"
+    description: "Remaining engine oil life in seconds. Negative values can be used to indicate that lifetime has been exceeded."
+    datatype: int32
+    uuid: 94303734c68c5353a02625f652103918
+    unit: s
+}
+,
+{
+    name: "Vehicle.Powertrain.CombustionEngine.IsRunning"
+    type: "sensor"
+    description: "Engine Running. True if engine is rotating (Speed > 0)."
     datatype: boolean
-    uuid: b293ae50dceb5adfaa7a7e2ad752b8a1
+    uuid: 57652c27679757398c44d56af7a044d3
 }
 ,
 {
@@ -680,9 +630,25 @@ const SignalSpec[] signal_spec = [
     description: "Engine speed measured as rotations per minute."
     datatype: uint16
     uuid: 557ce24c5a4d51cc825059c948ac9e29
-    min: 0
-    max: 20000
     unit: rpm
+}
+,
+{
+    name: "Vehicle.Powertrain.CombustionEngine.EngineHours"
+    type: "sensor"
+    description: "Accumulated time during engine lifetime with 'engine speed (rpm) > 0'."
+    datatype: float
+    uuid: a23a62e24f58514d961890f53262e4e0
+    unit: h
+}
+,
+{
+    name: "Vehicle.Powertrain.CombustionEngine.IdleHours"
+    type: "sensor"
+    description: "Accumulated idling time during engine lifetime. Definition of idling is not standardized."
+    datatype: float
+    uuid: 6caa3d7e669c5cc6aecd4a6be9a302d4
+    unit: h
 }
 ,
 {
@@ -691,8 +657,6 @@ const SignalSpec[] signal_spec = [
     description: "Engine coolant temperature."
     datatype: int16
     uuid: fff3cad23cac5b189a1a075c3ab562cd
-    min: -50
-    max: 200
     unit: celsius
 }
 ,
@@ -702,19 +666,15 @@ const SignalSpec[] signal_spec = [
     description: "Engine oil temperature."
     datatype: int16
     uuid: eae6f5eae04f530e80f6b024f95b767d
-    min: -50
-    max: 300
     unit: celsius
 }
 ,
 {
     name: "Vehicle.Powertrain.CombustionEngine.MAP"
     type: "sensor"
-    description: "Manifold air pressure possibly boosted using forced induction."
-    datatype: int16
+    description: "Manifold absolute pressure possibly boosted using forced induction."
+    datatype: uint16
     uuid: 28d4354fa34056369acb857aa7cc76ac
-    min: 0
-    max: 1000
     unit: kPa
 }
 ,
@@ -722,10 +682,8 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.Powertrain.CombustionEngine.MAF"
     type: "sensor"
     description: "Grams of air drawn into engine per second."
-    datatype: int16
+    datatype: uint16
     uuid: 1e222ed8c48b5dcea60e43ac8af7d6df
-    min: 0
-    max: 3000
     unit: g/s
 }
 ,
@@ -733,9 +691,8 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.Powertrain.CombustionEngine.TPS"
     type: "sensor"
     description: "Current throttle position."
-    datatype: int8
+    datatype: uint8
     uuid: 1ddb77860de558b4876ffb399a442bda
-    min: 0
     max: 100
     unit: percent
 }
@@ -744,33 +701,64 @@ const SignalSpec[] signal_spec = [
     name: "Vehicle.Powertrain.CombustionEngine.EOP"
     type: "sensor"
     description: "Engine oil pressure."
-    datatype: int16
+    datatype: uint16
     uuid: 76c7039dc7975ec3a003f0f4a04895ec
-    min: 0
-    max: 1000
     unit: kPa
 }
 ,
 {
     name: "Vehicle.Powertrain.CombustionEngine.Power"
     type: "sensor"
-    description: "Current engine power output."
-    datatype: int16
+    description: "Current engine power output. Shall be reported as 0 during engine breaking."
+    datatype: uint16
     uuid: 20e8b5d2187758c2848ed421248c180d
-    min: 0
-    max: 2000
     unit: kW
 }
 ,
 {
     name: "Vehicle.Powertrain.CombustionEngine.Torque"
     type: "sensor"
-    description: "Current engine torque."
-    datatype: int16
+    description: "Current engine torque. Shall be reported as 0 during engine breaking."
+    datatype: uint16
     uuid: b81f504bdb57513299ae6e9402ec7bcd
-    min: 0
-    max: 3000
     unit: Nm
+}
+,
+{
+    name: "Vehicle.Powertrain.CombustionEngine.DieselExhaustFluid.Capacity"
+    type: "attribute"
+    description: "Capacity in liters of the Diesel Exhaust Fluid Tank."
+    datatype: float
+    uuid: 863c16ad452b5cf5b7a37f58bdda14c3
+    unit: l
+}
+,
+{
+    name: "Vehicle.Powertrain.CombustionEngine.DieselExhaustFluid.Level"
+    type: "sensor"
+    description: "Level of the Diesel Exhaust Fluid tank as percent of capacity. 0 = empty. 100 = full."
+    datatype: uint8
+    uuid: f5b0269b58ff5a8e8399f6d96963a3b6
+    min: 0
+    max: 100
+    unit: percent
+}
+,
+{
+    name: "Vehicle.Powertrain.CombustionEngine.DieselExhaustFluid.Range"
+    type: "sensor"
+    description: "Remaining range in meters of the Diesel Exhaust Fluid present in the vehicle."
+    datatype: uint32
+    uuid: 124afbee975c5a67b316413f7b805eac
+    unit: m
+}
+,
+{
+    name: "Vehicle.Powertrain.CombustionEngine.DieselExhaustFluid.IsLevelLow"
+    type: "sensor"
+    description: "Indicates if the Diesel Exhaust Fluid level is low. True if level is low. Definition of low is vehicle dependent."
+    datatype: boolean
+    uuid: 811af3fe4f7f5270b4119bb66cff8759
 }
 ,
 {
@@ -806,14 +794,13 @@ const SignalSpec[] signal_spec = [
     description: "Transmission type."
     datatype: string
     uuid: f83b9e5464d85a0288fcb32c164d3c63
-    enum: ['unknown', 'sequential', 'H', 'automatic', 'DSG', 'CVT']
 }
 ,
 {
     name: "Vehicle.Powertrain.Transmission.GearCount"
     type: "attribute"
     description: "Number of forward gears in the transmission. -1 = CVT."
-    datatype: uint8
+    datatype: int8
     uuid: 84293f40d3ed57f1a08992d97b1a9ccd
 }
 ,
@@ -823,18 +810,6 @@ const SignalSpec[] signal_spec = [
     description: "Drive type."
     datatype: string
     uuid: 0e480b76fb2d5f8bb08fb586f90ee6ae
-    enum: ['unknown', 'forward wheel drive', 'rear wheel drive', 'all wheel drive']
-}
-,
-{
-    name: "Vehicle.Powertrain.Transmission.Speed"
-    type: "sensor"
-    description: "Vehicle speed, as sensed by the gearbox."
-    datatype: int32
-    uuid: 080c5c7a7a8f512a858f84cd678d09cb
-    min: -250
-    max: 250
-    unit: km/h
 }
 ,
 {
@@ -847,19 +822,9 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Powertrain.Transmission.Gear"
-    type: "actuator"
-    description: "Current gear. 0=Neutral. -1=Reverse"
-    datatype: int8
-    uuid: d72df16818e75f71b9fffdff8250e9b9
-    min: -1
-    max: 16
-}
-,
-{
     name: "Vehicle.Powertrain.Transmission.CurrentGear"
     type: "sensor"
-    description: "The current gear. 0=Neutral, 1/2/..=Forward, -1/..=Reverse"
+    description: "The current gear. 0=Neutral, 1/2/..=Forward, -1/-2/..=Reverse."
     datatype: int8
     uuid: cd0ba1d772565e16bff46cbd5c9361da
 }
@@ -867,9 +832,33 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Powertrain.Transmission.SelectedGear"
     type: "actuator"
-    description: "The selected gear. 0=Neutral, 1/2/..=Forward, -1/..=Reverse, 126=Park, 127=Drive"
+    description: "The selected gear. 0=Neutral, 1/2/..=Forward, -1/-2/..=Reverse, 126=Park, 127=Drive."
     datatype: int8
     uuid: 490fd99b9d5f562eb180c19e8cef5e12
+}
+,
+{
+    name: "Vehicle.Powertrain.Transmission.IsParkLockEngaged"
+    type: "actuator"
+    description: "Is the transmission park lock engaged or not. False = Disengaged. True = Engaged."
+    datatype: boolean
+    uuid: 1578da3f925e54ac9df978abd0195408
+}
+,
+{
+    name: "Vehicle.Powertrain.Transmission.IsLowRangeEngaged"
+    type: "actuator"
+    description: "Is gearbox in low range mode or not. False = Normal/High range engaged. True = Low range engaged."
+    datatype: boolean
+    uuid: 63ba7593926b574ebbe4f90b28557e78
+}
+,
+{
+    name: "Vehicle.Powertrain.Transmission.IsElectricalPowertrainEngaged"
+    type: "actuator"
+    description: "Is electrical powertrain mechanically connected/engaged to the drivetrain or not. False = Disconnected/Disengaged. True = Connected/Engaged."
+    datatype: boolean
+    uuid: 6660cf1d88d15430b1e7c8908a7b769b
 }
 ,
 {
@@ -878,7 +867,6 @@ const SignalSpec[] signal_spec = [
     description: "Current gearbox performance mode."
     datatype: string
     uuid: 6b5cfd85cb595e559503ccf993be04dd
-    enum: ['normal', 'sport', 'economy', 'snow', 'rain']
 }
 ,
 {
@@ -887,18 +875,26 @@ const SignalSpec[] signal_spec = [
     description: "Is the gearbox in automatic or manual (paddle) mode."
     datatype: string
     uuid: ff3c69378c2f598286e51f7dac13adaa
-    enum: ['manual', 'automatic']
 }
 ,
 {
     name: "Vehicle.Powertrain.Transmission.Temperature"
     type: "sensor"
-    description: "The current gearbox temperature"
+    description: "The current gearbox temperature."
     datatype: int16
     uuid: 4f5e48c3511b5e1abff11aa7ec62dd18
-    min: -50
-    max: 200
     unit: celsius
+}
+,
+{
+    name: "Vehicle.Powertrain.Transmission.ClutchEngagement"
+    type: "actuator"
+    description: "Clutch engagement. 0% = Clutch fully disengaged. 100% = Clutch fully engaged."
+    datatype: float
+    uuid: 2890bd4a2b6a56c19b62d7bd95151fc6
+    min: 0
+    max: 100
+    unit: percent
 }
 ,
 {
@@ -907,6 +903,40 @@ const SignalSpec[] signal_spec = [
     description: "Clutch wear as a percent. 0 = no wear. 100 = worn."
     datatype: uint8
     uuid: c113405ad165571a9d53ae4cf55dc929
+    max: 100
+    unit: percent
+}
+,
+{
+    name: "Vehicle.Powertrain.Transmission.DiffLockFrontEngagement"
+    type: "actuator"
+    description: "Front Diff Lock engagement. 0% = Diff lock fully disengaged. 100% = Diff lock fully engaged."
+    datatype: float
+    uuid: 5149afe37fbd5c24847b5820821abc02
+    min: 0
+    max: 100
+    unit: percent
+}
+,
+{
+    name: "Vehicle.Powertrain.Transmission.DiffLockRearEngagement"
+    type: "actuator"
+    description: "Rear Diff Lock engagement. 0% = Diff lock fully disengaged. 100% = Diff lock fully engaged."
+    datatype: float
+    uuid: 197c939bd1405613b80179becec6db83
+    min: 0
+    max: 100
+    unit: percent
+}
+,
+{
+    name: "Vehicle.Powertrain.Transmission.TorqueDistribution"
+    type: "actuator"
+    description: "Torque distribution between front and rear axle in percent. -100% = Full torque to front axle, 0% = 50:50 Front/Rear, 100% = Full torque to rear axle."
+    datatype: float
+    uuid: d3bcaaf973d3512287817049db9bd677
+    min: -100
+    max: 100
     unit: percent
 }
 ,
@@ -952,8 +982,6 @@ const SignalSpec[] signal_spec = [
     description: "Motor rotational speed measured as rotations per minute. Negative values indicate reverse driving mode."
     datatype: int32
     uuid: b31746b142de52fea3f84d860a0b717e
-    min: -100000
-    max: 100000
     unit: rpm
 }
 ,
@@ -963,8 +991,6 @@ const SignalSpec[] signal_spec = [
     description: "Motor temperature."
     datatype: int16
     uuid: 1b7c15e5341052139995bfacea2c05b2
-    min: -50
-    max: 200
     unit: celsius
 }
 ,
@@ -974,8 +1000,6 @@ const SignalSpec[] signal_spec = [
     description: "Motor coolant temperature (if applicable)."
     datatype: int16
     uuid: 3c5ea8c7700956518f2ae7a2a0f34f1c
-    min: -50
-    max: 200
     unit: celsius
 }
 ,
@@ -985,8 +1009,6 @@ const SignalSpec[] signal_spec = [
     description: "Current motor power output. Negative values indicate regen mode."
     datatype: int16
     uuid: 46b86286fba059349a733fed9a0e3232
-    min: -2000
-    max: 2000
     unit: kW
 }
 ,
@@ -996,31 +1018,29 @@ const SignalSpec[] signal_spec = [
     description: "Current motor torque. Negative values indicate regen mode."
     datatype: int16
     uuid: aceffe768ddf5b828fff0975349d2433
-    min: -5000
-    max: 5000
     unit: Nm
 }
 ,
 {
-    name: "Vehicle.Powertrain.TractionBattery.PowerConnected"
+    name: "Vehicle.Powertrain.TractionBattery.IsPowerConnected"
     type: "sensor"
     description: "Indicating if the power (positive terminator) of the traction battery is connected to the powertrain."
     datatype: boolean
-    uuid: 0507b2ddc362504a9c69d0ab6f1086e2
+    uuid: e30ef59fc2a25f6b8990248e19a5cdf9
 }
 ,
 {
-    name: "Vehicle.Powertrain.TractionBattery.GroundConnected"
+    name: "Vehicle.Powertrain.TractionBattery.IsGroundConnected"
     type: "sensor"
     description: "Indicating if the ground (negative terminator) of the traction battery is connected to the powertrain."
     datatype: boolean
-    uuid: a462b37ac4f253fc9b7b12c603198ab1
+    uuid: dd38d1c7ee12530aac03f49ad01d5c04
 }
 ,
 {
     name: "Vehicle.Powertrain.TractionBattery.Temperature"
     type: "sensor"
-    description: "Temperature of the battery pack"
+    description: "Temperature of the battery pack."
     datatype: float
     uuid: 1cfbcf8c152959dcb3eb2c54fc42e623
     unit: celsius
@@ -1051,7 +1071,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Powertrain.TractionBattery.StateOfCharge.Target"
     type: "actuator"
-    description: "Target state of charge set (eg. by customer)."
+    description: "Target state of charge set (eg. by customer). Shall never exceed Charging.ChargeLimit."
     datatype: uint8
     uuid: 6aca8e9650be5a7782ce34ec4f03b96b
     min: 0
@@ -1062,7 +1082,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Powertrain.TractionBattery.GrossCapacity"
     type: "attribute"
-    description: "Gross capacity of the battery"
+    description: "Gross capacity of the battery."
     datatype: uint16
     uuid: 5460530488435dc8bfa1298bf47a993d
     unit: kWh
@@ -1071,7 +1091,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Powertrain.TractionBattery.NetCapacity"
     type: "attribute"
-    description: "Net capacity of the battery"
+    description: "Net capacity of the battery."
     datatype: uint16
     uuid: 9c68fe42cb81501eb6349f8c9b0b6899
     unit: kWh
@@ -1080,7 +1100,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Powertrain.TractionBattery.NominalVoltage"
     type: "attribute"
-    description: "Nominal Voltage of the battery"
+    description: "Nominal Voltage of the battery."
     datatype: uint16
     uuid: 3eccae5633185b998d5bdb6ea33cd926
     unit: V
@@ -1089,7 +1109,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Powertrain.TractionBattery.ReferentVoltage"
     type: "attribute"
-    description: "Referent Voltage of the battery"
+    description: "Referent Voltage of the battery."
     datatype: uint16
     uuid: 51b5e378ccab5dd4905b552d1306cf7c
     unit: V
@@ -1098,7 +1118,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Powertrain.TractionBattery.AccumulatedChargedEnergy"
     type: "sensor"
-    description: "The accumulated energy delivered to the battery during charging over lifetime."
+    description: "The accumulated energy delivered to the battery during charging over lifetime of the battery."
     datatype: float
     uuid: 739d06021d795da0877bc0ef3c107de1
     unit: kWh
@@ -1107,7 +1127,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Powertrain.TractionBattery.AccumulatedConsumedEnergy"
     type: "sensor"
-    description: "The accumulated energy leaving HV battery for propulsion and auxiliary loads over lifetime."
+    description: "The accumulated energy leaving HV battery for propulsion and auxiliary loads over lifetime of the battery."
     datatype: float
     uuid: b844cb96765f574d8d31edb09ccaef81
     unit: kWh
@@ -1145,18 +1165,17 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Powertrain.TractionBattery.Charging.ChargePortFlap"
     type: "actuator"
-    description: "Signal indicating if charge port cover is open or closed, can potentially be controlled manually."
+    description: "Status of the charge port cover, can potentially be controlled manually."
     datatype: string
     uuid: 71bdd2145bb55c3393df194bfc2e03e5
-    enum: ['open', 'closed']
 }
 ,
 {
-    name: "Vehicle.Powertrain.TractionBattery.Charging.ChargePlugStatus"
+    name: "Vehicle.Powertrain.TractionBattery.Charging.IsChargingCableConnected"
     type: "sensor"
-    description: "Signal indicating if charge plug is connected or not."
+    description: "Indicates if a charging cable is connected to the vehicle or not."
     datatype: boolean
-    uuid: 162d1adfafd95faa86dbd0890705709b
+    uuid: a1c8e2f662b95a54a9933a1b163fff84
 }
 ,
 {
@@ -1165,7 +1184,6 @@ const SignalSpec[] signal_spec = [
     description: "Type of charge plug available on the vehicle (CSS includes Type2)."
     datatype: string
     uuid: 4c56357a6f1d586395215a9beeb26d91
-    enum: ['type 1', 'type 2', 'ccs', 'chademo']
 }
 ,
 {
@@ -1174,15 +1192,14 @@ const SignalSpec[] signal_spec = [
     description: "Control of the charge process - manually initiated (plug-in event, companion app, etc), timer-based or grid-controlled (eg ISO 15118)."
     datatype: string
     uuid: 1e4be3280b265873945531f6f6d0ec6b
-    enum: ['manual', 'timer', 'grid']
 }
 ,
 {
-    name: "Vehicle.Powertrain.TractionBattery.Charging.Status"
+    name: "Vehicle.Powertrain.TractionBattery.Charging.IsCharging"
     type: "sensor"
-    description: "State of charging process."
+    description: "True if charging is ongoing. Charging is considered to be ongoing if energy is flowing from charger to vehicle."
     datatype: boolean
-    uuid: d87c4ad383975eb08c489e3b597293ed
+    uuid: d28244c9e3365899954bd3e38ef46bb9
 }
 ,
 {
@@ -1191,7 +1208,6 @@ const SignalSpec[] signal_spec = [
     description: "Start or stop the charging process."
     datatype: string
     uuid: 80506d3e9a2557c2b52f74a50d89593f
-    enum: ['start', 'stop']
 }
 ,
 {
@@ -1224,52 +1240,48 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Powertrain.TractionBattery.Charging.TimeToComplete"
     type: "sensor"
-    description: "The time needed to complete the current charging process to the set charge limit. 0 if charging is complete, negative number if no charging process is active."
+    description: "The time needed for the current charging process to reach StateOfCharge.Target. 0 if charging is complete or no charging process is active or planned."
     datatype: uint32
     uuid: c6439c2e068652b08383b9654e2e784a
     unit: s
 }
 ,
 {
-    name: "Vehicle.Powertrain.TractionBattery.Charging.Timer.Time"
+    name: "Vehicle.Powertrain.TractionBattery.Charging.Timer.Mode"
     type: "actuator"
-    description: "Time value for next charging-related action (Unix timestamp, seconds)."
-    datatype: uint32
-    uuid: c08dcaeda02b5e26aacd7e2542f0fc90
-    unit: s
+    description: "Defines timer mode for charging: 'inactive' - no timer set, charging may start as soon as battery is connected to a charger. 'starttime' - charging shall start at Charging.Timer.Time. 'endtime' - charging shall be finished (reach StateOfCharge.Target) at Charging.Timer.Time. When charging is completed the vehicle shall change mode to 'inactive' or set a new Charging.Timer.Time. Charging shall start immediately if mode is 'starttime' or 'endtime' and Charging.Timer.Time is a time in the past."
+    datatype: string
+    uuid: b09fb52261735977af275dda1904a7a1
 }
 ,
 {
-    name: "Vehicle.Powertrain.TractionBattery.Charging.Timer.Mode"
+    name: "Vehicle.Powertrain.TractionBattery.Charging.Timer.Time"
     type: "actuator"
-    description: "Defines whether Timer.Time is defining start- or endtime of a charging action; departuretime denotes that target time should be taken from vehicle-level desired departure-time setting."
+    description: "Time for next charging-related action, formatted according to ISO 8601 with UTC time zone. Value has no significance if Charging.Timer.Mode is 'inactive'."
     datatype: string
-    uuid: b09fb52261735977af275dda1904a7a1
-    enum: ['starttime', 'endtime', 'depaturetime']
+    uuid: c08dcaeda02b5e26aacd7e2542f0fc90
 }
 ,
 {
     name: "Vehicle.Powertrain.FuelSystem.FuelType"
     type: "attribute"
-    description: "Defines the fuel type of the vehicle"
+    description: "Defines the fuel type of the vehicle."
     datatype: string
     uuid: 76442e696df5540b8b747373b29895d9
-    enum: ['unknown', 'gasoline', 'diesel', 'electric', 'hybrid', 'E85', 'CNG', 'LPG']
 }
 ,
 {
     name: "Vehicle.Powertrain.FuelSystem.HybridType"
     type: "attribute"
-    description: "Defines the hybrid type of the vehicle"
+    description: "Defines the hybrid type of the vehicle."
     datatype: string
     uuid: f0f72012f5e453c1935ff8c3a5aff696
-    enum: ['unknown', 'not_applicable', 'stop_start', 'belt_ISG', 'CIMG', 'PHEV']
 }
 ,
 {
     name: "Vehicle.Powertrain.FuelSystem.TankCapacity"
     type: "attribute"
-    description: "Capacity of the fuel tank in liters"
+    description: "Capacity of the fuel tank in liters."
     datatype: float
     uuid: 362643b866c55d5386fdbdf383464e90
     unit: l
@@ -1334,25 +1346,25 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Powertrain.FuelSystem.EngineStopStartEnabled"
+    name: "Vehicle.Powertrain.FuelSystem.IsEngineStopStartEnabled"
     type: "sensor"
-    description: "Indicates whether eco start stop is currently enabled"
+    description: "Indicates whether eco start stop is currently enabled."
     datatype: boolean
-    uuid: 901f8977c24855fd95aa8e4cf166d3e9
+    uuid: 176eed5bb0da582a9ee56f1c70e12075
 }
 ,
 {
-    name: "Vehicle.Powertrain.FuelSystem.LowFuelLevel"
+    name: "Vehicle.Powertrain.FuelSystem.IsFuelLevelLow"
     type: "sensor"
-    description: "Indicates that the fuel level is low (e.g. <50km range)"
+    description: "Indicates that the fuel level is low (e.g. <50km range)."
     datatype: boolean
-    uuid: 7f5fd2d9ca465d80af8e4bc0f8901b3b
+    uuid: 65f18ee3b04f5d4c8bb76083227dd9fe
 }
 ,
 {
     name: "Vehicle.Body.BodyType"
     type: "attribute"
-    description: "Body type code as defined by ISO 3779"
+    description: "Body type code as defined by ISO 3779."
     datatype: string
     uuid: 6253412513105deea63b1d424117fd88
 }
@@ -1360,16 +1372,15 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Body.RefuelPosition"
     type: "attribute"
-    description: "Location of the fuel cap or charge port"
+    description: "Location of the fuel cap or charge port."
     datatype: string
     uuid: 53ef90a851fa57f0810d50238e852f02
-    enum: ['front_left', 'front_right', 'middle_left', 'middle_right', 'rear_left', 'rear_right']
 }
 ,
 {
     name: "Vehicle.Body.Hood.IsOpen"
     type: "actuator"
-    description: "hood open or closed. True = Open. False = Closed"
+    description: "Hood open or closed. True = Open. False = Closed."
     datatype: boolean
     uuid: 890aa3359e1a579288af1cf8e6b5b71f
 }
@@ -1377,7 +1388,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Body.Trunk.IsOpen"
     type: "actuator"
-    description: "Trunk open or closed. True = Open. False = Closed"
+    description: "Trunk open or closed. True = Open. False = Closed."
     datatype: boolean
     uuid: 58c8eb023b4b5db794705d7ce63e2d75
 }
@@ -1399,37 +1410,36 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Body.Raindetection.intensity"
+    name: "Vehicle.Body.Raindetection.Intensity"
     type: "sensor"
     description: "Rain intensity. 0 = Dry, No Rain. 100 = Covered."
     datatype: uint8
-    uuid: 02828e9e5f7b593fa2160e7b6dbad157
+    uuid: 1ee0a2f22e8257d299425a4ff2652555
     unit: percent
 }
 ,
 {
     name: "Vehicle.Body.Windshield.Front.Wiping.Status"
     type: "actuator"
-    description: "Wiper status"
+    description: "Wiper status."
     datatype: string
     uuid: 2d5509513e4b52e0a337ade730166aec
-    enum: ['off', 'slow', 'medium', 'fast', 'interval', 'rainsensor']
 }
 ,
 {
-    name: "Vehicle.Body.Windshield.Front.Heating.Status"
+    name: "Vehicle.Body.Windshield.Front.IsHeatingOn"
     type: "actuator"
-    description: "Windshield heater status. 0 - off, 1 - on"
+    description: "Windshield heater status. False - off, True - on."
     datatype: boolean
-    uuid: 3f91b8feb415579c9dc8dc82c12f63a6
+    uuid: 26e6a3b7e9bb58bebba29258faa6e300
 }
 ,
 {
-    name: "Vehicle.Body.Windshield.Front.WasherFluid.LevelLow"
+    name: "Vehicle.Body.Windshield.Front.WasherFluid.IsLevelLow"
     type: "sensor"
     description: "Low level indication for washer fluid. True = Level Low. False = Level OK."
     datatype: boolean
-    uuid: ef1ff301178c5ef2841964b23c340151
+    uuid: 8ca54695ad115f9bb6f56d7c450781a7
 }
 ,
 {
@@ -1444,26 +1454,25 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Body.Windshield.Rear.Wiping.Status"
     type: "actuator"
-    description: "Wiper status"
+    description: "Wiper status."
     datatype: string
     uuid: 1aca19889d375a699bc3750993777b08
-    enum: ['off', 'slow', 'medium', 'fast', 'interval', 'rainsensor']
 }
 ,
 {
-    name: "Vehicle.Body.Windshield.Rear.Heating.Status"
+    name: "Vehicle.Body.Windshield.Rear.IsHeatingOn"
     type: "actuator"
-    description: "Windshield heater status. 0 - off, 1 - on"
+    description: "Windshield heater status. False - off, True - on."
     datatype: boolean
-    uuid: fac9f35307f85e8186cf142f9c2aa643
+    uuid: 76d811b4c4c356f4898dd6383e28bc6f
 }
 ,
 {
-    name: "Vehicle.Body.Windshield.Rear.WasherFluid.LevelLow"
+    name: "Vehicle.Body.Windshield.Rear.WasherFluid.IsLevelLow"
     type: "sensor"
     description: "Low level indication for washer fluid. True = Level Low. False = Level OK."
     datatype: boolean
-    uuid: caf770b8607851719983831490b3403e
+    uuid: 8ca0356548ae54e8af3aeace49e5ed71
 }
 ,
 {
@@ -1478,7 +1487,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Body.Lights.IsHighBeamOn"
     type: "actuator"
-    description: "Is high beam on"
+    description: "Is high beam on?"
     datatype: boolean
     uuid: 80a627e5b81356dabe557ff4102f634f
 }
@@ -1486,7 +1495,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Body.Lights.IsLowBeamOn"
     type: "actuator"
-    description: "Is low beam on"
+    description: "Is low beam on?"
     datatype: boolean
     uuid: 917d51175b675ad89cf86e07e33b44ec
 }
@@ -1494,7 +1503,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Body.Lights.IsRunningOn"
     type: "actuator"
-    description: "Are running lights on"
+    description: "Are running lights on?"
     datatype: boolean
     uuid: cd28479b1a5c5088a52e8d9cd7f22dcf
 }
@@ -1502,7 +1511,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Body.Lights.IsBackupOn"
     type: "actuator"
-    description: "Is backup (reverse) light on"
+    description: "Is backup (reverse) light on?"
     datatype: boolean
     uuid: 48c0a466b59555f6bf0c01fcf7a3c42c
 }
@@ -1510,7 +1519,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Body.Lights.IsParkingOn"
     type: "actuator"
-    description: "Is parking light on"
+    description: "Is parking light on?"
     datatype: boolean
     uuid: 510402bd9355529dbddc2b9724db6957
 }
@@ -1518,7 +1527,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Body.Lights.IsBrakeOn"
     type: "actuator"
-    description: "Is brake light on"
+    description: "Is brake light on?"
     datatype: boolean
     uuid: 7b8b136ec8aa59cb8773aa3c455611a4
 }
@@ -1526,7 +1535,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Body.Lights.IsRearFogOn"
     type: "actuator"
-    description: "Is rear fog light on"
+    description: "Is rear fog light on?"
     datatype: boolean
     uuid: 54818024ac4853d49003e8e10bd8f4f6
 }
@@ -1534,7 +1543,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Body.Lights.IsFrontFogOn"
     type: "actuator"
-    description: "Is front fog light on"
+    description: "Is front fog light on?"
     datatype: boolean
     uuid: 9ad70db68408503a8506d09c7c92a13f
 }
@@ -1542,7 +1551,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Body.Lights.IsHazardOn"
     type: "actuator"
-    description: "Are hazards on"
+    description: "Are hazards on?"
     datatype: boolean
     uuid: 148eee65b2de53fab88fc261246d6639
 }
@@ -1550,7 +1559,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Body.Lights.IsLeftIndicatorOn"
     type: "actuator"
-    description: "Is left indicator flashing"
+    description: "Is left indicator flashing?"
     datatype: boolean
     uuid: 98c6f3d400d65a6da5fef8e22c16133a
 }
@@ -1558,7 +1567,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Body.Lights.IsRightIndicatorOn"
     type: "actuator"
-    description: "Is right indicator flashing"
+    description: "Is right indicator flashing?"
     datatype: boolean
     uuid: df301b25233e5f20b039bc9304c148d2
 }
@@ -1582,11 +1591,11 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Body.Mirrors.Left.Heating.Status"
+    name: "Vehicle.Body.Mirrors.Left.IsHeatingOn"
     type: "actuator"
     description: "Mirror Heater on or off. True = Heater On. False = Heater Off."
     datatype: boolean
-    uuid: d6b66f3c465b5489a327c1a7a678ce62
+    uuid: b8591c0592d8525e91e1a04495b6995d
 }
 ,
 {
@@ -1608,20 +1617,30 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Body.Mirrors.Right.Heating.Status"
+    name: "Vehicle.Body.Mirrors.Right.IsHeatingOn"
     type: "actuator"
     description: "Mirror Heater on or off. True = Heater On. False = Heater Off."
     datatype: boolean
-    uuid: 3574929e068e5ecb88a90819ad2a9a8d
+    uuid: 9a57455f48ea5fdbb7a998905dda318c
 }
 ,
 {
     name: "Vehicle.Body.ChargingPort.Type"
     type: "attribute"
-    description: "Indicates the primary charging type fitted to the vehicle"
+    description: "Indicates the primary charging type fitted to the vehicle."
     datatype: string
     uuid: fffa718e15fb50c285fb33e99116eddc
-    enum: ['unknown', 'Not_Fitted', 'AC_Type_1', 'AC_Type_2', 'AC_GBT', 'AC_DC_Type_1_Combo', 'AC_DC_Type_2_Combo', 'DC_GBT', 'DC_Chademo']
+}
+,
+{
+    name: "Vehicle.Body.RearMainSpoilerPosition"
+    type: "actuator"
+    description: "Rear spoiler position, 0% = Spoiler fully stowed. 100% = Spoiler fully exposed."
+    datatype: float
+    uuid: 6209a82390585b869cc3d00d069eade2
+    min: 0
+    max: 100
+    unit: percent
 }
 ,
 {
@@ -1630,7 +1649,6 @@ const SignalSpec[] signal_spec = [
     description: "Switch controlling sliding action such as window, sunroof, or blind."
     datatype: string
     uuid: da9f01e9baf35544842f1a7674c5172a
-    enum: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
 }
 ,
 {
@@ -1661,8 +1679,6 @@ const SignalSpec[] signal_spec = [
     description: "Temperature"
     datatype: int8
     uuid: 347c13ff2a735d54a5f011d4573694cd
-    min: -50
-    max: 50
     unit: celsius
 }
 ,
@@ -1672,7 +1688,6 @@ const SignalSpec[] signal_spec = [
     description: "Direction of airstream"
     datatype: string
     uuid: 33ca2e1ed1b1533b8e1309320074c07b
-    enum: ['up', 'middle', 'down']
 }
 ,
 {
@@ -1692,8 +1707,6 @@ const SignalSpec[] signal_spec = [
     description: "Temperature"
     datatype: int8
     uuid: 592dc63c45145f739edbc5677196eb85
-    min: -50
-    max: 50
     unit: celsius
 }
 ,
@@ -1703,7 +1716,6 @@ const SignalSpec[] signal_spec = [
     description: "Direction of airstream"
     datatype: string
     uuid: 00e25d807a755c4cb978a40ebfc0e8d0
-    enum: ['up', 'middle', 'down']
 }
 ,
 {
@@ -1723,8 +1735,6 @@ const SignalSpec[] signal_spec = [
     description: "Temperature"
     datatype: int8
     uuid: 7185fb43728f53f3960e1284b89a6f66
-    min: -50
-    max: 50
     unit: celsius
 }
 ,
@@ -1734,7 +1744,6 @@ const SignalSpec[] signal_spec = [
     description: "Direction of airstream"
     datatype: string
     uuid: 3c22cd8ac56b59978927fc815ee79104
-    enum: ['up', 'middle', 'down']
 }
 ,
 {
@@ -1754,8 +1763,6 @@ const SignalSpec[] signal_spec = [
     description: "Temperature"
     datatype: int8
     uuid: c6822e4c0eae59cab832057bac327c67
-    min: -50
-    max: 50
     unit: celsius
 }
 ,
@@ -1765,7 +1772,6 @@ const SignalSpec[] signal_spec = [
     description: "Direction of airstream"
     datatype: string
     uuid: 10d42dd4337450e2af1c0dd2c9dcb3a7
-    enum: ['up', 'middle', 'down']
 }
 ,
 {
@@ -1785,8 +1791,6 @@ const SignalSpec[] signal_spec = [
     description: "Temperature"
     datatype: int8
     uuid: b12b9565bd4e5c8e974ac0ff97223af4
-    min: -50
-    max: 50
     unit: celsius
 }
 ,
@@ -1796,7 +1800,6 @@ const SignalSpec[] signal_spec = [
     description: "Direction of airstream"
     datatype: string
     uuid: f1e2dc36082b5980920c5fe3ee875659
-    enum: ['up', 'middle', 'down']
 }
 ,
 {
@@ -1816,8 +1819,6 @@ const SignalSpec[] signal_spec = [
     description: "Temperature"
     datatype: int8
     uuid: a76ea2c628df5099b0dca839aac84e63
-    min: -50
-    max: 50
     unit: celsius
 }
 ,
@@ -1827,7 +1828,6 @@ const SignalSpec[] signal_spec = [
     description: "Direction of airstream"
     datatype: string
     uuid: 1b6c21042e3b5ac9ae351f807722795a
-    enum: ['up', 'middle', 'down']
 }
 ,
 {
@@ -1847,8 +1847,6 @@ const SignalSpec[] signal_spec = [
     description: "Temperature"
     datatype: int8
     uuid: accc4bb43c775735843e87b545af08b2
-    min: -50
-    max: 50
     unit: celsius
 }
 ,
@@ -1858,7 +1856,6 @@ const SignalSpec[] signal_spec = [
     description: "Direction of airstream"
     datatype: string
     uuid: ee591723296a580ea4ce9fc6ddbb5cf5
-    enum: ['up', 'middle', 'down']
 }
 ,
 {
@@ -1878,8 +1875,6 @@ const SignalSpec[] signal_spec = [
     description: "Temperature"
     datatype: int8
     uuid: 49c59496aa7356cf86c275a0eb93ba28
-    min: -50
-    max: 50
     unit: celsius
 }
 ,
@@ -1889,7 +1884,6 @@ const SignalSpec[] signal_spec = [
     description: "Direction of airstream"
     datatype: string
     uuid: 7d8b7cbfe68156d4a190a0a7525ee26c
-    enum: ['up', 'middle', 'down']
 }
 ,
 {
@@ -1939,7 +1933,6 @@ const SignalSpec[] signal_spec = [
     description: "Tells if the media was"
     datatype: string
     uuid: 0357aea525bf505981a14e4fc720094e
-    enum: ['unknown', 'Stop', 'Play', 'FastForward', 'FastBackward', 'SkipForward', 'SkipBackward']
 }
 ,
 {
@@ -1948,7 +1941,6 @@ const SignalSpec[] signal_spec = [
     description: "Media selected for playback"
     datatype: string
     uuid: 54fb88a7d7cf5e3aab63e8f52415c187
-    enum: ['unknown', 'SiriusXM', 'AM', 'FM', 'DAB', 'TV', 'CD', 'DVD', 'AUX', 'USB', 'Disk', 'Bluetooth', 'Internet', 'Voice', 'Beep']
 }
 ,
 {
@@ -2012,7 +2004,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Infotainment.Navigation.DestinationSet.Latitude"
     type: "actuator"
-    description: "Latitude of destination"
+    description: "Latitude of destination according to WGS 84."
     datatype: double
     uuid: 3e33f3252934565d86de5409c761262b
     min: -90
@@ -2023,74 +2015,12 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Infotainment.Navigation.DestinationSet.Longitude"
     type: "actuator"
-    description: "Longitude of destination"
+    description: "Longitude of destination according to WGS 84."
     datatype: double
     uuid: e9bd511146ca51639c8d42c0702e22ee
     min: -180
     max: 180
     unit: degrees
-}
-,
-{
-    name: "Vehicle.Cabin.Infotainment.Navigation.CurrentLocation.Latitude"
-    type: "sensor"
-    description: "Current latitude of vehicle, as reported by GPS."
-    datatype: double
-    uuid: dceb455713ac56a59e79c0fd25c01a08
-    min: -90
-    max: 90
-    unit: degrees
-}
-,
-{
-    name: "Vehicle.Cabin.Infotainment.Navigation.CurrentLocation.Longitude"
-    type: "sensor"
-    description: "Current longitude of vehicle, as reported by GPS."
-    datatype: double
-    uuid: 1a9be9c36a9a5ddc945bfb1e8c1f4384
-    min: -180
-    max: 180
-    unit: degrees
-}
-,
-{
-    name: "Vehicle.Cabin.Infotainment.Navigation.CurrentLocation.Heading"
-    type: "sensor"
-    description: "Current magnetic compass heading, in degrees."
-    datatype: double
-    uuid: 67cd26aaf82e5e9f8a127aabba993003
-    min: 0
-    max: 360
-    unit: degrees
-}
-,
-{
-    name: "Vehicle.Cabin.Infotainment.Navigation.CurrentLocation.Accuracy"
-    type: "sensor"
-    description: "Accuracy level of the latitude and longitude coordinates in meters."
-    datatype: double
-    uuid: eb9218c66b1451fcac5cfcf39d36f5da
-    unit: m
-}
-,
-{
-    name: "Vehicle.Cabin.Infotainment.Navigation.CurrentLocation.Altitude"
-    type: "sensor"
-    description: "Current elevation of the position in meters."
-    datatype: double
-    uuid: 66e2f3fdf1f15b0a9925b674820f19fd
-    unit: m
-}
-,
-{
-    name: "Vehicle.Cabin.Infotainment.Navigation.CurrentLocation.Speed"
-    type: "sensor"
-    description: "Vehicle speed, as sensed by the GPS receiver."
-    datatype: uint16
-    uuid: e72a72f3d6dc550f824cb03add1ada3b
-    min: 0
-    max: 250
-    unit: km/h
 }
 ,
 {
@@ -2107,7 +2037,6 @@ const SignalSpec[] signal_spec = [
     description: "Date format used in the current HMI"
     datatype: string
     uuid: 0f03c3955fe953e9893a1f52e964919e
-    enum: ['YYYY MM DD', 'DD MM YYYY', 'MM DD YYYY', 'YY MM DD', 'DD MM YY', 'MM DD YY']
 }
 ,
 {
@@ -2116,7 +2045,6 @@ const SignalSpec[] signal_spec = [
     description: "Time format used in the current HMI"
     datatype: string
     uuid: 73083b87a4e25c02aee672ea32e40005
-    enum: ['12HR', '24HR']
 }
 ,
 {
@@ -2125,7 +2053,6 @@ const SignalSpec[] signal_spec = [
     description: "Distance unit used in the current HMI"
     datatype: string
     uuid: 4b40e8bdb1a053ee9ee35338d8804e7b
-    enum: ['mi', 'km']
 }
 ,
 {
@@ -2134,7 +2061,6 @@ const SignalSpec[] signal_spec = [
     description: "Fuel economy unit used in the current HMI"
     datatype: string
     uuid: 0e6a43ce1aa45243b753545ffa1f0f8c
-    enum: ['mpg_UK', 'mpg_US', 'mpl', 'km/l', 'l/100km']
 }
 ,
 {
@@ -2143,7 +2069,6 @@ const SignalSpec[] signal_spec = [
     description: "EV fuel economy unit used in the current HMI"
     datatype: string
     uuid: 914846f6804757ba81ca6bcfac8d2c48
-    enum: ['mi/kWh', 'km/kWh', 'kWh/100mi', 'kWh/100km', 'Wh/mi', 'Wh/km']
 }
 ,
 {
@@ -2152,7 +2077,6 @@ const SignalSpec[] signal_spec = [
     description: "Temperature unit used in the current HMI"
     datatype: string
     uuid: a7d1533490bb52b6b4f650280e72543d
-    enum: ['C', 'F']
 }
 ,
 {
@@ -2161,13 +2085,12 @@ const SignalSpec[] signal_spec = [
     description: "Current display theme"
     datatype: string
     uuid: a892039ba136588fa26b2670f839c0cc
-    enum: ['Day', 'Night']
 }
 ,
 {
     name: "Vehicle.Cabin.Sunroof.Position"
     type: "sensor"
-    description: "Sunroof position. 0 = Fully closed 100 = Fully opened. -100 = Fully tilted"
+    description: "Sunroof position. 0 = Fully closed 100 = Fully opened. -100 = Fully tilted."
     datatype: int8
     uuid: ab598697f1c852eda4df9ed62a956d17
     min: -100
@@ -2180,7 +2103,6 @@ const SignalSpec[] signal_spec = [
     description: "Switch controlling sliding action such as window, sunroof, or shade."
     datatype: string
     uuid: 88c39afd45a25ea2b474ff581e1fb138
-    enum: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen', 'TiltUp', 'TiltDown']
 }
 ,
 {
@@ -2189,7 +2111,6 @@ const SignalSpec[] signal_spec = [
     description: "Switch controlling sliding action such as window, sunroof, or blind."
     datatype: string
     uuid: 3836077128c65381b01e74a1a8be1c40
-    enum: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
 }
 ,
 {
@@ -2206,7 +2127,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.RearviewMirror.DimmingLevel"
     type: "actuator"
-    description: "Dimming level of rearview mirror. 0 = undimmed. 100 = fully dimmed"
+    description: "Dimming level of rearview mirror. 0 = undimmed. 100 = fully dimmed."
     datatype: uint8
     uuid: 4e2bcbaa6dc1586d8282324b475e5dee
     unit: percent
@@ -2371,11 +2292,11 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Cabin.Door.Row1.Left.Window.isOpen"
+    name: "Vehicle.Cabin.Door.Row1.Left.Window.IsOpen"
     type: "sensor"
-    description: "Is window open or closed"
+    description: "Is window open or closed?"
     datatype: boolean
-    uuid: d21b53d7aa0c5d96adeb9fdf280ba071
+    uuid: e7a98f3520825732922e41eb5b88ac49
 }
 ,
 {
@@ -2390,11 +2311,11 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Cabin.Door.Row1.Left.Window.ChildLock"
+    name: "Vehicle.Cabin.Door.Row1.Left.Window.IsChildLockEngaged"
     type: "sensor"
     description: "Is window child lock engaged. True = Engaged. False = Disengaged."
     datatype: boolean
-    uuid: 58dbf7e3a85d55ae94750a77cf653110
+    uuid: 618fe1eb106857faaf83f24236ed1819
 }
 ,
 {
@@ -2403,7 +2324,6 @@ const SignalSpec[] signal_spec = [
     description: "Switch controlling sliding action such as window, sunroof, or blind."
     datatype: string
     uuid: e276bf971dae507f99b463f7fe574969
-    enum: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
 }
 ,
 {
@@ -2420,7 +2340,6 @@ const SignalSpec[] signal_spec = [
     description: "Switch controlling sliding action such as window, sunroof, or blind."
     datatype: string
     uuid: 15c012ed31a054ecb2b9b2b1cf57e825
-    enum: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
 }
 ,
 {
@@ -2451,11 +2370,11 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Cabin.Door.Row1.Right.Window.isOpen"
+    name: "Vehicle.Cabin.Door.Row1.Right.Window.IsOpen"
     type: "sensor"
-    description: "Is window open or closed"
+    description: "Is window open or closed?"
     datatype: boolean
-    uuid: 777ebd3cc5e35e818029bf8b95ba74d6
+    uuid: 90d0fdeaef075b78abab0b710c760393
 }
 ,
 {
@@ -2470,11 +2389,11 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Cabin.Door.Row1.Right.Window.ChildLock"
+    name: "Vehicle.Cabin.Door.Row1.Right.Window.IsChildLockEngaged"
     type: "sensor"
     description: "Is window child lock engaged. True = Engaged. False = Disengaged."
     datatype: boolean
-    uuid: 92daa968de5956cfaef588b9cf41d608
+    uuid: 6a65a16ba60c5c41b550a7b5f8b313dd
 }
 ,
 {
@@ -2483,7 +2402,6 @@ const SignalSpec[] signal_spec = [
     description: "Switch controlling sliding action such as window, sunroof, or blind."
     datatype: string
     uuid: fcb9ede77f065479a10740324c0efdc6
-    enum: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
 }
 ,
 {
@@ -2500,7 +2418,6 @@ const SignalSpec[] signal_spec = [
     description: "Switch controlling sliding action such as window, sunroof, or blind."
     datatype: string
     uuid: 763aea099a515fc998fde10d936b0b38
-    enum: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
 }
 ,
 {
@@ -2531,11 +2448,11 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Cabin.Door.Row2.Left.Window.isOpen"
+    name: "Vehicle.Cabin.Door.Row2.Left.Window.IsOpen"
     type: "sensor"
-    description: "Is window open or closed"
+    description: "Is window open or closed?"
     datatype: boolean
-    uuid: d2aea63f1e145bcaaa2cfb016972db92
+    uuid: 6abd32926e7a5b6b9767033063baaf4c
 }
 ,
 {
@@ -2550,11 +2467,11 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Cabin.Door.Row2.Left.Window.ChildLock"
+    name: "Vehicle.Cabin.Door.Row2.Left.Window.IsChildLockEngaged"
     type: "sensor"
     description: "Is window child lock engaged. True = Engaged. False = Disengaged."
     datatype: boolean
-    uuid: 78aec9d9dfbb53a38b1b06f6ebb6f48c
+    uuid: f41454131c6d502da452e1b1436e20c1
 }
 ,
 {
@@ -2563,7 +2480,6 @@ const SignalSpec[] signal_spec = [
     description: "Switch controlling sliding action such as window, sunroof, or blind."
     datatype: string
     uuid: 1a5d1c57f46e576a8a94853e2a44d3f8
-    enum: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
 }
 ,
 {
@@ -2580,7 +2496,6 @@ const SignalSpec[] signal_spec = [
     description: "Switch controlling sliding action such as window, sunroof, or blind."
     datatype: string
     uuid: 41f6f14bbb595dcf8e51d1696e877114
-    enum: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
 }
 ,
 {
@@ -2611,11 +2526,11 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Cabin.Door.Row2.Right.Window.isOpen"
+    name: "Vehicle.Cabin.Door.Row2.Right.Window.IsOpen"
     type: "sensor"
-    description: "Is window open or closed"
+    description: "Is window open or closed?"
     datatype: boolean
-    uuid: d7ac920fde8052a4910fe37d5e1c7e4a
+    uuid: 793b5c94b89f5e11bc71cc8a6de8ec34
 }
 ,
 {
@@ -2630,11 +2545,11 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Cabin.Door.Row2.Right.Window.ChildLock"
+    name: "Vehicle.Cabin.Door.Row2.Right.Window.IsChildLockEngaged"
     type: "sensor"
     description: "Is window child lock engaged. True = Engaged. False = Disengaged."
     datatype: boolean
-    uuid: f8b7ee44a4bd51fa9de1916382a0ba5b
+    uuid: 6f018766950a5b5284ac1e8824fdacb0
 }
 ,
 {
@@ -2643,7 +2558,6 @@ const SignalSpec[] signal_spec = [
     description: "Switch controlling sliding action such as window, sunroof, or blind."
     datatype: string
     uuid: 364c0a712fa854b4b1b332eae1be179b
-    enum: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
 }
 ,
 {
@@ -2660,7 +2574,6 @@ const SignalSpec[] signal_spec = [
     description: "Switch controlling sliding action such as window, sunroof, or blind."
     datatype: string
     uuid: 5b94a0c4e30a575c93942f0566be8be7
-    enum: ['Inactive', 'Close', 'Open', 'OneShotClose', 'OneShotOpen']
 }
 ,
 {
@@ -2677,23 +2590,23 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.DoorCount"
     type: "attribute"
-    description: "Number of doors in vehicle"
+    description: "Number of doors in vehicle."
     datatype: uint8
     uuid: c293fbef75725c57a9918dd5a34055c4
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos1.HasPassenger"
+    name: "Vehicle.Cabin.Seat.Row1.Pos1.IsOccupied"
     type: "sensor"
     description: "Does the seat have a passenger in it."
     datatype: boolean
-    uuid: 83985fb2f68a53f69aafc93fb1c4abaf
+    uuid: 4e85e2b0ec45582f90f2a17b3636ccc0
 }
 ,
 {
     name: "Vehicle.Cabin.Seat.Row1.Pos1.Occupant.Identifier.Subject"
     type: "sensor"
-    description: "Subject for the authentification of the occupant. E.g. UserID 7331677"
+    description: "Subject for the authentication of the occupant. E.g. UserID 7331677."
     datatype: string
     uuid: 8df99b3fedff5a219eacf254fb299ffb
 }
@@ -2701,7 +2614,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row1.Pos1.Occupant.Identifier.Issuer"
     type: "sensor"
-    description: "Unique Issuer for the authentification of the occupant. E.g. https://accounts.funcorp.com"
+    description: "Unique Issuer for the authentication of the occupant. E.g. https://accounts.funcorp.com."
     datatype: string
     uuid: c631b08751b851ec9b12ade8332ba5e6
 }
@@ -2750,44 +2663,40 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row1.Pos1.Position"
     type: "actuator"
-    description: "Seat horizontal position. 0 = Frontmost. 1000 = Rearmost."
+    description: "Seat horizontal position. 0 = Frontmost."
     datatype: uint16
     uuid: 78283eb5efee58f8bce8b5fa3760df54
     min: 0
-    max: 1000
     unit: mm
 }
 ,
 {
     name: "Vehicle.Cabin.Seat.Row1.Pos1.Height"
     type: "actuator"
-    description: "Seat vertical position. 0 = Lowermost. 1000 = Uppermost."
+    description: "Seat vertical position. 0 = Lowermost."
     datatype: uint16
     uuid: a28e02777f0652c09282c639b2ab0a63
     min: 0
-    max: 1000
     unit: mm
 }
 ,
 {
     name: "Vehicle.Cabin.Seat.Row1.Pos1.Cushion.Height"
     type: "actuator"
-    description: "Height of the seat cushion (leg support), relative to seat. 0 = Lowermost. 500 = Uppermost."
+    description: "Height of the seat cushion (leg support), relative to seat. 0 = Lowermost."
     datatype: uint16
     uuid: 7fcca1759439553da9ba96f6b8e5ab0c
     min: 0
-    max: 500
     unit: mm
 }
 ,
 {
     name: "Vehicle.Cabin.Seat.Row1.Pos1.Cushion.Length"
     type: "actuator"
-    description: "Forward length of cushion (leg support), relative to seat. 0 = Rearmost. 500 = Forwardmost."
+    description: "Forward length of cushion (leg support), relative to seat. 0 = Rearmost."
     datatype: uint16
     uuid: 2e82eb84c2315844a31c3799917302c8
     min: 0
-    max: 500
     unit: mm
 }
 ,
@@ -2804,11 +2713,11 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row1.Pos1.Lumbar.Height"
     type: "actuator"
-    description: "Lumbar support position. 0 = Lowermost. 255 = Uppermost."
+    description: "Lumbar support position. 0 = Lowermost."
     datatype: uint8
     uuid: 88cd5a9e251f5c1b8fd1fca9eef93652
     min: 0
-    max: 255
+    unit: mm
 }
 ,
 {
@@ -2824,11 +2733,10 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row1.Pos1.HeadRestraint.Height"
     type: "actuator"
-    description: "Height of head restraint. 0 = Bottommost. 255 = Uppermost."
+    description: "Height of head restraint. 0 = Bottommost."
     datatype: uint8
     uuid: cf523dc17f9451b08be069c5ea7be059
     min: 0
-    max: 255
     unit: mm
 }
 ,
@@ -2841,193 +2749,193 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.Warmer"
+    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.IsWarmerEngaged"
     type: "actuator"
-    description: "Warmer switch for Seat heater (SingleSeat.Heating)"
+    description: "Warmer switch for Seat heater (SingleSeat.Heating)."
     datatype: boolean
-    uuid: 3b6a1804d0385d29ac094468ef279100
+    uuid: f60421d441985b5bb8f68fabae1e937a
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.Cooler"
+    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.IsCoolerEngaged"
     type: "actuator"
-    description: "Cooler switch for Seat heater (SingleSeat.Heating)"
+    description: "Cooler switch for Seat heater (SingleSeat.Heating)."
     datatype: boolean
-    uuid: ae775abc1c3d52f9926c1964254eaed0
+    uuid: abab10f2fc1753fc9276f4571d24b3ac
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.Forward"
+    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.IsForwardEngaged"
     type: "actuator"
-    description: "Seat forward switch engaged (SingleSeat.Position)"
+    description: "Seat forward switch engaged (SingleSeat.Position)."
     datatype: boolean
-    uuid: c958f878a80256b8837437501854ad29
+    uuid: 849766f5f3885f9ba0c4cd817290b6a1
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.Backward"
+    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.IsBackwardEngaged"
     type: "actuator"
-    description: "Seat backward switch engaged (SingleSeat.Position)"
+    description: "Seat backward switch engaged (SingleSeat.Position)."
     datatype: boolean
-    uuid: 09ac410884135f7db0bc159b56a6ca80
+    uuid: 6a28f8e404f05a5b9339b3a40b8c0275
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.Up"
+    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.IsUpEngaged"
     type: "actuator"
-    description: "Seat up switch engaged (SingleSeat.Height)"
+    description: "Seat up switch engaged (SingleSeat.Height)."
     datatype: boolean
-    uuid: 6fdc2b91da6c5a38ae41465d94e89f9d
+    uuid: efb6bf4955d45232b8443c3428ec91c2
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.Down"
+    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.IsDownEngaged"
     type: "actuator"
-    description: "Seat down switch engaged (SingleSeat.Height)"
+    description: "Seat down switch engaged (SingleSeat.Height)."
     datatype: boolean
-    uuid: 0dbd1b52b69359a58aa80c59932c1579
+    uuid: 2f758e9b09dc518693db398d31551eeb
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.HeadRestraint.Up"
+    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.HeadRestraint.IsUpEngaged"
     type: "actuator"
-    description: "Head restraint up switch engaged (SingleSeat.HeadRestraint.Height)"
+    description: "Head restraint up switch engaged (SingleSeat.HeadRestraint.Height)."
     datatype: boolean
-    uuid: 425d5a4817f754f2b0b650df3ea99949
+    uuid: 3d17ca59313250f4a889939263bfaf31
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.HeadRestraint.Down"
+    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.HeadRestraint.IsDownEngaged"
     type: "actuator"
-    description: "Head restraint down switch engaged (SingleSeat.HeadRestraint.Height)"
+    description: "Head restraint down switch engaged (SingleSeat.HeadRestraint.Height)."
     datatype: boolean
-    uuid: a2d03b4aa4ec5f829c666c14d79508d8
+    uuid: 6819ef0fc4075d99973dbb5cac46a63d
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.Massage.Increase"
+    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.Massage.IsIncreaseEngaged"
     type: "actuator"
-    description: "Increase massage level switch engaged (SingleSeat.Massage)"
+    description: "Increase massage level switch engaged (SingleSeat.Massage)."
     datatype: boolean
-    uuid: 3eb37a1d6aa3581d8daa6c32ac631629
+    uuid: 3500d7caafe458e19dac56fcff1ada61
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.Massage.Decrease"
+    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.Massage.IsDecreaseEngaged"
     type: "actuator"
-    description: "Decrease massage level switch engaged (SingleSeat.Massage)"
+    description: "Decrease massage level switch engaged (SingleSeat.Massage)."
     datatype: boolean
-    uuid: 205d334c99a1527e9e0ad193d14fe146
+    uuid: c6209e1fd41e5efbbe3b70910068533b
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.Recline.Backward"
+    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.Recline.IsBackwardEngaged"
     type: "actuator"
-    description: "Seatback recline backward switch engaged (SingleSeat.Recline)"
+    description: "Seatback recline backward switch engaged (SingleSeat.Recline)."
     datatype: boolean
-    uuid: 4852285a3ec05fd3841431a0c425ac1f
+    uuid: 8d5ae014a3fe532287686d0f82336633
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.Recline.Forward"
+    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.Recline.IsForwardEngaged"
     type: "actuator"
-    description: "Seatback recline forward switch engaged (SingleSeat.Recline)"
+    description: "Seatback recline forward switch engaged (SingleSeat.Recline)."
     datatype: boolean
-    uuid: fabd3e12e63d5a60a23b17dab032752e
+    uuid: 47d6204cc5c5548ca8f6a4d63756d142
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.Cushion.Up"
+    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.Cushion.IsUpEngaged"
     type: "actuator"
-    description: "Seat cushion up switch engaged (SingleSeat.Cushion.Height)"
+    description: "Seat cushion up switch engaged (SingleSeat.Cushion.Height)."
     datatype: boolean
-    uuid: 063ead2b6428542197fad4d5e1e6f1a8
+    uuid: 01f29140352f5a3aaf7a6d42703959fa
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.Cushion.Down"
+    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.Cushion.IsDownEngaged"
     type: "actuator"
-    description: "Seat cushion down switch engaged (SingleSeat.Cushion.Height)"
+    description: "Seat cushion down switch engaged (SingleSeat.Cushion.Height)."
     datatype: boolean
-    uuid: 312e6a5f4849517bb6c074f4c9d72f7b
+    uuid: 98c26749b4955b21a94492e3e8416cf8
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.Cushion.Forward"
+    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.Cushion.IsForwardEngaged"
     type: "actuator"
-    description: "Seat cushion forward/lengthen switch engaged (SingleSeat.Cushion.Length)"
+    description: "Seat cushion forward/lengthen switch engaged (SingleSeat.Cushion.Length)."
     datatype: boolean
-    uuid: 06ccb05626245b08a420c8f4059b8741
+    uuid: 55e8c53a183f52e1a791e32d2975f25e
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.Cushion.Backward"
+    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.Cushion.IsBackwardEngaged"
     type: "actuator"
-    description: "Seat cushion backward/shorten switch engaged (SingleSeat.Cushion.Length)"
+    description: "Seat cushion backward/shorten switch engaged (SingleSeat.Cushion.Length)."
     datatype: boolean
-    uuid: 7322c0c5290959fd8edf8b50fc69e9a4
+    uuid: 85933180bfc156e69b489479720456f7
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.Lumbar.Up"
+    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.Lumbar.IsUpEngaged"
     type: "actuator"
-    description: "Lumbar up switch engaged (SingleSeat.Lumbar.Height)"
+    description: "Lumbar up switch engaged (SingleSeat.Lumbar.Height)."
     datatype: boolean
-    uuid: 012ff0edf15155339ec6070d6ea1c377
+    uuid: 62be095a22cb5c02bb391cbfa965ea33
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.Lumbar.Down"
+    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.Lumbar.IsDownEngaged"
     type: "actuator"
-    description: "Lumbar down switch engaged (SingleSeat.Lumbar.Height)"
+    description: "Lumbar down switch engaged (SingleSeat.Lumbar.Height)."
     datatype: boolean
-    uuid: bd4287a0141b5e09bf1c28444ca6768c
+    uuid: 74dd3b0b90cb5427b488dd734f8c1c80
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.Lumbar.Inflate"
+    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.Lumbar.IsInflateEngaged"
     type: "actuator"
-    description: "Lumbar inflation switch engaged (SingleSeat.Lumbar.Inflation)"
+    description: "Lumbar inflation switch engaged (SingleSeat.Lumbar.Inflation)."
     datatype: boolean
-    uuid: 9aebda3a28e250d1b820ad2db329b50f
+    uuid: 96db97ce7d1a55788b0e5dce78600fc8
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.Lumbar.Deflate"
+    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.Lumbar.IsDeflateEngaged"
     type: "actuator"
-    description: "Lumbar deflation switch engaged (SingleSeat.Lumbar.Inflation)"
+    description: "Lumbar deflation switch engaged (SingleSeat.Lumbar.Inflation)."
     datatype: boolean
-    uuid: d95e7c7ce3075730a5841cee70912ffa
+    uuid: 534fdce942c75564aeefd29bb7ae69b3
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.SideBolster.Inflate"
+    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.SideBolster.IsInflateEngaged"
     type: "actuator"
-    description: "Side bolster inflation switch engaged (SingleSeat.SideBolster.Inflation)"
+    description: "Side bolster inflation switch engaged (SingleSeat.SideBolster.Inflation)."
     datatype: boolean
-    uuid: 2d3dc48a7ecf5f2a99b600f221faa770
+    uuid: 3c1c483475a759df8c69e5e3d7ac7413
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.SideBolster.Deflate"
+    name: "Vehicle.Cabin.Seat.Row1.Pos1.Switch.SideBolster.IsDeflateEngaged"
     type: "actuator"
-    description: "Side bolster deflation switch engaged (SingleSeat.SideBolster.Inflation)"
+    description: "Side bolster deflation switch engaged (SingleSeat.SideBolster.Inflation)."
     datatype: boolean
-    uuid: 056d14d430e65211960602d5ab074824
+    uuid: 9e8b30febe11549c97840d03dcfcc26c
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos2.HasPassenger"
+    name: "Vehicle.Cabin.Seat.Row1.Pos2.IsOccupied"
     type: "sensor"
     description: "Does the seat have a passenger in it."
     datatype: boolean
-    uuid: 0188a85fd4f15ddcb9b246976bc453c3
+    uuid: 4d0cdff266e45dd2a8a878b572d34b7e
 }
 ,
 {
     name: "Vehicle.Cabin.Seat.Row1.Pos2.Occupant.Identifier.Subject"
     type: "sensor"
-    description: "Subject for the authentification of the occupant. E.g. UserID 7331677"
+    description: "Subject for the authentication of the occupant. E.g. UserID 7331677."
     datatype: string
     uuid: f8f67096b9e35197a3e199e9171c4872
 }
@@ -3035,7 +2943,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row1.Pos2.Occupant.Identifier.Issuer"
     type: "sensor"
-    description: "Unique Issuer for the authentification of the occupant. E.g. https://accounts.funcorp.com"
+    description: "Unique Issuer for the authentication of the occupant. E.g. https://accounts.funcorp.com."
     datatype: string
     uuid: f88bffa4714d57f8b61b1034c57190ff
 }
@@ -3084,44 +2992,40 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row1.Pos2.Position"
     type: "actuator"
-    description: "Seat horizontal position. 0 = Frontmost. 1000 = Rearmost."
+    description: "Seat horizontal position. 0 = Frontmost."
     datatype: uint16
     uuid: f14a3e9eaaf35012a8be3782b6a53f55
     min: 0
-    max: 1000
     unit: mm
 }
 ,
 {
     name: "Vehicle.Cabin.Seat.Row1.Pos2.Height"
     type: "actuator"
-    description: "Seat vertical position. 0 = Lowermost. 1000 = Uppermost."
+    description: "Seat vertical position. 0 = Lowermost."
     datatype: uint16
     uuid: fc3b3498a15c5417aadbbce4f758a6d5
     min: 0
-    max: 1000
     unit: mm
 }
 ,
 {
     name: "Vehicle.Cabin.Seat.Row1.Pos2.Cushion.Height"
     type: "actuator"
-    description: "Height of the seat cushion (leg support), relative to seat. 0 = Lowermost. 500 = Uppermost."
+    description: "Height of the seat cushion (leg support), relative to seat. 0 = Lowermost."
     datatype: uint16
     uuid: 729a4a9cc12f5f0da260406967b48f1f
     min: 0
-    max: 500
     unit: mm
 }
 ,
 {
     name: "Vehicle.Cabin.Seat.Row1.Pos2.Cushion.Length"
     type: "actuator"
-    description: "Forward length of cushion (leg support), relative to seat. 0 = Rearmost. 500 = Forwardmost."
+    description: "Forward length of cushion (leg support), relative to seat. 0 = Rearmost."
     datatype: uint16
     uuid: 7bea75eec2565b7e9e2bb45e83b0e11a
     min: 0
-    max: 500
     unit: mm
 }
 ,
@@ -3138,11 +3042,11 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row1.Pos2.Lumbar.Height"
     type: "actuator"
-    description: "Lumbar support position. 0 = Lowermost. 255 = Uppermost."
+    description: "Lumbar support position. 0 = Lowermost."
     datatype: uint8
     uuid: b416d0e40df55cbf8055d7f5245993c4
     min: 0
-    max: 255
+    unit: mm
 }
 ,
 {
@@ -3158,11 +3062,10 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row1.Pos2.HeadRestraint.Height"
     type: "actuator"
-    description: "Height of head restraint. 0 = Bottommost. 255 = Uppermost."
+    description: "Height of head restraint. 0 = Bottommost."
     datatype: uint8
     uuid: 54d2ecd1932f507398273dcbfc6e914d
     min: 0
-    max: 255
     unit: mm
 }
 ,
@@ -3175,193 +3078,193 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.Warmer"
+    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.IsWarmerEngaged"
     type: "actuator"
-    description: "Warmer switch for Seat heater (SingleSeat.Heating)"
+    description: "Warmer switch for Seat heater (SingleSeat.Heating)."
     datatype: boolean
-    uuid: 8bd64d992c2e5fd9b41754c46f9e5ee7
+    uuid: 61eb1ede01d45ff2a6a4eec903741a08
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.Cooler"
+    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.IsCoolerEngaged"
     type: "actuator"
-    description: "Cooler switch for Seat heater (SingleSeat.Heating)"
+    description: "Cooler switch for Seat heater (SingleSeat.Heating)."
     datatype: boolean
-    uuid: 1631bc34f24651ef8b6d0952bc6fe149
+    uuid: d3e2606f6cdc57759850f19e1ce8c4f2
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.Forward"
+    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.IsForwardEngaged"
     type: "actuator"
-    description: "Seat forward switch engaged (SingleSeat.Position)"
+    description: "Seat forward switch engaged (SingleSeat.Position)."
     datatype: boolean
-    uuid: 4bcd6bb369d75c66ab2bb0d3e34fdb93
+    uuid: 28ff94d05f795705928644e5a0101e8b
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.Backward"
+    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.IsBackwardEngaged"
     type: "actuator"
-    description: "Seat backward switch engaged (SingleSeat.Position)"
+    description: "Seat backward switch engaged (SingleSeat.Position)."
     datatype: boolean
-    uuid: 760de3ddab1d5b98a411cd0431ffaf4a
+    uuid: 861eca7954cb554e9fb8a21568126e10
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.Up"
+    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.IsUpEngaged"
     type: "actuator"
-    description: "Seat up switch engaged (SingleSeat.Height)"
+    description: "Seat up switch engaged (SingleSeat.Height)."
     datatype: boolean
-    uuid: d1e916470f5f59dea9a8cd003fddcde9
+    uuid: 3906c493560e5c5686c69f0d2aa65e91
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.Down"
+    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.IsDownEngaged"
     type: "actuator"
-    description: "Seat down switch engaged (SingleSeat.Height)"
+    description: "Seat down switch engaged (SingleSeat.Height)."
     datatype: boolean
-    uuid: 64339d7dbb775b8bbae32a21d877593d
+    uuid: 7da73beabcbc5f338bc68e9b5e3daf06
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.HeadRestraint.Up"
+    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.HeadRestraint.IsUpEngaged"
     type: "actuator"
-    description: "Head restraint up switch engaged (SingleSeat.HeadRestraint.Height)"
+    description: "Head restraint up switch engaged (SingleSeat.HeadRestraint.Height)."
     datatype: boolean
-    uuid: 7a86ead63d045874ae1c529b15ca4aac
+    uuid: ee5e22b80f365a16a72b45b5213263bb
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.HeadRestraint.Down"
+    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.HeadRestraint.IsDownEngaged"
     type: "actuator"
-    description: "Head restraint down switch engaged (SingleSeat.HeadRestraint.Height)"
+    description: "Head restraint down switch engaged (SingleSeat.HeadRestraint.Height)."
     datatype: boolean
-    uuid: ffd28515ab8a57ec89ae6f621dc11a31
+    uuid: d1c8aeabcc3d5956ae4c88c3aa48d859
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.Massage.Increase"
+    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.Massage.IsIncreaseEngaged"
     type: "actuator"
-    description: "Increase massage level switch engaged (SingleSeat.Massage)"
+    description: "Increase massage level switch engaged (SingleSeat.Massage)."
     datatype: boolean
-    uuid: f12523c53b4a5166a8a5d532e1c20e54
+    uuid: 8d81938f575756199e1c604f6a51677e
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.Massage.Decrease"
+    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.Massage.IsDecreaseEngaged"
     type: "actuator"
-    description: "Decrease massage level switch engaged (SingleSeat.Massage)"
+    description: "Decrease massage level switch engaged (SingleSeat.Massage)."
     datatype: boolean
-    uuid: 4715e0ba6d8353ceb210ecdc6aa38660
+    uuid: b655bf7a99015d638a6d7177aa6d89e9
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.Recline.Backward"
+    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.Recline.IsBackwardEngaged"
     type: "actuator"
-    description: "Seatback recline backward switch engaged (SingleSeat.Recline)"
+    description: "Seatback recline backward switch engaged (SingleSeat.Recline)."
     datatype: boolean
-    uuid: 78043316bc4b557ca3e4a3b6747ca8b4
+    uuid: 0a029677d1f75800ae629933501c2c9d
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.Recline.Forward"
+    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.Recline.IsForwardEngaged"
     type: "actuator"
-    description: "Seatback recline forward switch engaged (SingleSeat.Recline)"
+    description: "Seatback recline forward switch engaged (SingleSeat.Recline)."
     datatype: boolean
-    uuid: ec8cd7718709534ba992d6ec64f99f80
+    uuid: bef72010eb4e511fb63098cb13082bf9
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.Cushion.Up"
+    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.Cushion.IsUpEngaged"
     type: "actuator"
-    description: "Seat cushion up switch engaged (SingleSeat.Cushion.Height)"
+    description: "Seat cushion up switch engaged (SingleSeat.Cushion.Height)."
     datatype: boolean
-    uuid: 5d8c7386f77f532390b126f61f63df3c
+    uuid: bac46e87740e53fda357a4d4bba8df1b
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.Cushion.Down"
+    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.Cushion.IsDownEngaged"
     type: "actuator"
-    description: "Seat cushion down switch engaged (SingleSeat.Cushion.Height)"
+    description: "Seat cushion down switch engaged (SingleSeat.Cushion.Height)."
     datatype: boolean
-    uuid: 03ae5745c0af5c448281fd87344bbf5c
+    uuid: 6644a0c36a1b53c097d5a6acc8cf14ec
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.Cushion.Forward"
+    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.Cushion.IsForwardEngaged"
     type: "actuator"
-    description: "Seat cushion forward/lengthen switch engaged (SingleSeat.Cushion.Length)"
+    description: "Seat cushion forward/lengthen switch engaged (SingleSeat.Cushion.Length)."
     datatype: boolean
-    uuid: 5043851e11b158aa8c047d5224639f68
+    uuid: 36a734846f065025857b8cef8628487b
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.Cushion.Backward"
+    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.Cushion.IsBackwardEngaged"
     type: "actuator"
-    description: "Seat cushion backward/shorten switch engaged (SingleSeat.Cushion.Length)"
+    description: "Seat cushion backward/shorten switch engaged (SingleSeat.Cushion.Length)."
     datatype: boolean
-    uuid: 252da1baa1e653f18d262fd996b3ab50
+    uuid: 4075f2026f7458c08093f626710d6c1f
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.Lumbar.Up"
+    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.Lumbar.IsUpEngaged"
     type: "actuator"
-    description: "Lumbar up switch engaged (SingleSeat.Lumbar.Height)"
+    description: "Lumbar up switch engaged (SingleSeat.Lumbar.Height)."
     datatype: boolean
-    uuid: c81cd9c72b435bf99c1d27ed3d92491a
+    uuid: 7368219c1d835b02a7dfad59321b1fd7
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.Lumbar.Down"
+    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.Lumbar.IsDownEngaged"
     type: "actuator"
-    description: "Lumbar down switch engaged (SingleSeat.Lumbar.Height)"
+    description: "Lumbar down switch engaged (SingleSeat.Lumbar.Height)."
     datatype: boolean
-    uuid: 184f2feb4f1b541b92b5830bee2caf71
+    uuid: 6ba5553f594d5e35bf8971d72dd37ab9
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.Lumbar.Inflate"
+    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.Lumbar.IsInflateEngaged"
     type: "actuator"
-    description: "Lumbar inflation switch engaged (SingleSeat.Lumbar.Inflation)"
+    description: "Lumbar inflation switch engaged (SingleSeat.Lumbar.Inflation)."
     datatype: boolean
-    uuid: a1b842b30e155b81852d420bd0814bf0
+    uuid: efcfa0a529d65335b59fe0887e325379
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.Lumbar.Deflate"
+    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.Lumbar.IsDeflateEngaged"
     type: "actuator"
-    description: "Lumbar deflation switch engaged (SingleSeat.Lumbar.Inflation)"
+    description: "Lumbar deflation switch engaged (SingleSeat.Lumbar.Inflation)."
     datatype: boolean
-    uuid: 45e331a87e005ed3863099d72f010114
+    uuid: e05cec51d7fe5bbaa7909415d31397d7
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.SideBolster.Inflate"
+    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.SideBolster.IsInflateEngaged"
     type: "actuator"
-    description: "Side bolster inflation switch engaged (SingleSeat.SideBolster.Inflation)"
+    description: "Side bolster inflation switch engaged (SingleSeat.SideBolster.Inflation)."
     datatype: boolean
-    uuid: 987c9053b13f5e96b3560fbd95cbed46
+    uuid: 6dde79491aeb5a9fa890554face101d2
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.SideBolster.Deflate"
+    name: "Vehicle.Cabin.Seat.Row1.Pos2.Switch.SideBolster.IsDeflateEngaged"
     type: "actuator"
-    description: "Side bolster deflation switch engaged (SingleSeat.SideBolster.Inflation)"
+    description: "Side bolster deflation switch engaged (SingleSeat.SideBolster.Inflation)."
     datatype: boolean
-    uuid: c06a95a4c9355c3ab03b1a6937e40212
+    uuid: 20aa9224ca3b526f9a3941f843c97cae
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos3.HasPassenger"
+    name: "Vehicle.Cabin.Seat.Row1.Pos3.IsOccupied"
     type: "sensor"
     description: "Does the seat have a passenger in it."
     datatype: boolean
-    uuid: d2f6bfd24cf1589398ef591866c5affd
+    uuid: 1540906a83bd5f70af4859910aafd890
 }
 ,
 {
     name: "Vehicle.Cabin.Seat.Row1.Pos3.Occupant.Identifier.Subject"
     type: "sensor"
-    description: "Subject for the authentification of the occupant. E.g. UserID 7331677"
+    description: "Subject for the authentication of the occupant. E.g. UserID 7331677."
     datatype: string
     uuid: a7306a24de2155f2a1de070bc8f1bd60
 }
@@ -3369,7 +3272,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row1.Pos3.Occupant.Identifier.Issuer"
     type: "sensor"
-    description: "Unique Issuer for the authentification of the occupant. E.g. https://accounts.funcorp.com"
+    description: "Unique Issuer for the authentication of the occupant. E.g. https://accounts.funcorp.com."
     datatype: string
     uuid: 0d29fa2a1b97563c8e1ba31b8571f328
 }
@@ -3418,44 +3321,40 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row1.Pos3.Position"
     type: "actuator"
-    description: "Seat horizontal position. 0 = Frontmost. 1000 = Rearmost."
+    description: "Seat horizontal position. 0 = Frontmost."
     datatype: uint16
     uuid: 2a2ba0e42dcc563cba80cc491b66c45f
     min: 0
-    max: 1000
     unit: mm
 }
 ,
 {
     name: "Vehicle.Cabin.Seat.Row1.Pos3.Height"
     type: "actuator"
-    description: "Seat vertical position. 0 = Lowermost. 1000 = Uppermost."
+    description: "Seat vertical position. 0 = Lowermost."
     datatype: uint16
     uuid: d19199de59a153f782b8d61788c510a7
     min: 0
-    max: 1000
     unit: mm
 }
 ,
 {
     name: "Vehicle.Cabin.Seat.Row1.Pos3.Cushion.Height"
     type: "actuator"
-    description: "Height of the seat cushion (leg support), relative to seat. 0 = Lowermost. 500 = Uppermost."
+    description: "Height of the seat cushion (leg support), relative to seat. 0 = Lowermost."
     datatype: uint16
     uuid: 4c82794acd9553dbb2ec735379c0e517
     min: 0
-    max: 500
     unit: mm
 }
 ,
 {
     name: "Vehicle.Cabin.Seat.Row1.Pos3.Cushion.Length"
     type: "actuator"
-    description: "Forward length of cushion (leg support), relative to seat. 0 = Rearmost. 500 = Forwardmost."
+    description: "Forward length of cushion (leg support), relative to seat. 0 = Rearmost."
     datatype: uint16
     uuid: c686c30c88145df9b690649fa0849ccb
     min: 0
-    max: 500
     unit: mm
 }
 ,
@@ -3472,11 +3371,11 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row1.Pos3.Lumbar.Height"
     type: "actuator"
-    description: "Lumbar support position. 0 = Lowermost. 255 = Uppermost."
+    description: "Lumbar support position. 0 = Lowermost."
     datatype: uint8
     uuid: 98b4873c63e354ba9280dcd27e2aae66
     min: 0
-    max: 255
+    unit: mm
 }
 ,
 {
@@ -3492,11 +3391,10 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row1.Pos3.HeadRestraint.Height"
     type: "actuator"
-    description: "Height of head restraint. 0 = Bottommost. 255 = Uppermost."
+    description: "Height of head restraint. 0 = Bottommost."
     datatype: uint8
     uuid: ca45741cffe153c68e8cd62ceff7a82c
     min: 0
-    max: 255
     unit: mm
 }
 ,
@@ -3509,193 +3407,193 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.Warmer"
+    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.IsWarmerEngaged"
     type: "actuator"
-    description: "Warmer switch for Seat heater (SingleSeat.Heating)"
+    description: "Warmer switch for Seat heater (SingleSeat.Heating)."
     datatype: boolean
-    uuid: 12955068421a511388f962ee8c190c68
+    uuid: 0d7eed9ccb24537fb7f97f0163a4fdd8
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.Cooler"
+    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.IsCoolerEngaged"
     type: "actuator"
-    description: "Cooler switch for Seat heater (SingleSeat.Heating)"
+    description: "Cooler switch for Seat heater (SingleSeat.Heating)."
     datatype: boolean
-    uuid: 7f58e1a1f05450c4bc7ac98090c19d82
+    uuid: f5ed89b2972e5461abb6966e30a906ff
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.Forward"
+    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.IsForwardEngaged"
     type: "actuator"
-    description: "Seat forward switch engaged (SingleSeat.Position)"
+    description: "Seat forward switch engaged (SingleSeat.Position)."
     datatype: boolean
-    uuid: 5633fdc1466d5484bcc169c39a7bc99c
+    uuid: a3661e29e11957ed9cc12bb385b896bf
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.Backward"
+    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.IsBackwardEngaged"
     type: "actuator"
-    description: "Seat backward switch engaged (SingleSeat.Position)"
+    description: "Seat backward switch engaged (SingleSeat.Position)."
     datatype: boolean
-    uuid: abc7e9e31d855116a568ca4eb0a49d0d
+    uuid: 52d8da88ec95586a93952ea3d59023ad
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.Up"
+    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.IsUpEngaged"
     type: "actuator"
-    description: "Seat up switch engaged (SingleSeat.Height)"
+    description: "Seat up switch engaged (SingleSeat.Height)."
     datatype: boolean
-    uuid: f8ddfb9e5fad5596be9c15a94c3bd8b0
+    uuid: 1240dc083504580b97ba1cfadb9da659
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.Down"
+    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.IsDownEngaged"
     type: "actuator"
-    description: "Seat down switch engaged (SingleSeat.Height)"
+    description: "Seat down switch engaged (SingleSeat.Height)."
     datatype: boolean
-    uuid: ad10d38481715875abfb88810cabb11d
+    uuid: 66e1d88d56ba572db7b97a5e20cc724c
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.HeadRestraint.Up"
+    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.HeadRestraint.IsUpEngaged"
     type: "actuator"
-    description: "Head restraint up switch engaged (SingleSeat.HeadRestraint.Height)"
+    description: "Head restraint up switch engaged (SingleSeat.HeadRestraint.Height)."
     datatype: boolean
-    uuid: 62b9b072512f5e2aa13073b0c9714ab7
+    uuid: d172291d3a8a5661bfdf6ac303927b15
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.HeadRestraint.Down"
+    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.HeadRestraint.IsDownEngaged"
     type: "actuator"
-    description: "Head restraint down switch engaged (SingleSeat.HeadRestraint.Height)"
+    description: "Head restraint down switch engaged (SingleSeat.HeadRestraint.Height)."
     datatype: boolean
-    uuid: d6588e889ca15820aac1c0dd7771ea01
+    uuid: 57a67486ad6f58a697db36b10976e2c1
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.Massage.Increase"
+    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.Massage.IsIncreaseEngaged"
     type: "actuator"
-    description: "Increase massage level switch engaged (SingleSeat.Massage)"
+    description: "Increase massage level switch engaged (SingleSeat.Massage)."
     datatype: boolean
-    uuid: fc30397e57d95945ab81263e2ef7a42a
+    uuid: 6d09e331ceb55a2691f120a6f1205cbb
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.Massage.Decrease"
+    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.Massage.IsDecreaseEngaged"
     type: "actuator"
-    description: "Decrease massage level switch engaged (SingleSeat.Massage)"
+    description: "Decrease massage level switch engaged (SingleSeat.Massage)."
     datatype: boolean
-    uuid: 72cf00bb1c895bb7bb2ae9240ec6312c
+    uuid: 329dfaaab56f55a39ca9c132ee4bf533
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.Recline.Backward"
+    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.Recline.IsBackwardEngaged"
     type: "actuator"
-    description: "Seatback recline backward switch engaged (SingleSeat.Recline)"
+    description: "Seatback recline backward switch engaged (SingleSeat.Recline)."
     datatype: boolean
-    uuid: ff4e4e9b5f2f5915b8aa9d7086ea0c62
+    uuid: 00e2398a80c1594da433a0300346194e
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.Recline.Forward"
+    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.Recline.IsForwardEngaged"
     type: "actuator"
-    description: "Seatback recline forward switch engaged (SingleSeat.Recline)"
+    description: "Seatback recline forward switch engaged (SingleSeat.Recline)."
     datatype: boolean
-    uuid: 918376c5dbb25a879412c6d35362e3ec
+    uuid: 40bf6086788455b78e3fca4625639f8f
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.Cushion.Up"
+    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.Cushion.IsUpEngaged"
     type: "actuator"
-    description: "Seat cushion up switch engaged (SingleSeat.Cushion.Height)"
+    description: "Seat cushion up switch engaged (SingleSeat.Cushion.Height)."
     datatype: boolean
-    uuid: a31736d742cd540ea07aa03615b0ce3d
+    uuid: e74ee48d5e015bfe9aeaed9d68c054cb
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.Cushion.Down"
+    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.Cushion.IsDownEngaged"
     type: "actuator"
-    description: "Seat cushion down switch engaged (SingleSeat.Cushion.Height)"
+    description: "Seat cushion down switch engaged (SingleSeat.Cushion.Height)."
     datatype: boolean
-    uuid: 54a75893acaa5460a3fc620728699cc8
+    uuid: f470d1102fd6515181f44008832a3d3e
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.Cushion.Forward"
+    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.Cushion.IsForwardEngaged"
     type: "actuator"
-    description: "Seat cushion forward/lengthen switch engaged (SingleSeat.Cushion.Length)"
+    description: "Seat cushion forward/lengthen switch engaged (SingleSeat.Cushion.Length)."
     datatype: boolean
-    uuid: e549c98581795288add98c88c4369df2
+    uuid: 6011257ffa4752728a0538a07053689f
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.Cushion.Backward"
+    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.Cushion.IsBackwardEngaged"
     type: "actuator"
-    description: "Seat cushion backward/shorten switch engaged (SingleSeat.Cushion.Length)"
+    description: "Seat cushion backward/shorten switch engaged (SingleSeat.Cushion.Length)."
     datatype: boolean
-    uuid: 1476f6af2b7456f181ca5c3703e2836c
+    uuid: fa4c23ddfd5d5987881fa537c9491ad8
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.Lumbar.Up"
+    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.Lumbar.IsUpEngaged"
     type: "actuator"
-    description: "Lumbar up switch engaged (SingleSeat.Lumbar.Height)"
+    description: "Lumbar up switch engaged (SingleSeat.Lumbar.Height)."
     datatype: boolean
-    uuid: 80bef0d120455d79a158a88760e57fe6
+    uuid: b280ac159bb85654bc4feefc237f2ca7
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.Lumbar.Down"
+    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.Lumbar.IsDownEngaged"
     type: "actuator"
-    description: "Lumbar down switch engaged (SingleSeat.Lumbar.Height)"
+    description: "Lumbar down switch engaged (SingleSeat.Lumbar.Height)."
     datatype: boolean
-    uuid: f8a6ee14aaec5a2994bb46cfa8fae6b3
+    uuid: 6e963ba0c6a55da380f9c6645daf52bf
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.Lumbar.Inflate"
+    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.Lumbar.IsInflateEngaged"
     type: "actuator"
-    description: "Lumbar inflation switch engaged (SingleSeat.Lumbar.Inflation)"
+    description: "Lumbar inflation switch engaged (SingleSeat.Lumbar.Inflation)."
     datatype: boolean
-    uuid: 1801183f58015e82993da0ea3445be02
+    uuid: bd82cf3732495846a44c2f0fa8dc6a23
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.Lumbar.Deflate"
+    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.Lumbar.IsDeflateEngaged"
     type: "actuator"
-    description: "Lumbar deflation switch engaged (SingleSeat.Lumbar.Inflation)"
+    description: "Lumbar deflation switch engaged (SingleSeat.Lumbar.Inflation)."
     datatype: boolean
-    uuid: 28dddcbedffc5876ba552b9bbaf842f1
+    uuid: be16bcd6abee5cab92e4ea4908730568
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.SideBolster.Inflate"
+    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.SideBolster.IsInflateEngaged"
     type: "actuator"
-    description: "Side bolster inflation switch engaged (SingleSeat.SideBolster.Inflation)"
+    description: "Side bolster inflation switch engaged (SingleSeat.SideBolster.Inflation)."
     datatype: boolean
-    uuid: 0d0cda55ff9853639ae089af46d7219a
+    uuid: d5e9a9c0045857c28f4f0ce1b06c266e
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.SideBolster.Deflate"
+    name: "Vehicle.Cabin.Seat.Row1.Pos3.Switch.SideBolster.IsDeflateEngaged"
     type: "actuator"
-    description: "Side bolster deflation switch engaged (SingleSeat.SideBolster.Inflation)"
+    description: "Side bolster deflation switch engaged (SingleSeat.SideBolster.Inflation)."
     datatype: boolean
-    uuid: 91b96dbb20a35da6821c445f20cc2b1f
+    uuid: b0b154cc37265b3eb2b067a5dc2aac0a
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos1.HasPassenger"
+    name: "Vehicle.Cabin.Seat.Row2.Pos1.IsOccupied"
     type: "sensor"
     description: "Does the seat have a passenger in it."
     datatype: boolean
-    uuid: a346c9a5fe05579d8cb4dd0c39ae3cfd
+    uuid: e8c5a3df63b15e8a83f0b16b6a77092f
 }
 ,
 {
     name: "Vehicle.Cabin.Seat.Row2.Pos1.Occupant.Identifier.Subject"
     type: "sensor"
-    description: "Subject for the authentification of the occupant. E.g. UserID 7331677"
+    description: "Subject for the authentication of the occupant. E.g. UserID 7331677."
     datatype: string
     uuid: 159e7daad966588ca48997859b811b72
 }
@@ -3703,7 +3601,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row2.Pos1.Occupant.Identifier.Issuer"
     type: "sensor"
-    description: "Unique Issuer for the authentification of the occupant. E.g. https://accounts.funcorp.com"
+    description: "Unique Issuer for the authentication of the occupant. E.g. https://accounts.funcorp.com."
     datatype: string
     uuid: 188458a15b30577d8fb01d0f15641a6e
 }
@@ -3752,44 +3650,40 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row2.Pos1.Position"
     type: "actuator"
-    description: "Seat horizontal position. 0 = Frontmost. 1000 = Rearmost."
+    description: "Seat horizontal position. 0 = Frontmost."
     datatype: uint16
     uuid: 3dd247aae2555a1ebaf76ae4017f23bb
     min: 0
-    max: 1000
     unit: mm
 }
 ,
 {
     name: "Vehicle.Cabin.Seat.Row2.Pos1.Height"
     type: "actuator"
-    description: "Seat vertical position. 0 = Lowermost. 1000 = Uppermost."
+    description: "Seat vertical position. 0 = Lowermost."
     datatype: uint16
     uuid: 6e6e7aadfd0d52d4ac877147d84540d0
     min: 0
-    max: 1000
     unit: mm
 }
 ,
 {
     name: "Vehicle.Cabin.Seat.Row2.Pos1.Cushion.Height"
     type: "actuator"
-    description: "Height of the seat cushion (leg support), relative to seat. 0 = Lowermost. 500 = Uppermost."
+    description: "Height of the seat cushion (leg support), relative to seat. 0 = Lowermost."
     datatype: uint16
     uuid: af1c06009f2f51a8a9691dc76f67daf5
     min: 0
-    max: 500
     unit: mm
 }
 ,
 {
     name: "Vehicle.Cabin.Seat.Row2.Pos1.Cushion.Length"
     type: "actuator"
-    description: "Forward length of cushion (leg support), relative to seat. 0 = Rearmost. 500 = Forwardmost."
+    description: "Forward length of cushion (leg support), relative to seat. 0 = Rearmost."
     datatype: uint16
     uuid: da1627d60d1855e481585118413545c4
     min: 0
-    max: 500
     unit: mm
 }
 ,
@@ -3806,11 +3700,11 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row2.Pos1.Lumbar.Height"
     type: "actuator"
-    description: "Lumbar support position. 0 = Lowermost. 255 = Uppermost."
+    description: "Lumbar support position. 0 = Lowermost."
     datatype: uint8
     uuid: 41c8cc38221a52649a923f533eb74233
     min: 0
-    max: 255
+    unit: mm
 }
 ,
 {
@@ -3826,11 +3720,10 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row2.Pos1.HeadRestraint.Height"
     type: "actuator"
-    description: "Height of head restraint. 0 = Bottommost. 255 = Uppermost."
+    description: "Height of head restraint. 0 = Bottommost."
     datatype: uint8
     uuid: 860c83873c885e468f376ed62fa1ad5a
     min: 0
-    max: 255
     unit: mm
 }
 ,
@@ -3843,193 +3736,193 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.Warmer"
+    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.IsWarmerEngaged"
     type: "actuator"
-    description: "Warmer switch for Seat heater (SingleSeat.Heating)"
+    description: "Warmer switch for Seat heater (SingleSeat.Heating)."
     datatype: boolean
-    uuid: 765453ae7cde52ea83a6dafca07a855e
+    uuid: 97a36b155294512f8c409a9bc82635bc
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.Cooler"
+    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.IsCoolerEngaged"
     type: "actuator"
-    description: "Cooler switch for Seat heater (SingleSeat.Heating)"
+    description: "Cooler switch for Seat heater (SingleSeat.Heating)."
     datatype: boolean
-    uuid: 9c4aaff0cb08576e8dfc9575bdf4188c
+    uuid: ac1a8efdbafb561bb11af807d48e8378
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.Forward"
+    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.IsForwardEngaged"
     type: "actuator"
-    description: "Seat forward switch engaged (SingleSeat.Position)"
+    description: "Seat forward switch engaged (SingleSeat.Position)."
     datatype: boolean
-    uuid: b8d138f11e5c5af09044aeda5af787af
+    uuid: 33ed964275af591d85773bc23d70bd68
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.Backward"
+    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.IsBackwardEngaged"
     type: "actuator"
-    description: "Seat backward switch engaged (SingleSeat.Position)"
+    description: "Seat backward switch engaged (SingleSeat.Position)."
     datatype: boolean
-    uuid: af1b567b19225b48a35c432f52de4b0f
+    uuid: 57d1ff9eaf4e5a7cbe683c13eed6e691
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.Up"
+    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.IsUpEngaged"
     type: "actuator"
-    description: "Seat up switch engaged (SingleSeat.Height)"
+    description: "Seat up switch engaged (SingleSeat.Height)."
     datatype: boolean
-    uuid: 41c1925090a25472b3e35e720c775d29
+    uuid: 3dacf86cf185576f8a3916a315c69b1d
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.Down"
+    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.IsDownEngaged"
     type: "actuator"
-    description: "Seat down switch engaged (SingleSeat.Height)"
+    description: "Seat down switch engaged (SingleSeat.Height)."
     datatype: boolean
-    uuid: fabe59aababc5f73b326821ab453d86e
+    uuid: fd41789d95035c2fa1e855d22eab80fa
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.HeadRestraint.Up"
+    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.HeadRestraint.IsUpEngaged"
     type: "actuator"
-    description: "Head restraint up switch engaged (SingleSeat.HeadRestraint.Height)"
+    description: "Head restraint up switch engaged (SingleSeat.HeadRestraint.Height)."
     datatype: boolean
-    uuid: 61ef1160c2c45fe78d971548828b1057
+    uuid: e65f45d4489050628b178e9ac3dd9dd7
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.HeadRestraint.Down"
+    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.HeadRestraint.IsDownEngaged"
     type: "actuator"
-    description: "Head restraint down switch engaged (SingleSeat.HeadRestraint.Height)"
+    description: "Head restraint down switch engaged (SingleSeat.HeadRestraint.Height)."
     datatype: boolean
-    uuid: 16737cc9bdb65d64b85562fcd48a55fd
+    uuid: 77c9195dc56c5941b34ac519330dfee8
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.Massage.Increase"
+    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.Massage.IsIncreaseEngaged"
     type: "actuator"
-    description: "Increase massage level switch engaged (SingleSeat.Massage)"
+    description: "Increase massage level switch engaged (SingleSeat.Massage)."
     datatype: boolean
-    uuid: 2a9a5c9ceeac503aac475fc1c22ba78c
+    uuid: 7b656c6aa62c5156aab2d437a03bd074
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.Massage.Decrease"
+    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.Massage.IsDecreaseEngaged"
     type: "actuator"
-    description: "Decrease massage level switch engaged (SingleSeat.Massage)"
+    description: "Decrease massage level switch engaged (SingleSeat.Massage)."
     datatype: boolean
-    uuid: 0490a69e1d375ac39b6625319a6a0988
+    uuid: d1f9e86a98be5f2ca81ac11d05356bb6
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.Recline.Backward"
+    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.Recline.IsBackwardEngaged"
     type: "actuator"
-    description: "Seatback recline backward switch engaged (SingleSeat.Recline)"
+    description: "Seatback recline backward switch engaged (SingleSeat.Recline)."
     datatype: boolean
-    uuid: d9b7a4e69470596bb9883bdebc83992c
+    uuid: 8335b14ba8f3509ebd31f09c2a3b319c
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.Recline.Forward"
+    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.Recline.IsForwardEngaged"
     type: "actuator"
-    description: "Seatback recline forward switch engaged (SingleSeat.Recline)"
+    description: "Seatback recline forward switch engaged (SingleSeat.Recline)."
     datatype: boolean
-    uuid: 17e15fd8647854f196ab26103d065c41
+    uuid: 93e15a402fd75226b048a5b83d711f48
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.Cushion.Up"
+    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.Cushion.IsUpEngaged"
     type: "actuator"
-    description: "Seat cushion up switch engaged (SingleSeat.Cushion.Height)"
+    description: "Seat cushion up switch engaged (SingleSeat.Cushion.Height)."
     datatype: boolean
-    uuid: c257793dc4705c9ab6276da5d4651d95
+    uuid: 6f44ba77bb7a5c9fba1e08311b2f4f7a
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.Cushion.Down"
+    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.Cushion.IsDownEngaged"
     type: "actuator"
-    description: "Seat cushion down switch engaged (SingleSeat.Cushion.Height)"
+    description: "Seat cushion down switch engaged (SingleSeat.Cushion.Height)."
     datatype: boolean
-    uuid: 9fdd5c24868e5a64bcfd461b3d848283
+    uuid: 22690d2b87125976a76a4e2871ac104a
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.Cushion.Forward"
+    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.Cushion.IsForwardEngaged"
     type: "actuator"
-    description: "Seat cushion forward/lengthen switch engaged (SingleSeat.Cushion.Length)"
+    description: "Seat cushion forward/lengthen switch engaged (SingleSeat.Cushion.Length)."
     datatype: boolean
-    uuid: 53a50be4deed54789b913c8939fa975b
+    uuid: dc488a2ffbbd5300b6847f432d63ef78
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.Cushion.Backward"
+    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.Cushion.IsBackwardEngaged"
     type: "actuator"
-    description: "Seat cushion backward/shorten switch engaged (SingleSeat.Cushion.Length)"
+    description: "Seat cushion backward/shorten switch engaged (SingleSeat.Cushion.Length)."
     datatype: boolean
-    uuid: 989b7125efd05224908240901aad22a3
+    uuid: 3a5a17a45e6b578f966b3463d429198d
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.Lumbar.Up"
+    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.Lumbar.IsUpEngaged"
     type: "actuator"
-    description: "Lumbar up switch engaged (SingleSeat.Lumbar.Height)"
+    description: "Lumbar up switch engaged (SingleSeat.Lumbar.Height)."
     datatype: boolean
-    uuid: 43f98ce5ef6453769476edc209d42fc5
+    uuid: 4fa7ec67182a52e19bb1ece97eada22b
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.Lumbar.Down"
+    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.Lumbar.IsDownEngaged"
     type: "actuator"
-    description: "Lumbar down switch engaged (SingleSeat.Lumbar.Height)"
+    description: "Lumbar down switch engaged (SingleSeat.Lumbar.Height)."
     datatype: boolean
-    uuid: a64671e5f4bf534ba60a548c5e68923d
+    uuid: e691f12c038d511eb4dc3c6b44a0113b
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.Lumbar.Inflate"
+    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.Lumbar.IsInflateEngaged"
     type: "actuator"
-    description: "Lumbar inflation switch engaged (SingleSeat.Lumbar.Inflation)"
+    description: "Lumbar inflation switch engaged (SingleSeat.Lumbar.Inflation)."
     datatype: boolean
-    uuid: 2b0aa04fb4385ca8ad549c18e7b541b4
+    uuid: d4f818cc3b945d42a3cc8d3d860841d8
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.Lumbar.Deflate"
+    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.Lumbar.IsDeflateEngaged"
     type: "actuator"
-    description: "Lumbar deflation switch engaged (SingleSeat.Lumbar.Inflation)"
+    description: "Lumbar deflation switch engaged (SingleSeat.Lumbar.Inflation)."
     datatype: boolean
-    uuid: e0fe867a41805e73944b39fd6907cef9
+    uuid: ca0f2110ce425d45a227d3839382a32a
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.SideBolster.Inflate"
+    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.SideBolster.IsInflateEngaged"
     type: "actuator"
-    description: "Side bolster inflation switch engaged (SingleSeat.SideBolster.Inflation)"
+    description: "Side bolster inflation switch engaged (SingleSeat.SideBolster.Inflation)."
     datatype: boolean
-    uuid: 57a9eeed1ad75133841b9ee8a1d87a90
+    uuid: ef7cf3c9de635febbec8b4616d69a69f
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.SideBolster.Deflate"
+    name: "Vehicle.Cabin.Seat.Row2.Pos1.Switch.SideBolster.IsDeflateEngaged"
     type: "actuator"
-    description: "Side bolster deflation switch engaged (SingleSeat.SideBolster.Inflation)"
+    description: "Side bolster deflation switch engaged (SingleSeat.SideBolster.Inflation)."
     datatype: boolean
-    uuid: 52e2279ca81b5a038bdb8bf92038ccab
+    uuid: aeec991a924558b88dc8ae142145a0a9
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos2.HasPassenger"
+    name: "Vehicle.Cabin.Seat.Row2.Pos2.IsOccupied"
     type: "sensor"
     description: "Does the seat have a passenger in it."
     datatype: boolean
-    uuid: d1097dd0e0685ce8838fa83e3791b233
+    uuid: dc1eaa7cab895c5198af0c7f5dea9d79
 }
 ,
 {
     name: "Vehicle.Cabin.Seat.Row2.Pos2.Occupant.Identifier.Subject"
     type: "sensor"
-    description: "Subject for the authentification of the occupant. E.g. UserID 7331677"
+    description: "Subject for the authentication of the occupant. E.g. UserID 7331677."
     datatype: string
     uuid: ae49d70515d55aad9b4719d8162b43c9
 }
@@ -4037,7 +3930,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row2.Pos2.Occupant.Identifier.Issuer"
     type: "sensor"
-    description: "Unique Issuer for the authentification of the occupant. E.g. https://accounts.funcorp.com"
+    description: "Unique Issuer for the authentication of the occupant. E.g. https://accounts.funcorp.com."
     datatype: string
     uuid: 6f4e6a9f8008536eae03197601a6366a
 }
@@ -4086,44 +3979,40 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row2.Pos2.Position"
     type: "actuator"
-    description: "Seat horizontal position. 0 = Frontmost. 1000 = Rearmost."
+    description: "Seat horizontal position. 0 = Frontmost."
     datatype: uint16
     uuid: 7c24fa880576550da14bae1e5eed26b9
     min: 0
-    max: 1000
     unit: mm
 }
 ,
 {
     name: "Vehicle.Cabin.Seat.Row2.Pos2.Height"
     type: "actuator"
-    description: "Seat vertical position. 0 = Lowermost. 1000 = Uppermost."
+    description: "Seat vertical position. 0 = Lowermost."
     datatype: uint16
     uuid: 3cf2e042421b540da4aa047680dcdf84
     min: 0
-    max: 1000
     unit: mm
 }
 ,
 {
     name: "Vehicle.Cabin.Seat.Row2.Pos2.Cushion.Height"
     type: "actuator"
-    description: "Height of the seat cushion (leg support), relative to seat. 0 = Lowermost. 500 = Uppermost."
+    description: "Height of the seat cushion (leg support), relative to seat. 0 = Lowermost."
     datatype: uint16
     uuid: 330a944fd2005b53a4d546744d21e591
     min: 0
-    max: 500
     unit: mm
 }
 ,
 {
     name: "Vehicle.Cabin.Seat.Row2.Pos2.Cushion.Length"
     type: "actuator"
-    description: "Forward length of cushion (leg support), relative to seat. 0 = Rearmost. 500 = Forwardmost."
+    description: "Forward length of cushion (leg support), relative to seat. 0 = Rearmost."
     datatype: uint16
     uuid: 203d653612605d988c639c0f6c728906
     min: 0
-    max: 500
     unit: mm
 }
 ,
@@ -4140,11 +4029,11 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row2.Pos2.Lumbar.Height"
     type: "actuator"
-    description: "Lumbar support position. 0 = Lowermost. 255 = Uppermost."
+    description: "Lumbar support position. 0 = Lowermost."
     datatype: uint8
     uuid: 95bf0522c35653588932404e7e49f603
     min: 0
-    max: 255
+    unit: mm
 }
 ,
 {
@@ -4160,11 +4049,10 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row2.Pos2.HeadRestraint.Height"
     type: "actuator"
-    description: "Height of head restraint. 0 = Bottommost. 255 = Uppermost."
+    description: "Height of head restraint. 0 = Bottommost."
     datatype: uint8
     uuid: 4214c90aad0e538fae2d16f9cb4a8a62
     min: 0
-    max: 255
     unit: mm
 }
 ,
@@ -4177,193 +4065,193 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.Warmer"
+    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.IsWarmerEngaged"
     type: "actuator"
-    description: "Warmer switch for Seat heater (SingleSeat.Heating)"
+    description: "Warmer switch for Seat heater (SingleSeat.Heating)."
     datatype: boolean
-    uuid: 84462c894cff5eb080f4020fcb114d22
+    uuid: e0a9b4614dbb5c4fbd3e333a73edf8b0
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.Cooler"
+    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.IsCoolerEngaged"
     type: "actuator"
-    description: "Cooler switch for Seat heater (SingleSeat.Heating)"
+    description: "Cooler switch for Seat heater (SingleSeat.Heating)."
     datatype: boolean
-    uuid: cb3cfa2c97365da1a8fca053a65b3f2e
+    uuid: 0d72a18529d55286be69d517c94cbb74
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.Forward"
+    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.IsForwardEngaged"
     type: "actuator"
-    description: "Seat forward switch engaged (SingleSeat.Position)"
+    description: "Seat forward switch engaged (SingleSeat.Position)."
     datatype: boolean
-    uuid: 822d46ed8df65a2f954ac7e515a9c260
+    uuid: 79d68b154c12508d91f28bedafb47a43
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.Backward"
+    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.IsBackwardEngaged"
     type: "actuator"
-    description: "Seat backward switch engaged (SingleSeat.Position)"
+    description: "Seat backward switch engaged (SingleSeat.Position)."
     datatype: boolean
-    uuid: bdac3b5e7d365e229f2826ae2c605239
+    uuid: 19c46bf9c19955a1a619fd3311b5236e
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.Up"
+    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.IsUpEngaged"
     type: "actuator"
-    description: "Seat up switch engaged (SingleSeat.Height)"
+    description: "Seat up switch engaged (SingleSeat.Height)."
     datatype: boolean
-    uuid: f6e2a08b8fc855968c6b194f2d55a72e
+    uuid: 7b1f9f36a4f65e7a8aad6b94c186ec00
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.Down"
+    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.IsDownEngaged"
     type: "actuator"
-    description: "Seat down switch engaged (SingleSeat.Height)"
+    description: "Seat down switch engaged (SingleSeat.Height)."
     datatype: boolean
-    uuid: cbbc30fd57b05354b05887435c1407e4
+    uuid: 3774266336e05ddbacadd2ef017568b1
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.HeadRestraint.Up"
+    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.HeadRestraint.IsUpEngaged"
     type: "actuator"
-    description: "Head restraint up switch engaged (SingleSeat.HeadRestraint.Height)"
+    description: "Head restraint up switch engaged (SingleSeat.HeadRestraint.Height)."
     datatype: boolean
-    uuid: 8835129127335ddd952dd947f83fb8e3
+    uuid: 664bcb0426b25a5398509a5b17147b40
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.HeadRestraint.Down"
+    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.HeadRestraint.IsDownEngaged"
     type: "actuator"
-    description: "Head restraint down switch engaged (SingleSeat.HeadRestraint.Height)"
+    description: "Head restraint down switch engaged (SingleSeat.HeadRestraint.Height)."
     datatype: boolean
-    uuid: 67d2c79495fb536db65b1bcb20f734c2
+    uuid: 389e70f7c49b5159af52595a91430f7c
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.Massage.Increase"
+    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.Massage.IsIncreaseEngaged"
     type: "actuator"
-    description: "Increase massage level switch engaged (SingleSeat.Massage)"
+    description: "Increase massage level switch engaged (SingleSeat.Massage)."
     datatype: boolean
-    uuid: 8bf96bfc4af556ff83c2622617a51b2a
+    uuid: 32fff40566d95d0cb36ed76100e515c3
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.Massage.Decrease"
+    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.Massage.IsDecreaseEngaged"
     type: "actuator"
-    description: "Decrease massage level switch engaged (SingleSeat.Massage)"
+    description: "Decrease massage level switch engaged (SingleSeat.Massage)."
     datatype: boolean
-    uuid: 346c0825d99f536e95312b026a4f2118
+    uuid: 20b139513267583e8a4a2374fcde2626
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.Recline.Backward"
+    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.Recline.IsBackwardEngaged"
     type: "actuator"
-    description: "Seatback recline backward switch engaged (SingleSeat.Recline)"
+    description: "Seatback recline backward switch engaged (SingleSeat.Recline)."
     datatype: boolean
-    uuid: b8670833dfc85c6bace3b9da8c1dbf95
+    uuid: 2315d3f9781a55428a132ff0ed7a76f5
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.Recline.Forward"
+    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.Recline.IsForwardEngaged"
     type: "actuator"
-    description: "Seatback recline forward switch engaged (SingleSeat.Recline)"
+    description: "Seatback recline forward switch engaged (SingleSeat.Recline)."
     datatype: boolean
-    uuid: 7a0563d5b2cf58db820e85dd08ad9bc4
+    uuid: 688acb994c195407acab82575486123d
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.Cushion.Up"
+    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.Cushion.IsUpEngaged"
     type: "actuator"
-    description: "Seat cushion up switch engaged (SingleSeat.Cushion.Height)"
+    description: "Seat cushion up switch engaged (SingleSeat.Cushion.Height)."
     datatype: boolean
-    uuid: d0086699030753a98aaf9bf44557dc16
+    uuid: 9422a87c40ba5fd1acbcf05b0ce96ad4
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.Cushion.Down"
+    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.Cushion.IsDownEngaged"
     type: "actuator"
-    description: "Seat cushion down switch engaged (SingleSeat.Cushion.Height)"
+    description: "Seat cushion down switch engaged (SingleSeat.Cushion.Height)."
     datatype: boolean
-    uuid: 62ec09fe2ba051c5810a43b377eda1ec
+    uuid: 697a8c870fe75b48b21911fe979cdc69
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.Cushion.Forward"
+    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.Cushion.IsForwardEngaged"
     type: "actuator"
-    description: "Seat cushion forward/lengthen switch engaged (SingleSeat.Cushion.Length)"
+    description: "Seat cushion forward/lengthen switch engaged (SingleSeat.Cushion.Length)."
     datatype: boolean
-    uuid: f4df41ff19ea5d68a2ddec478d2fb50b
+    uuid: 5a43ab5c634658ceb7a89cba9345380a
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.Cushion.Backward"
+    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.Cushion.IsBackwardEngaged"
     type: "actuator"
-    description: "Seat cushion backward/shorten switch engaged (SingleSeat.Cushion.Length)"
+    description: "Seat cushion backward/shorten switch engaged (SingleSeat.Cushion.Length)."
     datatype: boolean
-    uuid: 8ccfc2c9fc455ca99f857dab20d5312d
+    uuid: 71cd34078643546687ebf6db2eaf0345
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.Lumbar.Up"
+    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.Lumbar.IsUpEngaged"
     type: "actuator"
-    description: "Lumbar up switch engaged (SingleSeat.Lumbar.Height)"
+    description: "Lumbar up switch engaged (SingleSeat.Lumbar.Height)."
     datatype: boolean
-    uuid: edc261f4f51c563bb9da356e53354011
+    uuid: ec9dd8b4e23d5b0f98bd0cfa83b6c66a
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.Lumbar.Down"
+    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.Lumbar.IsDownEngaged"
     type: "actuator"
-    description: "Lumbar down switch engaged (SingleSeat.Lumbar.Height)"
+    description: "Lumbar down switch engaged (SingleSeat.Lumbar.Height)."
     datatype: boolean
-    uuid: 6f17db239c0e5794a3b17579105eecd9
+    uuid: a9b334c22c115db4a217fa794bf54200
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.Lumbar.Inflate"
+    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.Lumbar.IsInflateEngaged"
     type: "actuator"
-    description: "Lumbar inflation switch engaged (SingleSeat.Lumbar.Inflation)"
+    description: "Lumbar inflation switch engaged (SingleSeat.Lumbar.Inflation)."
     datatype: boolean
-    uuid: 72eb5dc4bc29520ab3bc77542b94bc2a
+    uuid: b854e766c01f5e5eae55b3c654536c26
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.Lumbar.Deflate"
+    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.Lumbar.IsDeflateEngaged"
     type: "actuator"
-    description: "Lumbar deflation switch engaged (SingleSeat.Lumbar.Inflation)"
+    description: "Lumbar deflation switch engaged (SingleSeat.Lumbar.Inflation)."
     datatype: boolean
-    uuid: d6c9abeefabf58f9b44ac3cc2988aff5
+    uuid: ea245abbc9c655668313019e29079666
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.SideBolster.Inflate"
+    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.SideBolster.IsInflateEngaged"
     type: "actuator"
-    description: "Side bolster inflation switch engaged (SingleSeat.SideBolster.Inflation)"
+    description: "Side bolster inflation switch engaged (SingleSeat.SideBolster.Inflation)."
     datatype: boolean
-    uuid: 4f0d4d8a90ca5a90b773173c953a0191
+    uuid: a5133780928d54399d99de1ffd6235f9
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.SideBolster.Deflate"
+    name: "Vehicle.Cabin.Seat.Row2.Pos2.Switch.SideBolster.IsDeflateEngaged"
     type: "actuator"
-    description: "Side bolster deflation switch engaged (SingleSeat.SideBolster.Inflation)"
+    description: "Side bolster deflation switch engaged (SingleSeat.SideBolster.Inflation)."
     datatype: boolean
-    uuid: 4e433a05a54456e69ac7357b0af56d76
+    uuid: 2ce6e52d9c1c52eb9c9b2b85252727ff
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos3.HasPassenger"
+    name: "Vehicle.Cabin.Seat.Row2.Pos3.IsOccupied"
     type: "sensor"
     description: "Does the seat have a passenger in it."
     datatype: boolean
-    uuid: eb7db74c722e5ea5a8e66bbc26d5e1c5
+    uuid: 018a7ef68dd75f0ea391c7d8191acd9d
 }
 ,
 {
     name: "Vehicle.Cabin.Seat.Row2.Pos3.Occupant.Identifier.Subject"
     type: "sensor"
-    description: "Subject for the authentification of the occupant. E.g. UserID 7331677"
+    description: "Subject for the authentication of the occupant. E.g. UserID 7331677."
     datatype: string
     uuid: ea36896f5572580b9d8379a6256f61b5
 }
@@ -4371,7 +4259,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row2.Pos3.Occupant.Identifier.Issuer"
     type: "sensor"
-    description: "Unique Issuer for the authentification of the occupant. E.g. https://accounts.funcorp.com"
+    description: "Unique Issuer for the authentication of the occupant. E.g. https://accounts.funcorp.com."
     datatype: string
     uuid: d96b225635b959a1aea0d6febb955ae8
 }
@@ -4420,44 +4308,40 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row2.Pos3.Position"
     type: "actuator"
-    description: "Seat horizontal position. 0 = Frontmost. 1000 = Rearmost."
+    description: "Seat horizontal position. 0 = Frontmost."
     datatype: uint16
     uuid: 64eb763cc10358b49968797fbf50c092
     min: 0
-    max: 1000
     unit: mm
 }
 ,
 {
     name: "Vehicle.Cabin.Seat.Row2.Pos3.Height"
     type: "actuator"
-    description: "Seat vertical position. 0 = Lowermost. 1000 = Uppermost."
+    description: "Seat vertical position. 0 = Lowermost."
     datatype: uint16
     uuid: 077a21fca4d857dd81debfd81119bc73
     min: 0
-    max: 1000
     unit: mm
 }
 ,
 {
     name: "Vehicle.Cabin.Seat.Row2.Pos3.Cushion.Height"
     type: "actuator"
-    description: "Height of the seat cushion (leg support), relative to seat. 0 = Lowermost. 500 = Uppermost."
+    description: "Height of the seat cushion (leg support), relative to seat. 0 = Lowermost."
     datatype: uint16
     uuid: 859ea2de83275a4ca91c59e248e9b159
     min: 0
-    max: 500
     unit: mm
 }
 ,
 {
     name: "Vehicle.Cabin.Seat.Row2.Pos3.Cushion.Length"
     type: "actuator"
-    description: "Forward length of cushion (leg support), relative to seat. 0 = Rearmost. 500 = Forwardmost."
+    description: "Forward length of cushion (leg support), relative to seat. 0 = Rearmost."
     datatype: uint16
     uuid: ddf566c0b12256df94fcd72bcaa3f570
     min: 0
-    max: 500
     unit: mm
 }
 ,
@@ -4474,11 +4358,11 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row2.Pos3.Lumbar.Height"
     type: "actuator"
-    description: "Lumbar support position. 0 = Lowermost. 255 = Uppermost."
+    description: "Lumbar support position. 0 = Lowermost."
     datatype: uint8
     uuid: c2d250c021aa531cb364f52a80ae1131
     min: 0
-    max: 255
+    unit: mm
 }
 ,
 {
@@ -4494,11 +4378,10 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Seat.Row2.Pos3.HeadRestraint.Height"
     type: "actuator"
-    description: "Height of head restraint. 0 = Bottommost. 255 = Uppermost."
+    description: "Height of head restraint. 0 = Bottommost."
     datatype: uint8
     uuid: dbaefb0c59505e83b1f87b4010f3049a
     min: 0
-    max: 255
     unit: mm
 }
 ,
@@ -4511,179 +4394,179 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.Warmer"
+    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.IsWarmerEngaged"
     type: "actuator"
-    description: "Warmer switch for Seat heater (SingleSeat.Heating)"
+    description: "Warmer switch for Seat heater (SingleSeat.Heating)."
     datatype: boolean
-    uuid: 32fe3de3adbd51c280b13e26cb23dce8
+    uuid: 820cc2c323b45ef989d5bcb8aac9527e
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.Cooler"
+    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.IsCoolerEngaged"
     type: "actuator"
-    description: "Cooler switch for Seat heater (SingleSeat.Heating)"
+    description: "Cooler switch for Seat heater (SingleSeat.Heating)."
     datatype: boolean
-    uuid: c2137be8528b5f5da942fd1b6b8bfe9e
+    uuid: ffff3283b2cf5f7292e241ec2ee27e77
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.Forward"
+    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.IsForwardEngaged"
     type: "actuator"
-    description: "Seat forward switch engaged (SingleSeat.Position)"
+    description: "Seat forward switch engaged (SingleSeat.Position)."
     datatype: boolean
-    uuid: 570ed0643f3d54edbecafbaabfa63676
+    uuid: 397a8afd0dd1533b8899248596ae7566
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.Backward"
+    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.IsBackwardEngaged"
     type: "actuator"
-    description: "Seat backward switch engaged (SingleSeat.Position)"
+    description: "Seat backward switch engaged (SingleSeat.Position)."
     datatype: boolean
-    uuid: 9035b32f9ee95d1db6c22f50effc7c7f
+    uuid: 267429a5f95d5f47ac47ec301755df32
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.Up"
+    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.IsUpEngaged"
     type: "actuator"
-    description: "Seat up switch engaged (SingleSeat.Height)"
+    description: "Seat up switch engaged (SingleSeat.Height)."
     datatype: boolean
-    uuid: 028248cc18315659a533c409180b577a
+    uuid: 26752cad0db150a2aa6737b825e96256
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.Down"
+    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.IsDownEngaged"
     type: "actuator"
-    description: "Seat down switch engaged (SingleSeat.Height)"
+    description: "Seat down switch engaged (SingleSeat.Height)."
     datatype: boolean
-    uuid: e2dbef15271959f9859c730beb6a279f
+    uuid: 73d2e688696a507b826230d5b53c429f
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.HeadRestraint.Up"
+    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.HeadRestraint.IsUpEngaged"
     type: "actuator"
-    description: "Head restraint up switch engaged (SingleSeat.HeadRestraint.Height)"
+    description: "Head restraint up switch engaged (SingleSeat.HeadRestraint.Height)."
     datatype: boolean
-    uuid: c76b4aee310057d681ce841a43f275b0
+    uuid: f723be66829a5fb6ad10078f3e246ac1
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.HeadRestraint.Down"
+    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.HeadRestraint.IsDownEngaged"
     type: "actuator"
-    description: "Head restraint down switch engaged (SingleSeat.HeadRestraint.Height)"
+    description: "Head restraint down switch engaged (SingleSeat.HeadRestraint.Height)."
     datatype: boolean
-    uuid: acf77df0899557ea98b9b73411a785fd
+    uuid: d627ef522b2358a1ae8a73d6abd08491
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.Massage.Increase"
+    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.Massage.IsIncreaseEngaged"
     type: "actuator"
-    description: "Increase massage level switch engaged (SingleSeat.Massage)"
+    description: "Increase massage level switch engaged (SingleSeat.Massage)."
     datatype: boolean
-    uuid: ac801efd6a6456a2b88417a50c625f57
+    uuid: fb062e9f85fd568cbd774b36fbf5113f
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.Massage.Decrease"
+    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.Massage.IsDecreaseEngaged"
     type: "actuator"
-    description: "Decrease massage level switch engaged (SingleSeat.Massage)"
+    description: "Decrease massage level switch engaged (SingleSeat.Massage)."
     datatype: boolean
-    uuid: d91ab3177bf35a52b02bab237eb43e29
+    uuid: 7226bc97842452099d5484baad0af620
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.Recline.Backward"
+    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.Recline.IsBackwardEngaged"
     type: "actuator"
-    description: "Seatback recline backward switch engaged (SingleSeat.Recline)"
+    description: "Seatback recline backward switch engaged (SingleSeat.Recline)."
     datatype: boolean
-    uuid: 1db535f68ddf5d449a19d12a208140c8
+    uuid: 4519ba67dec657f19fd51905aba69178
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.Recline.Forward"
+    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.Recline.IsForwardEngaged"
     type: "actuator"
-    description: "Seatback recline forward switch engaged (SingleSeat.Recline)"
+    description: "Seatback recline forward switch engaged (SingleSeat.Recline)."
     datatype: boolean
-    uuid: 2a56d160cce15feca287e088e716650d
+    uuid: 93b892e854be51bdb28e2ade2631f15e
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.Cushion.Up"
+    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.Cushion.IsUpEngaged"
     type: "actuator"
-    description: "Seat cushion up switch engaged (SingleSeat.Cushion.Height)"
+    description: "Seat cushion up switch engaged (SingleSeat.Cushion.Height)."
     datatype: boolean
-    uuid: 51b1d279db7e540ab06c61da49d345eb
+    uuid: 01d12341638d5ba584c4f921e9d2d995
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.Cushion.Down"
+    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.Cushion.IsDownEngaged"
     type: "actuator"
-    description: "Seat cushion down switch engaged (SingleSeat.Cushion.Height)"
+    description: "Seat cushion down switch engaged (SingleSeat.Cushion.Height)."
     datatype: boolean
-    uuid: 2f278d0e725a5f24aa77e2215cbb9aa8
+    uuid: 2f03bd09e2d252f19b419e8436fbea2e
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.Cushion.Forward"
+    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.Cushion.IsForwardEngaged"
     type: "actuator"
-    description: "Seat cushion forward/lengthen switch engaged (SingleSeat.Cushion.Length)"
+    description: "Seat cushion forward/lengthen switch engaged (SingleSeat.Cushion.Length)."
     datatype: boolean
-    uuid: 0e5094c2a3225e3bb4b0cb9cfb512ead
+    uuid: e4cb10f5a6395f6a8a8840acb383c3bd
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.Cushion.Backward"
+    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.Cushion.IsBackwardEngaged"
     type: "actuator"
-    description: "Seat cushion backward/shorten switch engaged (SingleSeat.Cushion.Length)"
+    description: "Seat cushion backward/shorten switch engaged (SingleSeat.Cushion.Length)."
     datatype: boolean
-    uuid: 867fde470237512399c100a3377863aa
+    uuid: f41f7a7c4f7c5a1697b20e965a001ac6
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.Lumbar.Up"
+    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.Lumbar.IsUpEngaged"
     type: "actuator"
-    description: "Lumbar up switch engaged (SingleSeat.Lumbar.Height)"
+    description: "Lumbar up switch engaged (SingleSeat.Lumbar.Height)."
     datatype: boolean
-    uuid: e53c8a74034b5def83a9c2e41ffbf686
+    uuid: d7ffaa0ce3b258daa056ecdd0dc73675
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.Lumbar.Down"
+    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.Lumbar.IsDownEngaged"
     type: "actuator"
-    description: "Lumbar down switch engaged (SingleSeat.Lumbar.Height)"
+    description: "Lumbar down switch engaged (SingleSeat.Lumbar.Height)."
     datatype: boolean
-    uuid: 9b37d65e49ba518aacb15176ee035f85
+    uuid: 3768ae4371f45a5caa83c9e3bb83c6ba
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.Lumbar.Inflate"
+    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.Lumbar.IsInflateEngaged"
     type: "actuator"
-    description: "Lumbar inflation switch engaged (SingleSeat.Lumbar.Inflation)"
+    description: "Lumbar inflation switch engaged (SingleSeat.Lumbar.Inflation)."
     datatype: boolean
-    uuid: e71ff6bd33f2583d964ae9c074265ce1
+    uuid: f74babdc4ea5583b9d42479d3f2128e9
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.Lumbar.Deflate"
+    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.Lumbar.IsDeflateEngaged"
     type: "actuator"
-    description: "Lumbar deflation switch engaged (SingleSeat.Lumbar.Inflation)"
+    description: "Lumbar deflation switch engaged (SingleSeat.Lumbar.Inflation)."
     datatype: boolean
-    uuid: 0be514b4224f57e3b95d748ace1d09f3
+    uuid: d896da0eb43854029e1acb18e40c02cb
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.SideBolster.Inflate"
+    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.SideBolster.IsInflateEngaged"
     type: "actuator"
-    description: "Side bolster inflation switch engaged (SingleSeat.SideBolster.Inflation)"
+    description: "Side bolster inflation switch engaged (SingleSeat.SideBolster.Inflation)."
     datatype: boolean
-    uuid: 0e7ee36cd3d75f05a7f49722b82017fe
+    uuid: 91dc277fd26558eaba537977fb237897
 }
 ,
 {
-    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.SideBolster.Deflate"
+    name: "Vehicle.Cabin.Seat.Row2.Pos3.Switch.SideBolster.IsDeflateEngaged"
     type: "actuator"
-    description: "Side bolster deflation switch engaged (SingleSeat.SideBolster.Inflation)"
+    description: "Side bolster deflation switch engaged (SingleSeat.SideBolster.Inflation)."
     datatype: boolean
-    uuid: 5f97a254d1b654bf99203d1d0e3b6739
+    uuid: a5b766ea18765f53857bafdc7fbd2b73
 }
 ,
 {
@@ -4697,7 +4580,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.SeatRowCount"
     type: "attribute"
-    description: "Number of seat rows in vehicle"
+    description: "Number of seat rows in vehicle."
     datatype: uint8
     uuid: 1002a7a4a954581b9cbc72fa438c5292
 }
@@ -4705,7 +4588,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.SeatPosCount"
     type: "attribute"
-    description: "Number of seats across each row from the front to the rear"
+    description: "Number of seats across each row from the front to the rear."
     datatype: uint8[]
     uuid: 8dd40ecd47ab51c79ed9c74ae4296d7e
 }
@@ -4713,10 +4596,25 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Cabin.Convertible.Status"
     type: "sensor"
-    description: "Roof status on convertible vehicles"
+    description: "Roof status on convertible vehicles."
     datatype: string
     uuid: c8812698198a56d7a1adcc8bbe87845f
-    enum: ['undefined', 'closed', 'open', 'closing', 'opening', 'stalled']
+}
+,
+{
+    name: "Vehicle.ADAS.ActiveAutonomyLevel"
+    type: "sensor"
+    description: "Indicates the currently active level of autonomy according to SAE J3016 taxonomy."
+    datatype: string
+    uuid: b101c6928fc55948b1cc485e568ecd8d
+}
+,
+{
+    name: "Vehicle.ADAS.SupportedAutonomyLevel"
+    type: "attribute"
+    description: "Indicates the highest level of autonomy according to SAE J3016 taxonomy the vehicle is capable of."
+    datatype: string
+    uuid: 020410189ab4517cb85ceda268b40f51
 }
 ,
 {
@@ -4730,18 +4628,18 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.ADAS.CruiseControl.SpeedSet"
     type: "actuator"
-    description: "Set cruise control speed in kilometers per hour"
+    description: "Set cruise control speed in kilometers per hour."
     datatype: float
     uuid: b3f3a53ccd825e4da5cb1226f94dc005
     unit: km/h
 }
 ,
 {
-    name: "Vehicle.ADAS.CruiseControl.Error"
+    name: "Vehicle.ADAS.CruiseControl.IsError"
     type: "sensor"
     description: "Indicates if cruise control system incurred and error condition. True = Error. False = NoError."
     datatype: boolean
-    uuid: 586d4d35a28956c794c7d56a9cedf544
+    uuid: 22923d4a36bc5192a08e40fe9e5ed458
 }
 ,
 {
@@ -4753,19 +4651,19 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.ADAS.LaneDepartureDetection.Warning"
+    name: "Vehicle.ADAS.LaneDepartureDetection.IsWarning"
     type: "sensor"
-    description: "Indicates if lane departure detection registered a lane departure"
+    description: "Indicates if lane departure detection registered a lane departure."
     datatype: boolean
-    uuid: 06ba0445af5258d8a9c953979afb7c05
+    uuid: c32fcd1d56035cb08acfd380be224c6a
 }
 ,
 {
-    name: "Vehicle.ADAS.LaneDepartureDetection.Error"
+    name: "Vehicle.ADAS.LaneDepartureDetection.IsError"
     type: "sensor"
     description: "Indicates if lane departure system incurred an error condition. True = Error. False = No Error."
     datatype: boolean
-    uuid: 92e47dedb3d354779352d83ba3de96be
+    uuid: 73b2fc4f6a4952e4b7886671450e7798
 }
 ,
 {
@@ -4777,11 +4675,11 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.ADAS.ObstacleDetection.Error"
+    name: "Vehicle.ADAS.ObstacleDetection.IsError"
     type: "sensor"
     description: "Indicates if obstacle sensor system incurred an error condition. True = Error. False = No Error."
     datatype: boolean
-    uuid: 2a68c1f1f290510097b6aac71a23f305
+    uuid: 368b74e2468d5217925a478ed6e34f9f
 }
 ,
 {
@@ -4793,11 +4691,11 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.ADAS.ABS.Error"
+    name: "Vehicle.ADAS.ABS.IsError"
     type: "sensor"
     description: "Indicates if ABS incurred an error condition. True = Error. False = No Error."
     datatype: boolean
-    uuid: cd2b0e86aa1f5021a9bb7f6bda1cbe0f
+    uuid: 13cfabb3122254128234f9a696f14678
 }
 ,
 {
@@ -4817,11 +4715,11 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.ADAS.TCS.Error"
+    name: "Vehicle.ADAS.TCS.IsError"
     type: "sensor"
     description: "Indicates if TCS incurred an error condition. True = Error. False = No Error."
     datatype: boolean
-    uuid: 44910b2e5ce75a768d79a01ee3d0723f
+    uuid: 08f88723ba63558b8c804b8fe8e3f149
 }
 ,
 {
@@ -4835,17 +4733,17 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.ADAS.ESC.IsActive"
     type: "actuator"
-    description: "Indicates if ECS is enabled. True = Enabled. False = Disabled."
+    description: "Indicates if ESC is enabled. True = Enabled. False = Disabled."
     datatype: boolean
     uuid: 70b769baed285c3897979639d13bafd3
 }
 ,
 {
-    name: "Vehicle.ADAS.ESC.Error"
+    name: "Vehicle.ADAS.ESC.IsError"
     type: "sensor"
     description: "Indicates if ESC incurred an error condition. True = Error. False = No Error."
     datatype: boolean
-    uuid: c3852de5d6305918b8de1fb11a1a5da5
+    uuid: 6c237535654b5bc7a70f6a70c760b9d4
 }
 ,
 {
@@ -4854,60 +4752,6 @@ const SignalSpec[] signal_spec = [
     description: "Indicates if ESC is currently regulating vehicle stability. True = Engaged. False = Not Engaged."
     datatype: boolean
     uuid: 2088953a28385353a9d46b3a3dc11cac
-}
-,
-{
-    name: "Vehicle.Chassis.CurbWeight"
-    type: "attribute"
-    description: "Vehicle curb weight, in kg, including all liquids and full tank of fuel, but no cargo or passengers."
-    datatype: uint16
-    uuid: ffe3fe9067b15475bb02865ba51cc972
-    unit: kg
-}
-,
-{
-    name: "Vehicle.Chassis.GrossWeight"
-    type: "attribute"
-    description: "Curb weight of vehicle, including all liquids and full tank of fuel and full load of cargo and passengers."
-    datatype: uint16
-    uuid: 1488a8a670535ea2b3ce2ec5b7016175
-    unit: kg
-}
-,
-{
-    name: "Vehicle.Chassis.TowWeight"
-    type: "attribute"
-    description: "Maximum weight, in kilos, of trailer."
-    datatype: uint16
-    uuid: ff8fc44fac735c278bf18291790cc9db
-    unit: kg
-}
-,
-{
-    name: "Vehicle.Chassis.Length"
-    type: "attribute"
-    description: "Overall vehicle length, in mm."
-    datatype: uint16
-    uuid: ace9409dc191589faf79edd42a3218d3
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Chassis.Height"
-    type: "attribute"
-    description: "Overall vehicle height, in mm."
-    datatype: uint16
-    uuid: 63e6660d8f635f4db977c23ee411f0cc
-    unit: mm
-}
-,
-{
-    name: "Vehicle.Chassis.Width"
-    type: "attribute"
-    description: "Overall vehicle width, in mm."
-    datatype: uint16
-    uuid: abd0c2786e275dc1b9669dd337ba6c65
-    unit: mm
 }
 ,
 {
@@ -4991,11 +4835,11 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Chassis.Axle.Row1.Wheel.Left.Brake.FluidLevelLow"
+    name: "Vehicle.Chassis.Axle.Row1.Wheel.Left.Brake.IsFluidLevelLow"
     type: "sensor"
     description: "Brake fluid level status. True = Brake fluid level low. False = Brake fluid level OK."
     datatype: boolean
-    uuid: 53a75af3ab945f3f8546a84136369ec1
+    uuid: 713da56818e55714ac441e10870b3753
 }
 ,
 {
@@ -5007,28 +4851,28 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Chassis.Axle.Row1.Wheel.Left.Brake.BrakesWorn"
+    name: "Vehicle.Chassis.Axle.Row1.Wheel.Left.Brake.IsBrakesWorn"
     type: "sensor"
     description: "Brake pad wear status. True = Worn. False = Not Worn."
     datatype: boolean
-    uuid: 2f7c8029bfe759748592ef5e729cc845
+    uuid: 901771088eb35dec9e69b56a8cb3e8f5
 }
 ,
 {
     name: "Vehicle.Chassis.Axle.Row1.Wheel.Left.Tire.Pressure"
     type: "sensor"
-    description: "Tire pressure in kilo-Pascal"
+    description: "Tire pressure in kilo-Pascal."
     datatype: uint16
     uuid: 9fa3f176fd975d28a68f70c7d72e370f
     unit: kPa
 }
 ,
 {
-    name: "Vehicle.Chassis.Axle.Row1.Wheel.Left.Tire.PressureLow"
+    name: "Vehicle.Chassis.Axle.Row1.Wheel.Left.Tire.IsPressureLow"
     type: "sensor"
     description: "Tire Pressure Status. True = Low tire pressure. False = Good tire pressure."
     datatype: boolean
-    uuid: 82de2a68098455eba786f8ed2d7468c0
+    uuid: 4088315cfaa05c28b51c3d3462c65339
 }
 ,
 {
@@ -5050,11 +4894,11 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Chassis.Axle.Row1.Wheel.Right.Brake.FluidLevelLow"
+    name: "Vehicle.Chassis.Axle.Row1.Wheel.Right.Brake.IsFluidLevelLow"
     type: "sensor"
     description: "Brake fluid level status. True = Brake fluid level low. False = Brake fluid level OK."
     datatype: boolean
-    uuid: 0311e746d19358c8a3236cefeca84ef1
+    uuid: bb2057bc31c25beda1da0610ca62bd51
 }
 ,
 {
@@ -5066,28 +4910,28 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Chassis.Axle.Row1.Wheel.Right.Brake.BrakesWorn"
+    name: "Vehicle.Chassis.Axle.Row1.Wheel.Right.Brake.IsBrakesWorn"
     type: "sensor"
     description: "Brake pad wear status. True = Worn. False = Not Worn."
     datatype: boolean
-    uuid: 1a55f7262b565bf4a5181a55c19d204d
+    uuid: 4c669b71c91e57dd8fd804ee68174b9c
 }
 ,
 {
     name: "Vehicle.Chassis.Axle.Row1.Wheel.Right.Tire.Pressure"
     type: "sensor"
-    description: "Tire pressure in kilo-Pascal"
+    description: "Tire pressure in kilo-Pascal."
     datatype: uint16
     uuid: ea8038b63e6650ffb1a20539e915064a
     unit: kPa
 }
 ,
 {
-    name: "Vehicle.Chassis.Axle.Row1.Wheel.Right.Tire.PressureLow"
+    name: "Vehicle.Chassis.Axle.Row1.Wheel.Right.Tire.IsPressureLow"
     type: "sensor"
     description: "Tire Pressure Status. True = Low tire pressure. False = Good tire pressure."
     datatype: boolean
-    uuid: 1634d42e20bc5cb4b3d6d4735821d477
+    uuid: 93fa1125894e53259af5b7e1d991c8da
 }
 ,
 {
@@ -5162,11 +5006,11 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Chassis.Axle.Row2.Wheel.Left.Brake.FluidLevelLow"
+    name: "Vehicle.Chassis.Axle.Row2.Wheel.Left.Brake.IsFluidLevelLow"
     type: "sensor"
     description: "Brake fluid level status. True = Brake fluid level low. False = Brake fluid level OK."
     datatype: boolean
-    uuid: 68e832cbce705af0bf0d6e0f9ba7acac
+    uuid: 01f57161b0bf539fad1d2bfa9d9a9fc4
 }
 ,
 {
@@ -5178,28 +5022,28 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Chassis.Axle.Row2.Wheel.Left.Brake.BrakesWorn"
+    name: "Vehicle.Chassis.Axle.Row2.Wheel.Left.Brake.IsBrakesWorn"
     type: "sensor"
     description: "Brake pad wear status. True = Worn. False = Not Worn."
     datatype: boolean
-    uuid: ccae6b64f123544fa6982d224d987852
+    uuid: 3d9bae5bf0705de99789ecea26b99a5c
 }
 ,
 {
     name: "Vehicle.Chassis.Axle.Row2.Wheel.Left.Tire.Pressure"
     type: "sensor"
-    description: "Tire pressure in kilo-Pascal"
+    description: "Tire pressure in kilo-Pascal."
     datatype: uint16
     uuid: ea414012c36e54fc84ec1d421f370ddd
     unit: kPa
 }
 ,
 {
-    name: "Vehicle.Chassis.Axle.Row2.Wheel.Left.Tire.PressureLow"
+    name: "Vehicle.Chassis.Axle.Row2.Wheel.Left.Tire.IsPressureLow"
     type: "sensor"
     description: "Tire Pressure Status. True = Low tire pressure. False = Good tire pressure."
     datatype: boolean
-    uuid: 24bc9ee216275e4d8c7f388853e80975
+    uuid: d895b1e23a4f59ec92735fc317e44769
 }
 ,
 {
@@ -5221,11 +5065,11 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Chassis.Axle.Row2.Wheel.Right.Brake.FluidLevelLow"
+    name: "Vehicle.Chassis.Axle.Row2.Wheel.Right.Brake.IsFluidLevelLow"
     type: "sensor"
     description: "Brake fluid level status. True = Brake fluid level low. False = Brake fluid level OK."
     datatype: boolean
-    uuid: c8660a7144055afa8ffc1ffb092ce6cc
+    uuid: 727823c7e0d551f48f26a5dd4f0578bd
 }
 ,
 {
@@ -5237,28 +5081,28 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Chassis.Axle.Row2.Wheel.Right.Brake.BrakesWorn"
+    name: "Vehicle.Chassis.Axle.Row2.Wheel.Right.Brake.IsBrakesWorn"
     type: "sensor"
     description: "Brake pad wear status. True = Worn. False = Not Worn."
     datatype: boolean
-    uuid: 4f1e06c6edbd57e6b0d55e413481633f
+    uuid: 9b5963e98a9c5b229a61df76ef5c86e0
 }
 ,
 {
     name: "Vehicle.Chassis.Axle.Row2.Wheel.Right.Tire.Pressure"
     type: "sensor"
-    description: "Tire pressure in kilo-Pascal"
+    description: "Tire pressure in kilo-Pascal."
     datatype: uint16
     uuid: 0cd3dd4be36c5fcda49d6360556ba7c8
     unit: kPa
 }
 ,
 {
-    name: "Vehicle.Chassis.Axle.Row2.Wheel.Right.Tire.PressureLow"
+    name: "Vehicle.Chassis.Axle.Row2.Wheel.Right.Tire.IsPressureLow"
     type: "sensor"
     description: "Tire Pressure Status. True = Low tire pressure. False = Good tire pressure."
     datatype: boolean
-    uuid: 86bfb761f970543399f4232ca0915a70
+    uuid: da2f63312a455d92abd5edc405f01903
 }
 ,
 {
@@ -5323,7 +5167,6 @@ const SignalSpec[] signal_spec = [
     description: "Position of the steering wheel on the left or right side of the vehicle."
     datatype: string
     uuid: 314d6eeeba195098b36ae7f476d27824
-    enum: ['front_left', 'front_right']
 }
 ,
 {
@@ -5349,14 +5192,6 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Chassis.Trailer.Connected"
-    type: "sensor"
-    description: "Signal indicating if trailer is connected or not."
-    datatype: boolean
-    uuid: 00894266101c534fbcc4a6fb6d3a497a
-}
-,
-{
     name: "Vehicle.OBD.PidsA"
     type: "sensor"
     description: "PID 00 - Bit array of the supported pids 01 to 20"
@@ -5365,11 +5200,11 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.OBD.Status.MIL"
+    name: "Vehicle.OBD.Status.IsMILOn"
     type: "sensor"
     description: "Malfunction Indicator Light (MIL) False = Off, True = On"
     datatype: boolean
-    uuid: 5cfe08ba057c56b18ea55978d33f2390
+    uuid: 8744bcb275205630932320b66185502c
 }
 ,
 {
@@ -5386,7 +5221,6 @@ const SignalSpec[] signal_spec = [
     description: "Type of the ignition for ICE - spark = spark plug ignition, compression = self-igniting (Diesel engines)"
     datatype: string
     uuid: 7ffd71caac8e5bd18f93366afdfe534d
-    enum: ['spark', 'compression']
 }
 ,
 {
@@ -5716,11 +5550,11 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.OBD.AuxInputStatus"
+    name: "Vehicle.OBD.IsPTOActive"
     type: "sensor"
     description: "PID 1E - Auxiliary input status (power take off)"
     datatype: boolean
-    uuid: 6e0b531c320e50d59fb46e98df17620a
+    uuid: ce291dc40bba5a969e57b17f11ae23a9
 }
 ,
 {
@@ -6091,11 +5925,11 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.OBD.DriveCycleStatus.MIL"
+    name: "Vehicle.OBD.DriveCycleStatus.IsMILOn"
     type: "sensor"
     description: "Malfunction Indicator Light (MIL) - False = Off, True = On"
     datatype: boolean
-    uuid: 7ce9859f21205e7f8876a10331fe6be7
+    uuid: e367394c9a075eef8fd66499e3d9cf14
 }
 ,
 {
@@ -6112,7 +5946,6 @@ const SignalSpec[] signal_spec = [
     description: "Type of the ignition for ICE - spark = spark plug ignition, compression = self-igniting (Diesel engines)"
     datatype: string
     uuid: 1aeb7b6d025f5a8693104824abaa1c49
-    enum: ['spark', 'compression']
 }
 ,
 {
@@ -6405,7 +6238,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Driver.Identifier.Subject"
     type: "sensor"
-    description: "Subject for the authentification of the occupant. E.g. UserID 7331677"
+    description: "Subject for the authentication of the occupant. E.g. UserID 7331677."
     datatype: string
     uuid: b41ec688af265f10824bc9635989ac55
 }
@@ -6413,7 +6246,7 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Driver.Identifier.Issuer"
     type: "sensor"
-    description: "Unique Issuer for the authentification of the occupant. E.g. https://accounts.funcorp.com"
+    description: "Unique Issuer for the authentication of the occupant. E.g. https://accounts.funcorp.com."
     datatype: string
     uuid: ee7988d26d7156d2a030ecc506ea97e7
 }
@@ -6421,18 +6254,18 @@ const SignalSpec[] signal_spec = [
 {
     name: "Vehicle.Driver.DistractionLevel"
     type: "sensor"
-    description: "Distraction level of the driver will be the level how much the driver is distracted, by multiple factors. E.g. Driving situation, acustical or optical signales inside the cockpit, phone calls"
+    description: "Distraction level of the driver will be the level how much the driver is distracted, by multiple factors. E.g. Driving situation, acustical or optical signales inside the cockpit, phone calls."
     datatype: float
     uuid: cb35ec0b924e58979e1469146d65c3fa
     unit: percent
 }
 ,
 {
-    name: "Vehicle.Driver.EyesOnRoad"
+    name: "Vehicle.Driver.IsEyesOnRoad"
     type: "sensor"
     description: "Has driver the eyes on road or not?"
     datatype: boolean
-    uuid: 52003ac6512e594a87a378e3edf4c5e6
+    uuid: 625e5009f1145aa0b797ee6c335ca2fe
 }
 ,
 {
@@ -6462,11 +6295,11 @@ const SignalSpec[] signal_spec = [
 }
 ,
 {
-    name: "Vehicle.Service.ServiceDue"
+    name: "Vehicle.Service.IsServiceDue"
     type: "sensor"
     description: "Indicates if vehicle needs service (of any kind). True = Service needed now or in the near future. False = No known need for service."
     datatype: boolean
-    uuid: 6783737332b25637a847183921e1a51d
+    uuid: 3e28f85ccccd5702b9adbe9a761ea1b4
 }
 ,
 {

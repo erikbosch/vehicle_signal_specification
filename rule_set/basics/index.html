@@ -12,21 +12,21 @@
     <title>Basic Rules :: Vehicle Signal Specification</title>
 
     
-    <link href="/vehicle_signal_specification/css/nucleus.css?1638864056" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1638864056" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/hybrid.css?1638864056" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/featherlight.min.css?1638864056" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1638864056" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/auto-complete.css?1638864056" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/atom-one-dark-reasonable.css?1638864056" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/theme.css?1638864056" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/hugo-theme.css?1638864056" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/nucleus.css?1643968491" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1643968491" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/hybrid.css?1643968491" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/featherlight.min.css?1643968491" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1643968491" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/auto-complete.css?1643968491" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/atom-one-dark-reasonable.css?1643968491" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme.css?1643968491" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/hugo-theme.css?1643968491" rel="stylesheet">
     
-    <link href="/vehicle_signal_specification/css/theme-green.css?1638864056" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme-green.css?1643968491" rel="stylesheet">
     
     
 
-    <script src="/vehicle_signal_specification/js/jquery-3.3.1.min.js?1638864056"></script>
+    <script src="/vehicle_signal_specification/js/jquery-3.3.1.min.js?1643968491"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -59,14 +59,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/vehicle_signal_specification/js/lunr.min.js?1638864056"></script>
-<script type="text/javascript" src="/vehicle_signal_specification/js/auto-complete.js?1638864056"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/lunr.min.js?1643968491"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/auto-complete.js?1643968491"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/covesa.github.io\/vehicle_signal_specification\/";
     
 </script>
-<script type="text/javascript" src="/vehicle_signal_specification/js/search.js?1638864056"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/search.js?1643968491"></script>
 
     
   </div>
@@ -343,9 +343,9 @@
  
   
     
-      <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/enum/" title="Enumerated Data Entries" class="dd-item ">
-        <a href="/vehicle_signal_specification/rule_set/data_entry/enum/">
-        Enumerated Data Entries
+      <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/allowed/" title="Value restrictions" class="dd-item ">
+        <a href="/vehicle_signal_specification/rule_set/data_entry/allowed/">
+        Value restrictions
         
         </a>
     </li>
@@ -636,8 +636,9 @@
   <ul>
     <li><a href="#specification-format">Specification format</a></li>
     <li><a href="#addressing-nodes">Addressing Nodes</a></li>
-    <li><a href="#parent-nodes">PARENT NODES</a></li>
-    <li><a href="#deprecation-since-version-21">DEPRECATION <code>since version 2.1</code></a>
+    <li><a href="#parent-nodes">Parent Nodes</a></li>
+    <li><a href="#naming-conventions">Naming Conventions</a></li>
+    <li><a href="#deprecation-since-version-21">Deprecation <code>since version 2.1</code></a>
       <ul>
         <li><a href="#example">Example</a></li>
       </ul>
@@ -701,7 +702,7 @@ Cabin.Seat.Row2.Pos3.IsBelted  # Right rear seat
 </code></pre><p>The exact use of <code>PosX</code> elements and how they correlate to actual
 positions in the car, is dependent on the actual vehicle using the
 spec.</p>
-<h2 id="parent-nodes">PARENT NODES</h2>
+<h2 id="parent-nodes">Parent Nodes</h2>
 <p>If a new leaf node is defined, all parent branches included in its name must
 be included as well, as shown below:</p>
 <pre><code>[Signal] Cabin.Door.Row1.Left.IsLocked
@@ -712,7 +713,13 @@ be included as well, as shown below:</p>
 </code></pre><p>The branches do not have to be defined in any specific order as long
 as each branch component is defined somewhere in the vspec file (or an
 included vspec file).</p>
-<h2 id="deprecation-since-version-21">DEPRECATION <code>since version 2.1</code></h2>
+<h2 id="naming-conventions">Naming Conventions</h2>
+<p>The recommended naming convention for node elements is to use camel case notation starting with a capital letter. It is recommended to use only
+<code>A-Z</code>, <code>a-z</code> and <code>0-9</code> in node names. For boolean signals it is recommended to start the name with <code>Is</code>.</p>
+<p>Examples:</p>
+<pre><code>SomeBranch.AnotherBranch.MySignalName
+Cabin.Door.Row1.Left.IsLocked
+</code></pre><h2 id="deprecation-since-version-21">Deprecation <code>since version 2.1</code></h2>
 <p>During the process of model development, nodes might be
 moved or deleted. Giving developers a chance to adopt to the
 changes, the original nodes are marked as deprecated with the following rules.</p>
@@ -1098,19 +1105,19 @@ if the meta-data of the moved node hasn&rsquo;t changed.</li>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/vehicle_signal_specification/js/clipboard.min.js?1638864056"></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1638864056"></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.jquery.min.js?1638864056"></script>
-    <script src="/vehicle_signal_specification/js/jquery.sticky.js?1638864056"></script>
-    <script src="/vehicle_signal_specification/js/featherlight.min.js?1638864056"></script>
-    <script src="/vehicle_signal_specification/js/highlight.pack.js?1638864056"></script>
+    <script src="/vehicle_signal_specification/js/clipboard.min.js?1643968491"></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1643968491"></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.jquery.min.js?1643968491"></script>
+    <script src="/vehicle_signal_specification/js/jquery.sticky.js?1643968491"></script>
+    <script src="/vehicle_signal_specification/js/featherlight.min.js?1643968491"></script>
+    <script src="/vehicle_signal_specification/js/highlight.pack.js?1643968491"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/vehicle_signal_specification/js/modernizr.custom-3.6.0.js?1638864056"></script>
-    <script src="/vehicle_signal_specification/js/learn.js?1638864056"></script>
-    <script src="/vehicle_signal_specification/js/hugo-learn.js?1638864056"></script>
+    <script src="/vehicle_signal_specification/js/modernizr.custom-3.6.0.js?1643968491"></script>
+    <script src="/vehicle_signal_specification/js/learn.js?1643968491"></script>
+    <script src="/vehicle_signal_specification/js/hugo-learn.js?1643968491"></script>
     
         
-            <script src="/vehicle_signal_specification/mermaid/mermaid.js?1638864056"></script>
+            <script src="/vehicle_signal_specification/mermaid/mermaid.js?1643968491"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

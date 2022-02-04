@@ -12,21 +12,21 @@
     <title>Data Entry :: Vehicle Signal Specification</title>
 
     
-    <link href="/vehicle_signal_specification/css/nucleus.css?1638864056" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1638864056" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/hybrid.css?1638864056" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/featherlight.min.css?1638864056" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1638864056" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/auto-complete.css?1638864056" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/atom-one-dark-reasonable.css?1638864056" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/theme.css?1638864056" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/hugo-theme.css?1638864056" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/nucleus.css?1643968491" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1643968491" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/hybrid.css?1643968491" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/featherlight.min.css?1643968491" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1643968491" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/auto-complete.css?1643968491" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/atom-one-dark-reasonable.css?1643968491" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme.css?1643968491" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/hugo-theme.css?1643968491" rel="stylesheet">
     
-    <link href="/vehicle_signal_specification/css/theme-green.css?1638864056" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme-green.css?1643968491" rel="stylesheet">
     
     
 
-    <script src="/vehicle_signal_specification/js/jquery-3.3.1.min.js?1638864056"></script>
+    <script src="/vehicle_signal_specification/js/jquery-3.3.1.min.js?1643968491"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -59,14 +59,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/vehicle_signal_specification/js/lunr.min.js?1638864056"></script>
-<script type="text/javascript" src="/vehicle_signal_specification/js/auto-complete.js?1638864056"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/lunr.min.js?1643968491"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/auto-complete.js?1643968491"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/covesa.github.io\/vehicle_signal_specification\/";
     
 </script>
-<script type="text/javascript" src="/vehicle_signal_specification/js/search.js?1638864056"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/search.js?1643968491"></script>
 
     
   </div>
@@ -343,9 +343,9 @@
  
   
     
-      <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/enum/" title="Enumerated Data Entries" class="dd-item ">
-        <a href="/vehicle_signal_specification/rule_set/data_entry/enum/">
-        Enumerated Data Entries
+      <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/allowed/" title="Value restrictions" class="dd-item ">
+        <a href="/vehicle_signal_specification/rule_set/data_entry/allowed/">
+        Value restrictions
         
         </a>
     </li>
@@ -646,18 +646,11 @@
 
 	<h1 id="data-entry">Data Entry</h1>
 <p>Leaf nodes of the tree contain metadata describing the data associated to the node.
-In order to help application developers, who are using the specification, it makes a distinction between signals - in the following as <a href="/vehicle_signal_specification/rule_set/data_entry/sensor_actuator"><code>sensor</code></a>, <a href="/vehicle_signal_specification/rule_set/data_entry/sensor_actuator"><code>actuator</code></a> and <a href="/vehicle_signal_specification/rule_set/data_entry/data_types/#data-streams"><code>stream</code></a> - and <a href="/vehicle_signal_specification/rule_set/data_entry/attributes"><code>attribute</code></a>.
+In order to help application developers, who are using the specification, it makes a distinction between signals - in the following as <a href="/vehicle_signal_specification/rule_set/data_entry/sensor_actuator"><code>sensor</code></a> and <a href="/vehicle_signal_specification/rule_set/data_entry/sensor_actuator"><code>actuator</code></a> - and <a href="/vehicle_signal_specification/rule_set/data_entry/attributes"><code>attribute</code></a>.
 The difference between a signal and an attribute is that the signal has
 a publisher (or producer) that continuously updates the signal value while an
-attribute has a set value, defined in the specification, that never changes.
-As summary, besides <a href="/vehicle_signal_specification/rule_set/branches"><code>branch</code></a> type can be:</p>
-<ul>
-<li><strong><code>attribute</code></strong>: attributes are not expected to change once they&rsquo;re set (e.g. vehicle identification number)</li>
-<li><strong><code>sensor</code></strong>: sensor values describe the current state of the vehicle and change over time, as the state of the vehicle changes (e.g. odometer).</li>
-<li><strong><code>actuator</code></strong>: actuating signals describe current state of the vehicle and change, when the state of the vehicle changes. Writing the value, leads to a change of the vehicle state itself (e.g. door lock).</li>
-<li><strong><code>stream</code></strong>, data stream like video.</li>
-</ul>
-<p>Examples you&rsquo;ll find in the <a href="/vehicle_signal_specification/rule_set/data_entry/sensor_actuator">sensor and actuator chapter</a>.</p>
+attribute has a set value that should typically not change more than once per ignition cycle.</p>
+<p>Examples and more information you&rsquo;ll find in the <a href="/vehicle_signal_specification/rule_set/data_entry/sensor_actuator">Sensors &amp; Actuators chapter</a> and <a href="/vehicle_signal_specification/rule_set/data_entry/attributes">Attributes chapter</a>.</p>
 
 
 
@@ -1034,19 +1027,19 @@ As summary, besides <a href="/vehicle_signal_specification/rule_set/branches"><c
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/vehicle_signal_specification/js/clipboard.min.js?1638864056"></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1638864056"></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.jquery.min.js?1638864056"></script>
-    <script src="/vehicle_signal_specification/js/jquery.sticky.js?1638864056"></script>
-    <script src="/vehicle_signal_specification/js/featherlight.min.js?1638864056"></script>
-    <script src="/vehicle_signal_specification/js/highlight.pack.js?1638864056"></script>
+    <script src="/vehicle_signal_specification/js/clipboard.min.js?1643968491"></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1643968491"></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.jquery.min.js?1643968491"></script>
+    <script src="/vehicle_signal_specification/js/jquery.sticky.js?1643968491"></script>
+    <script src="/vehicle_signal_specification/js/featherlight.min.js?1643968491"></script>
+    <script src="/vehicle_signal_specification/js/highlight.pack.js?1643968491"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/vehicle_signal_specification/js/modernizr.custom-3.6.0.js?1638864056"></script>
-    <script src="/vehicle_signal_specification/js/learn.js?1638864056"></script>
-    <script src="/vehicle_signal_specification/js/hugo-learn.js?1638864056"></script>
+    <script src="/vehicle_signal_specification/js/modernizr.custom-3.6.0.js?1643968491"></script>
+    <script src="/vehicle_signal_specification/js/learn.js?1643968491"></script>
+    <script src="/vehicle_signal_specification/js/hugo-learn.js?1643968491"></script>
     
         
-            <script src="/vehicle_signal_specification/mermaid/mermaid.js?1638864056"></script>
+            <script src="/vehicle_signal_specification/mermaid/mermaid.js?1643968491"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

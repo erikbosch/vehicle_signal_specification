@@ -9,24 +9,24 @@
 
     <link rel="shortcut icon" href="/vehicle_signal_specification/images/fav.png" type="image/x-icon" />
 
-    <title>Enumerated Data Entries :: Vehicle Signal Specification</title>
+    <title>Value restrictions :: Vehicle Signal Specification</title>
 
     
-    <link href="/vehicle_signal_specification/css/nucleus.css?1638864056" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1638864056" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/hybrid.css?1638864056" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/featherlight.min.css?1638864056" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1638864056" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/auto-complete.css?1638864056" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/atom-one-dark-reasonable.css?1638864056" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/theme.css?1638864056" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/hugo-theme.css?1638864056" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/nucleus.css?1643968491" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1643968491" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/hybrid.css?1643968491" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/featherlight.min.css?1643968491" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1643968491" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/auto-complete.css?1643968491" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/atom-one-dark-reasonable.css?1643968491" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme.css?1643968491" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/hugo-theme.css?1643968491" rel="stylesheet">
     
-    <link href="/vehicle_signal_specification/css/theme-green.css?1638864056" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme-green.css?1643968491" rel="stylesheet">
     
     
 
-    <script src="/vehicle_signal_specification/js/jquery-3.3.1.min.js?1638864056"></script>
+    <script src="/vehicle_signal_specification/js/jquery-3.3.1.min.js?1643968491"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -40,7 +40,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/vehicle_signal_specification/rule_set/data_entry/enum/">
+  <body class="" data-url="/vehicle_signal_specification/rule_set/data_entry/allowed/">
     <nav id="sidebar" class="">
 
 
@@ -59,14 +59,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/vehicle_signal_specification/js/lunr.min.js?1638864056"></script>
-<script type="text/javascript" src="/vehicle_signal_specification/js/auto-complete.js?1638864056"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/lunr.min.js?1643968491"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/auto-complete.js?1643968491"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/covesa.github.io\/vehicle_signal_specification\/";
     
 </script>
-<script type="text/javascript" src="/vehicle_signal_specification/js/search.js?1638864056"></script>
+<script type="text/javascript" src="/vehicle_signal_specification/js/search.js?1643968491"></script>
 
     
   </div>
@@ -343,9 +343,9 @@
  
   
     
-      <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/enum/" title="Enumerated Data Entries" class="dd-item active">
-        <a href="/vehicle_signal_specification/rule_set/data_entry/enum/">
-        Enumerated Data Entries
+      <li data-nav-id="/vehicle_signal_specification/rule_set/data_entry/allowed/" title="Value restrictions" class="dd-item active">
+        <a href="/vehicle_signal_specification/rule_set/data_entry/allowed/">
+        Value restrictions
         
         </a>
     </li>
@@ -588,7 +588,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/covesa/vehicle_signal_specification/edit/master/docs-gen/content/rule_set/data_entry/enum.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/covesa/vehicle_signal_specification/edit/master/docs-gen/content/rule_set/data_entry/allowed.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -623,7 +623,7 @@
             
           
           
-            <a href='/vehicle_signal_specification/'>Vehicle Signal Specification</a> > <a href='/vehicle_signal_specification/rule_set/'>Rule Set</a> > <a href='/vehicle_signal_specification/rule_set/data_entry/'>Data Entry</a> > Enumerated Data Entries
+            <a href='/vehicle_signal_specification/'>Vehicle Signal Specification</a> > <a href='/vehicle_signal_specification/rule_set/'>Rule Set</a> > <a href='/vehicle_signal_specification/rule_set/data_entry/'>Data Entry</a> > Value restrictions
           
         
           
@@ -654,31 +654,37 @@
           
             <h1>
               
-              Enumerated Data Entries
+              Value restrictions
             </h1>
           
 
         
 
 
-<p>A data entry can optionally be enumerated, allowing it to be assigned a
-value from a specified set of values. An examples of a signal using enum is
-given below:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML">  
-<span style="color:#f92672">Charging.ChargePlugType</span>:
+<p>Optionally it is possible to define an array of <code>allowed</code> values, which will restrict the usage of the data entry in the implementation of the specification.
+It is expected, that any value not mentioned in the array is considered an error and the implementation of the specification shall react accordingly.
+The datatype of the array elements is the <code>datatype</code> defined for the data entry itself.
+For <code>attributes</code> it is possible to optionally set a default value.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML"><span style="color:#f92672">SteeringWheel.Position</span>:
   <span style="color:#f92672">datatype</span>: <span style="color:#ae81ff">string</span>
   <span style="color:#f92672">type</span>: <span style="color:#ae81ff">attribute</span>
-  <span style="color:#f92672">default</span>: <span style="color:#ae81ff">ccs</span>
-  <span style="color:#f92672">enum</span>: [ <span style="color:#e6db74">&#39;type 1&#39;</span>, <span style="color:#e6db74">&#39;type 2&#39;</span>, <span style="color:#e6db74">&#39;ccs&#39;</span>, <span style="color:#e6db74">&#39;chademo&#39;</span> ]
-  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Type of charge plug available on the vehicle (CSS includes Type2).</span>
-</code></pre></div><p>An enumerated signal entry has no <code>min</code>, <code>max</code>, or <code>unit</code>
-element.</p>
-<p>The <code>enum</code> element is an array of values, all of which must be specified
-in the enum list.  This signal can only be assigned one of the values
-specified in the enum list.</p>
-<p>VSS supports enums for both integer datatypes as well as strings.
-The <code>datatype</code> specifier gives the type of the individual elements of the enum
+  <span style="color:#f92672">default</span>: <span style="color:#ae81ff">FRONT_LEFT</span>
+  <span style="color:#f92672">allowed</span>: [<span style="color:#ae81ff">FRONT_LEFT, FRONT_RIGHT]</span>
+  <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Position of the steering wheel on the left or right side of the vehicle.</span>
+
+</code></pre></div><p>If <code>allowed</code> is set, <code>min</code> or <code>max</code> cannot be defined.</p>
+<p>The <code>allowed</code> element is an array of values, all of which must be specified
+in a list.  Only values can be assigned to the data entry, which are
+specified in this list.</p>
+<p>The <code>datatype</code> specifier gives the type of the individual elements of the <code>allowed</code>
 list.</p>
+<p>For string values used for <code>default</code> and <code>allowed</code> statements it is recommended to start with <code>A-Z</code>
+and then use only <code>A-Z</code>, <code>0-9</code> and underscore (<code>_</code>).
+Single(<code>'</code>) and double (<code>&quot;</code>) quotes shall be used only if necessary, and are not needed if the naming recommendation is followed.
+It is recommended not to specify a dedicated value corresponding to &ldquo;unknown&rdquo; or &ldquo;undefined&rdquo; unless there is a relevant use-case for that particular signal.
+The background is that a signal with an array of allowed values shall be handled just as any other signal.
+If e.g. the value of current speed or vehicle weight is unknown, then the vehicle shall not publish the corresponding signal.
+Similarly, for the example above, if the steering wheel position is unknown then <code>SteeringWheel.Position</code>shall not be published.</p>
 
 
 <footer class="footline">
@@ -1054,19 +1060,19 @@ list.</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/vehicle_signal_specification/js/clipboard.min.js?1638864056"></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1638864056"></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.jquery.min.js?1638864056"></script>
-    <script src="/vehicle_signal_specification/js/jquery.sticky.js?1638864056"></script>
-    <script src="/vehicle_signal_specification/js/featherlight.min.js?1638864056"></script>
-    <script src="/vehicle_signal_specification/js/highlight.pack.js?1638864056"></script>
+    <script src="/vehicle_signal_specification/js/clipboard.min.js?1643968491"></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1643968491"></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.jquery.min.js?1643968491"></script>
+    <script src="/vehicle_signal_specification/js/jquery.sticky.js?1643968491"></script>
+    <script src="/vehicle_signal_specification/js/featherlight.min.js?1643968491"></script>
+    <script src="/vehicle_signal_specification/js/highlight.pack.js?1643968491"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/vehicle_signal_specification/js/modernizr.custom-3.6.0.js?1638864056"></script>
-    <script src="/vehicle_signal_specification/js/learn.js?1638864056"></script>
-    <script src="/vehicle_signal_specification/js/hugo-learn.js?1638864056"></script>
+    <script src="/vehicle_signal_specification/js/modernizr.custom-3.6.0.js?1643968491"></script>
+    <script src="/vehicle_signal_specification/js/learn.js?1643968491"></script>
+    <script src="/vehicle_signal_specification/js/hugo-learn.js?1643968491"></script>
     
         
-            <script src="/vehicle_signal_specification/mermaid/mermaid.js?1638864056"></script>
+            <script src="/vehicle_signal_specification/mermaid/mermaid.js?1643968491"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
