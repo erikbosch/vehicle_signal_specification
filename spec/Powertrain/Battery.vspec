@@ -177,6 +177,20 @@ Charging:
   type: branch
   description: Properties related to battery charging.
 
+# If the vehicle knows the EVSE Id it is connected to it can possibly use this to fetch additional information related to the charging station
+Charging.EVSE:
+  datatype: string
+  type: sensor
+  description: EVSE Id without separators of the currently connected charger.
+               Empty string if currently not connected to a charger. 
+  comment: EVSE id consist of country code, Charge Point Operator (CPO),
+           Id-type, charging station and charge point id.
+
+Charging.IsBidirectionalChargingSupported:
+  datatype: boolean
+  type: attribute
+  description: Is bidirectional charging according to ISO 15118-20 supported?
+  
 Charging.ChargeLimit:
   datatype: uint8
   type: actuator

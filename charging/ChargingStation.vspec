@@ -1,0 +1,111 @@
+#
+# (C) 2022 Robert Bosch GmbH
+# (C) 2022 Ford
+#
+# All files and artifacts in this repository are licensed under the
+# provisions of the license provided by the LICENSE file in this repository.
+#
+
+#
+# This file contains data related to charging stations
+#
+ChargingStation:
+  type: branch
+  description: Charging Station  data.
+
+# The EVSE Id can be used as a unique identifier for a charge point
+ChargingStation.EVSE:
+  datatype: string
+  type: attribute
+  description: EVSE Id without separators of the currently connected charger.
+               Empty string if currently not connected to a charger. 
+  comment: EVSE id consist of country code, Charge Point Operator (CPO),
+           Id-type, charging station and charge point id.
+
+
+
+# Location can either be provided by the charge station provider, or calculated/estimated
+# at (OEM) backend based on what vehicles report by Vehicle.CurrentLocation.Longitude and
+# Vehicle.CurrentLocation.Heading during charging. 
+# If the vehicle knows Vehicle.Powertrain.TractionBattery.Charging.EVSE
+# (transferred as part of protocol between charger and vehicle?)
+# the backend can link reported position to a specific charger.
+# If vehicle does not know EVSE or charging station provider does not provide location then
+# the charging station will be "anonymous", but OEM could aggregate data based on reported position
+#
+
+ChargingStation.CurrentLocation:
+  type: branch
+  description: Location of charging station.
+  
+ChargingStation.CurrentLocation.Latitude:
+  datatype: double
+  type: attribute
+  min: -90
+  max: 90
+  unit: degrees
+  description: Latitude of charging station in WGS 84 geodetic coordinates.
+
+ChargingStation.CurrentLocation.Longitude:
+  datatype: double
+  type: attribute
+  min: -180
+  max: 180
+  unit: degrees
+  description: Longitude of charging station in WGS 84 geodetic coordinates.
+
+# OEM could aggregate data based on Vehicle.Powertrain.TractionBattery.Charging.ChargeCurrent data reported by the vehicle.
+# for example , taking the highest charging current reported
+# Alternatively, this could be nominal maximum charging current reported by CPO
+# If based on data reported by vehicles the backend will need to decide for how long to keep values
+# Shall for example only values from last month be considered? 
+
+# Question is - do we need the separation in DC/Phase1/Phase2/Phase3 as in VSS?
+
+ChargingStation.MaximumChargingCurrent:
+  type: branch
+  description: Maximum charging current that can be provided by the system, as measured at the charging inlet at the vehicle.
+  
+ChargingStation.MaximumChargingCurrent.DC:
+  datatype: float
+  type: sensor
+  unit: A
+  description: Maximum DC charging current that can be provided by the system, as measured at the charging inlet at the vehicle.
+
+ChargingStation.MaximumChargingCurrent.Phase1:
+  datatype: float
+  type: sensor
+  unit: A
+  description: Maximum AC charging current (rms) for Phase 1 that can be provided by the system, as measured at the charging inlet at the vehicle..
+  
+ChargingStation.MaximumChargingCurrent.Phase2:
+  datatype: float
+  type: sensor
+  unit: A
+  description: Maximum AC charging current (rms) for Phase 2 that can be provided by the system, as measured at the charging inlet at the vehicle.
+  
+ChargingStation.MaximumChargingCurrent.Phase3:
+  datatype: float
+  type: sensor
+  unit: A
+  description: Maximum AC charging current (rms) for Phase 3 that can be provided by the system, as measured at the charging inlet at the vehicle.
+
+# Backend can aggregate/calculate this height based on Vehicle.Height reported by vehicles charging at this charge station
+
+ChargingStation.MaxHeight:
+  datatype: uint16
+  type: attribute
+  unit: mm
+  description: Supported vehicle maximum height.
+
+# This indicates if the charging station supports BiDi.
+# Needs to be provided by charging station provider, or possibly be deducted by looking at (a combination for)
+# Vehicle.Powertrain.TractionBattery.Charging.Mode (if reporting GRID)
+# Vehicle.Powertrain.TractionBattery.Charging.IsBidirectionalChargingSupported
+# Vehicle.Powertrain.TractionBattery.Charging.IsDischarging (if any vehicle report true while charging)
+
+ChargingStation.IsBidirectionalChargingSupported:
+  datatype: boolean
+  type: attribute
+  description: Is bidirectional charging according to ISO 15118-20 supported?
+  
