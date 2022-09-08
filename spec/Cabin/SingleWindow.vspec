@@ -1,4 +1,5 @@
 #
+# (C) 2022 Robert Bosch GmbH
 # (C) 2018 Volvo Cars
 # (C) 2016 Jaguar Land Rover
 #
@@ -7,26 +8,153 @@
 #
 
 #
-# Definition of a Window
+# Definition of signals related to window movement
 #
+############# Introduction ###################
+#
+# Power operated window lifter systems often have features like one-touch (automatic) close and one-touch (automatic) open.
+# Depending on design and legislation they mave have anti-pinch functionality (automatic reversal system) to prevent accidents.
+# A window lifter system often needs a learning period after being mounted to learn minimum/maximum position of the window.
+# The learning period is referred to a denormalization mode. In this mode some functionality of the window lifter system may
+# be disabled , like automatic open/close. The window lifter system typically leaves the denormalization mode after the driver
+# has performed a vehicle-specific procedure. The window lifter system may revert to denormalization mode if e.g.
+# the low voltage supply battery has been disconnected.
+#
+#
+############# Design Concept ###################
+#
+# The Mode signal gives information of the current state of the window lifter system.
+# Normally it is the window lifter system itself that selects which mode to be in, but it can also be forced into
+# a specic mode, for example during manufacturing or service.
+#
+############# Examples ###################
+#
+# This section describes a possible use-case for the signals.
+# It shall be considered as an example only and is given only for information.
+#
+# Denormalization:
+#
+# - The low voltage supply battery has been replaced in a battery, the window lifter system automatically set Mode=DENORM
+# - The driver use CLOSE/OPEN in the Switch signal to perform the OEM-specific reset procedure
+# - While the reset procedure is performed Mode remains in DENORM state.
+# - When the reset procedure has finalized the window lifter system change Mode to IDLE
+#
+# Using OPEN
+#
+# - As start state the window lifer system is in Mode==IDLE
+# - The driver uses the switch to open the window, e.g. Switch=OPEN
+# - The window lifter system changes mode to Mode=COMMAND and starts moving the window
+# - Position is regularly updated by window lifter system to reflect current position
+# - When Mode==COMMAND the window system may ignore any user requests to change Position
+# - When the driver releases the switch the window stops and the window lifter system sets Mode=IDLE
+#
+# Using ONE_SHOT_CLOSE
+#
+# - As start state the window lifer system is in Mode==IDLE
+# - The driver uses the switch to close the window completely, e.g. Switch=ONE_SHOT_CLOSE
+# - The window lifter system changes mode to Mode=COMMAND and starts moving the window
+# - The driver releases the Switch but Mode remain in COMMAND until operation has finished
+# - Position is regularly updated by window lifter system to reflect current position
+# - When the window is fully closed, or when the window move stop by other reasons (e.g. antipinch functionality)
+#   the window lifter system will change mode to IDLE.
+#
+# Using Position, but interrupted by CLOSE
+#
+# - As start state the window lifer system is in Mode==IDLE
+# - The driver uses his Vehicle App to set all windows in the vehicle to the favorite position (e.g. all 30% open)
+# - The vehicle App use the Position signal to request the window to move to 30% open
+#   (VSS signals for actuators can be be used both to set wanted value and to report actual value)
+# - The window lifter system changes mode to Mode=GOTO_POS and starts moving the window
+# - Position is regularly updated by window lifter system to reflect current position
+# - Someone in the vehicle overrides the movement by using Switch=CLOSE
+# - The window lifter system detects the Switch and changes mode to COMMAND
+# - When the switch is released the window stops and the window lifter system sets Mode=IDLE
+#
+# Error detected in anti-pitch system
+#
+# - As start state the window lifer system is in Mode==IDLE
+# - The window lifter system detects and error in the anti-pitch system e.g. that a sensor does not report current force
+# - The window lifter system reports the error by setting IsAntiPitchError=True and Mode=DENORM
+#   to indicate the functionality is reduced
+#
+Mode:
+  datatype: string
+  type: actuator
+  allowed: ['IDLE','PLANT', 'COMMAND', 'GOTO_POS', 'DENORM']
+  description: Current operating mode of window lifter.
+               IDLE means that the window is functional and wait for a request to move.
+               PLANT means that normal behavior is disabled. Exact behavior is vehicle specific.
+               COMMAND means that window is moving based on Switch signal.
+               GOTO_POS means that window is currently moving towards Position.
+               DENORM means that window system is denormalized, i.e. the window does not know its current position.
+               Vehicle specific denormalization process will trigger transition to IDLE state.
+               Functionality may be limited or behave differently while in DENORM state.
+  comment: Transition between IDLE/COMMAND/GOTO_POS is typically managed by the window system,
+           e.g. no need for a client to change mode to GOTO_POS before requesting a new position by the signal Position.
+
 IsOpen:
   datatype: boolean
   type: sensor
   description: Is window open or closed?
 
+# TODO: VSS has traditionally used the same signal for wanted and actual value,
+#       assuming that the API used provides mechanisms to separate between wanted and actual value.
+#       For now keeping relative signal only.
 Position:
   datatype: uint8
-  type: sensor
+  type: actuator
   min: 0
   max: 100
   unit: percent
   description: Window position. 0 = Fully closed 100 = Fully opened.
+  comment: When requesting a new position Mode shall normally change automatically to GOTO_POS.
+           When movement has finished Mode shall normally change automatically to IDLE.
+
+
+# Include the window controlling switch and attach it to the window branch
+# It is assumed that when anything else than INACTIVE is selected Mode shall change to COMMAND.
+# For OPEN/CLOSE, Mode shall return to IDLE as soon as Switch == INACTIVE.
+# For ONE_SHOT_OPEN/ONE_SHOT_CLOSE, Mode shall return to IDLE when the requested operation is completed.
+#include SingleSliderSwitch.vspec
+
+#TODO: mm/s currently not supported, using float and m/s instead
+# Would float and m/s be OK, or should we propose introduction of mm/s
+Speed:
+  datatype: float
+  type: actuator
+  unit: m/s
+  description: Absolute window speed when moving. 0 mm/s = no movement.
+               The value does not indicate direction of movement.
+  comment: This signal has no significance if Mode is IDLE.
 
 IsChildLockEngaged:
   datatype: boolean
-  type: sensor
+  type: actuator
   description: Is window child lock engaged. True = Engaged. False = Disengaged.
 
-# Include the window controlling switch and attach it to the
-# window branch
-#include SingleSliderSwitch.vspec
+#TODO: After studying the standard it seems that S4 and S5 are static attributes.
+# My intepretation is that an S4 vehicle does not have auto-reverse functionality.
+# Instead it is assumed that the driver manually can perform the auto-reverse.
+# Do we need an attribute like below?
+#
+# And do we need a signal to actively turn on/off anti-pitch mode.
+# I assume it could be needed for e.g. plant mode, but if so it can be indirectly controlled
+# by Mode, right?
+#
+PowerWindowClassification:
+  datatype: string
+  type: attribute
+  allowed: ['NONE','S4', 'S5', 'OTHER']
+  description: Indicates classification window system as compared to US standard 49 CFR 571.118.
+               NONE means that vehicle does not have power operated windows.
+               S4 means that power operated windows only can be closed in the circumstances indicated in section S4.
+               S5 means that power operated windows also can be closed other the circumstances, but the requirements in section S5 are fulfilled.
+               OTHER means that vehicle has power operated windows, but neither S4 nor S5 conditions are fulfilled.
+
+IsAntiPitchError:
+  datatype: boolean
+  type: sensor
+  description: Indicates degradation or other error related to anti-pitch functionality.
+               If True, some features may be disabled.
+  comment: Denormalization state is in itself not an error, and is instead indicated by setting Mode=DENORM.
+  

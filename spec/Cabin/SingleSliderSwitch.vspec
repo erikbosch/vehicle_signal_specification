@@ -7,11 +7,15 @@
 #
 
 #
-# Generic switch to control sliding actions such as sunroof, window,
-# blind, etc.
+# Generic switch to control sliding actions such as sunroof, window, blind, etc.
+#
+# TODO: For now not changing name of the "automatic" variants as it could cause regressions.
+# Needs to be discussed if we consider changing name important or if a comment explaining mapping would be sufficient
 #
 Switch:
   datatype: string
   type: actuator
   allowed: ['INACTIVE', 'CLOSE', 'OPEN', 'ONE_SHOT_CLOSE', 'ONE_SHOT_OPEN']
   description: Switch controlling sliding action such as window, sunroof, or blind.
+  comment: ONE_SHOT_CLOSE and ONE_SHOT_OPEN means that the controlled item will continue movement even if the switch is released.
+           Other terms used to describe ONE_SHOT_CLOSE include one-touch close and automatic close.
