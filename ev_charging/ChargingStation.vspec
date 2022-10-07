@@ -1,0 +1,26 @@
+#
+# All files and artifacts in this repository are licensed under the
+# provisions of the license provided by the LICENSE file in this repository.
+#
+#
+# NOTE: This file is not intended to be merged to official VSS
+#
+
+
+TimeZone:
+  type: attribute
+  datatype: float
+  min: -12
+  max: 12
+  evc: time_zone
+  description: Current offset at the location of the charging station.
+  comment: There is no standard for designations like CET, PST, so they might be ambiguous.
+           Value might vary over the year due to DST policy.
+
+OpeningTimes:
+  type: attribute
+  datatype: string
+  evc: opening_times
+  description: Free text field in English describing opening times
+  comment: Is there any standard for a parsable way to express opening times?
+           Like [Mo-Su:0700-2300,Dec25:00-00] to state open all day 7-11 except christmas day?

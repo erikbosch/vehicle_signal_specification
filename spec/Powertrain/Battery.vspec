@@ -213,6 +213,42 @@ Charging.MaximumChargingCurrent.Phase3:
   unit: A
   description: Maximum AC charging current (rms) at inlet for Phase 3 that can be accepted by the system.
 
+
+Charging.MinimumChargingCurrent:
+  type: branch
+  evc: evMinCurrent
+  description: Maximum charging current that can be accepted by the system, as measured at the charging inlet.
+  evc_comment: Do we for the EV charging project need to have separation for phases?
+               What if a charging station can provide 25A on phase 1, but only 2A on other phases?
+
+Charging.MinimumChargingCurrent.DC:
+  datatype: float
+  type: sensor
+  evc: evMinCurrent
+  unit: A
+  description: Minimum DC charging current at inlet that can be accepted by the system.
+
+Charging.MinimumChargingCurrent.Phase1:
+  datatype: float
+  type: sensor
+  evc: evMinCurrent
+  unit: A
+  description: Minimum AC charging current (rms) at inlet for Phase 1 that can be accepted by the system.
+  
+Charging.MinimumChargingCurrent.Phase2:
+  datatype: float
+  type: sensor
+  evc: evMinCurrent
+  unit: A
+  description: Minimum AC charging current (rms) at inlet for Phase 2 that can be accepted by the system.
+  
+Charging.MinimumChargingCurrent.Phase3:
+  datatype: float
+  type: sensor
+  evc: evMinCurrent
+  unit: A
+  description: Minimum AC charging current (rms) at inlet for Phase 3 that can be accepted by the system.
+
 Charging.ChargePortFlap:
   datatype: string
   type: actuator

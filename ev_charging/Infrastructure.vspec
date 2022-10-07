@@ -1,0 +1,17 @@
+#
+# All files and artifacts in this repository are licensed under the
+# provisions of the license provided by the LICENSE file in this repository.
+#
+# NOTE: This file is not intended to be merged to official VSS
+#
+#
+Infrastructure:
+  type: branch
+  description: Parent branch for all infrastructure.
+
+
+Infrastructure.ChargingStation:
+  type: branch
+  description: Branch for all data related to Charging Stations.
+  
+#include ChargingStation.vspec Infrastructure.ChargingStation
