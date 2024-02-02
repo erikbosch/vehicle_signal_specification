@@ -52,3 +52,19 @@ HeartRate:
   type: sensor
   unit: bpm
   description: Heart rate of the driver.
+
+HeadPosition:
+  type: branch
+  description: The current position of the driver head on vehicle axis according to ISO 8855.
+#include HeadPosition.vspec HeadPosition
+
+MidEyePosition:
+  type: branch
+  description: Mid eye position on vehicle axis according to ISO 8855.
+               Mid eye position refers to the center of a line drawn between the center of the drivers eyes.
+#include MidEyePosition.vspec MidEyePosition
+
+MidEyeGaze:
+  type: branch
+  description: Direction from mid eye position to object driver is looking at
+#include MidEyeGaze.vspec MidEyeGaze

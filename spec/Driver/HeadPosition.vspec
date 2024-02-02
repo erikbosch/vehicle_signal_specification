@@ -1,0 +1,75 @@
+# Copyright (c) 2024 Contributors to COVESA
+#
+# This program and the accompanying materials are made available under the
+# terms of the Mozilla Public License 2.0 which is available at
+# https://www.mozilla.org/en-US/MPL/2.0/
+#
+# SPDX-License-Identifier: MPL-2.0
+
+# This file intends to provide data related to head position.
+# It uses axis definition from ISO 8855, where origin is at center of (first) rear axle.
+# Definition of "head center" is implementation dependent.
+#
+# With the definitions given below example values for a regular LHD passenger vehicle
+# could be something like
+#           X = 2000 mm (head position 2 meters in front of rear axle)
+#           Y = 600 mm (head position 60 cm left of vehicle center)
+#           Z = 1000 mm (head position 100 cm above center of rear axis)
+#
+
+X:
+  datatype: int16
+  type: sensor
+  unit: mm
+  description: Longitudinal position of head center on vehicle X-axis.
+               Axis definitions according to ISO 8855. Origin at center of (first) rear axle.
+               Positive values = forward of rear axle. Negative values = backward of rear axle.
+
+Y:
+  datatype: int16
+  type: sensor
+  unit: mm
+  description: Lateral position of head center on vehicle Y-axis.
+               Axis definitions according to ISO 8855. Origin at center of (first) rear axle.
+               Positive values = left of origin. Negative values = right of origin.
+
+Z:
+  datatype: int16
+  type: sensor
+  unit: mm
+  description: Height position of head center on vehicle Z-axis.
+               Axis definitions according to ISO 8855. Origin at center of (first) rear axle.
+               Positive values = above center of rear axle. Negative values = below center of rear axle.
+
+Roll:
+  datatype: float
+  type: sensor
+  unit: degrees
+  min: -180
+  max: 180
+  description: Head roll (right-hand rule) on vehicle X-axis.
+               Axis definitions according to ISO 8855.
+               0 = Head in normal position.
+               Positive values = head leaned to the right. Negative values = head leaned to the left.
+
+Pitch:
+  datatype: float
+  type: sensor
+  unit: degrees
+  min: -180
+  max: 180
+  description: Head pitch (right-hand rule) on vehicle Y-axis.
+               Axis definitions according to ISO 8855.
+               0 = Head in normal position.
+               Positive values = head leaning down. Negative values = head leaning up.
+
+Yaw:
+  datatype: float
+  type: sensor
+  unit: degrees
+  min: -180
+  max: 180
+  description: Head yaw (right-hand rule) on vehicle Z-axis.
+               Axis definitions according to ISO 8855.
+               0 = Head in normal position.
+               Positive values = head turned left. Negative values = head turned right.
