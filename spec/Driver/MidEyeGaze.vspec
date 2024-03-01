@@ -7,10 +7,12 @@
 # SPDX-License-Identifier: MPL-2.0
 
 # This file intends to provide data related to mid eye gaze.
-# Mid eye position refers to the center of a line drawn between the center of the drivers eyes.
+# Mid eye position refers to the center of a line drawn between the drivers eyes.
+# Absence of an eye does not affect mid eye position, as it shall be calculated as if both eyes were present.
+#
 # Gaze refers to the direction to the object the driver is looking at measured from
 # mid eye position.
-# Axis definitions according to ISO 8855.
+# Axis definitions correspond to the vehicle rear-axle coordinate system as defined by ISO 23150:2023 section 3.7.12
 #
 # Some examples (at long distance from vehicle)
 #            Object in front of vehicle (at far distance) - Azimuth==0, Elevation == 0
@@ -26,8 +28,7 @@ Azimuth:
   unit: degrees
   min: -180
   max: 180
-  description: Mid eye azimuth gaze (right-hand rule) on vehicle Z-axis.
-               Axis definitions according to ISO 8855.
+  description: Mid eye azimuth gaze (right-hand rule) on vehicle sprung mass Z-axis as defined by ISO 23150:2023
                0 = Driver looking forward.
                Positive values = Driver looking at something on the left side of driver.
                Negative values = Driver looking at something on the right side of driver.
@@ -39,8 +40,8 @@ Elevation:
   min: -90
   max: 90
   description: Elevation to observed object measured
-               as angle between vehicle X/Y plane at driver mid eye position and object.
-               Axis definitions according to ISO 8855.
+               as angle between vehicle sprung mass XY-plane as defined by ISO 23150:2023
+               at driver mid eye position and object.
                0 = Driver looking at something at same height as mid eye position.
                Positive values = Driver looking at something above mid eye position.
                Negative values = Driver looking at something below mid eye position.
