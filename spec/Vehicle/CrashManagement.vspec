@@ -1,0 +1,27 @@
+# Copyright (c) 2024 Contributors to COVESA
+#
+# This program and the accompanying materials are made available under the
+# terms of the Mozilla Public License 2.0 which is available at
+# https://www.mozilla.org/en-US/MPL/2.0/
+#
+# SPDX-License-Identifier: MPL-2.0
+
+
+CrashManagement:
+  type: branch
+  description: Data related to crash prevention and reporting.
+
+CrashManagement.IsRollover:
+  datatype: boolean
+  type: sensor
+  description: True if vehicle has detected a roll-over event.
+  comment: After a rollover event signal shall remain True until reset
+           according to OEM procedure.
+
+CrashManagement.IsPedestrianCrashExpected:
+  datatype: boolean
+  type: sensor
+  description: Indicates if vehicle expects a crash with a pedestrian in the near future.
+  comment: A vehicle can use this information to deploy countermeasures,
+           like pushing the hood upwards to limit consequences.
+           The signal may be set to False after the crash or if the crash did not happen.
