@@ -35,20 +35,20 @@ Fig 6. Include directives
 The include directive has the following format:">
     <meta itemprop="datePublished" content="2019-08-04T12:59:44+02:00">
     <meta itemprop="dateModified" content="2019-08-04T12:59:44+02:00">
-    <meta itemprop="wordCount" content="316">
+    <meta itemprop="wordCount" content="361">
     <title>Includes :: Vehicle Signal Specification</title><link rel="shortcut icon" href="/vehicle_signal_specification/images/fav.png" type="image/x-icon" />
 
-    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1722956974" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1722956974" rel="stylesheet"></noscript>
-    <link href="/vehicle_signal_specification/css/nucleus.css?1722956974" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/auto-complete.css?1722956974" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/vehicle_signal_specification/css/auto-complete.css?1722956974" rel="stylesheet"></noscript>
-    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1722956974" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/fonts.css?1722956974" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/vehicle_signal_specification/css/fonts.css?1722956974" rel="stylesheet"></noscript>
-    <link href="/vehicle_signal_specification/css/theme.css?1722956974" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/theme-blue.css?1722956974" rel="stylesheet" id="R-variant-style">
-    <link href="/vehicle_signal_specification/css/chroma-learn.css?1722956974" rel="stylesheet" id="R-variant-chroma-style">
-    <link href="/vehicle_signal_specification/css/variant.css?1722956974" rel="stylesheet">
-    <link href="/vehicle_signal_specification/css/print.css?1722956974" rel="stylesheet" media="print">
-    <script src="/vehicle_signal_specification/js/variant.js?1722956974"></script>
+    <link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1726489382" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/vehicle_signal_specification/css/fontawesome-all.min.css?1726489382" rel="stylesheet"></noscript>
+    <link href="/vehicle_signal_specification/css/nucleus.css?1726489382" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/auto-complete.css?1726489382" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/vehicle_signal_specification/css/auto-complete.css?1726489382" rel="stylesheet"></noscript>
+    <link href="/vehicle_signal_specification/css/perfect-scrollbar.min.css?1726489382" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/fonts.css?1726489382" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/vehicle_signal_specification/css/fonts.css?1726489382" rel="stylesheet"></noscript>
+    <link href="/vehicle_signal_specification/css/theme.css?1726489382" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/theme-blue.css?1726489382" rel="stylesheet" id="R-variant-style">
+    <link href="/vehicle_signal_specification/css/chroma-learn.css?1726489382" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="/vehicle_signal_specification/css/variant.css?1726489382" rel="stylesheet">
+    <link href="/vehicle_signal_specification/css/print.css?1726489382" rel="stylesheet" media="print">
+    <script src="/vehicle_signal_specification/js/variant.js?1726489382"></script>
     <script>
       window.relearn = window.relearn || {};
       window.relearn.relBasePath='..\/..';
@@ -123,17 +123,19 @@ The include directive has the following format:">
 
 <p>An include directive in a vspec file will read the file it refers to and the
 contents of that file will be inserted into the current buffer in place of the
-include directive.  The included file will, in its turn, be scanned for
+include directive. The included file will, in its turn, be scanned for
 include directives to be replaced, effectively forming a tree of included
 files.</p>
 <p>See Fig 6 for an example of such a tree.</p>
-<p><a href="#R-image-f21bb76a504693f0d2faa94967e3d595" class="lightbox-link"><img alt="Include directive" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/vehicle_signal_specification/images/include_directives.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-f21bb76a504693f0d2faa94967e3d595"><img alt="Include directive" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/vehicle_signal_specification/images/include_directives.png"></a><!-- raw HTML omitted -->
+<p><a href="#R-image-a90fbe3ca8fd3dbbb0e5a1164a188068" class="lightbox-link"><img alt="Include directive" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/vehicle_signal_specification/images/include_directives.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-a90fbe3ca8fd3dbbb0e5a1164a188068"><img alt="Include directive" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/vehicle_signal_specification/images/include_directives.png"></a><!-- raw HTML omitted -->
 <em>Fig 6. Include directives</em></p>
 <p>The include directive has the following format:</p>
 <pre><code>#include &lt;filename&gt; [prefix]
 </code></pre>
-<p>The <code>&lt;filename&gt;</code> part specifies the path, relative to the file with the <code>#include</code> directive, to the vspec file to replace the directive with.</p>
+<p>The <code>&lt;filename&gt;</code> part specifies the path, relative to the file with the <code>#include</code> directive, to the vspec file to replace the directive with.
+Additionally, include paths to search for the file can be added when using <code>vss-tools</code> using the <code>-I/--include-dirs</code>.
+The order of include paths to be searched is first the relative path of the vspec specifying the include and then given include paths in the given order.</p>
 <p>The optional <code>[prefix]</code> specifies a branch name to be
 prepended to all signal entries in the included file. This allows a vspec file
 to be reused multiple times by different files, each file specifying their
@@ -152,8 +154,8 @@ them multiple times, attaching them to different branches each time
 they are included.</p>
 <p>An example is given in Fig 7 where a generic door signal specification is
 included four times to describe all doors in the vehicle.</p>
-<p><a href="#R-image-1f49fc95aeed7a3215ed09d708510932" class="lightbox-link"><img alt="Include directive" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/vehicle_signal_specification/images/spec_file_reuse.png" style=" height: auto; width: auto;"></a>
-<a href="javascript:history.back();" class="lightbox-back" id="R-image-1f49fc95aeed7a3215ed09d708510932"><img alt="Include directive" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/vehicle_signal_specification/images/spec_file_reuse.png"></a><!-- raw HTML omitted -->
+<p><a href="#R-image-69fb3d22194a11eb98f408a387f568c3" class="lightbox-link"><img alt="Include directive" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="/vehicle_signal_specification/images/spec_file_reuse.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-69fb3d22194a11eb98f408a387f568c3"><img alt="Include directive" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="/vehicle_signal_specification/images/spec_file_reuse.png"></a><!-- raw HTML omitted -->
 <em>Fig 7. Reusing signal trees</em></p>
 <p>The <code>door.vspec</code> file is included four times by the master <code>root.vspec</code> file.
 The signals of <code>door.vspec</code>, <code>Locked</code>, <code>WinPos</code>, and <code>Open</code> are attached
@@ -187,12 +189,12 @@ on the front left and right doors of row 1 (front) and row 2 (back).</p>
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="/vehicle_signal_specification/js/auto-complete.js?1722956974" defer></script>
-        <script src="/vehicle_signal_specification/js/lunr/lunr.min.js?1722956974" defer></script>
-        <script src="/vehicle_signal_specification/js/lunr/lunr.stemmer.support.min.js?1722956974" defer></script>
-        <script src="/vehicle_signal_specification/js/lunr/lunr.multi.min.js?1722956974" defer></script>
-        <script src="/vehicle_signal_specification/js/lunr/lunr.en.min.js?1722956974" defer></script>
-        <script src="/vehicle_signal_specification/js/search.js?1722956974" defer></script>
+        <script src="/vehicle_signal_specification/js/auto-complete.js?1726489382" defer></script>
+        <script src="/vehicle_signal_specification/js/lunr/lunr.min.js?1726489382" defer></script>
+        <script src="/vehicle_signal_specification/js/lunr/lunr.stemmer.support.min.js?1726489382" defer></script>
+        <script src="/vehicle_signal_specification/js/lunr/lunr.multi.min.js?1726489382" defer></script>
+        <script src="/vehicle_signal_specification/js/lunr/lunr.en.min.js?1726489382" defer></script>
+        <script src="/vehicle_signal_specification/js/search.js?1726489382" defer></script>
       </div>
       <div id="R-homelinks" class="default-animation">
         <hr class="padding">
@@ -294,8 +296,8 @@ on the front left and right doors of row 1 (front) and row 2 (back).</p>
         </div>
       </div>
     </aside>
-    <script src="/vehicle_signal_specification/js/clipboard.min.js?1722956974" defer></script>
-    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1722956974" defer></script>
-    <script src="/vehicle_signal_specification/js/theme.js?1722956974" defer></script>
+    <script src="/vehicle_signal_specification/js/clipboard.min.js?1726489382" defer></script>
+    <script src="/vehicle_signal_specification/js/perfect-scrollbar.min.js?1726489382" defer></script>
+    <script src="/vehicle_signal_specification/js/theme.js?1726489382" defer></script>
   </body>
 </html>
