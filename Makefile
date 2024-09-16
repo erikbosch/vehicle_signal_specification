@@ -19,6 +19,7 @@ mandatory_targets: clean json json-noexpand franca yaml binary csv graphql ddsid
 optional_targets: clean protobuf ttl binary
 
 TOOLSDIR?=./vss-tools
+VSS_VERSION ?= 0.0
 COMMON_ARGS=-u ./spec/units.yaml --strict
 COMMON_VSPEC_ARG=-s ./spec/VehicleSignalSpecification.vspec
 
@@ -32,7 +33,8 @@ jsonschema:
 	vspec export jsonschema ${COMMON_ARGS} ${COMMON_VSPEC_ARG} -o vss_rel_.jsonschema
 
 franca:
-	vspec export franca --franca-vss-version $$(cat VERSION) ${COMMON_ARGS} ${COMMON_VSPEC_ARG} -o vss_.fidl
+
+	vspec export franca --franca-vss-version $(VSS_VERSION) ${COMMON_ARGS} ${COMMON_VSPEC_ARG} -o vss_.fidl
 
 yaml:
 	vspec export yaml ${COMMON_ARGS} ${COMMON_VSPEC_ARG} -o vss.yaml
