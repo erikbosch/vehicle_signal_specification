@@ -4,6 +4,15 @@ on:
   push:
   pull_request:
   workflow_dispatch:
+    inputs:
+      vss-version:
+        required: false
+        type: string
+  workflow_call:
+    inputs:
+      vss-version:
+        required: false
+        type: string
 
 jobs:
   buildtest:
@@ -20,12 +29,22 @@ jobs:
           python -V
           python -m pip --quiet --no-input install --upgrade pip
           python -m pip --quiet --no-input install --upgrade  wheel
-          ./script/install_vss_tools.sh
+          ./scripts/install_vss_tools.sh
           echo done!
 
       - name: Test mandatory targets
         run: |
+          if ${{ inputs.vss-version }} != "";
+            export VSS_VERSION=${{ inputs.vss-version }}
+          fi
           make mandatory_targets
+
+      - name: "Uploading  artifacts"
+        uses: actions/upload-artifact@v4
+        with:
+          name: vss-artifacts
+          path: vss.*
+          if-no-files-found: error
 
       - name: Test that ddsidl is correct
         run: |
