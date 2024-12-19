@@ -13,7 +13,7 @@
       <link>https://covesa.github.io/vehicle_signal_specification/introduction/index.html</link>
       <pubDate>Wed, 31 Jul 2019 12:11:31 +0200</pubDate>
       <guid>https://covesa.github.io/vehicle_signal_specification/introduction/index.html</guid>
-      <description>Discover what the Vehicle Signal Specification is all about.</description>
+      <description>VSS Tree Model The diagram below shows a generated tree of the VSS. Here you can see a mapping for the current catalog of signals related to vehicles. Click a Branch Node to expand or collapse the tree. (Slower animation while pressing the altKey (“option” key for Mac OS-X).)&#xA;Current VSS Statistics Current Population of the model - in respect to VSS Types and Datatypes Click on the nodes to highlight the links, or hover over the links to see their exact population.</description>
     </item>
     <item>
       <title>Governance</title>
@@ -28,6 +28,13 @@
       <pubDate>Sun, 04 Aug 2019 13:05:11 +0200</pubDate>
       <guid>https://covesa.github.io/vehicle_signal_specification/rule_set/index.html</guid>
       <description>The Rule Set of a domain taxonomy is used to describe how to write the data definition syntactically.&#xA;This chapter defines and describes the rule set for VSS. Tools in the vss-tools repository can be used to validate that a specification follows the rule set for VSS, but those tools may have limitations and may not check all rules stated in this document. In case of conflict, what is stated in the rule set in this documentation is considered to have precedence over tool implementations.</description>
+    </item>
+    <item>
+      <title>VSS Catalog</title>
+      <link>https://covesa.github.io/vehicle_signal_specification/catalog/index.html</link>
+      <pubDate>Sun, 04 Aug 2019 12:46:30 +0200</pubDate>
+      <guid>https://covesa.github.io/vehicle_signal_specification/catalog/index.html</guid>
+      <description>The source for the COVESA VSS Catalog can be found in *.vspec files in the COVESA VSS Repository. Released versions of the catalog in various formats can be found at release artifacts.&#xA;Each signal in the VSS catalog has a description field and they may have a comment field. In some cases that is not sufficient to explain the rationale for the signal and how it is intended to be used.</description>
     </item>
     <item>
       <title>License</title>
