@@ -36,7 +36,7 @@ jobs:
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
+
       - name: Install hugo
         env:
           HUGO_VER : 0.129.0
