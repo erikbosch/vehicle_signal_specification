@@ -19,8 +19,8 @@ jobs:
       - name: install vss-tools
         run: |
           pip install git+https://github.com/Giaccomole/vss-tools-statistics-py-scripts@stat-scripts
-      
-      - name: generate statistics
+
+      - name: Generate statistics
         run: |
           vspec stats piechart -s spec/VehicleSignalSpecification.vspec -o docs-gen/static/data/piechart.csv
           vspec stats sankey -s spec/VehicleSignalSpecification.vspec -o docs-gen/static/data/sankey.csv
