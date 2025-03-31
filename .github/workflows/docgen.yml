@@ -16,7 +16,7 @@ jobs:
         with:
           submodules: true
 
-      - name: install vss-tools
+      - name: Install vss-tools
         run: |
           pip install git+https://github.com/Giaccomole/vss-tools-statistics-py-scripts@stat-scripts
 
